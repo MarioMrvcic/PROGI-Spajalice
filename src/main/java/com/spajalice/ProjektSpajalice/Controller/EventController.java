@@ -23,7 +23,13 @@ public class EventController {
     @PostMapping("/addEvent")
     public ResponseEntity<Event> createTutorial(@RequestBody Event event) {
         try {
-            Event _event = eventRepository.save(new Event(event.getId(), event.getEventName()));
+            Event _event = eventRepository.save(new Event(event.getId(),
+                    event.getEventName(),
+                    event.getEventType(),
+                    event.getEventLocation(),
+                    event.getEventDate(),
+                    event.getEventStartTime(),
+                    event.getEventDuration()));
             return new ResponseEntity<>(_event, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
