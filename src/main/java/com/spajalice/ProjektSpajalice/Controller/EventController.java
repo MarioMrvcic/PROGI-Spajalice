@@ -15,9 +15,9 @@ public class EventController {
     @Autowired
     EventRepository eventRepository;
 
-    @GetMapping("/test")
+    @GetMapping("/eventTest")
     public String test() {
-        return "Proslo";
+        return "Event radi";
     }
 
     @PostMapping("/addEvent")
