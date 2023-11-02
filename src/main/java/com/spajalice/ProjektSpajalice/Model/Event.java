@@ -10,7 +10,7 @@ import java.util.Date;
 public class Event {
 
     @Id
-    private Integer id;
+    private Long id;
 
     private String eventName;
     private String eventType;
@@ -20,7 +20,7 @@ public class Event {
     private String eventStartTime;
     private String eventDuration;
 
-    public Event(Integer id, String eventName, String eventType, String eventLocation, Date eventDate, String  eventStartTime, String eventDuration) {
+    public Event(Long id, String eventName, String eventType, String eventLocation, Date eventDate, String  eventStartTime, String eventDuration) {
         super();
         this.id = id;
         this.eventName = eventName;
@@ -31,11 +31,11 @@ public class Event {
         this.eventDuration = eventDuration;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
