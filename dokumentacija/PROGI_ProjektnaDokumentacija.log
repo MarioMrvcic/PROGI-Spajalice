@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.2)  3 NOV 2023 17:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.2)  4 NOV 2023 18:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1139,7 +1139,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.29 ...{Indeks slika i dijagrama}{35}{chapter*.5}
+l.29 ...{Indeks slika i dijagrama}{40}{chapter*.5}
                                                   % [1
 
 ])
@@ -1552,7 +1552,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
 
  []
 
@@ -1664,7 +1664,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 950--951
+Underfull \hbox (badness 10000) in paragraph at lines 932--933
 
  []
 
@@ -1677,7 +1677,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 957--958
+Underfull \hbox (badness 10000) in paragraph at lines 939--940
 
  []
 
@@ -2013,7 +2013,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
 
@@ -2033,7 +2042,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[42]
+[43]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2042,8 +2051,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[43]
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
 
  []
 
@@ -2056,7 +2065,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[44] 
+[45] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (PROGI_ProjektnaDokumentacija.aux (Dnevnik_promjena_dokumentacije.aux)
 (Opis_projektnog_zadatka.aux) (Specifikacija_programske_potpore.aux)
@@ -2075,8 +2084,8 @@ anged.
 (rerunfilecheck)             Checksum: 73DC96050B1C6E228BBC05CE1994BB16;4565.
  ) 
 Here is how much of TeX's memory you used:
- 17882 strings out of 474717
- 320200 string characters out of 5748436
+ 17879 strings out of 474717
+ 320175 string characters out of 5748436
  2063036 words of memory out of 5000000
  39290 multiletter control sequences out of 15000+600000
  635830 words of font info for 203 fonts, out of 8000000 for 9000
@@ -2094,9 +2103,9 @@ ic/kpfonts/jkpmit8a.pfb><C:/Users/Josip/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/kpfonts/jkpmn8a.pfb><C:/Users/Josip/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/kpfonts/jkpsy.pfb><C:/Users/Josip/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (45 pages, 237753 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (46 pages, 239529 bytes).
 PDF statistics:
- 707 PDF objects out of 1000 (max. 8388607)
- 287 named destinations out of 1000 (max. 500000)
+ 708 PDF objects out of 1000 (max. 8388607)
+ 284 named destinations out of 1000 (max. 500000)
  222 words of extra memory for PDF output out of 10000 (max. 10000000)
 
