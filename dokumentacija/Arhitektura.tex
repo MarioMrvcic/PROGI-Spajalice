@@ -35,12 +35,42 @@
 						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
 						rowhead = 1,
 					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
-					\hline \SetCell[c=3]{c}{\textbf{korisnik - ime tablice}}	 \\ \hline[3pt]
-					\SetCell{LightGreen}IDKorisnik & INT	&  	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  	\\ \hline
-					korisnickoIme	& VARCHAR &   	\\ \hline 
-					email & VARCHAR &   \\ \hline 
-					ime & VARCHAR	&  		\\ \hline 
-					\SetCell{LightBlue} primjer	& VARCHAR &   	\\ \hline 
+					\hline \SetCell[c=3]{c}{\textbf{Event}}	 \\ \hline[3pt]
+					eventID & INT	&  	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  	\\ \hline
+					eventName	& VARCHAR &   	\\ \hline 
+					eventType & VARCHAR &   \\ \hline 
+					eventLocation & VARCHAR	&  		\\ \hline 
+					eventDate & VARCHAR &   	\\ \hline 
+					eventStartTime & VARCHAR &   	\\ \hline 
+					eventDuratin & VARCHAR &   	\\ \hline 
+					description & VARCHAR &   	\\ \hline 
+					gallery& VARCHAR &   	\\ \hline 
+				\end{longtblr}
+				
+				
+				
+				
+				\textit{Svaku tablicu je potrebno opisati po zadanom predlošku. Lijevo se nalazi točno ime varijable u bazi podataka, u sredini se nalazi tip podataka, a desno se nalazi opis varijable. Svjetlozelenom bojom označite primarni ključ. Svjetlo plavom označite strani ključ}
+				
+				
+				\begin{longtblr}[
+					label=none,
+					entry=none
+					]{
+						width = \textwidth,
+						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
+						rowhead = 1,
+					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
+					\hline \SetCell[c=3]{c}{\textbf{Recenzija}}	 \\ \hline[3pt]
+					IDKorisnik & INT	&  	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  	\\ \hline
+					parent	& VARCHAR &   	\\ \hline 
+					eventType & VARCHAR &   \\ \hline 
+					eventLocation & VARCHAR	&  		\\ \hline 
+					eventDate & VARCHAR &   	\\ \hline 
+					eventStartTime & VARCHAR &   	\\ \hline 
+					eventDuratin & VARCHAR &   	\\ \hline 
+					description & VARCHAR &   	\\ \hline 
+					gallery & VARCHAR &   	\\ \hline 
 				\end{longtblr}
 				
 				
