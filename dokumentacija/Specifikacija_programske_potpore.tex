@@ -215,7 +215,7 @@
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Posjetitelj
-						\item  \textbf{Cilj:} izmjena vlastitih osobnih podataka
+						\item  \textbf{Cilj:} Izmjena vlastitih osobnih podataka
 						\item  \textbf{Sudionici:} Baza podataka
 						\item  \textbf{Preduvjet:} posjetitelj je prijavljen
 						\item  \textbf{Opis osnovnog tijeka:}
@@ -248,7 +248,7 @@
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Posjetitelj 
-						\item  \textbf{Cilj:} brisanje vlastitog korisničkog računa
+						\item  \textbf{Cilj:} Brisanje vlastitog korisničkog računa
 						\item  \textbf{Sudionici:} Baza podataka
 						\item  \textbf{Preduvjet:} posjetitelj je prijavljen
 						\item  \textbf{Opis osnovnog tijeka:}
@@ -268,7 +268,7 @@
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Posjetitelj 
-						\item  \textbf{Cilj:} naznaka o dolaznosti posjetitelja
+						\item  \textbf{Cilj:} Naznaka o dolaznosti posjetitelja
 						\item  \textbf{Sudionici:} Baza podataka
 						\item  \textbf{Preduvjet:} posjetitelj je prijavljen
 						\item  \textbf{Opis osnovnog tijeka:}
@@ -285,16 +285,16 @@
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Posjetitelj 
-						\item  \textbf{Cilj:} dodavanje recenzije na događaj
+						\item  \textbf{Cilj:} Dodavanje recenzije na događaj
 						\item  \textbf{Sudionici:} Baza podataka
 						\item  \textbf{Preduvjet:} 
-						\item[] \begin{packed_enum}
+						\item[] \begin{packed_item}
 								
 								\item posjetitelj je prijavljen
 								\item opcija je odabrana u manje od 48 sati od završetka događanja
 								\item posjetitelj je predhodno označio događaj s: "Dolazim" ili "Možda dolazim" 
 								
-							\end{packed_enum}
+							\end{packed_item}
 							
 						\item  \textbf{Opis osnovnog tijeka:}
 						
@@ -325,13 +325,32 @@
 						\end{packed_enum}
 					\end{packed_item}
 					
-					
-					
-					\noindent \underbar{\textbf{UC10 -Prijava na obavjesti}}
+					\noindent \underbar{\textbf{UC10 -Filtriranje ponude}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Posjetitelj
-						\item  \textbf{Cilj:} prijava posjetitelja na primanje obavjesti o budućim događanjima
+						\item  \textbf{Cilj:} Primjena filtera pri pregledu početne stranice
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} -
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+	
+							\item odabir prikaza početne stranice
+							\item odabir opcije za primjenu filtera
+							\item odabir filtera koji se žele primjeniti
+							\item odabir opcije primjeni
+														
+						\end{packed_enum}
+					\end{packed_item}
+					
+					
+					
+					\noindent \underbar{\textbf{UC11 -Prijava na obavjesti}}
+					\begin{packed_item}
+	
+						\item \textbf{Glavni sudionik: }Posjetitelj
+						\item  \textbf{Cilj:} Prijava posjetitelja na primanje obavjesti o budućim događanjima
 						\item  \textbf{Sudionici:} Baza podataka
 						\item  \textbf{Preduvjet:} posjetitelj je prijavljen
 						\item  \textbf{Opis osnovnog tijeka:}
@@ -344,13 +363,20 @@
 						
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC11 -Uređivanje događanja korisnika}}
+					\noindent \underbar{\textbf{UC12 -Uređivanje događanja korisnika}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Posjetitelj
-						\item  \textbf{Cilj:} uređivanje odabira na događanjima za koje je posjetitelj zainteresiran
+						\item  \textbf{Cilj:} Uređivanje odabira na događanjima za koje je posjetitelj zainteresiran
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} posjetitelj je prijavljen
+						\item  \textbf{Preduvjet:}
+						\item[] \begin{packed_item}
+								
+								\item  posjetitelj je prijavljen
+								\item  posjetitelj je predhodno označio događaj s: "Dolazim" ili "Možda dolazim" 
+								
+								
+							\end{packed_item} 
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
@@ -363,11 +389,11 @@
 						
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC12 -Obavjest o nadolazećem događanju}}
+					\noindent \underbar{\textbf{UC13 -Obavjest o nadolazećem događanju}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Baza podataka 
-						\item  \textbf{Cilj:} Poslati obavjest posjetitelju 
+						\item  \textbf{Cilj:} Slanje obavjesti posjetitelju 
 						\item  \textbf{Sudionici:} Posjetitelj
 						\item  \textbf{Preduvjet:} Posjetitelj mora zadovoljavati uvjete koji su zadani događajem
 						\item  \textbf{Opis osnovnog tijeka:}
@@ -381,11 +407,11 @@
 						
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC13 -Kreacija događanja}}
+					\noindent \underbar{\textbf{UC14 -Kreacija događanja}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Organizator 
-						\item  \textbf{Cilj:} stvaranje novog događanja
+						\item  \textbf{Cilj:} Stvaranje novog događanja
 						\item  \textbf{Sudionici:} Baza podataka
 						\item  \textbf{Preduvjet:} organizator je prijavljen
 						\item  \textbf{Opis osnovnog tijeka:}
@@ -413,11 +439,11 @@
 						\end{packed_item}
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC14 -Uređivanje događanja}}
+					\noindent \underbar{\textbf{UC15 -Uređivanje događanja}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Organizator
-						\item  \textbf{Cilj:} Uzmjena podataka o vlastitom događaju
+						\item  \textbf{Cilj:} Izmjena podataka o vlastitom događaju
 						\item  \textbf{Sudionici:} Baza podataka
 						\item  \textbf{Preduvjet:} Organizator je prijavljen i događanje još nije završilo
 						\item  \textbf{Opis osnovnog tijeka:}
@@ -445,11 +471,11 @@
 							
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC15 -Odgovaranje na recenzije}}
+					\noindent \underbar{\textbf{UC16 -Odgovaranje na recenzije}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Organizator
-						\item  \textbf{Cilj:} odgovaranje na recenzije koje su posjtitelji ostavili na njegovo događanje
+						\item  \textbf{Cilj:} Odgovaranje na recenzije koje su posjtitelji ostavili na njegovo događanje
 						\item  \textbf{Sudionici:} Baza podataka
 						\item  \textbf{Preduvjet:} organizator je prijavljen
 						\item  \textbf{Opis osnovnog tijeka:}
@@ -465,7 +491,7 @@
 
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC16 -Plaćanje članarine}}
+					\noindent \underbar{\textbf{UC17 -Plaćanje članarine}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Organizator
@@ -497,7 +523,7 @@
 					\end{packed_item}
 					
 					
-					\noindent \underbar{\textbf{UC17 -Brisanje događanja}}
+					\noindent \underbar{\textbf{UC18 -Brisanje događanja}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Organizator
@@ -518,11 +544,11 @@
 					
 					
 					
-					\noindent \underbar{\textbf{UC18 -Pregled korisnika}}
+					\noindent \underbar{\textbf{UC19 -Pregled korisnika}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Administrator 
-						\item  \textbf{Cilj:} uvid u podatke o korisnicima
+						\item  \textbf{Cilj:} Uvid u podatke o korisnicima
 						\item  \textbf{Sudionici:} Baza podataka
 						\item  \textbf{Preduvjet:} administrator je prijavljen
 						\item  \textbf{Opis osnovnog tijeka:}
@@ -536,7 +562,7 @@
 						
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC19 -Brisanje korisnika}}
+					\noindent \underbar{\textbf{UC20 -Brisanje korisnika}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Administrator, 
@@ -554,7 +580,7 @@
 						
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC20 -Postavljanje cijene članarine}}
+					\noindent \underbar{\textbf{UC21 -Postavljanje cijene članarine}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Administrator
@@ -572,11 +598,11 @@
 						
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC21 -Uređivanje određenog događanja}}
+					\noindent \underbar{\textbf{UC22 -Uređivanje određenog događanja}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Administrator
-						\item  \textbf{Cilj:} uređivanje određenog događanja
+						\item  \textbf{Cilj:} Uređivanje određenog događanja
 						\item  \textbf{Sudionici:} Baza podataka
 						\item  \textbf{Preduvjet:} administrator je prijavljen
 						\item  \textbf{Opis osnovnog tijeka:}
@@ -604,11 +630,11 @@
 							
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC22 -Brisanje određenog događanja}}
+					\noindent \underbar{\textbf{UC23 -Brisanje određenog događanja}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Administrator
-						\item  \textbf{Cilj:} brisanje određenog događanja
+						\item  \textbf{Cilj:} Brisanje određenog događanja
 						\item  \textbf{Sudionici:} Baza podataka
 						\item  \textbf{Preduvjet:} administrator je prijavljen
 						\item  \textbf{Opis osnovnog tijeka:}
@@ -624,7 +650,7 @@
 					
 					
 					
-					\noindent \underbar{\textbf{UC23 -Brisanje recenzija}}
+					\noindent \underbar{\textbf{UC24 -Brisanje recenzija}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Administrator
@@ -644,7 +670,7 @@
 					\end{packed_item}
 					
 					
-					\noindent \underbar{\textbf{UC24 -Promjena uloge}}
+					\noindent \underbar{\textbf{UC25 -Promjena uloge}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Administrator
@@ -662,7 +688,7 @@
 						\end{packed_enum}
 						
 					\end{packed_item}
-					\noindent \underbar{\textbf{UC23 -Pregled statistike}}
+					\noindent \underbar{\textbf{UC26 -Pregled statistike}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Administrator
@@ -689,6 +715,20 @@
 				\subsubsection{Dijagrami obrazaca uporabe}
 					
 					\textit{Prikazati odnos aktora i obrazaca uporabe odgovarajućim UML dijagramom. Nije nužno nacrtati sve na jednom dijagramu. Modelirati po razinama apstrakcije i skupovima srodnih funkcionalnosti.}
+					
+					\begin{figure}[H]
+			\includegraphics[scale=0.6]{slike/UC_dijagram1-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Dijagram obrasca uporabe, funkcionalnost korisnika i posjetitelja}
+			\label{fig:promjene}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{slike/UC_dijagram2-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Dijagram obrasca uporabe, funkcionalnost korisnika i posjetitelja}
+			\label{fig:promjene}
+		\end{figure}
 				\eject		
 				
 			\subsection{Sekvencijski dijagrami}
