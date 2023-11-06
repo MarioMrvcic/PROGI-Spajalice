@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.2)  4 NOV 2023 18:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.2)  6 NOV 2023 01:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1139,7 +1139,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.29 ...{Indeks slika i dijagrama}{40}{chapter*.5}
+l.29 ...{Indeks slika i dijagrama}{37}{chapter*.5}
                                                   % [1
 
 ])
@@ -1592,6 +1592,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [16]
+Overfull \hbox (4.03351pt too wide) in paragraph at lines 407--408
+[]\OT1/jkp/m/n/12 ako or-ga-ni-za-tor nije upla-tio []clanarinu otvara mu se st
+ra-nica za uplatu 
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1637,34 +1642,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [21]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[22]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[23]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 932--933
+Underfull \hbox (badness 10000) in paragraph at lines 696--697
 
  []
 
@@ -1676,8 +1654,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 939--940
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 703--704
 
  []
 
@@ -1690,7 +1668,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[26]
+[23]
 \openout2 = `Arhitektura.aux'.
 
  (Arhitektura.tex
@@ -1743,7 +1721,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[27
+[24
 
 
 
@@ -1784,7 +1762,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[28]
+[25]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1793,7 +1771,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[29]
+[26]
 Underfull \hbox (badness 10000) in paragraph at lines 86--87
 
  []
@@ -1821,7 +1799,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[30]
+[27]
 Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
@@ -1834,7 +1812,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[31]
+[28]
 Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
@@ -1847,7 +1825,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32]
+[29]
 Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
@@ -1861,7 +1839,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[33]
+[30]
 \openout2 = `Implementacija.aux'.
 
  (Implementacija.tex
@@ -1879,7 +1857,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[34
+[31
 
 
 
@@ -1902,7 +1880,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[35]
+[32]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1911,7 +1889,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[36]
+[33]
 Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
@@ -1924,7 +1902,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[37])
+[34])
 \openout2 = `Zakljucak.aux'.
 
  (Zakljucak.tex
@@ -1942,7 +1920,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[38
+[35
 
 
 
@@ -1971,7 +1949,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[39
+[36
 
 
 
@@ -1989,7 +1967,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[40
+[37
 
 
 
@@ -2009,7 +1987,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[41
+[38
 
 
 ]
@@ -2021,7 +1999,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[42]
+[39]
 Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
@@ -2042,7 +2020,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[43]
+[40]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2051,7 +2029,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[44]
+[41]
 Underfull \hbox (badness 10000) in paragraph at lines 126--127
 
  []
@@ -2065,7 +2043,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[45] 
+[42] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (PROGI_ProjektnaDokumentacija.aux (Dnevnik_promjena_dokumentacije.aux)
 (Opis_projektnog_zadatka.aux) (Specifikacija_programske_potpore.aux)
@@ -2075,17 +2053,13 @@ enddocument/afterlastpage: lastpage setting LastPage.
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-10-23>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `PROGI_ProjektnaDokumentacija.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: 73DC96050B1C6E228BBC05CE1994BB16;4565.
  ) 
 Here is how much of TeX's memory you used:
- 17879 strings out of 474717
- 320175 string characters out of 5748436
+ 17805 strings out of 474717
+ 319586 string characters out of 5748436
  2063036 words of memory out of 5000000
  39290 multiletter control sequences out of 15000+600000
  635830 words of font info for 203 fonts, out of 8000000 for 9000
@@ -2103,9 +2077,9 @@ ic/kpfonts/jkpmit8a.pfb><C:/Users/Josip/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/kpfonts/jkpmn8a.pfb><C:/Users/Josip/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/kpfonts/jkpsy.pfb><C:/Users/Josip/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (46 pages, 239529 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (43 pages, 228153 bytes).
 PDF statistics:
- 708 PDF objects out of 1000 (max. 8388607)
- 284 named destinations out of 1000 (max. 500000)
+ 605 PDF objects out of 1000 (max. 8388607)
+ 210 named destinations out of 1000 (max. 500000)
  222 words of extra memory for PDF output out of 10000 (max. 10000000)
 
