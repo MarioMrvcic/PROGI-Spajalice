@@ -709,7 +709,7 @@
 					
 					
 					
-					
+				\eject	
 				
 					
 				\subsubsection{Dijagrami obrazaca uporabe}
@@ -717,25 +717,56 @@
 					\textit{Prikazati odnos aktora i obrazaca uporabe odgovarajućim UML dijagramom. Nije nužno nacrtati sve na jednom dijagramu. Modelirati po razinama apstrakcije i skupovima srodnih funkcionalnosti.}
 					
 					\begin{figure}[H]
-			\includegraphics[scale=0.6]{slike/UC_dijagram1-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
-			\centering
-			\caption{Dijagram obrasca uporabe, funkcionalnost korisnika i posjetitelja}
-			\label{fig:promjene}
-		\end{figure}
+						\includegraphics[scale=0.6]{slike/UC_dijagram1-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+						\centering
+						\caption{Dijagram obrasca uporabe, funkcionalnost korisnika i posjetitelja}
+						\label{fig:promjene}
+					\end{figure}
 		
-		\begin{figure}[H]
-			\includegraphics[scale=0.6]{slike/UC_dijagram2-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
-			\centering
-			\caption{Dijagram obrasca uporabe, funkcionalnost korisnika i posjetitelja}
-			\label{fig:promjene}
-		\end{figure}
+					\begin{figure}[H]
+						\includegraphics[scale=0.6]{slike/UC_dijagram2-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+						\centering
+						\caption{Dijagram obrasca uporabe, funkcionalnost korisnika i posjetitelja}
+						\label{fig:promjene}
+					\end{figure}
 				\eject		
 				
 			\subsection{Sekvencijski dijagrami}
 				
 				\textbf{\textit{dio 1. revizije}}\\
 				
-				\textit{Nacrtati sekvencijske dijagrame koji modeliraju najvažnije dijelove sustava (max. 4 dijagrama). Ukoliko postoji nedoumica oko odabira, razjasniti s asistentom. Uz svaki dijagram napisati detaljni opis dijagrama.}
+				%\textit{Nacrtati sekvencijske dijagrame koji modeliraju najvažnije dijelove sustava (max. 4 dijagrama). Ukoliko postoji nedoumica oko odabira, razjasniti s asistentom. Uz svaki dijagram napisati detaljni opis dijagrama.}
+				
+				
+				\textbf{\large Obrazac uporabe UC2 - Registracija}\\
+				
+				
+				Klijent odabirom opcije za registraciju šalje zahtjev za prikaz odgovarajuće stranice. Poslužitelj dohvaća tu stranicu I prikazuje ju. Klijent unosi osobne podatke, postavlja lozinku I bira ulogu. Aplikacija provjerava jesu li svi podatci u traženom format I postoji li već takav klijent u sustavu. Ako podatci nisu u zadanom fomratu, aplikacija šalje obavijest o tome I klijent iznova unosi potrebne podatke. Ako takav klijent već postoji u sustavu, aplikacija klijentu šalje obavijest o tome. Ako su podatci uneseni u traženom format i takav klijent ne postoji u sustavu, aplikacija u bazu podataka prosljeđuje dobivenepodatke, a klijentu šalje obavijest o uspješnoj registraciji.
+				
+				\eject
+	
+				
+				
+				\textbf{\large Obrazac uporabe UC5 - Promjena osobnih podataka}\\
+
+
+				Klijent poslužitelju šalje zahtjev za prikaz stranice za kreiranje novog događaja. Poslužitelj dohvaća traženu stranicu I prikazuje ju. Klijent unosi podatke I fotografije, a po izboru I cijenu ulaznice. Ako je klijent postavio cijenu događanja, poslužitelj dohvaća podatke o klijentu Iz baze podataka I provjerava je li pretplaćen na plaćenu verziju aplikacije. Ako nije, poslužitelj ga o tome obavještava notifikacijom i klijent prihvaća ili odbija pretplatiti se. Ako se pretplati, poslužitelj unosi događanje u bazu podataka. Ako klijent ne postavi cijenu događanja, poslužitelj nista ne provjerava i sprema podatke o događanju u bazu podataka.
+				
+				\eject
+				
+				
+				
+				\textbf{\large Obrazac uporabe UC14 - Kreacija događanja}\\
+				
+				Klijent poslužitelju šalje zahtjev za prikaz stranice za kreiranje novog događaja. Poslužitelj dohvaća traženu stranicu I prikazuje ju. Klijent unosi podatke I fotografije, a po izboru I cijenu ulaznice. Ako je klijent postavio cijenu događanja, poslužitelj dohvaća podatke o klijentu Iz baze podataka I provjerava je li pretplaćen na plaćenu verziju aplikacije. Ako nije, poslužitelj ga o tome obavještava notifikacijom i klijent prihvaća ili odbija pretplatiti se. Ako se pretplati, poslužitelj unosi događanje u bazu podataka. Ako klijent ne postavi cijenu događanja, poslužitelj nista ne provjerava i sprema podatke o događanju u bazu podataka.
+				
+				\eject
+				
+				
+				\textbf{\large Obrazac uporabe UC20 - Brisanje korisnika}\\
+				
+				Administrator odabire opciju za prikaz stranice za pregled korisnika. Poslužitelj dohvaća stranicu i prikazuje ju administrator. Administrator odabire korisnika kojeg treba izbrisati. Potvrđuje svoj odabir I time šalje zahtjev za brisanjem poslužitelju. Poslužitelj dohvaća bazu podataka I iz nje uklanja podatke o korisniku I samog korisnika. Administratoru šalje obavijest o uspješnom brisanju.
+
 				\eject
 	
 		\section{Ostali zahtjevi}
