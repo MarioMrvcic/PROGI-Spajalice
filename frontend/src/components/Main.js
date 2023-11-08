@@ -35,20 +35,3 @@ function Main(){
 }
 
 export default Main;
-
-{/* <EventCard
-                eventName="Festival glazbe"
-                eventType="Glazba"
-                eventDate="2023-12-16"
-                eventStartTime="20:30"
-                eventLocation="Lisinski"
-                eventDuration="2 h, 30 min" 
-            />
-            <EventCard
-                eventName="Food Truck"
-                eventType="Glazba"
-                eventDate="2023-12-16"
-                eventStartTime="20:30"
-                eventLocation="Lisinski"
-                eventDuration="2 h, 30 min" 
-            /> */}
