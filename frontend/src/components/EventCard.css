@@ -1,0 +1,26 @@
+
+.EventCard{
+    display: flex;
+    flex-direction: column;
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    max-width: fit-content;
+    padding: 5px;
+    margin: 3rem;
+    border: 5px solid red;
+
+}
+
+.EventCard--info{
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.EventCard--info > p {
+    padding: 3px;
+    font-size: 20px;
+    border: 2px solid black; 
+}
