@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.2)  2 NOV 2023 15:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.2)  9 NOV 2023 11:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1060,13 +1060,812 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.46 			\item  s
+                astanak
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.47 			\item[]
+                \begin{packed_item}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_item undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.47 			\item[] \begin{packed_item}
+                                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48 				\item D
+                atum: 3. studenogaa 2023.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no D in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no . in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.49 				\item P
+                risustvovali: Svi članovi
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no P in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no i in font nullfont!
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 49--50
+\/cmr/m/n/10 ^^Tc 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.50 				\item T
+                eme sastanka:
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no T in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no : in font nullfont!
+
+! LaTeX Error: Environment packed_item undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.51 				\begin{packed_item}
+                            
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.52 					\item  d
+                  ogovor oko izgleda baze podataka
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.53 					\item d
+                 ogovor oko obrazca uporabe
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 				\end{packed_item}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 			\end{packed_item}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 			\item  s
+                astanak
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.58 			\item[]
+                \begin{packed_item}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_item undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.58 			\item[] \begin{packed_item}
+                                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.59 				\item D
+                atum: 4. studenoga 2023.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no D in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no . in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 				\item P
+                risustvovali: Duvančić, Mrvičić, Radošević
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no P in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no D in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no R in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no i in font nullfont!
+
+Overfull \hbox (8.88889pt too wide) in paragraph at lines 60--61
+\/cmr/m/n/10 ^^Tc^^Sc
+ []
+
+
+Overfull \hbox (8.88889pt too wide) in paragraph at lines 60--61
+\/cmr/m/n/10 ^^Tc^^Sc
+ []
+
+
+Overfull \hbox (8.38889pt too wide) in paragraph at lines 60--61
+\/cmr/m/n/10 ^^Ts^^Sc 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.61 				\item T
+                eme sastanka:
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no T in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no : in font nullfont!
+
+! LaTeX Error: Environment packed_item undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62 				\begin{packed_item}
+                            
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63 					\item  r
+                  azrada obrazaca uporabe
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.64 					\item  i
+                  zrada dijagrama
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no i in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.65 				\end{packed_item}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 			\end{packed_item}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 			\item  s
+                astanak
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.69 			\item[]
+                \begin{packed_item}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_item undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.69 			\item[] \begin{packed_item}
+                                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 				\item D
+                atum: 9. studenoga 2023.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no D in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no . in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71 				\item P
+                risustvovali: članovi tima, asistent i demos
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no P in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no s in font nullfont!
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 71--72
+\/cmr/m/n/10 ^^Tc
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.72 				\item T
+                eme sastanka:
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no T in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no : in font nullfont!
+
+! LaTeX Error: Environment packed_item undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 				\begin{packed_item}
+                            
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.74 					\item  d
+                  emonstrature- prva revizija uživo
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no o in font nullfont!
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 74--75
+\/cmr/m/n/10 ^^Tz 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.76 					\item  i
+                  zrada dijagrama
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no i in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 				\end{packed_item}
+                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.78 			\end{packed_item}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
 ! LaTeX Error: \begin{document} ended by \end{packed_enum}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.48 		\end{packed_enum}
+l.82 		\end{packed_enum}
                         
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1084,7 +1883,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.50 		\eject
+l.84 		\eject
              
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1094,7 +1893,7 @@ or  <return>  to continue without it.
 ! Undefined control sequence.
 <write> ...tak: Prikaz aktivnosti grupe}{\thepage 
                                                   }{}\protected@file@percent }
-l.50 		\eject
+l.84 		\eject
              
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1106,7 +1905,7 @@ and I'll forget about whatever was undefined.
 protected@file@percent }
 {C:/Users/Josip/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 ! Undefined control sequence.
-l.51 		\section
+l.85 		\section
                *{Tablica aktivnosti}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1121,7 +1920,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.51 		\section*
+l.85 		\section*
                 {Tablica aktivnosti}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1145,7 +1944,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no i in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 51--52
+Overfull \hbox (20.0pt too wide) in paragraph at lines 85--86
 []
  []
 
@@ -1156,23 +1955,23 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.53 ...extbf{\textit{Kontinuirano osvježavanje}}
+l.87 ...extbf{\textit{Kontinuirano osvježavanje}}
                                                   \\
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (87.7771pt too wide) in paragraph at lines 53--54
+Overfull \hbox (87.7771pt too wide) in paragraph at lines 87--88
 []\OT1/cmr/bx/it/10 Kontinuirano
  []
 
 
-Overfull \hbox (14.92485pt too wide) in paragraph at lines 53--54
+Overfull \hbox (14.92485pt too wide) in paragraph at lines 87--88
 \OT1/cmr/bx/it/10 os-
  []
 
 
-Overfull \hbox (52.47723pt too wide) in paragraph at lines 53--54
+Overfull \hbox (52.47723pt too wide) in paragraph at lines 87--88
 \OT1/cmr/bx/it/10 vje^^Tzavanje 
  []
 
@@ -1183,98 +1982,98 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.55 ...satima po članovima grupe po aktivnosti.}
+l.89 ...satima po članovima grupe po aktivnosti.}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (68.83304pt too wide) in paragraph at lines 55--56
+Overfull \hbox (68.83304pt too wide) in paragraph at lines 89--90
 []\OT1/cmr/m/it/10 Napomena:
  []
 
 
-Overfull \hbox (16.23877pt too wide) in paragraph at lines 55--56
+Overfull \hbox (16.23877pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 Do-
  []
 
 
-Overfull \hbox (15.9721pt too wide) in paragraph at lines 55--56
+Overfull \hbox (15.9721pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 pri-
  []
 
 
-Overfull \hbox (19.4221pt too wide) in paragraph at lines 55--56
+Overfull \hbox (19.4221pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 nose
  []
 
 
-Overfull \hbox (5.36664pt too wide) in paragraph at lines 55--56
+Overfull \hbox (5.36664pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 u
  []
 
 
-Overfull \hbox (13.28879pt too wide) in paragraph at lines 55--56
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 ak-
  []
 
 
-Overfull \hbox (29.38869pt too wide) in paragraph at lines 55--56
+Overfull \hbox (29.38869pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 tivnos-
  []
 
 
-Overfull \hbox (19.67766pt too wide) in paragraph at lines 55--56
+Overfull \hbox (19.67766pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 tima
  []
 
 
-Overfull \hbox (20.82758pt too wide) in paragraph at lines 55--56
+Overfull \hbox (20.82758pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 treba
  []
 
 
-Overfull \hbox (30.4109pt too wide) in paragraph at lines 55--56
+Overfull \hbox (30.4109pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 navesti
  []
 
 
-Overfull \hbox (5.36664pt too wide) in paragraph at lines 55--56
+Overfull \hbox (5.36664pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 u
  []
 
 
-Overfull \hbox (28.87761pt too wide) in paragraph at lines 55--56
+Overfull \hbox (28.87761pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 satima
  []
 
 
-Overfull \hbox (9.71104pt too wide) in paragraph at lines 55--56
+Overfull \hbox (9.71104pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 po
  []
 
 
-Overfull \hbox (43.95529pt too wide) in paragraph at lines 55--56
+Overfull \hbox (43.95529pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 ^^Tclanovima
  []
 
 
-Overfull \hbox (23.38315pt too wide) in paragraph at lines 55--56
+Overfull \hbox (23.38315pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 grupe
  []
 
 
-Overfull \hbox (9.71104pt too wide) in paragraph at lines 55--56
+Overfull \hbox (9.71104pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 po
  []
 
 
-Overfull \hbox (13.28879pt too wide) in paragraph at lines 55--56
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 ak-
  []
 
 
-Overfull \hbox (35.26643pt too wide) in paragraph at lines 55--56
+Overfull \hbox (35.26643pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/it/10 tivnosti. 
  []
 
@@ -1285,7 +2084,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.57 			\begin{longtblr}
+l.91 			\begin{longtblr}
                         [
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1298,7 +2097,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.57 			\begin{longtblr}[
+l.91 			\begin{longtblr}[
                          
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1339,7 +2138,7 @@ Missing character: There is no = in font nullfont!
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    c
-l.62 					co
+l.96 					co
             lspec={X[7, l]X[1, c]X[1, c]X[1, c]X[1, c]X[1, c]X[1, c]X[1, c]},
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1444,13 +2243,13 @@ Missing character: There is no = in font nullfont!
 Missing character: There is no 1 in font nullfont!
 Missing character: There is no , in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 57--67
+Overfull \hbox (20.0pt too wide) in paragraph at lines 91--101
 []
  []
 
 ! Undefined control sequence.
-l.68 				\SetCell
-                 [c=1]{c}{} & \SetCell[c=1]{c}{\rotatebox{90}{\textbf{Ime Pr...
+l.102 				\SetCell
+                  [c=1]{c}{} & \SetCell[c=1]{c}{\rotatebox{90}{\textbf{Mario...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1464,8 +2263,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.68 				\SetCell[
-                  c=1]{c}{} & \SetCell[c=1]{c}{\rotatebox{90}{\textbf{Ime Pr...
+l.102 				\SetCell[
+                   c=1]{c}{} & \SetCell[c=1]{c}{\rotatebox{90}{\textbf{Mario...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1477,8 +2276,8 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no c in font nullfont!
 ! Misplaced alignment tab character &.
-l.68 				\SetCell[c=1]{c}{} &
-                              \SetCell[c=1]{c}{\rotatebox{90}{\textbf{Ime Pr...
+l.102 				\SetCell[c=1]{c}{} &
+                               \SetCell[c=1]{c}{\rotatebox{90}{\textbf{Mario...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1487,8 +2286,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Undefined control sequence.
-l.68 				\SetCell[c=1]{c}{} & \SetCell
-                                      [c=1]{c}{\rotatebox{90}{\textbf{Ime Pr...
+l.102 				\SetCell[c=1]{c}{} & \SetCell
+                                       [c=1]{c}{\rotatebox{90}{\textbf{Mario...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1502,8 +2301,8 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no c in font nullfont!
 ! Undefined control sequence.
-l.68 ...ll[c=1]{c}{} & \SetCell[c=1]{c}{\rotatebox
-                                                  {90}{\textbf{Ime Prezime v...
+l.102 ...l[c=1]{c}{} & \SetCell[c=1]{c}{\rotatebox
+                                                  {90}{\textbf{Mario Mrvči�...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1513,7 +2312,7 @@ and I'll forget about whatever was undefined.
 Missing character: There is no 9 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 ! Misplaced alignment tab character &.
-l.68 ...box{90}{\textbf{Ime Prezime voditelja}}} &
+l.102 ...rotatebox{90}{\textbf{Mario Mrvčić}}} &
                                                    \SetCell[c=1]{c}{\rotateb...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1523,7 +2322,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Undefined control sequence.
-l.68 ...textbf{Ime Prezime voditelja}}} & \SetCell
+l.102 ...{90}{\textbf{Mario Mrvčić}}} & \SetCell
                                                   [c=1]{c}{\rotatebox{90}{\t...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1538,8 +2337,8 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no c in font nullfont!
 ! Undefined control sequence.
-l.68 ...voditelja}}} & \SetCell[c=1]{c}{\rotatebox
-                                                  {90}{\textbf{Ime Prezime }...
+l.102 ...Mrvčić}}} & \SetCell[c=1]{c}{\rotatebox
+                                                  {90}{\textbf{Toma Žulj }}...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1549,7 +2348,7 @@ and I'll forget about whatever was undefined.
 Missing character: There is no 9 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 ! Misplaced alignment tab character &.
-l.68 ...}{\rotatebox{90}{\textbf{Ime Prezime }}} &
+l.102 ...}{\rotatebox{90}{\textbf{Toma Žulj }}} &
                                                   	\SetCell[c=1]{c}{\rotateb...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1559,7 +2358,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Undefined control sequence.
-l.68 ...box{90}{\textbf{Ime Prezime }}} &	\SetCell
+l.102 ...box{90}{\textbf{Toma Žulj }}} &	\SetCell
                                                   [c=1]{c}{\rotatebox{90}{\t...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1574,8 +2373,8 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no c in font nullfont!
 ! Undefined control sequence.
-l.68 ... Prezime }}} &	\SetCell[c=1]{c}{\rotatebox
-                                                  {90}{\textbf{Ime Prezime }...
+l.102 ...a Žulj }}} &	\SetCell[c=1]{c}{\rotatebox
+                                                  {90}{\textbf{Domagoj Capar...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1585,7 +2384,7 @@ and I'll forget about whatever was undefined.
 Missing character: There is no 9 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 ! Misplaced alignment tab character &.
-l.68 ...}{\rotatebox{90}{\textbf{Ime Prezime }}} &
+l.102 ...rotatebox{90}{\textbf{Domagoj Capar }}} &
                                                    \SetCell[c=1]{c}{\rotateb...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1595,7 +2394,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Undefined control sequence.
-l.68 ...box{90}{\textbf{Ime Prezime }}} & \SetCell
+l.102 ...{90}{\textbf{Domagoj Capar }}} & \SetCell
                                                   [c=1]{c}{\rotatebox{90}{\t...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1610,8 +2409,8 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no c in font nullfont!
 ! Undefined control sequence.
-l.68 ... Prezime }}} & \SetCell[c=1]{c}{\rotatebox
-                                                  {90}{\textbf{Ime Prezime }...
+l.102 ...j Capar }}} & \SetCell[c=1]{c}{\rotatebox
+                                                  {90}{\textbf{Luka Radošev...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1621,7 +2420,7 @@ and I'll forget about whatever was undefined.
 Missing character: There is no 9 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 ! Misplaced alignment tab character &.
-l.68 ...}{\rotatebox{90}{\textbf{Ime Prezime }}} &
+l.102 ...atebox{90}{\textbf{Luka Radošević }}} &
                                                   	\SetCell[c=1]{c}{\rotateb...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1631,7 +2430,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Undefined control sequence.
-l.68 ...box{90}{\textbf{Ime Prezime }}} &	\SetCell
+l.102 ...}{\textbf{Luka Radošević }}} &	\SetCell
                                                   [c=1]{c}{\rotatebox{90}{\t...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1646,8 +2445,8 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no c in font nullfont!
 ! Undefined control sequence.
-l.68 ... Prezime }}} &	\SetCell[c=1]{c}{\rotatebox
-                                                  {90}{\textbf{Ime Prezime }...
+l.102 ...šević }}} &	\SetCell[c=1]{c}{\rotatebox
+                                                  {90}{\textbf{Josip Duvanč...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1657,7 +2456,7 @@ and I'll forget about whatever was undefined.
 Missing character: There is no 9 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 ! Misplaced alignment tab character &.
-l.68 ...}{\rotatebox{90}{\textbf{Ime Prezime }}} &
+l.102 ...atebox{90}{\textbf{Josip Duvančić }}} &
                                                    \SetCell[c=1]{c}{\rotateb...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1667,7 +2466,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Undefined control sequence.
-l.68 ...box{90}{\textbf{Ime Prezime }}} & \SetCell
+l.102 ...}{\textbf{Josip Duvančić }}} & \SetCell
                                                   [c=1]{c}{\rotatebox{90}{\t...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1682,8 +2481,8 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no c in font nullfont!
 ! Undefined control sequence.
-l.68 ... Prezime }}} & \SetCell[c=1]{c}{\rotatebox
-                                                  {90}{\textbf{Ime Prezime }...
+l.102 ...ančić }}} & \SetCell[c=1]{c}{\rotatebox
+                                                  {90}{\textbf{Duje Jurić }...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1693,7 +2492,7 @@ and I'll forget about whatever was undefined.
 Missing character: There is no 9 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 ! Misplaced alignment tab character &.
-l.68 ...}{\rotatebox{90}{\textbf{Ime Prezime }}} &
+l.102 ...{\rotatebox{90}{\textbf{Duje Jurić }}} &
                                                   	\SetCell[c=1]{c}{\rotateb...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1703,7 +2502,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Undefined control sequence.
-l.68 ...box{90}{\textbf{Ime Prezime }}} &	\SetCell
+l.102 ...ox{90}{\textbf{Duje Jurić }}} &	\SetCell
                                                   [c=1]{c}{\rotatebox{90}{\t...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1718,8 +2517,8 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no c in font nullfont!
 ! Undefined control sequence.
-l.68 ... Prezime }}} &	\SetCell[c=1]{c}{\rotatebox
-                                                  {90}{\textbf{Ime Prezime }...
+l.102 ... Jurić }}} &	\SetCell[c=1]{c}{\rotatebox
+                                                  {90}{\textbf{Korkut Istok ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1749,8 +2548,8 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no m in font nullfont!
 ! Misplaced alignment tab character &.
-l.69 				Upravljanje projektom 		&
-                                    &  &  &  &  &  & \\
+l.103 				Upravljanje projektom 		&
+                                     &  &  &  &  &  & \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1759,8 +2558,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.69 				Upravljanje projektom 		&  &
-                                       &  &  &  &  & \\
+l.103 				Upravljanje projektom 		&  &
+                                        &  &  &  &  & \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1769,8 +2568,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.69 				Upravljanje projektom 		&  &  &
-                                          &  &  &  & \\
+l.103 				Upravljanje projektom 		&  &  &
+                                           &  &  &  & \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1779,8 +2578,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.69 				Upravljanje projektom 		&  &  &  &
-                                             &  &  & \\
+l.103 				Upravljanje projektom 		&  &  &  &
+                                              &  &  & \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1789,8 +2588,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.69 				Upravljanje projektom 		&  &  &  &  &
-                                                &  & \\
+l.103 				Upravljanje projektom 		&  &  &  &  &
+                                                 &  & \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1799,8 +2598,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.69 				Upravljanje projektom 		&  &  &  &  &  &
-                                                   & \\
+l.103 				Upravljanje projektom 		&  &  &  &  &  &
+                                                    & \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1809,7 +2608,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.69 ...pravljanje projektom 		&  &  &  &  &  &  &
+l.103 ...ravljanje projektom 		&  &  &  &  &  &  &
                                                    \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1840,8 +2639,8 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no k in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Misplaced alignment tab character &.
-l.70 				Opis projektnog zadatka 	&
-                                     &  &  &  &  &  & \\
+l.104 				Opis projektnog zadatka 	&
+                                      &  &  &  &  &  & \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1850,8 +2649,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.70 				Opis projektnog zadatka 	&  &
-                                        &  &  &  &  & \\
+l.104 				Opis projektnog zadatka 	&  &
+                                         &  &  &  &  & \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1860,8 +2659,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.70 				Opis projektnog zadatka 	&  &  &
-                                           &  &  &  & \\
+l.104 				Opis projektnog zadatka 	&  &  &
+                                            &  &  &  & \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1870,8 +2669,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.70 				Opis projektnog zadatka 	&  &  &  &
-                                              &  &  & \\
+l.104 				Opis projektnog zadatka 	&  &  &  &
+                                               &  &  & \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1880,8 +2679,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.70 				Opis projektnog zadatka 	&  &  &  &  &
-                                                 &  & \\
+l.104 				Opis projektnog zadatka 	&  &  &  &  &
+                                                  &  & \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1890,7 +2689,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.70 				Opis projektnog zadatka 	&  &  &  &  &  &
+l.104 ...Opis projektnog zadatka 	&  &  &  &  &  &
                                                     & \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1900,7 +2699,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.70 ...is projektnog zadatka 	&  &  &  &  &  &  &
+l.104 ...s projektnog zadatka 	&  &  &  &  &  &  &
                                                    \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1910,118 +2709,103 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 68--71
+Overfull \hbox (20.0pt too wide) in paragraph at lines 102--105
 []
  []
 
 
-Overfull \hbox (19.21518pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Ime
+Overfull \hbox (30.18733pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Mario
  []
 
 
-Overfull \hbox (26.81238pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Prez-
+Overfull \hbox (35.13872pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Mrv^^Tci^^Sc
  []
 
 
-Overfull \hbox (18.04852pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 ime
+Overfull \hbox (27.9651pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Toma
  []
 
 
-Overfull \hbox (43.4442pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 voditelja
+Overfull \hbox (20.1249pt too wide) in paragraph at lines 102--105
+[]\OT1/cmr/bx/n/10 Zulj
  []
 
 
-Overfull \hbox (19.21518pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Ime
+Overfull \hbox (18.40268pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Do-
  []
 
 
-Overfull \hbox (26.81238pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Prez-
+Overfull \hbox (30.8262pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 magoj
  []
 
 
-Overfull \hbox (18.04852pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 ime
+Overfull \hbox (17.72905pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Ca-
  []
 
 
-Overfull \hbox (19.21518pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Ime
+Overfull \hbox (16.71518pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 par
  []
 
 
-Overfull \hbox (26.81238pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Prez-
+Overfull \hbox (24.32623pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Luka
  []
 
 
-Overfull \hbox (18.04852pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 ime
+Overfull \hbox (50.53581pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Rado^^Tsevi^^Sc
  []
 
 
-Overfull \hbox (19.21518pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Ime
+Overfull \hbox (25.81374pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Josip
  []
 
 
-Overfull \hbox (26.81238pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Prez-
+Overfull \hbox (19.04156pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Du-
  []
 
 
-Overfull \hbox (18.04852pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 ime
+Overfull \hbox (30.8262pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 van^^Tci^^Sc
  []
 
 
-Overfull \hbox (19.21518pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Ime
+Overfull \hbox (23.99294pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Duje
  []
 
 
-Overfull \hbox (26.81238pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Prez-
+Overfull \hbox (25.37488pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Juri^^Sc
  []
 
 
-Overfull \hbox (18.04852pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 ime
+Overfull \hbox (18.59712pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Ko-
  []
 
 
-Overfull \hbox (19.21518pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Ime
+Overfull \hbox (21.66656pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 rkut
  []
 
 
-Overfull \hbox (26.81238pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Prez-
+Overfull \hbox (12.73047pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 Is-
  []
 
 
-Overfull \hbox (18.04852pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 ime
- []
-
-
-Overfull \hbox (19.21518pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Ime
- []
-
-
-Overfull \hbox (26.81238pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 Prez-
- []
-
-
-Overfull \hbox (18.04852pt too wide) in paragraph at lines 68--71
-\OT1/cmr/bx/n/10 ime
+Overfull \hbox (16.29158pt too wide) in paragraph at lines 102--105
+\OT1/cmr/bx/n/10 tok
  []
 
 
@@ -2031,8 +2815,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.72 				F
-          unkcionalni zahtjevi       &  &  &  &  &  &  &  \\
+l.106 				F
+           unkcionalni zahtjevi       &  &  &  &  &  &  &  \\
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -2057,8 +2841,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no v in font nullfont!
 Missing character: There is no i in font nullfont!
 ! Misplaced alignment tab character &.
-l.72 				Funkcionalni zahtjevi       &
-                                        &  &  &  &  &  &  \\
+l.106 				Funkcionalni zahtjevi       &
+                                         &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2067,8 +2851,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.72 				Funkcionalni zahtjevi       &  &
-                                           &  &  &  &  &  \\
+l.106 				Funkcionalni zahtjevi       &  &
+                                            &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2077,8 +2861,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.72 				Funkcionalni zahtjevi       &  &  &
-                                              &  &  &  &  \\
+l.106 				Funkcionalni zahtjevi       &  &  &
+                                               &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2087,8 +2871,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.72 				Funkcionalni zahtjevi       &  &  &  &
-                                                 &  &  &  \\
+l.106 				Funkcionalni zahtjevi       &  &  &  &
+                                                  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2097,7 +2881,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.72 				Funkcionalni zahtjevi       &  &  &  &  &
+l.106 ...Funkcionalni zahtjevi       &  &  &  &  &
                                                     &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2107,7 +2891,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.72 ...nkcionalni zahtjevi       &  &  &  &  &  &
+l.106 ...kcionalni zahtjevi       &  &  &  &  &  &
                                                     &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2117,7 +2901,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.72 ...ionalni zahtjevi       &  &  &  &  &  &  &
+l.106 ...onalni zahtjevi       &  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2148,8 +2932,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no c in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Misplaced alignment tab character &.
-l.73 				Opis pojedinih obrazaca 	&
-                                     &  &  &  &  &  &  \\
+l.107 				Opis pojedinih obrazaca 	&
+                                      &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2158,8 +2942,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.73 				Opis pojedinih obrazaca 	&  &
-                                        &  &  &  &  &  \\
+l.107 				Opis pojedinih obrazaca 	&  &
+                                         &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2168,8 +2952,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.73 				Opis pojedinih obrazaca 	&  &  &
-                                           &  &  &  &  \\
+l.107 				Opis pojedinih obrazaca 	&  &  &
+                                            &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2178,8 +2962,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.73 				Opis pojedinih obrazaca 	&  &  &  &
-                                              &  &  &  \\
+l.107 				Opis pojedinih obrazaca 	&  &  &  &
+                                               &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2188,8 +2972,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.73 				Opis pojedinih obrazaca 	&  &  &  &  &
-                                                 &  &  \\
+l.107 				Opis pojedinih obrazaca 	&  &  &  &  &
+                                                  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2198,7 +2982,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.73 				Opis pojedinih obrazaca 	&  &  &  &  &  &
+l.107 ...Opis pojedinih obrazaca 	&  &  &  &  &  &
                                                     &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2208,7 +2992,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.73 ...is pojedinih obrazaca 	&  &  &  &  &  &  &
+l.107 ...s pojedinih obrazaca 	&  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2234,8 +3018,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no c in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Misplaced alignment tab character &.
-l.74 				Dijagram obrazaca 			&
-                                 &  &  &  &  &  &  \\
+l.108 				Dijagram obrazaca 			&
+                                  &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2244,8 +3028,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.74 				Dijagram obrazaca 			&  &
-                                    &  &  &  &  &  \\
+l.108 				Dijagram obrazaca 			&  &
+                                     &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2254,8 +3038,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.74 				Dijagram obrazaca 			&  &  &
-                                       &  &  &  &  \\
+l.108 				Dijagram obrazaca 			&  &  &
+                                        &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2264,8 +3048,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.74 				Dijagram obrazaca 			&  &  &  &
-                                          &  &  &  \\
+l.108 				Dijagram obrazaca 			&  &  &  &
+                                           &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2274,8 +3058,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.74 				Dijagram obrazaca 			&  &  &  &  &
-                                             &  &  \\
+l.108 				Dijagram obrazaca 			&  &  &  &  &
+                                              &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2284,8 +3068,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.74 				Dijagram obrazaca 			&  &  &  &  &  &
-                                                &  \\
+l.108 				Dijagram obrazaca 			&  &  &  &  &  &
+                                                 &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2294,8 +3078,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.74 				Dijagram obrazaca 			&  &  &  &  &  &  &
-                                                   \\
+l.108 				Dijagram obrazaca 			&  &  &  &  &  &  &
+                                                    \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2325,8 +3109,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no i in font nullfont!
 ! Misplaced alignment tab character &.
-l.75 				Sekvencijski dijagrami 		&
-                                     &  &  &  &  &  &  \\
+l.109 				Sekvencijski dijagrami 		&
+                                      &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2335,8 +3119,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.75 				Sekvencijski dijagrami 		&  &
-                                        &  &  &  &  &  \\
+l.109 				Sekvencijski dijagrami 		&  &
+                                         &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2345,8 +3129,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.75 				Sekvencijski dijagrami 		&  &  &
-                                           &  &  &  &  \\
+l.109 				Sekvencijski dijagrami 		&  &  &
+                                            &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2355,8 +3139,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.75 				Sekvencijski dijagrami 		&  &  &  &
-                                              &  &  &  \\
+l.109 				Sekvencijski dijagrami 		&  &  &  &
+                                               &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2365,8 +3149,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.75 				Sekvencijski dijagrami 		&  &  &  &  &
-                                                 &  &  \\
+l.109 				Sekvencijski dijagrami 		&  &  &  &  &
+                                                  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2375,7 +3159,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.75 				Sekvencijski dijagrami 		&  &  &  &  &  &
+l.109 ...Sekvencijski dijagrami 		&  &  &  &  &  &
                                                     &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2385,7 +3169,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.75 ...kvencijski dijagrami 		&  &  &  &  &  &  &
+l.109 ...vencijski dijagrami 		&  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2414,8 +3198,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no v in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Misplaced alignment tab character &.
-l.76 				Opis ostalih zahtjeva 		&
-                                    &  &  &  &  &  &  \\
+l.110 				Opis ostalih zahtjeva 		&
+                                     &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2424,8 +3208,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.76 				Opis ostalih zahtjeva 		&  &
-                                       &  &  &  &  &  \\
+l.110 				Opis ostalih zahtjeva 		&  &
+                                        &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2434,8 +3218,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.76 				Opis ostalih zahtjeva 		&  &  &
-                                          &  &  &  &  \\
+l.110 				Opis ostalih zahtjeva 		&  &  &
+                                           &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2444,8 +3228,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.76 				Opis ostalih zahtjeva 		&  &  &  &
-                                             &  &  &  \\
+l.110 				Opis ostalih zahtjeva 		&  &  &  &
+                                              &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2454,8 +3238,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.76 				Opis ostalih zahtjeva 		&  &  &  &  &
-                                                &  &  \\
+l.110 				Opis ostalih zahtjeva 		&  &  &  &  &
+                                                 &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2464,8 +3248,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.76 				Opis ostalih zahtjeva 		&  &  &  &  &  &
-                                                   &  \\
+l.110 				Opis ostalih zahtjeva 		&  &  &  &  &  &
+                                                    &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2474,7 +3258,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.76 ...pis ostalih zahtjeva 		&  &  &  &  &  &  &
+l.110 ...is ostalih zahtjeva 		&  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2484,7 +3268,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 72--77
+Overfull \hbox (20.0pt too wide) in paragraph at lines 106--111
 []
  []
 
@@ -2495,8 +3279,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.78 				A
-          rhitektura i dizajn sustava	 &  &  &  &  &  &  &  \\
+l.112 				A
+           rhitektura i dizajn sustava	 &  &  &  &  &  &  &  \\
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -2526,8 +3310,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no v in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Misplaced alignment tab character &.
-l.78 				Arhitektura i dizajn sustava	 &
-                                          &  &  &  &  &  &  \\
+l.112 				Arhitektura i dizajn sustava	 &
+                                           &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2536,8 +3320,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.78 				Arhitektura i dizajn sustava	 &  &
-                                             &  &  &  &  &  \\
+l.112 				Arhitektura i dizajn sustava	 &  &
+                                              &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2546,8 +3330,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.78 				Arhitektura i dizajn sustava	 &  &  &
-                                                &  &  &  &  \\
+l.112 				Arhitektura i dizajn sustava	 &  &  &
+                                                 &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2556,8 +3340,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.78 				Arhitektura i dizajn sustava	 &  &  &  &
-                                                   &  &  &  \\
+l.112 				Arhitektura i dizajn sustava	 &  &  &  &
+                                                    &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2566,7 +3350,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.78 ...rhitektura i dizajn sustava	 &  &  &  &  &
+l.112 ...hitektura i dizajn sustava	 &  &  &  &  &
                                                     &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2576,7 +3360,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.78 ...tektura i dizajn sustava	 &  &  &  &  &  &
+l.112 ...ektura i dizajn sustava	 &  &  &  &  &  &
                                                     &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2586,7 +3370,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.78 ...tura i dizajn sustava	 &  &  &  &  &  &  &
+l.112 ...ura i dizajn sustava	 &  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2608,8 +3392,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no k in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Misplaced alignment tab character &.
-l.79 				Baza podataka				&
-                             &  &  &  &  &  &   \\
+l.113 				Baza podataka				&
+                              &  &  &  &  &  &   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2618,8 +3402,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.79 				Baza podataka				&  &
-                                &  &  &  &  &   \\
+l.113 				Baza podataka				&  &
+                                 &  &  &  &  &   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2628,8 +3412,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.79 				Baza podataka				&  &  &
-                                   &  &  &  &   \\
+l.113 				Baza podataka				&  &  &
+                                    &  &  &  &   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2638,8 +3422,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.79 				Baza podataka				&  &  &  &
-                                      &  &  &   \\
+l.113 				Baza podataka				&  &  &  &
+                                       &  &  &   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2648,8 +3432,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.79 				Baza podataka				&  &  &  &  &
-                                         &  &   \\
+l.113 				Baza podataka				&  &  &  &  &
+                                          &  &   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2658,8 +3442,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.79 				Baza podataka				&  &  &  &  &  &
-                                            &   \\
+l.113 				Baza podataka				&  &  &  &  &  &
+                                             &   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2668,8 +3452,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.79 				Baza podataka				&  &  &  &  &  &  &
-                                                \\
+l.113 				Baza podataka				&  &  &  &  &  &  &
+                                                 \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2693,8 +3477,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Misplaced alignment tab character &.
-l.80 				Dijagram razreda 			&
-                                &  &  &  &  &  &   \\
+l.114 				Dijagram razreda 			&
+                                 &  &  &  &  &  &   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2703,8 +3487,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.80 				Dijagram razreda 			&  &
-                                   &  &  &  &  &   \\
+l.114 				Dijagram razreda 			&  &
+                                    &  &  &  &  &   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2713,8 +3497,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.80 				Dijagram razreda 			&  &  &
-                                      &  &  &  &   \\
+l.114 				Dijagram razreda 			&  &  &
+                                       &  &  &  &   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2723,8 +3507,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.80 				Dijagram razreda 			&  &  &  &
-                                         &  &  &   \\
+l.114 				Dijagram razreda 			&  &  &  &
+                                          &  &  &   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2733,8 +3517,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.80 				Dijagram razreda 			&  &  &  &  &
-                                            &  &   \\
+l.114 				Dijagram razreda 			&  &  &  &  &
+                                             &  &   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2743,8 +3527,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.80 				Dijagram razreda 			&  &  &  &  &  &
-                                               &   \\
+l.114 				Dijagram razreda 			&  &  &  &  &  &
+                                                &   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2753,8 +3537,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.80 				Dijagram razreda 			&  &  &  &  &  &  &
-                                                   \\
+l.114 				Dijagram razreda 			&  &  &  &  &  &  &
+                                                    \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2777,8 +3561,8 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no j in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Misplaced alignment tab character &.
-l.81 				Dijagram stanja				&
-                               &  &  &  &  &  &  \\
+l.115 				Dijagram stanja				&
+                                &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2787,8 +3571,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.81 				Dijagram stanja				&  &
-                                  &  &  &  &  &  \\
+l.115 				Dijagram stanja				&  &
+                                   &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2797,8 +3581,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.81 				Dijagram stanja				&  &  &
-                                     &  &  &  &  \\
+l.115 				Dijagram stanja				&  &  &
+                                      &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2807,8 +3591,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.81 				Dijagram stanja				&  &  &  &
-                                        &  &  &  \\
+l.115 				Dijagram stanja				&  &  &  &
+                                         &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2817,8 +3601,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.81 				Dijagram stanja				&  &  &  &  &
-                                           &  &  \\
+l.115 				Dijagram stanja				&  &  &  &  &
+                                            &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2827,8 +3611,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.81 				Dijagram stanja				&  &  &  &  &  &
-                                              &  \\
+l.115 				Dijagram stanja				&  &  &  &  &  &
+                                               &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2837,8 +3621,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.81 				Dijagram stanja				&  &  &  &  &  &  &
-                                                 \\
+l.115 				Dijagram stanja				&  &  &  &  &  &  &
+                                                  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2865,8 +3649,8 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no i in font nullfont!
 ! Misplaced alignment tab character &.
-l.82 				Dijagram aktivnosti 		&
-                                  &  &  &  &  &  &  \\
+l.116 				Dijagram aktivnosti 		&
+                                   &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2875,8 +3659,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.82 				Dijagram aktivnosti 		&  &
-                                     &  &  &  &  &  \\
+l.116 				Dijagram aktivnosti 		&  &
+                                      &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2885,8 +3669,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.82 				Dijagram aktivnosti 		&  &  &
-                                        &  &  &  &  \\
+l.116 				Dijagram aktivnosti 		&  &  &
+                                         &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2895,8 +3679,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.82 				Dijagram aktivnosti 		&  &  &  &
-                                           &  &  &  \\
+l.116 				Dijagram aktivnosti 		&  &  &  &
+                                            &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2905,8 +3689,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.82 				Dijagram aktivnosti 		&  &  &  &  &
-                                              &  &  \\
+l.116 				Dijagram aktivnosti 		&  &  &  &  &
+                                               &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2915,8 +3699,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.82 				Dijagram aktivnosti 		&  &  &  &  &  &
-                                                 &  \\
+l.116 				Dijagram aktivnosti 		&  &  &  &  &  &
+                                                  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2925,7 +3709,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.82 				Dijagram aktivnosti 		&  &  &  &  &  &  &
+l.116 ...Dijagram aktivnosti 		&  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2953,8 +3737,8 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no i in font nullfont!
 ! Misplaced alignment tab character &.
-l.83 				Dijagram komponenti			&
-                                  &  &  &  &  &  &  \\
+l.117 				Dijagram komponenti			&
+                                   &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2963,8 +3747,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.83 				Dijagram komponenti			&  &
-                                     &  &  &  &  &  \\
+l.117 				Dijagram komponenti			&  &
+                                      &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2973,8 +3757,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.83 				Dijagram komponenti			&  &  &
-                                        &  &  &  &  \\
+l.117 				Dijagram komponenti			&  &  &
+                                         &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2983,8 +3767,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.83 				Dijagram komponenti			&  &  &  &
-                                           &  &  &  \\
+l.117 				Dijagram komponenti			&  &  &  &
+                                            &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2993,8 +3777,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.83 				Dijagram komponenti			&  &  &  &  &
-                                              &  &  \\
+l.117 				Dijagram komponenti			&  &  &  &  &
+                                               &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3003,8 +3787,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.83 				Dijagram komponenti			&  &  &  &  &  &
-                                                 &  \\
+l.117 				Dijagram komponenti			&  &  &  &  &  &
+                                                  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3013,7 +3797,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.83 				Dijagram komponenti			&  &  &  &  &  &  &
+l.117 ...Dijagram komponenti			&  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3048,8 +3832,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no i in font nullfont!
 ! Misplaced alignment tab character &.
-l.84 				Korištene tehnologije i alati 		&
-                                             &  &  &  &  &  &  \\
+l.118 				Korištene tehnologije i alati 		&
+                                              &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3058,8 +3842,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.84 				Korištene tehnologije i alati 		&  &
-                                                &  &  &  &  &  \\
+l.118 				Korištene tehnologije i alati 		&  &
+                                                 &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3068,8 +3852,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.84 				Korištene tehnologije i alati 		&  &  &
-                                                   &  &  &  &  \\
+l.118 				Korištene tehnologije i alati 		&  &  &
+                                                    &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3078,7 +3862,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.84 ...orištene tehnologije i alati 		&  &  &  &
+l.118 ...rištene tehnologije i alati 		&  &  &  &
                                                     &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3088,7 +3872,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.84 ...štene tehnologije i alati 		&  &  &  &  &
+l.118 ...�tene tehnologije i alati 		&  &  &  &  &
                                                     &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3098,7 +3882,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.84 ...ene tehnologije i alati 		&  &  &  &  &  &
+l.118 ...ne tehnologije i alati 		&  &  &  &  &  &
                                                     &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3108,7 +3892,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.84 ... tehnologije i alati 		&  &  &  &  &  &  &
+l.118 ...tehnologije i alati 		&  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3147,8 +3931,8 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no j in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Misplaced alignment tab character &.
-l.85 				Ispitivanje programskog rješenja 	&
-                                               &  &  &  &  &  &  \\
+l.119 				Ispitivanje programskog rješenja 	&
+                                                &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3157,8 +3941,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.85 				Ispitivanje programskog rješenja 	&  &
-                                                  &  &  &  &  &  \\
+l.119 				Ispitivanje programskog rješenja 	&  &
+                                                   &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3167,7 +3951,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.85 ...Ispitivanje programskog rješenja 	&  &  &
+l.119 ...spitivanje programskog rješenja 	&  &  &
                                                     &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3177,7 +3961,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.85 ...itivanje programskog rješenja 	&  &  &  &
+l.119 ...tivanje programskog rješenja 	&  &  &  &
                                                     &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3187,7 +3971,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.85 ...vanje programskog rješenja 	&  &  &  &  &
+l.119 ...anje programskog rješenja 	&  &  &  &  &
                                                     &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3197,7 +3981,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.85 ...je programskog rješenja 	&  &  &  &  &  &
+l.119 ...e programskog rješenja 	&  &  &  &  &  &
                                                     &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3207,7 +3991,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.85 ...programskog rješenja 	&  &  &  &  &  &  &
+l.119 ...rogramskog rješenja 	&  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3235,8 +4019,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no j in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Misplaced alignment tab character &.
-l.86 				Dijagram razmještaja			&
-                                    &  &  &  &  &  &  \\
+l.120 				Dijagram razmještaja			&
+                                     &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3245,8 +4029,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.86 				Dijagram razmještaja			&  &
-                                       &  &  &  &  &  \\
+l.120 				Dijagram razmještaja			&  &
+                                        &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3255,8 +4039,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.86 				Dijagram razmještaja			&  &  &
-                                          &  &  &  &  \\
+l.120 				Dijagram razmještaja			&  &  &
+                                           &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3265,8 +4049,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.86 				Dijagram razmještaja			&  &  &  &
-                                             &  &  &  \\
+l.120 				Dijagram razmještaja			&  &  &  &
+                                              &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3275,8 +4059,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.86 				Dijagram razmještaja			&  &  &  &  &
-                                                &  &  \\
+l.120 				Dijagram razmještaja			&  &  &  &  &
+                                                 &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3285,8 +4069,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.86 				Dijagram razmještaja			&  &  &  &  &  &
-                                                   &  \\
+l.120 				Dijagram razmještaja			&  &  &  &  &  &
+                                                    &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3295,7 +4079,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.86 ...ijagram razmještaja			&  &  &  &  &  &  &
+l.120 ...jagram razmještaja			&  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3325,8 +4109,8 @@ Missing character: There is no g in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no n in font nullfont!
 ! Misplaced alignment tab character &.
-l.87 				Upute za puštanje u pogon 		&
-                                         &  &  &  &  &  &  \\
+l.121 				Upute za puštanje u pogon 		&
+                                          &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3335,8 +4119,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.87 				Upute za puštanje u pogon 		&  &
-                                            &  &  &  &  &  \\
+l.121 				Upute za puštanje u pogon 		&  &
+                                             &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3345,8 +4129,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.87 				Upute za puštanje u pogon 		&  &  &
-                                               &  &  &  &  \\
+l.121 				Upute za puštanje u pogon 		&  &  &
+                                                &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3355,8 +4139,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.87 				Upute za puštanje u pogon 		&  &  &  &
-                                                  &  &  &  \\
+l.121 				Upute za puštanje u pogon 		&  &  &  &
+                                                   &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3365,7 +4149,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.87 ...Upute za puštanje u pogon 		&  &  &  &  &
+l.121 ...pute za puštanje u pogon 		&  &  &  &  &
                                                     &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3375,7 +4159,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.87 ...te za puštanje u pogon 		&  &  &  &  &  &
+l.121 ...e za puštanje u pogon 		&  &  &  &  &  &
                                                     &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3385,7 +4169,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.87 ...za puštanje u pogon 		&  &  &  &  &  &  &
+l.121 ...a puštanje u pogon 		&  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3412,8 +4196,8 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no j in font nullfont!
 Missing character: There is no a in font nullfont!
 ! Misplaced alignment tab character &.
-l.88 				Dnevnik sastajanja 			&
-                                  &  &  &  &  &  &  \\
+l.122 				Dnevnik sastajanja 			&
+                                   &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3422,8 +4206,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.88 				Dnevnik sastajanja 			&  &
-                                     &  &  &  &  &  \\
+l.122 				Dnevnik sastajanja 			&  &
+                                      &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3432,8 +4216,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.88 				Dnevnik sastajanja 			&  &  &
-                                        &  &  &  &  \\
+l.122 				Dnevnik sastajanja 			&  &  &
+                                         &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3442,8 +4226,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.88 				Dnevnik sastajanja 			&  &  &  &
-                                           &  &  &  \\
+l.122 				Dnevnik sastajanja 			&  &  &  &
+                                            &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3452,8 +4236,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.88 				Dnevnik sastajanja 			&  &  &  &  &
-                                              &  &  \\
+l.122 				Dnevnik sastajanja 			&  &  &  &  &
+                                               &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3462,8 +4246,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.88 				Dnevnik sastajanja 			&  &  &  &  &  &
-                                                 &  \\
+l.122 				Dnevnik sastajanja 			&  &  &  &  &  &
+                                                  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3472,7 +4256,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.88 				Dnevnik sastajanja 			&  &  &  &  &  &  &
+l.122 ...Dnevnik sastajanja 			&  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3499,8 +4283,8 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no d in font nullfont!
 ! Misplaced alignment tab character &.
-l.89 				Zaključak i budući rad 		&
-                                       &  &  &  &  &  &  \\
+l.123 				Zaključak i budući rad 		&
+                                        &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3509,8 +4293,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.89 				Zaključak i budući rad 		&  &
-                                          &  &  &  &  &  \\
+l.123 				Zaključak i budući rad 		&  &
+                                           &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3519,8 +4303,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.89 				Zaključak i budući rad 		&  &  &
-                                             &  &  &  &  \\
+l.123 				Zaključak i budući rad 		&  &  &
+                                              &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3529,8 +4313,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.89 				Zaključak i budući rad 		&  &  &  &
-                                                &  &  &  \\
+l.123 				Zaključak i budući rad 		&  &  &  &
+                                                 &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3539,8 +4323,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.89 				Zaključak i budući rad 		&  &  &  &  &
-                                                   &  &  \\
+l.123 				Zaključak i budući rad 		&  &  &  &  &
+                                                    &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3549,7 +4333,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.89 ...aključak i budući rad 		&  &  &  &  &  &
+l.123 ...ključak i budući rad 		&  &  &  &  &  &
                                                     &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3559,7 +4343,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.89 ...jučak i budući rad 		&  &  &  &  &  &  &
+l.123 ...učak i budući rad 		&  &  &  &  &  &  &
                                                     \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -3584,8 +4368,8 @@ Missing character: There is no u in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no e in font nullfont!
 ! Misplaced alignment tab character &.
-l.90 				Popis literature 			&
-                                &  &  &  &  &  &  \\
+l.124 				Popis literature 			&
+                                 &  &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3594,8 +4378,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.90 				Popis literature 			&  &
-                                   &  &  &  &  &  \\
+l.124 				Popis literature 			&  &
+                                    &  &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3604,8 +4388,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.90 				Popis literature 			&  &  &
-                                      &  &  &  &  \\
+l.124 				Popis literature 			&  &  &
+                                       &  &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3614,8 +4398,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.90 				Popis literature 			&  &  &  &
-                                         &  &  &  \\
+l.124 				Popis literature 			&  &  &  &
+                                          &  &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3624,8 +4408,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.90 				Popis literature 			&  &  &  &  &
-                                            &  &  \\
+l.124 				Popis literature 			&  &  &  &  &
+                                             &  &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3634,8 +4418,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.90 				Popis literature 			&  &  &  &  &  &
-                                               &  \\
+l.124 				Popis literature 			&  &  &  &  &  &
+                                                &  \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3644,8 +4428,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.90 				Popis literature 			&  &  &  &  &  &  &
-                                                  \\
+l.124 				Popis literature 			&  &  &  &  &  &  &
+                                                   \\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3656,8 +4440,8 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <recently read> &
                  
-l.91 				&
-            &  &  &  &  &  &  \\ \hline
+l.125 				&
+             &  &  &  &  &  &  \\ \hline
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3666,8 +4450,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.91 				&  &
-               &  &  &  &  &  \\ \hline
+l.125 				&  &
+                &  &  &  &  &  \\ \hline
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3676,8 +4460,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.91 				&  &  &
-                  &  &  &  &  \\ \hline
+l.125 				&  &  &
+                   &  &  &  &  \\ \hline
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3686,8 +4470,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.91 				&  &  &  &
-                     &  &  &  \\ \hline
+l.125 				&  &  &  &
+                      &  &  &  \\ \hline
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3696,8 +4480,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.91 				&  &  &  &  &
-                        &  &  \\ \hline
+l.125 				&  &  &  &  &
+                         &  &  \\ \hline
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3706,8 +4490,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.91 				&  &  &  &  &  &
-                           &  \\ \hline
+l.125 				&  &  &  &  &  &
+                            &  \\ \hline
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3716,8 +4500,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.91 				&  &  &  &  &  &  &
-                              \\ \hline
+l.125 				&  &  &  &  &  &  &
+                               \\ \hline
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -3728,16 +4512,16 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.91 				&  &  &  &  &  &  &  \\ \hline
-                                       
+l.125 				&  &  &  &  &  &  &  \\ \hline
+                                        
 (That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
- 43 strings out of 474717
- 878 string characters out of 5748436
- 1929036 words of memory out of 5000000
- 22193 multiletter control sequences out of 15000+600000
+ 44 strings out of 474717
+ 886 string characters out of 5748436
+ 1934036 words of memory out of 5000000
+ 22194 multiletter control sequences out of 15000+600000
  559082 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 23i,5n,32p,498b,127s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 23i,5n,32p,503b,127s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 !  ==> Fatal error occurred, no output PDF file produced!

@@ -17,11 +17,49 @@
 				
 		\section{Baza podataka}
 			
-			\textbf{\textit{dio 1. revizije}}\\
-			
-		\textit{Potrebno je opisati koju vrstu i implementaciju baze podataka ste odabrali, glavne komponente od kojih se sastoji i slično.}
+			Za potrebe našeg sustava koristit ćemo bazu podataka koja svojom strukturom olakšava modeliranje stvarnog svijeta. Osnovna jedinica baze je dokument, definiran svojim imenom i skupom atributa. Korištenjem MongoDB-a kao ne-relacijske baze podataka, informacije će biti pohranjene u obliku fleksibilnih dokumenata umjesto tradicionalnih tablica. Zadaća baze podataka je brza i jednostavna pohrana, izmjena i dohvat podataka za daljnju obradu. Baza podataka ove aplikacije sastoji se od sljedećih dokumenata:
+			\begin{packed_item}
+	
+						\item Korisnik
+						\item Događaj
+						\item Korisnik-Događaj
+						\item Recenzija
+						\item Foto
+						\item Video
+						\item Obavijest	
+						
+						
+			\end{packed_item}
 		
 			\subsection{Opis tablica}
+			
+			
+				\textit{Svaku tablicu je potrebno opisati po zadanom predlošku. Lijevo se nalazi točno ime varijable u bazi podataka, u sredini se nalazi tip podataka, a desno se nalazi opis varijable. Svjetlozelenom bojom označite primarni ključ. Svjetlo plavom označite strani ključ}
+				
+				
+				\begin{longtblr}[
+					label=none,
+					entry=none
+					]{
+						width = \textwidth,
+						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
+						rowhead = 1,
+					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
+					\hline \SetCell[c=3]{c}{\textbf{Korsnik}}	 \\ \hline[3pt]
+					\SetCell{LightGreen}Korisničko ime & STRING	& jedinstveni identifikator korisnika\\ \hline
+					Lozinka	& STRING & hash lozinke\\ \hline 
+					Ime	& STRING &   ime korisnika	\\ \hline 
+					Prezime & STRING &  prezime korisnika \\ \hline 
+					Email & STRING	& email korisnika \\ \hline 
+					Adresa & STRING & lućna adresa korisnika \\ \hline 
+					Uloga & ROLE & uloga korisnika	\\ \hline 
+					Gradovi interesa & LIST<GRADOVI> & gradovi interesa korisnika \\ \hline 
+					Vrste interesa & LIST<VRSTE> & vrste interesa korisnika \\ \hline 
+					Događanja koja me zanimaju & LIST<DOGAĐANJA> & događanja koja zanimaju korisnika \\ \hline 
+					Web stranica & STRING & link web stranice organizatora \\ \hline 
+					Facebook & STRING & link facebook profila organizatora \\ \hline 
+				\end{longtblr}
+		
 			
 
 				\textit{Svaku tablicu je potrebno opisati po zadanom predlošku. Lijevo se nalazi točno ime varijable u bazi podataka, u sredini se nalazi tip podataka, a desno se nalazi opis varijable. Svjetlozelenom bojom označite primarni ključ. Svjetlo plavom označite strani ključ}
@@ -35,19 +73,22 @@
 						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
 						rowhead = 1,
 					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
-					\hline \SetCell[c=3]{c}{\textbf{Event}}	 \\ \hline[3pt]
-					eventID & INT	&  	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  	\\ \hline
-					eventName	& VARCHAR &   	\\ \hline 
-					eventType & VARCHAR &   \\ \hline 
-					eventLocation & VARCHAR	&  		\\ \hline 
-					eventDate & VARCHAR &   	\\ \hline 
-					eventStartTime & VARCHAR &   	\\ \hline 
-					eventDuratin & VARCHAR &   	\\ \hline 
-					description & VARCHAR &   	\\ \hline 
-					gallery& VARCHAR &   	\\ \hline 
+					\hline \SetCell[c=3]{c}{\textbf{Događanje}}	 \\ \hline[3pt]
+					\SetCell{LightGreen}ID & LONG &  	jedinstveni identifikator događanja\\ \hline
+					Ime	& STRING &   ime događanja	\\ \hline 
+					Vrsta & VRSTA &  vrsta događanja \\ \hline 
+					Grad & GRAD	&  grad događanja	\\ \hline 
+					Adresa & STRING	& adresa događanja \\ \hline 
+					Datum & DATE & datum održavanja	\\ \hline 
+					Vrijeme početka & STRING & vrijeme početka održavanja \\ \hline 
+					Trajanje & STRING & trajanje događanja \\ \hline 
+					Opis & STRING & opis događanja \\ \hline 
+					Cijena & DOUBLE	&  cijena ulaznice	\\ \hline 
+					Foto galerija & LIST<FOTO> & fotografije događanja \\ \hline 
+					Video galerija & LIST<VIDEO> & video zapisi događanja \\ \hline
+					Recenzije & LIST<RECENZIJE> & recenzije događanja \\ \hline
+					
 				\end{longtblr}
-				
-				
 				
 				
 				\textit{Svaku tablicu je potrebno opisati po zadanom predlošku. Lijevo se nalazi točno ime varijable u bazi podataka, u sredini se nalazi tip podataka, a desno se nalazi opis varijable. Svjetlozelenom bojom označite primarni ključ. Svjetlo plavom označite strani ključ}
@@ -62,9 +103,9 @@
 						rowhead = 1,
 					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
 					\hline \SetCell[c=3]{c}{\textbf{Recenzija}}	 \\ \hline[3pt]
-					IDKorisnik & INT	&  	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  	\\ \hline
-					parent	& VARCHAR &   	\\ \hline 
-					eventType & VARCHAR &   \\ \hline 
+					\SetCell{LightGreen}ID & LONG	&  	jedinstveni identifikator recenzije	\\ \hline
+					Sadržaj & STRING & sadržaj recenzije \\ \hline 
+					Datum & DATE & datum ostavljanje recenzije  \\ \hline 
 					eventLocation & VARCHAR	&  		\\ \hline 
 					eventDate & VARCHAR &   	\\ \hline 
 					eventStartTime & VARCHAR &   	\\ \hline 
@@ -72,6 +113,8 @@
 					description & VARCHAR &   	\\ \hline 
 					gallery & VARCHAR &   	\\ \hline 
 				\end{longtblr}
+				
+				
 				
 				
 			
