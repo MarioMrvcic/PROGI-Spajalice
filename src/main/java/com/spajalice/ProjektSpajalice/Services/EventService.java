@@ -1,7 +1,9 @@
 package com.spajalice.ProjektSpajalice.Services;
 
 import com.spajalice.ProjektSpajalice.Model.Event;
+import com.spajalice.ProjektSpajalice.Model.Review;
 import com.spajalice.ProjektSpajalice.Repository.EventRepository;
+import com.spajalice.ProjektSpajalice.Repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,9 @@ public class EventService {
 
     @Autowired
     private EventRepository eventRepository;
+
+    @Autowired
+    private ReviewRepository reviewRepository;
 
     public List<Event> allEvents(){
         return eventRepository.findAll();
@@ -45,5 +50,41 @@ public class EventService {
         return eventRepository.findByEventDateBetween(currentDate,next30Days);
     }
 
+    public long eventCount(){
+        return eventRepository.count();
+    }
+    
+    public Event addEvent(Event event){
+        return eventRepository.save(event);
+    }
 
+    /**
+     * Deletes an event and its associated reviews.
+     *
+     * @param eventId The ID of the event to be deleted.
+     */
+    public void deleteEventAndReviews(Long eventId) {
+        // Retrieve the event by its ID
+        Optional<Event> optionalEvent = eventRepository.findById(eventId);
+
+        // Check if the event exists
+        if (optionalEvent.isPresent()) {
+            // Get the event from the optional
+            Event event = optionalEvent.get();
+
+            // Retrieve the list of reviews associated with the event
+            List<Review> reviews = event.getReviewIds();
+
+            // Check if there are reviews
+            if (reviews != null) {
+                // Iterate through each review and delete it
+                for (Review review : reviews) {
+                    reviewRepository.deleteById(review.getId());
+                }
+            }
+
+            // Delete the event itself
+            eventRepository.deleteById(eventId);
+        }
+    }
 }

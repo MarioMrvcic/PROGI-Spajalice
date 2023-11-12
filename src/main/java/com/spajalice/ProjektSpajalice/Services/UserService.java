@@ -18,4 +18,8 @@ public class UserService {
         return userRepository.findByRole(Role.ORGANIZER);
     }
 
+    public long userCount(){ return userRepository.count();}
+
+    public User saveUser(User user){ return userRepository.save(user);}
+
 }

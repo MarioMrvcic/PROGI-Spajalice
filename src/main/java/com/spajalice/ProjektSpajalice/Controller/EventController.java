@@ -1,7 +1,6 @@
 package com.spajalice.ProjektSpajalice.Controller;
 
 import com.spajalice.ProjektSpajalice.Model.Event;
-import com.spajalice.ProjektSpajalice.Repository.EventRepository;
 import com.spajalice.ProjektSpajalice.Services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,8 +16,6 @@ import java.util.Optional;
 public class EventController {
 
     @Autowired
-    EventRepository eventRepository;
-    @Autowired
     private EventService eventService;
 
     @GetMapping("/eventTest")
@@ -26,56 +23,120 @@ public class EventController {
         return "Event radi";
     }
 
+    /**
+     * Endpoint to create a new event.
+     *
+     * @param event The event to be created.
+     * @return ResponseEntity with the created event or an error status.
+     */
     @PostMapping("/addEvent")
-    public ResponseEntity<Event> createTutorial(@RequestBody Event event) {
+    public ResponseEntity<Event> createEvent(@RequestBody Event event) {
         try {
-            long eventCount = eventRepository.count();
-            if(eventCount==0){
+            // Generate a unique ID for the event
+            long eventCount = eventService.eventCount();
+            if (eventCount == 0) {
                 event.setId(1L);
-            }else{
-                long nextId=eventCount+1;
+            } else {
+                long nextId = eventCount + 1;
                 event.setId(nextId);
             }
-            Event _event = eventRepository.save(event);
+
+            // Add the event to the system
+            Event _event = eventService.addEvent(event);
+
+            // Return the created event
             return new ResponseEntity<>(_event, HttpStatus.CREATED);
         } catch (Exception e) {
+            // Return an error response in case of an exception
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
+    /**
+     * Endpoint to delete an event and its associated reviews.
+     *
+     * @param eventId The ID of the event to be deleted.
+     * @return ResponseEntity with a success message or an error status.
+     */
+    @PostMapping("/deleteEvent/{eventId}")
+    public ResponseEntity<String> deleteEvent(@PathVariable Long eventId) {
+        // Delete the event and its reviews
+        eventService.deleteEventAndReviews(eventId);
+        return new ResponseEntity<>("Event and associated reviews deleted successfully", HttpStatus.OK);
+    }
+
+    /**
+     * Endpoint to get a list of all events.
+     *
+     * @return ResponseEntity with the list of events or a not found status if the list is empty.
+     */
     @GetMapping("/getEvents")
-    public ResponseEntity<List<Event>> getAllEvents(){
-        return new ResponseEntity<List<Event>>(eventService.allEvents(),HttpStatus.OK);
-    }
-
-    @GetMapping("/Event/{id}")
-    public ResponseEntity<Optional<Event>> getSingleEvent(@PathVariable Long id){
-        return new ResponseEntity<Optional<Event>>(eventService.singleEventId(id),HttpStatus.OK);
-    }
-
-    @GetMapping("/Events/Location/{eventLocation}")
-    public ResponseEntity<Optional<List<Event>>> getEventsByLocation(@PathVariable String eventLocation){
-        Optional<List<Event>> events =eventService.getEventsByLocation(eventLocation);
-        if(events.isEmpty()) {
+    public ResponseEntity<List<Event>> getAllEvents() {
+        List<Event> events = eventService.allEvents();
+        if (events.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
-        return new ResponseEntity<>(events,HttpStatus.OK);
+        return new ResponseEntity<>(events, HttpStatus.OK);
     }
 
+    /**
+     * Endpoint to get a single event by its ID.
+     *
+     * @param id The ID of the event.
+     * @return ResponseEntity with the optional containing the event or a not found status if not present.
+     */
+    @GetMapping("/Event/{id}")
+    public ResponseEntity<Optional<Event>> getSingleEvent(@PathVariable Long id) {
+        Optional<Event> event = eventService.singleEventId(id);
+        if (event.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(event, HttpStatus.OK);
+    }
+
+    /**
+     * Endpoint to get events by location.
+     *
+     * @param eventLocation The location of the events.
+     * @return ResponseEntity with the optional containing the list of events or a not found status if not present.
+     */
+    @GetMapping("/Events/Location/{eventLocation}")
+    public ResponseEntity<Optional<List<Event>>> getEventsByLocation(@PathVariable String eventLocation) {
+        Optional<List<Event>> events = eventService.getEventsByLocation(eventLocation);
+        if (events.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(events, HttpStatus.OK);
+    }
+
+    /**
+     * Endpoint to get events occurring in the next 24 hours.
+     *
+     * @return ResponseEntity with the optional containing the list of events or a not found status if not present.
+     */
     @GetMapping("/Events/next24hours")
-    public ResponseEntity<Optional<List<Event>>> getEventsNext24Hours(){
-        return new ResponseEntity<>(eventService.eventsNext24Hours(),HttpStatus.OK);
+    public ResponseEntity<Optional<List<Event>>> getEventsNext24Hours() {
+        return new ResponseEntity<>(eventService.eventsNext24Hours(), HttpStatus.OK);
     }
 
+    /**
+     * Endpoint to get events occurring in the next 7 days.
+     *
+     * @return ResponseEntity with the optional containing the list of events or a not found status if not present.
+     */
     @GetMapping("/Events/next7days")
-    public ResponseEntity<Optional<List<Event>>> getEventsNext7Days(){
-        return new ResponseEntity<>(eventService.eventsNext7Days(),HttpStatus.OK);
+    public ResponseEntity<Optional<List<Event>>> getEventsNext7Days() {
+        return new ResponseEntity<>(eventService.eventsNext7Days(), HttpStatus.OK);
     }
 
+    /**
+     * Endpoint to get events occurring in the next 30 days.
+     *
+     * @return ResponseEntity with the optional containing the list of events or a not found status if not present.
+     */
     @GetMapping("/Events/next30days")
-    public ResponseEntity<Optional<List<Event>>> getEventsNext30Days(){
-        return new ResponseEntity<>(eventService.eventsNext30days(),HttpStatus.OK);
+    public ResponseEntity<Optional<List<Event>>> getEventsNext30Days() {
+        return new ResponseEntity<>(eventService.eventsNext30days(), HttpStatus.OK);
     }
 
 
