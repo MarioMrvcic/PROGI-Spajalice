@@ -1,6 +1,6 @@
 .EventCard {
     display: flex;
-    background-color: #3f4a61;
+    background-color: #545e75;
     color: white;
     width: 980px;
     height: 450px;
@@ -46,19 +46,20 @@ p {
 
 .EventCard--hostName {
     width: 145px;
-    background-color: red;
+    background-color: #ed6a5a;
     color: #3f4a61;
     padding: 5px 15px;
     border-radius: 15px;
     font-size: 20px;
 }
 
-button {
+.EventCard--button {
     width: 160px;
     height: 40px;
-    background-color: darkgreen;
-    color: lightgreen;
-    border: 2px solid lightgreen;
+    background-color: #533b4d;
+    color: #f4f1bb;
+    border: 2px solid #f4f1bb;
     border-radius: 15px;
     font-size: 20px;
+    cursor: pointer;
 }

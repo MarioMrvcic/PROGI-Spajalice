@@ -26,7 +26,7 @@ function EventCard(props){
 
                     <div className="EventCard--dodatno ">
                         <div className="EventCard--hostName">Ime hosta</div>
-                        <button> Najavite se </button>
+                        <button className='EventCard--button'> Najavite se </button>
                     </div>
                 </div>
             </div>
