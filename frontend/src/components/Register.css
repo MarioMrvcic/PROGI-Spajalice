@@ -34,8 +34,7 @@
 
 .register--form input[type='text'],
 .register--form input[type='password'],
-.register--form input[type='email'],
-.register--form input[type='address'] {
+.register--form input[type='email'] {
     width: 100%;
     padding: 12px;
     border: 1px solid lightgray;

@@ -13,13 +13,15 @@ function Register() {
         <div className="register">
             <h1>Register</h1>
             <form className="register--form">
+                <label htmlFor="name">Name:</label>
+                <input type="text" id="name" name="name" />
+                <label htmlFor="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" />
                 <label htmlFor="username">Username:</label>
                 <input type="text" id="username" name="username" />
                 <label htmlFor="email">Email:</label>
                 <input type="email" id="email" name="email" />
-                <label htmlFor="address">Address:</label>
-                <input type="text" id="address" name="address" />
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">Password:</label> 
                 <input type="password" id="password" name="password" />
                 <input type="submit" value="Submit" onClick={handleSubmit} />
             </form>
