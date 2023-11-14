@@ -1,13 +1,8 @@
 package com.spajalice.ProjektSpajalice.Model;
 
-
-import jakarta.persistence.CascadeType;
 import lombok.*;
-import org.hibernate.engine.internal.Cascade;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.time.LocalTime;
 import java.util.Date;

@@ -5,7 +5,6 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.index.Index;
-import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.stereotype.Service;
 @Service
 public class IndexService {
