@@ -3,31 +3,34 @@ package com.spajalice.ProjektSpajalice.Model;
 
 import jakarta.persistence.CascadeType;
 import lombok.*;
+import org.hibernate.engine.internal.Cascade;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
-@Document("Events")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Document("Events")
 public class Event {
-    @Setter
-    @Getter
+
     @Id
-    private Long id;
+    private Long _id;
     private String eventName;
-    private String eventType;
-    private String eventLocation;
+    private EventType eventType;
+    private Place eventLocationId;
     private Date eventDate;
-    private String eventStartTime;
-    private String eventDuration;
-    @DocumentReference
-    private List<Review> reviewIds;
+    private LocalTime eventStartTime;
+    private LocalTime eventDuration;
+    private String description;
+    private Double price;
+    private List<Review> reviews;
+    private List<Video>  videos;
+    private List<Photo>  photos;
+    private List<EventUser> peopleComing;
 
 }
 

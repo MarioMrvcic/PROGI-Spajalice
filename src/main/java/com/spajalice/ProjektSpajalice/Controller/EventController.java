@@ -32,15 +32,6 @@ public class EventController {
     @PostMapping("/addEvent")
     public ResponseEntity<Event> createEvent(@RequestBody Event event) {
         try {
-            // Generate a unique ID for the event
-            long eventCount = eventService.eventCount();
-            if (eventCount == 0) {
-                event.setId(1L);
-            } else {
-                long nextId = eventCount + 1;
-                event.setId(nextId);
-            }
-
             // Add the event to the system
             Event _event = eventService.addEvent(event);
 
@@ -92,21 +83,6 @@ public class EventController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(event, HttpStatus.OK);
-    }
-
-    /**
-     * Endpoint to get events by location.
-     *
-     * @param eventLocation The location of the events.
-     * @return ResponseEntity with the optional containing the list of events or a not found status if not present.
-     */
-    @GetMapping("/Events/Location/{eventLocation}")
-    public ResponseEntity<Optional<List<Event>>> getEventsByLocation(@PathVariable String eventLocation) {
-        Optional<List<Event>> events = eventService.getEventsByLocation(eventLocation);
-        if (events.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(events, HttpStatus.OK);
     }
 
     /**

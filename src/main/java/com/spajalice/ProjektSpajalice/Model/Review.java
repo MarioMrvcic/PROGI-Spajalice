@@ -7,16 +7,10 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("Reviews")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Review {
-    @Id
-    private ObjectId id;
-    private String body;
+import java.util.Date;
 
-    public Review(String body) {
-        this.body = body;
-    }
+@Data
+public class Review {
+    private String reviewBody;
+    private Date reviewCreationDate;
 }

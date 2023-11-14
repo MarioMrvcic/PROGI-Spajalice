@@ -1,9 +1,7 @@
 package com.spajalice.ProjektSpajalice.Services;
 
 import com.spajalice.ProjektSpajalice.Model.Event;
-import com.spajalice.ProjektSpajalice.Model.Review;
 import com.spajalice.ProjektSpajalice.Repository.EventRepository;
-import com.spajalice.ProjektSpajalice.Repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,19 +15,12 @@ public class EventService {
     @Autowired
     private EventRepository eventRepository;
 
-    @Autowired
-    private ReviewRepository reviewRepository;
-
     public List<Event> allEvents(){
         return eventRepository.findAll();
     }
 
     public Optional<Event> singleEventId(Long id){
-        return eventRepository.findById(id);
-    }
-
-    public Optional<List<Event>> getEventsByLocation(String eventLocation){
-        return eventRepository.findByEventLocation(eventLocation);
+        return eventRepository.findBy_id(id);
     }
 
     public Optional<List<Event>> eventsNext24Hours(){
@@ -71,17 +62,6 @@ public class EventService {
         if (optionalEvent.isPresent()) {
             // Get the event from the optional
             Event event = optionalEvent.get();
-
-            // Retrieve the list of reviews associated with the event
-            List<Review> reviews = event.getReviewIds();
-
-            // Check if there are reviews
-            if (reviews != null) {
-                // Iterate through each review and delete it
-                for (Review review : reviews) {
-                    reviewRepository.deleteById(review.getId());
-                }
-            }
 
             // Delete the event itself
             eventRepository.deleteById(eventId);

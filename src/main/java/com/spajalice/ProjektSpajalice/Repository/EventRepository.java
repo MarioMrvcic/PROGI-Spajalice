@@ -8,17 +8,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-public interface EventRepository extends MongoRepository<Event, Integer> {
+public interface EventRepository extends MongoRepository<Event, Long> {
     // Custom method to find an event by its Long ID
-    Optional<Event> findById(Long id);
-
-    // Custom method to find events by their event location
-    Optional<List<Event>> findByEventLocation(String eventLocation);
+    Optional<Event> findBy_id(Long _id);
 
     // Custom method using a MongoDB query to find events between specified dates
     @Query("{ 'eventDate': {$gte : ?0,$lte: ?1}}")
     Optional<List<Event>> findByEventDateBetween(Date startDate, Date endDate);
 
     // Custom method to delete an event by its Long ID
-    void deleteById(Long id);
+    void deleteBy_id(Long _id);
 }

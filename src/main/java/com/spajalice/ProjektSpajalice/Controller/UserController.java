@@ -42,15 +42,6 @@ public class UserController {
     @PostMapping("/registerUser")
     public ResponseEntity<User> registerUser(@RequestBody User user) {
         try {
-            // Generate a unique ID for the user
-            long userCount = userService.userCount();
-            if (userCount == 0) {
-                user.setId(1L);
-            } else {
-                long nextId = userCount + 1;
-                user.setId(nextId);
-            }
-
             // Encrypt the user's password before saving
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
