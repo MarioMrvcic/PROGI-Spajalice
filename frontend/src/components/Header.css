@@ -26,6 +26,11 @@
     border: 2px solid #f4f1bb;
     border-radius: 15px;
     font-size: 20px;
-    margin-right: 5px;
+    margin-right: 15px;
     cursor: pointer;
+}
+
+.UserButtons > button:hover {
+    background-color: darkred;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }

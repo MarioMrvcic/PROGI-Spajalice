@@ -51,6 +51,7 @@ p {
     padding: 5px 15px;
     border-radius: 15px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .EventCard--button {
@@ -62,4 +63,9 @@ p {
     border-radius: 15px;
     font-size: 20px;
     cursor: pointer;
+}
+
+.EventCard--button:hover {
+    background-color: darkred;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
