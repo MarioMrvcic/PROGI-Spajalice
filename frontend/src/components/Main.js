@@ -10,18 +10,20 @@ function Main(){
         .then(events => setEvents(events));
     }, []);
 
+    //napomena, treba popraviti prikaz eventa ovdje, i u EventCard.js-u, dodati lokaciju
     return(
         
         <div className="Main">
+            
+            {/*eventLocation={event.eventLocation}*/} 
             {
                 events.map(event =>
                     <EventCard
-                        key={event.id}
+                        key={event._id}
                         eventName={event.eventName}
                         eventType={event.eventType}
-                        eventDate={event.eventDate}
+                        eventDate={event.eventDate} 
                         eventStartTime={event.eventStartTime}
-                        eventLocation={event.eventLocation}
                         eventDuration={event.eventDuration}
                     />
                     )

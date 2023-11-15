@@ -16,7 +16,7 @@ function EventCard(props){
                         <p>{props.eventType} /</p>
                         <p>{formattedDate} /</p>
                         <p>{props.eventStartTime} /</p>
-                        <p>{props.eventLocation} /</p>
+                        {/* <p>{props.eventLocation} /</p> */}
                         <p>{props.eventDuration}</p>
                     </div>
 
