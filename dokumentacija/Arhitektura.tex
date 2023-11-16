@@ -1,5 +1,5 @@
 \chapter{Arhitektura i dizajn sustava}
-		
+		\begin{comment}
 		\textbf{\textit{dio 1. revizije}}\\
 
 		\textit{ Potrebno je opisati stil arhitekture te identificirati: podsustave, preslikavanje na radnu platformu, spremišta podataka, mrežne protokole, globalni upravljački tok i sklopovsko-programske zahtjeve. Po točkama razraditi i popratiti odgovarajućim skicama:}
@@ -8,33 +8,90 @@
 		\item 	\textit{organizaciju sustava s najviše razine apstrakcije (npr. klijent-poslužitelj, baza podataka, datotečni sustav, grafičko sučelje)}
 		\item 	\textit{organizaciju aplikacije (npr. slojevi frontend i backend, MVC arhitektura) }		
 	\end{itemize}
-
+	\end{comment}
 	
-		
+	Arhitekturu sustava našeg projekta možemo podijeliti na tri glavna podsustava:
+	
+	\begin{packed_enum}
+	
+		\item Baza podataka
+		\item Web aplikacija
+		\item Web poslužitelj
+							
+	\end{packed_enum}
+	
+	Internetski preglednik predstavlja programsku platformu koja korisnicima omogućuje pregledavanje web-stranica i konzumiranje raznovrsnih multimedijalnih sadržaja povezanih s njima. Svaki od tih preglednika funkcionira kao svojevrsni tumač, čime interpretira kompleksni kod web stranica i pretvara ga u vizualno prihvatljiv format za korisnike. Bitno je razumjeti da je ključna uloga internetskog preglednika prevesti tehnički zahtjevne  elemente weba u nešto pristupačno svakom korisniku.
+	
+	Kada korisnik putem internetskog preglednika šalje zahtjev, ta komunikacija se uspostavlja s web poslužiteljem. Web poslužitelj predstavlja temelj rada web aplikacija, a njegova osnovna zadaća je posredovati u komunikaciji između korisnika (klijenta) i same aplikacije. Cijeli taj proces komunikacije odvija se putem HTTP (HyperText Transfer Protocol) protokola, koji služi kao standardni način prijenosa informacija na internetu.
 
+	Važno je naglasiti da je web poslužitelj taj koji pokreće web aplikaciju i prosljeđuje joj korisnički zahtjev. Kroz korištenje web aplikacije, korisnik šalje različite zahtjeve koje aplikacija obrađuje. Ovisno o konkretnom zahtjevu, web aplikacija može pristupiti bazi podataka kako bi došla do relevantnih informacija. Nakon obrade zahtjeva, aplikacija putem web poslužitelja šalje odgovor korisniku u obliku HTML dokumenta. Taj dokument postaje vizualno doživljajan u internetskom pregledniku, predstavljajući krajnji rezultat korisničkog zahtjeva.
+
+	Ovaj kompleksan proces integracije internetskog preglednika, web poslužitelja i web aplikacije ključan je za pravilno funkcioniranje našeg projekta. 
+	
+	Programski jezik kojeg smo odabrali za izradu naše web aplikacije je Java zajedno s React i Spring Boot stackom. Projekt programiramo u razvojnom okruženju Intellj IDEA. Arhitekturu sustava baziramo na MVC konceptu (Model-View-Controller) prilagođenom za React i Spring boot. Glavna karakteristika zbog koje smo se odlučili za MVC je nezavisno razvijanje pojedinih dijelova aplikacije što nam omogućuje jednostavnije testiranje i implementiranje novog koda. Glavna podjela je na tzv. „Backend“ i „Frontend“.
+	
+	Backend (Spring Boot) MVC koncept:
+	
+	\begin{packed_enum}
+	
+		\item Model: Sve klase (koje su povezane sa bazom) sa odgovarajućim atributima te servisi u kojima se provodi logika koji kasnije koriste API komponente (Controlleri)
+		\item View: JSON podatci s kojima upravljaju API komponente(Controlleri)
+		\item Controller: API komponente koje obrađuju zahtjeve te šalju adekvatne odgovore
+							
+	\end{packed_enum}
+	
+	Frontend (React) MVC koncept:
+	
+	\begin{packed_enum}
+	
+		\item Model: Stanja i podatci koje se koriste i prikazuju u komponentama
+		\item View: Komponente koje reprezentiraju izgled aplikacije odnosno korisničko sučelje
+		\item Controller: „Event handleri“ i metode koje obrađuju logiku, unos korisnika te upravljaju podatcima i stanjima u komponentama 
+							
+	\end{packed_enum}
 		
 
 				
 		\section{Baza podataka}
 			
-			Za potrebe našeg sustava koristit ćemo bazu podataka koja svojom strukturom olakšava modeliranje stvarnog svijeta. Osnovna jedinica baze je dokument, definiran svojim imenom i skupom atributa. Korištenjem MongoDB-a kao ne-relacijske baze podataka, informacije će biti pohranjene u obliku fleksibilnih dokumenata umjesto tradicionalnih tablica. Zadaća baze podataka je brza i jednostavna pohrana, izmjena i dohvat podataka za daljnju obradu. Baza podataka ove aplikacije sastoji se od sljedećih dokumenata:
+			Za potrebe našeg sustava koristit ćemo bazu podataka koja svojom strukturom olakšava modeliranje stvarnog svijeta. Osnovna jedinica baze je dokument, definiran svojim imenom i skupom atributa. Dokument može nadovezivati i klasa koja opisuje atribute sadržane u dokumentu. Korištenjem MongoDB-a kao ne-relacijske baze podataka, informacije će biti pohranjene u obliku fleksibilnih dokumenata umjesto tradicionalnih tablica. Zadaća baze podataka je brza i jednostavna pohrana, izmjena i dohvat podataka za daljnju obradu. Baza podataka ove aplikacije sastoji se od sljedećih dokumenata te klasa koje su sadržane unutar njih:
 			\begin{packed_item}
 	
 						\item Korisnik
-						\item Događaj
-						\item Korisnik-Događaj
-						\item Recenzija
-						\item Foto
-						\item Video
-						\item Obavijest	
+						
+						\item Događanje
+							\begin{packed_item}
+							\item Mjesto
+							\item Foto (lista)
+							\item Video (lista)
+							\item Recenzije (lista)
+							\end{packed_item}
+						
+						\item Korisnik-Događanje
+						
 						
 						
 			\end{packed_item}
-		
+			
+			Osim dokumenata i klasa u bazi ćemo također imati i vlastite tipove podataka koje će biti predhodno definirani. To su: 
+			\begin{packed_item}
+	
+						\item Uloga
+						\item Vrsta
+						\item Interes
+			\end{packed_item}
+						
+				
 			\subsection{Opis tablica}
 			
+			\textbf{\large Dokumenti}\\
 			
-				\textit{Svaku tablicu je potrebno opisati po zadanom predlošku. Lijevo se nalazi točno ime varijable u bazi podataka, u sredini se nalazi tip podataka, a desno se nalazi opis varijable. Svjetlozelenom bojom označite primarni ključ. Svjetlo plavom označite strani ključ}
+
+			
+			
+				%\textit{Svaku tablicu je potrebno opisati po zadanom predlošku. Lijevo se nalazi točno ime varijable u bazi podataka, u sredini se nalazi tip podataka, a desno se nalazi opis varijable. Svjetlozelenom bojom označite primarni ključ. Svjetlo plavom označite strani ključ}
+				\textbf{Korisnik} Ovaj dokument sadrži informacije o pojedinačnom korisniku. Sadrži atribute: email, lozinku, ime, prezime, adresu, ulogu, gradove interesa, vrste interesa, web stranicu i facebook. Ovaj dokument je u vezi \textit{One-to-Many} s dokumentom Korisnik-Događanje preko atributa korisničko ime. Pošto je baza nerelacijska u dokument će se također pisati i liste od: gradova i vrsta koje su potrebne kako bi se izvele sve funkcionalnosti.  
+				
 				
 				
 				\begin{longtblr}[
@@ -42,27 +99,26 @@
 					entry=none
 					]{
 						width = \textwidth,
-						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
+						colspec={|X[6,l]|X[10, l]|X[20, l]|}, 
 						rowhead = 1,
 					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
 					\hline \SetCell[c=3]{c}{\textbf{Korsnik}}	 \\ \hline[3pt]
-					\SetCell{LightGreen}Korisničko ime & STRING	& jedinstveni identifikator korisnika\\ \hline
+					\SetCell{LightGreen}Email & STRING	& email korisnika \\ \hline 
 					Lozinka	& STRING & hash lozinke\\ \hline 
 					Ime	& STRING &   ime korisnika	\\ \hline 
-					Prezime & STRING &  prezime korisnika \\ \hline 
-					Email & STRING	& email korisnika \\ \hline 
+					Prezime & STRING &  prezime korisnika \\ \hline
 					Adresa & STRING & lućna adresa korisnika \\ \hline 
-					Uloga & ROLE & uloga korisnika	\\ \hline 
-					Gradovi interesa & LIST<GRADOVI> & gradovi interesa korisnika \\ \hline 
-					Vrste interesa & LIST<VRSTE> & vrste interesa korisnika \\ \hline 
-					Događanja koja me zanimaju & LIST<DOGAĐANJA> & događanja koja zanimaju korisnika \\ \hline 
+					Uloga & ULOGA & uloga korisnika	\\ \hline 
+					Gradovi interesa & LIST$<$STRING$>$ & gradovi interesa korisnika \\ \hline 
+					Vrste interesa & LIST$<$VRSTA$>$ & vrste interesa korisnika \\ \hline  
 					Web stranica & STRING & link web stranice organizatora \\ \hline 
-					Facebook & STRING & link facebook profila organizatora \\ \hline 
-				\end{longtblr}
+					Facebook & STRING & link facebook profila organizatora \\ \hline
+					\end{longtblr}
+				
 		
 			
 
-				\textit{Svaku tablicu je potrebno opisati po zadanom predlošku. Lijevo se nalazi točno ime varijable u bazi podataka, u sredini se nalazi tip podataka, a desno se nalazi opis varijable. Svjetlozelenom bojom označite primarni ključ. Svjetlo plavom označite strani ključ}
+				\textbf{Događanje} Ovaj dokument sadrži informacije o pojedinačnom događanju. Sadrži atribute: ID, ime, vrsta, mjesto, adresu, datum, vrijeme početka, trajanje, opis, cijenu, foto galeriju, video galeriju i recenzije. Ovaj je dokument u vezi \textit{One-to-Many} s dokumentom Korisnik-Događanje preko atribute ID. Događanje se također nadovezuje na klase mjesto, foto, video i recenziju. Za mjesto bi se moglo reći da je u vezi \textit{One-to-One} jer ima samo jedno mjesto na kojem se događaj može odvijati, a za foto, video i recenzije bi se moglo reći da je u vezi \textit{One-to-Many} jer može imati po više takvih atributa. Zato su ti atributi zapisani u listi.
 				
 				
 				\begin{longtblr}[
@@ -70,29 +126,113 @@
 					entry=none
 					]{
 						width = \textwidth,
-						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
+						colspec={|X[6,l]|X[12, l]|X[20, l]|}, 
 						rowhead = 1,
 					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
 					\hline \SetCell[c=3]{c}{\textbf{Događanje}}	 \\ \hline[3pt]
 					\SetCell{LightGreen}ID & LONG &  	jedinstveni identifikator događanja\\ \hline
 					Ime	& STRING &   ime događanja	\\ \hline 
 					Vrsta & VRSTA &  vrsta događanja \\ \hline 
-					Grad & GRAD	&  grad događanja	\\ \hline 
+					Mjesto & MJESTO	&  grad događanja	\\ \hline 
 					Adresa & STRING	& adresa događanja \\ \hline 
 					Datum & DATE & datum održavanja	\\ \hline 
-					Vrijeme početka & STRING & vrijeme početka održavanja \\ \hline 
-					Trajanje & STRING & trajanje događanja \\ \hline 
+					Vrijeme početka & LOCALTIME & vrijeme početka održavanja \\ \hline 
+					Trajanje & LOCALTIME & trajanje događanja \\ \hline 
 					Opis & STRING & opis događanja \\ \hline 
 					Cijena & DOUBLE	&  cijena ulaznice	\\ \hline 
-					Foto galerija & LIST<FOTO> & fotografije događanja \\ \hline 
-					Video galerija & LIST<VIDEO> & video zapisi događanja \\ \hline
-					Recenzije & LIST<RECENZIJE> & recenzije događanja \\ \hline
+					\SetCell{LightPink}Foto galerija & LIST$<$FOTO$>$ & fotografije događanja \\ \hline 
+					\SetCell{LightPink}Video galerija & LIST$<$VIDEO$>$ & video zapisi događanja \\ \hline
+					\SetCell{LightPink}Recenzije & LIST$<$RECENZIJA$>$ & recenzije događanja \\ \hline
+					\end{longtblr}
+				
+
+				\textbf{Korisnik-Događanje}	Ovaj dokument sadrži informacije o odnosu korisnika i događaja. Glavna zadaća mu je da čuva informaciju o tome koji se korisnik izjasni da će doći na koje događanje. Sadrži atribute: email, ID i interes. Sa korisnikom i sa događanjem je povezan \textit{Many-to-One} vezom preko emaila i IDa.
+				
+				
+				\begin{longtblr}[
+					label=none,
+					entry=none
+					]{
+						width = \textwidth,
+						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
+						rowhead = 1,
+					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
+					\hline \SetCell[c=3]{c}{\textbf{Korisnik-Događanje}}	 \\ \hline[3pt]
+					\SetCell{LightBlue}Email & STRING & email posjetitelja \\ \hline
+					\SetCell{LightBlue}ID & LONG & identifikator događaja \\ \hline
+					Interes & INTEREST & interes posjetitelja \\ \hline 
+				\end{longtblr}
+				
+				\eject				
+				
+				
+				
+				
+				
+				\textbf{\large Klase}\\
+				
+				
+				
+				\textbf{Mjesto} Ova klasa sadrži informacije o mjestima na kojima se mogu održavati događanja. Atributi mjesta su: ID, ime, poštanski broj, grad i županija. Mjesto je klasa koju koristi događanje \textit{"relaciji"} \textit{One-to-One}. 
+				
+				\begin{longtblr}[
+					label=none,
+					entry=none
+					]{
+						width = \textwidth,
+						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
+						rowhead = 1,
+					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
+					\hline \SetCell[c=3]{c}{\textbf{Mjesto}}	 \\ \hline[3pt]
+					\SetCell{LightGreen}ID & LONG	&  	jedinstveni identifikator mjesta	\\ \hline
+					Ime & STRING & ime mjesta \\ \hline 
+					Poštanski broj & INTEGER & datum ostavljanje recenzije  \\ \hline 
+					Grad & STRING & grad u kojem se nalazi mjesto  \\ \hline 
+					Županija & STRING & županija u kojoj se mjesto nalazi  \\ \hline 
 					
 				\end{longtblr}
 				
 				
-				\textit{Svaku tablicu je potrebno opisati po zadanom predlošku. Lijevo se nalazi točno ime varijable u bazi podataka, u sredini se nalazi tip podataka, a desno se nalazi opis varijable. Svjetlozelenom bojom označite primarni ključ. Svjetlo plavom označite strani ključ}
 				
+				\textbf{Foto} Ova klasa sadrži informacije o fotografijama koje se nalaze u galeriji događanja. Atributi foto-a su: url i datum. Foto je klasa koja je \textit{"povezana"} s događanjem preko \textit{Many-to-One} vezom. 
+				
+				\begin{longtblr}[
+					label=none,
+					entry=none
+					]{
+						width = \textwidth,
+						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
+						rowhead = 1,
+					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
+					\hline \SetCell[c=3]{c}{\textbf{Foto}}	 \\ \hline[3pt]
+					\SetCell{LightGreen}URL & STRING & jedinstveni url fotografije	\\ \hline
+					Datum & DATE & datum objave fotografije  \\ \hline 
+					
+				\end{longtblr}
+				
+				
+				
+					
+				\textbf{Video} Ova klasa sadrži informacije o videozapisima koji se nalaze u galeriji događanja. Atributi videa su: url i datum. Video je klasa koja je \textit{"povezana"} s događanjem preko \textit{Many-to-One} vezom. 
+				
+				\begin{longtblr}[
+					label=none,
+					entry=none
+					]{
+						width = \textwidth,
+						colspec={|X[6,l]|X[6, l]|X[20, l]|}, 
+						rowhead = 1,
+					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
+					\hline \SetCell[c=3]{c}{\textbf{Video}}	 \\ \hline[3pt]
+					\SetCell{LightGreen}URL & STRING & jedinstveni url videozapisa \\ \hline
+					Datum & DATE & datum objave videozapisa  \\ \hline 
+				\end{longtblr}
+				
+				
+				
+				
+				
+				\textbf{Recenzija} Ova klasa sadrži informacije o recenzijama koje su korisnici ostavili na događanja. Ova klasa sadrži atribute: korisničko ime, sadržaj i datum. Recenzija je klasa koja spada pod događanje i s njime je \textit{"povezana"} \textit{Many-to-One} vezom, a s korisnikom je povezana kao u relacijskoj bazi preko emaila \textit{Many-to-One} vezom.
 				
 				\begin{longtblr}[
 					label=none,
@@ -103,29 +243,35 @@
 						rowhead = 1,
 					} %definicija širine tablice, širine stupaca, poravnanje i broja redaka naslova tablice
 					\hline \SetCell[c=3]{c}{\textbf{Recenzija}}	 \\ \hline[3pt]
-					\SetCell{LightGreen}ID & LONG	&  	jedinstveni identifikator recenzije	\\ \hline
+					\SetCell{LightBlue}Email & STRING & email korisnika koji je napisao recenziju  \\ \hline 
 					Sadržaj & STRING & sadržaj recenzije \\ \hline 
-					Datum & DATE & datum ostavljanje recenzije  \\ \hline 
-					eventLocation & VARCHAR	&  		\\ \hline 
-					eventDate & VARCHAR &   	\\ \hline 
-					eventStartTime & VARCHAR &   	\\ \hline 
-					eventDuratin & VARCHAR &   	\\ \hline 
-					description & VARCHAR &   	\\ \hline 
-					gallery & VARCHAR &   	\\ \hline 
+					Datum & DATE & datum objave recenzije  \\ \hline 
+					
 				\end{longtblr}
+				
+				\eject
 				
 				
 				
 				
 			
 			\subsection{Dijagram baze podataka}
-				\textit{ U ovom potpoglavlju potrebno je umetnuti dijagram baze podataka. Primarni i strani ključevi moraju biti označeni, a tablice povezane. Bazu podataka je potrebno normalizirati. Podsjetite se kolegija "Baze podataka".}
-			
+				%\textit{ U ovom potpoglavlju potrebno je umetnuti dijagram baze podataka. Primarni i strani ključevi moraju biti označeni, a tablice povezane. Bazu podataka je potrebno normalizirati. Podsjetite se kolegija "Baze podataka".}
+				Pošto baza nije relacijska sam dijagram je teže skicirati. Stoga smo radi jednostavnosti odlučili dijagram naše baze skicirati kao da je relacijska. Na dijagramu su dokumenti korišteni u bazi označeni velikim tiskanim slovima, dok su klase koje reprezentiraju atribute u dokumentima označene malim tiskanim slovima i spojene s atributom u kojem se nalaze. U dokumentima su klase pak navedene velikim tiskanim slovima, a one koje se nalaze unutar uglatih zagrada smještene su u listu s više jednakih objekata. Recenzija je jedini rubni slučaj u kojem se korisničko ime zapravo uzima kao foreign key od korisnika, ali je također i u listi atributa u događanju. Program za izradu dijagrama nije imao mogućnost da razdvojimo takve slučajeve pa te veze izgledaju isto.
+				
+				
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{slike/Dijagram_baza.PNG} %veličina u odnosu na širinu linije
+			\caption{Dijagram baze podataka}
+			\label{fig:promjene2} %label mora biti drugaciji za svaku sliku
+		\end{figure}
 			\eject
 			
 			
 		\section{Dijagram razreda}
 		
+		
+		\begin{comment}
 			\textit{Potrebno je priložiti dijagram razreda s pripadajućim opisom. Zbog preglednosti je moguće dijagram razlomiti na više njih, ali moraju biti grupirani prema sličnim razinama apstrakcije i srodnim funkcionalnostima.}\\
 			
 			\textbf{\textit{dio 1. revizije}}\\
@@ -135,6 +281,16 @@
 			\textbf{\textit{dio 2. revizije}}\\			
 			
 			\textit{Prilikom druge predaje projekta dijagram razreda i opisi moraju odgovarati stvarnom stanju implementacije}
+		\end{comment}
+		
+			Sljedeći dijagram preslikava logičku i podatkovnu strukturu aplikacije. Razred Korisnik je apstraktni razred koji nasljeđuju tri razreda za tri vrste korisnika u sustavu: Organizator, Posjetitelj i Administrator. Svaki od ta tri razreda predstavlja odgovarajućeg registriranog korisnika. Razred Događaj predstavlja događaj objavljen od strane nekog organizatora. Razred Galerija predstavlja skup foto i video sadržaja dostupnih uz pododatke o događaju u aplikaciji. Sadržaj je apstraktna  klasa čije su instance sadržane u galeriji. Klasu Sadržaj nasljeđuju klasa Fotografija i klasa Video. Razred Interes pomoću enumeracije Status sprema podatke o interesu posjetitelja za događaje. Razred Recenzija predstavlja recenziju koju je neki posjetitelj ostavio za neki događaj.
+		
+		
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{slike/Dijagram_razreda.PNG} %veličina u odnosu na širinu linije
+			\caption{Dijagram razreda}
+			\label{fig:promjene2} %label mora biti drugaciji za svaku sliku
+		\end{figure}
 			
 			
 			

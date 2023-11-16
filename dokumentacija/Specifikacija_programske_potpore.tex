@@ -7,9 +7,9 @@
 			
 			%\textbf{\textit{dio 1. revizije}}\\
 			
-			\textit{Navesti \textbf{dionike} koji imaju \textbf{interes u ovom sustavu} ili  \textbf{su nositelji odgovornosti}. To su prije svega korisnici, ali i administratori sustava, naručitelji, razvojni tim.}\\
+		%	\textit{Navesti \textbf{dionike} koji imaju \textbf{interes u ovom sustavu} ili  \textbf{su nositelji odgovornosti}. To su prije svega korisnici, ali i administratori sustava, naručitelji, razvojni tim.}\\
 				
-			\textit{Navesti \textbf{aktore} koji izravno \textbf{koriste} ili \textbf{komuniciraju sa sustavom}. Oni mogu imati inicijatorsku ulogu, tj. započinju određene procese u sustavu ili samo sudioničku ulogu, tj. obavljaju određeni posao. Za svakog aktora navesti funkcionalne zahtjeve koji se na njega odnose.}\\
+			%\textit{Navesti \textbf{aktore} koji izravno \textbf{koriste} ili \textbf{komuniciraju sa sustavom}. Oni mogu imati inicijatorsku ulogu, tj. započinju određene procese u sustavu ili samo sudioničku ulogu, tj. obavljaju određeni posao. Za svakog aktora navesti funkcionalne zahtjeve koji se na njega odnose.}\\
 			
 			
 			\noindent \textbf{Dionici:}
@@ -31,7 +31,7 @@
 				\begin{packed_enum}
 					
 					\item pregled događanja
-					\item odabir događanja i pregled općih informacija o događaju
+					\item odabir događanja i pregled općih informacija o događanju
 					\item mogućnost registriranja kao posjetitelj, organizator ili administrator
 					
 				\end{packed_enum}
@@ -40,7 +40,7 @@
 				
 				\begin{packed_enum}
 					
-					\item pregled i mogućnost mijenjanja osobnih podataka
+					\item pregled i mogućnost izmjene osobnih podataka
 					\item brisanje vlastitog računa
 					\item mogućnost ostavljanja recenzije na događaj
 					\item mogućnost ostavljanja oznake zainteresiranosti za neki događaj
@@ -55,6 +55,7 @@
 									
 					\item dodavanje događanja
 					\item uređivanje informacija o svom događanju
+					\item brisanje događanja
 					\item obaveza plaćanja članarine ako se događanja naplaćuju
 					
 					
@@ -104,10 +105,10 @@
 				
 			\subsection{Obrasci uporabe}
 				
-				\textbf{\textit{dio 1. revizije}}
+				%\textbf{\textit{dio 1. revizije}}
 				
 				\subsubsection{Opis obrazaca uporabe}
-					\textit{Funkcionalne zahtjeve razraditi u obliku obrazaca uporabe. Svaki obrazac je potrebno razraditi prema donjem predlošku. Ukoliko u nekom koraku može doći do odstupanja, potrebno je to odstupanje opisati i po mogućnosti ponuditi rješenje kojim bi se tijek obrasca vratio na osnovni tijek.}\\
+					%\textit{Funkcionalne zahtjeve razraditi u obliku obrazaca uporabe. Svaki obrazac je potrebno razraditi prema donjem predlošku. Ukoliko u nekom koraku može doći do odstupanja, potrebno je to odstupanje opisati i po mogućnosti ponuditi rješenje kojim bi se tijek obrasca vratio na osnovni tijek.}\\
 					
 
 					\noindent \underbar{\textbf{UC1 -Pregled događanja}}
@@ -168,7 +169,7 @@
 						\item \textbf{Glavni sudionik: }Posjetitelj
 						\item  \textbf{Cilj:} Prijava u vlastiti korisnički račun
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} obavljena registracija
+						\item  \textbf{Preduvjet:} posjetitelj je prijavljen
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
@@ -721,7 +722,7 @@
 					
 				\subsubsection{Dijagrami obrazaca uporabe}
 					
-					\textit{Prikazati odnos aktora i obrazaca uporabe odgovarajućim UML dijagramom. Nije nužno nacrtati sve na jednom dijagramu. Modelirati po razinama apstrakcije i skupovima srodnih funkcionalnosti.}
+					%\textit{Prikazati odnos aktora i obrazaca uporabe odgovarajućim UML dijagramom. Nije nužno nacrtati sve na jednom dijagramu. Modelirati po razinama apstrakcije i skupovima srodnih funkcionalnosti.}
 					
 					\begin{figure}[H]
 						\includegraphics[scale=0.6]{slike/UC_dijagram1-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
@@ -740,7 +741,7 @@
 				
 			\subsection{Sekvencijski dijagrami}
 				
-				\textbf{\textit{dio 1. revizije}}\\
+				%\textbf{\textit{dio 1. revizije}}\\
 				
 				%\textit{Nacrtati sekvencijske dijagrame koji modeliraju najvažnije dijelove sustava (max. 4 dijagrama). Ukoliko postoji nedoumica oko odabira, razjasniti s asistentom. Uz svaki dijagram napisati detaljni opis dijagrama.}
 				
@@ -750,7 +751,7 @@
 				
 				Klijent odabirom opcije za registraciju šalje zahtjev za prikaz odgovarajuće stranice. Poslužitelj dohvaća tu stranicu I prikazuje ju. Klijent unosi osobne podatke, postavlja lozinku I bira ulogu. Aplikacija provjerava jesu li svi podatci u traženom format I postoji li već takav klijent u sustavu. Ako podatci nisu u zadanom fomratu, aplikacija šalje obavijest o tome I klijent iznova unosi potrebne podatke. Ako takav klijent već postoji u sustavu, aplikacija klijentu šalje obavijest o tome. Ako su podatci uneseni u traženom format i takav klijent ne postoji u sustavu, aplikacija u bazu podataka prosljeđuje dobivenepodatke, a klijentu šalje obavijest o uspješnoj registraciji.ć
 				\begin{figure}[H]
-						\includegraphics[scale=0.7]{slike/sek_dijagram1-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+						\includegraphics[scale=0.7]{slike/uc2-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
 						\centering
 						\caption{Sekvencijski dijagram za UC2}
 						\label{fig:promjene}
@@ -766,7 +767,7 @@
 
 				Korisnik šalje zahtjev za prikaz stranice za izmjenu podataka. Poslužitelj dihvaća I prikazuje traženu stranicu. Korisnik izmjenjuje svoje podatke i odabire opciju za spremanje podataka. Ukoliko korisnik ne odabere tu opciju, poslužitelj korisniku notifikacijom skreće pozornost na to. Ukoliko podatci ne zadovoljavaju traženi format, aplikacija notifikacijom skreće korisniku pozornost na to. Ukoliko su podatci u traženom formatu, poslužitelj ih ažurira u bazi podataka.
 				\begin{figure}[H]
-						\includegraphics[scale=0.7]{slike/sek_dijagram2-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+						\includegraphics[scale=0.7]{slike/uc5-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
 						\centering
 						\caption{Sekvencijski dijagram za UC5}
 						\label{fig:promjene}
@@ -782,7 +783,7 @@
 				Klijent poslužitelju šalje zahtjev za prikaz stranice za kreiranje novog događaja. Poslužitelj dohvaća traženu stranicu I prikazuje ju. Klijent unosi podatke I fotografije, a po izboru I cijenu ulaznice. Ako je klijent postavio cijenu događanja, poslužitelj dohvaća podatke o klijentu Iz baze podataka I provjerava je li pretplaćen na plaćenu verziju aplikacije. Ako nije, poslužitelj ga o tome obavještava notifikacijom i klijent prihvaća ili odbija pretplatiti se. Ako se pretplati, poslužitelj unosi događanje u bazu podataka. Ako klijent ne postavi cijenu događanja, poslužitelj nista ne provjerava i sprema podatke o događanju u bazu podataka.
 				
 				\begin{figure}[H]
-						\includegraphics[scale=0.7]{slike/sek_dijagram3-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+						\includegraphics[scale=0.7]{slike/uc14-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
 						\centering
 						\caption{Sekvencijski dijagram za UC14}
 						\label{fig:promjene}
@@ -796,7 +797,7 @@
 				Administrator odabire opciju za prikaz stranice za pregled korisnika. Poslužitelj dohvaća stranicu i prikazuje ju administrator. Administrator odabire korisnika kojeg treba izbrisati. Potvrđuje svoj odabir I time šalje zahtjev za brisanjem poslužitelju. Poslužitelj dohvaća bazu podataka I iz nje uklanja podatke o korisniku I samog korisnika. Administratoru šalje obavijest o uspješnom brisanju.
 				
 				\begin{figure}[H]
-						\includegraphics[scale=0.7]{slike/sek_dijagram4-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+						\includegraphics[scale=0.7]{slike/uc20-1.PNG} %veličina slike u odnosu na originalnu datoteku i pozicija slike
 						\centering
 						\caption{Sekvencijski dijagram za UC20}
 						\label{fig:promjene}
