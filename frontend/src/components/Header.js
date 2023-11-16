@@ -1,10 +1,10 @@
 import './Header.css'
 import { useNavigate, Routes, Route } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext'
 
 function Header() {
     const navigate = useNavigate()
-    const { isAuthenticated, username, logout } = useAuth()
+    const { username, logout, token } = useAuth()
 
     function handleLogin(event) {
         event.preventDefault()
@@ -29,19 +29,17 @@ function Header() {
                     path="/"
                     element={
                         <>
-                        {isAuthenticated && <p className="WelcomeText">Welcome, {username}!</p>}
-                        <div className="UserButtons">
-                            {isAuthenticated ? (
-                                
-                                <button onClick={logout}>Logout</button>
-                                
-                            ) : (
-                                <>
-                                    <button onClick={handleLogin}>Login</button>
-                                    <button onClick={handleRegister}>Register</button>
-                                </>
-                            )}
-                        </div>
+                            {token != null && <p className="WelcomeText">Welcome, {username}!</p>}
+                            <div className="UserButtons">
+                                {token != null ? (
+                                    <button onClick={logout}>Logout</button>
+                                ) : (
+                                    <>
+                                        <button onClick={handleLogin}>Login</button>
+                                        <button onClick={handleRegister}>Register</button>
+                                    </>
+                                )}
+                            </div>
                         </>
                     }
                 />
