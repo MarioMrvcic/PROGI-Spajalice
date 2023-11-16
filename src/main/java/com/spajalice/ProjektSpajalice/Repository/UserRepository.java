@@ -9,8 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends MongoRepository<User,Long> {
+public interface UserRepository extends MongoRepository<User,String> {
     // Custom method to find users by their role
     // Returns an Optional containing a List of users with the specified role
     Optional<List<User>> findByRole(Role role);
+
+    Optional<User> findByEmail(String email);
 }

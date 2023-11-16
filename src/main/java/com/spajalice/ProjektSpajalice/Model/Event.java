@@ -16,7 +16,7 @@ public class Event {
     private Long _id;
     private String eventName;
     private EventType eventType;
-    private Place eventLocationId;
+    private Place eventLocation;
     private Date eventDate;
     private LocalTime eventStartTime;
     private LocalTime eventDuration;

@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class EventUser {
-    private Long userId;
+    private String userId;
     private Interest interest;
 }

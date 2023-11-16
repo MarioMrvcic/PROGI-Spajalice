@@ -18,8 +18,7 @@ import java.util.Optional;
 
 
 public class UserController {
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @Autowired
     private UserService userService;
 
@@ -33,28 +32,6 @@ public class UserController {
         return "User functionality is working";
     }
 
-    /**
-     * Endpoint to register a new user.
-     *
-     * @param user The user to be registered.
-     * @return ResponseEntity with the registered user or an error status.
-     */
-    @PostMapping("/registerUser")
-    public ResponseEntity<User> registerUser(@RequestBody User user) {
-        try {
-            // Encrypt the user's password before saving
-            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-
-            // Save the user to the system
-            User _user = userService.saveUser(user);
-
-            // Return the registered user
-            return new ResponseEntity<>(_user, HttpStatus.CREATED);
-        } catch (Exception e) {
-            // Return an error response in case of an exception
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
 
     /**
      * Endpoint to get all organisers.

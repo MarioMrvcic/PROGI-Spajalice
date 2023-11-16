@@ -1,7 +1,9 @@
 package com.spajalice.ProjektSpajalice.Controller;
 
 import com.spajalice.ProjektSpajalice.Model.Event;
+import com.spajalice.ProjektSpajalice.Model.Review;
 import com.spajalice.ProjektSpajalice.Services.EventService;
+import com.spajalice.ProjektSpajalice.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -114,6 +116,5 @@ public class EventController {
     public ResponseEntity<Optional<List<Event>>> getEventsNext30Days() {
         return new ResponseEntity<>(eventService.eventsNext30days(), HttpStatus.OK);
     }
-
 
 }
