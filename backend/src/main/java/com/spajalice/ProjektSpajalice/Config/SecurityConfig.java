@@ -37,7 +37,7 @@ public class SecurityConfig {
                 .cors(cors -> {
                     CorsConfiguration corsConfig = new CorsConfiguration();
                     corsConfig.setAllowCredentials(true);
-                    corsConfig.addAllowedOriginPattern("http://localhost:3000"); // Or use addAllowedOrigin for specific origins
+                    corsConfig.addAllowedOriginPattern("https://spring-render-e8xw.onrender.com"); // Or use addAllowedOrigin for specific origins
                     corsConfig.addAllowedHeader("Authorization");
                     corsConfig.addAllowedHeader("Content-Type"); /// Or specify explicit headers you want to allow
                     corsConfig.addAllowedMethod(HttpMethod.GET);
