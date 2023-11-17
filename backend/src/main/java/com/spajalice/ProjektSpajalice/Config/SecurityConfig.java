@@ -28,7 +28,8 @@ public class SecurityConfig {
             "/login",
             "/register",
             "/api/getEvents",
-            "/api/auth/**"
+            "/api/auth/**",
+            "https://spring-render-back.onrender.com/favicon.ico"
     };
 
     @Bean
