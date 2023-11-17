@@ -1,5 +1,7 @@
 package com.spajalice.ProjektSpajalice.Model;
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,6 +17,7 @@ public class Event {
     @Id
     private Long _id;
     private String eventName;
+    @Enumerated(EnumType.STRING)
     private EventType eventType;
     private Place eventLocation;
     private Date eventDate;
@@ -25,7 +28,5 @@ public class Event {
     private List<Review> reviews;
     private List<Video>  videos;
     private List<Photo>  photos;
-    private List<EventUser> peopleComing;
-
 }
 

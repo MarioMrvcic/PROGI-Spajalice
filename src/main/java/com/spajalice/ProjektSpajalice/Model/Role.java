@@ -2,5 +2,6 @@ package com.spajalice.ProjektSpajalice.Model;
 
 public enum Role {
     ORGANIZER,
-    VISITOR
+    VISITOR,
+    ADMIN
 }

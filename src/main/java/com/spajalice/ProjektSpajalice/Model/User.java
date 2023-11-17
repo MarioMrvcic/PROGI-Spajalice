@@ -20,7 +20,6 @@ public class User implements UserDetails {
 
     @Id
     private String email;
-    private String userUsername;
     private String firstName;
     private String lastName;
     private String address;
@@ -29,9 +28,8 @@ public class User implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
-    private List<Long> myEvents;
-    private List<Long> intrestedInPlaces;
     private List<EventType> intrestedInTypes;
+    private List<Place> intrestedInPlace;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
