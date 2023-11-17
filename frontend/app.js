@@ -14,7 +14,7 @@ const HOST = process.env.HOST || "localhost";
 app.use(
     "/api",
     createProxyMiddleware({
-        target: "https://poster-rangers-be.onrender.com",
+        target: "https://spring-render-back.onrender.com",
         changeOrigin: true,
     }),
 );
