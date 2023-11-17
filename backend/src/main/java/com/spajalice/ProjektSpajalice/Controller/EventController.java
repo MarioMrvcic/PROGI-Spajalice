@@ -63,6 +63,7 @@ public class EventController {
      */
     @GetMapping("/getEvents")
     public ResponseEntity<List<Event>> getAllEvents() {
+        System.out.println("Handling HTTP request for /api/your-endpoint");
         List<Event> events = eventService.allEvents();
         if (events.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
