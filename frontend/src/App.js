@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
-import './src/App.css'
-import Header from './src/components/Header'
-import Main from './src/components/Main'
-import Login from './src/components/Login'
-import Register from './src/components/Register'
+import './App.css'
+import Header from './components/Header'
+import Main from './components/Main'
+import Login from './components/Login'
+import Register from './components/Register'
 
 function App() {
     return (
