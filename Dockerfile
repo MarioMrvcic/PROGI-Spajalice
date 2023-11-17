@@ -42,4 +42,4 @@ COPY --from=frontend /frontend/build/ /frontend/build/
 EXPOSE 8080
 
 # Set the entry point to run the Spring Boot app
-ENTRYPOINT ["java", "-jar", "PROGI-Spajalice.jar"]
+ENTRYPOINT ["java", "-jar", "ProjektSpajalice.jar"]
