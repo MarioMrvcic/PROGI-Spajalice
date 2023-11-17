@@ -1,45 +1,23 @@
-# Build Stage
-FROM maven:3.8.4-openjdk-17 AS build
+FROM openjdk:17-alpine AS builder
 
-# Set working directory to the backend directory
-WORKDIR /src
+# Kopiranje izvornog koda u container
+COPY /.mvn .mvn
+COPY /mvnw .
+COPY /pom.xml .
+COPY /src src
 
-# Copy the Maven POM file
-COPY pom.xml .
+RUN chmod +x mvnw
 
-# Copy the entire backend source code
-COPY src/ src/
+RUN ./mvnw clean package -DskipTests
 
-# Build the backend
-RUN mvn clean package -DskipTests
+# Stvaranje containera u kojem ce se vrtiti aplikacija
+FROM openjdk:17-alpine
 
-# Frontend Stage
-FROM node:14 AS frontend
+# Kopiranje izvrsnog JAR-a iz build containera u izvrsni container
+COPY --from=builder target/*.jar /app.jar
 
-# Set working directory to the frontend directory
-WORKDIR /frontend
-
-# Copy the frontend source code
-COPY frontend/ .
-
-# Install dependencies and build the React app
-RUN npm install
-RUN npm run build
-
-# Final Stage
-FROM openjdk:17.0.1-jdk-slim
-
-# Set working directory to the backend directory
-WORKDIR /src
-
-# Copy the compiled JAR file from the build stage
-COPY --from=build /src/target/ProjektSpajalice-0.0.1-SNAPSHOT.jar ProjektSpajalice.jar
-
-# Copy the built React app from the frontend stage
-COPY --from=frontend /frontend/build/ /frontend/build/
-
-# Expose the port for the Spring Boot app
+# Izlaganje porta
 EXPOSE 8080
 
-# Set the entry point to run the Spring Boot app
-ENTRYPOINT ["java", "-jar", "ProjektSpajalice.jar"]
+# Naredba kojom se pokrece aplikacija
+ENTRYPOINT ["java","-jar","/app.jar"]
