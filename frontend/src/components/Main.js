@@ -5,10 +5,16 @@ import { React, useState, useEffect } from 'react'
 function Main() {
     const [events, setEvents] = useState([])
     useEffect(() => {
-        fetch('/api/getEvents')
+        fetch('/api/getEvents', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
             .then((data) => data.json())
             .then((events) => setEvents(events))
-    }, [])
+    }, []);
+
 
     return (
         <div className="Main">
