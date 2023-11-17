@@ -25,7 +25,6 @@ public class SecurityConfig {
 
     private static final String[] WHITE_LIST_URL = {
             "/",
-            "/*",
             "/login",
             "/register",
             "/api/getEvents",
@@ -58,7 +57,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
