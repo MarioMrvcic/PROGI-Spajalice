@@ -30,10 +30,10 @@ RUN npm run build
 FROM openjdk:17.0.1-jdk-slim
 
 # Set working directory to the backend directory
-WORKDIR /backend
+WORKDIR /src
 
 # Copy the compiled JAR file from the build stage
-COPY --from=build /backend/target/PROGI-Spajalice-0.0.1-SNAPSHOT.jar PROGI-Spajalice.jar
+COPY --from=build /src/target/ProjektSpajalice-0.0.1-SNAPSHOT.jar ProjektSpajalice.jar
 
 # Copy the built React app from the frontend stage
 COPY --from=frontend /frontend/build/ /frontend/build/
