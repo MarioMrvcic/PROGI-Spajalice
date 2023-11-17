@@ -1,36 +1,23 @@
-# Builder stage
 FROM openjdk:17-alpine AS builder
 
-# Set the working directory
-WORKDIR /app
+# Kopiranje izvornog koda u container
+COPY .mvn .mvn
+COPY mvnw .
+COPY pom.xml .
+COPY src src
 
-# Copy the Maven wrapper files (if present)
-COPY /backend/.mvn .mvn
-
-# Copy the Maven wrapper script and the POM file
-COPY /backend/mvnw .
-COPY /backend/pom.xml .
-
-# Copy the source code
-COPY /backend/src src
-
-# Make the Maven wrapper executable
 RUN chmod +x mvnw
 
-# Build the application
 RUN ./mvnw clean package -DskipTests
 
-# Application stage
+# Stvaranje containera u kojem ce se vrtiti aplikacija
 FROM openjdk:17-alpine
 
-# Set the working directory
-WORKDIR /app
+# Kopiranje izvrsnog JAR-a iz build containera u izvrsni container
+COPY --from=builder target/*.jar /app.jar
 
-# Copy the JAR file from the builder stage
-COPY --from=builder /app/target/*.jar /app/app.jar
-
-# Expose the port
+# Izlaganje porta
 EXPOSE 8080
 
-# Command to run the application
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+# Naredba kojom se pokrece aplikacija
+ENTRYPOINT ["java","-jar","/app.jar"]
