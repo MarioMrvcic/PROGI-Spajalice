@@ -4,21 +4,20 @@ import { useState } from 'react'
 
 function Register() {
     const navigate = useNavigate()
-    const [name, setName] = useState('')
-    const [surname, setSurname] = useState('')
-    const [username, setUsername] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     function handleSubmit(event) {
         event.preventDefault()
 
-        if (!username || !password || !name || !surname || !email) {
+        if (!password || !firstName || !lastName || !email) {
             alert('Please fill in all the required fields.');
             return;
           }
 
-        const userToRegister = { username, password, name: `${name} ${surname}`, email }
+        const userToRegister = { password, firstName, lastName, email }
         fetch('/api/auth/register', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -36,11 +35,9 @@ function Register() {
             <h1>Register</h1>
             <form className="register--form">
                 <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
+                <input type="text" id="name" name="name" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
                 <label htmlFor="surname">Surname:</label>
-                <input type="text" id="surname" name="surname" value={surname} onChange={(e) => setSurname(e.target.value)} />
-                <label htmlFor="username">Username:</label>
-                <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                <input type="text" id="surname" name="surname" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                 <label htmlFor="email">Email:</label>
                 <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <label htmlFor="password">Password:</label> 
