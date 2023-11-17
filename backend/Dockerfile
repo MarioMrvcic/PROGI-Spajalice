@@ -1,7 +1,7 @@
 FROM openjdk:17-alpine AS builder
 
 # Kopiranje izvornog koda u container
-COPY /.mvn .mvn
+COPY /backend/.mvn .mvn
 COPY /backend/mvnw .
 COPY /backend/pom.xml .
 COPY /backend/src src
