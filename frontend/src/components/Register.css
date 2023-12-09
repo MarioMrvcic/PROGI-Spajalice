@@ -27,7 +27,7 @@
 .register--form label {
     display: block;
     margin-bottom: 8px;
-    font-size: 14px;
+    font-size: 16px;
     color: gray;
     font-family: 'Poppins', sans-serif;
 }
@@ -62,3 +62,22 @@
     background-color: darkred;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+
+.register--form input[type='radio'] {
+    margin-right: 5px; /* Add some spacing between the radio button and the label */
+}
+
+.register--form label input[type='radio'] {
+    position: relative;
+    top: -2px; /* Adjust the vertical alignment of the radio button */
+}
+
+.register--form label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Adjusted margin for labels with radio buttons */
+    font-size: 14px;
+    color: gray;
+    font-family: 'Poppins', sans-serif;
+}
+

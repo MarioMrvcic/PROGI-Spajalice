@@ -28,7 +28,7 @@ public class AuthenticationService {
                 .websiteUrl(request.getWebsiteUrl())
                 .facebookUrl(request.getFacebookUrl())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.VISITOR)
+                .role(request.getRole())
                 .build();
         userRepository.save(user);
         var jwtToken= jwtService.generateToken(user);
@@ -49,6 +49,7 @@ public class AuthenticationService {
         var jwtToken= jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
+                .name(user.getFirstName())
                 .build();
     }
 }

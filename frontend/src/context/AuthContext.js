@@ -4,34 +4,39 @@ import { useEffect } from 'react'
 const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [token, setToken] = useState(null)
+    const [name, setName] = useState('')
 
     useEffect(() => {
         const storedAuthState = localStorage.getItem('authState')
         if (storedAuthState) {
-            const { username: storedUsername, token: storedToken } = JSON.parse(storedAuthState)
-            setUsername(storedUsername)
+            const { email: storedEmail, token: storedToken } = JSON.parse(storedAuthState)
+            setEmail(storedEmail)
             setToken(storedToken)
         }
     }, [])
 
-    const login = async (username, password) => {
+    const login = async (email, password) => {
         try {
             const response = await fetch('/api/auth/authenticate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email: username, password }),
+                body: JSON.stringify({ email, password }),
             })
+
             if (response.ok) {
                 const responseData = await response.json()
+                const receivedName = responseData.name
                 const receivedToken = responseData.token
-                setToken(receivedToken)
-                setUsername(username)
 
-                localStorage.setItem('authState', JSON.stringify({ username, token: receivedToken }))
+                setToken(receivedToken)
+                setEmail(email)
+                setName(receivedName)
+
+                localStorage.setItem('authState', JSON.stringify({ email, token: receivedToken }))
                 return true
             } else {
                 console.error('Login failed:', response.statusText)
@@ -44,12 +49,13 @@ export const AuthProvider = ({ children }) => {
     }
 
     const logout = () => {
-        setUsername('')
+        setEmail('')
         setToken(null)
+        setName('')
         localStorage.removeItem('authState')
     }
 
-    return <AuthContext.Provider value={{ username, token, login, logout }}>{children}</AuthContext.Provider>
+    return <AuthContext.Provider value={{ email, token, name, login, logout }}>{children}</AuthContext.Provider>
 }
 
 export const useAuth = () => {

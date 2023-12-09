@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext'
 
 function Header() {
     const navigate = useNavigate()
-    const { username, logout, token } = useAuth()
+    const { email, logout, token ,name } = useAuth()
 
     function handleLogin(event) {
         event.preventDefault()
@@ -29,7 +29,7 @@ function Header() {
                     path="/"
                     element={
                         <>
-                            {token != null && <p className="WelcomeText">Welcome, {username}!</p>}
+                            {token != null && <p className="WelcomeText">Welcome, {name}!</p>}
                             <div className="UserButtons">
                                 {token != null ? (
                                     <button onClick={logout}>Logout</button>
