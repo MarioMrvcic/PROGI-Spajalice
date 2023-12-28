@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import './ManageEvent.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function ManageEvent(){
     const navigate = useNavigate();
@@ -11,6 +11,32 @@ function ManageEvent(){
     const [eventDuration, setEventDuration] = useState('');
     const [eventDescription, setEventDescription] = useState('');
 
+    function setMinDate(){
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementsByName("eventDate")[0].setAttribute('min', today);
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        if (!eventName || !eventType || !eventDate || !eventStartTime || !eventDuration || !eventDescription) {
+            alert('Please fill in all the fields');
+            return;
+        }
+
+        const eventToCreate = {
+            eventName,
+            eventType,
+            eventDate,
+            eventStartTime,
+            eventDuration,
+            eventDescription,
+        };
+    }
+
+    useEffect(() => {
+        setMinDate();
+      }, []);
     return (
         <div className="manageEvent">
             <h1>Manage Event:</h1>
@@ -63,6 +89,7 @@ function ManageEvent(){
                         value={eventDescription}
                         onChange={(e) => setEventDescription(e.target.value)}
                     />
+                    <input type="submit" value="Submit" onClick={handleSubmit}/>
             </form>
         </div>
     )
