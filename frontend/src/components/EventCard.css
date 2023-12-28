@@ -82,6 +82,60 @@ p {
     height: 100%;
 }
 
+.EventPage--name {
+    display: flex;
+    font-size: 40px;
+    margin: 2px 0;
+}
+
+.EventPage--text {
+    display: flex;
+    flex-direction: column;
+    margin: 12px;
+}
+
+.EventPage--info {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.EventPage--info > p {
+    font-size: 26px;
+}
+
+.EventPage--dodatno {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.EventPage--hostName {
+    width: 145px;
+    background-color: #ed6a5a;
+    color: #3f4a61;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.EventPage--button {
+    width: 160px;
+    height: 40px;
+    background-color: #533b4d;
+    color: #f4f1bb;
+    border: 2px solid #f4f1bb;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.EventPage--button:hover {
+    background-color: darkred;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
 .hidden {
     display: none;
 }

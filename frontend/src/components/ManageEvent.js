@@ -39,7 +39,7 @@ function ManageEvent(){
       }, []);
     return (
         <div className="manageEvent">
-            <h1>Manage Event:</h1>
+            <h1>Manage Event</h1>
             <form className="manageEvent--form">
                 <label htmlFor="eventName">Event name:</label>
                     <input

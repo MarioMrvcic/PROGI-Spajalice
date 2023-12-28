@@ -1,19 +1,6 @@
 import './EventCard.css'
 import { React, useState, useEffect } from 'react'
 
-function seeMore(event){
-    event.preventDefault()
-    alert(event.target.id)
-    document.getElementsByName("bigInfo")[0].style.display = "flex"
-    document.getElementsByName("smallInfo")[0].style.display = "none"
-}
-
-function seeLess(event){
-    event.preventDefault()
-    document.getElementsByName("bigInfo")[0].style.display = "none"
-    document.getElementsByName("smallInfo")[0].style.display = "flex"
-}
-
 function EventCard(props) {
     const [showSmallInfo, setShowSmallInfo] = useState(true);
     const [showBigInfo, setShowBigInfo] = useState(false);
