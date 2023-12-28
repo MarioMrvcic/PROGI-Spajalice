@@ -21,6 +21,11 @@ function Header() {
         navigate('/')
     }
 
+    function handleEventManagement(event) {
+        event.preventDefault()
+        navigate('/manage_event')
+    }
+
     return (
         <div className="Header">
             <h1>ConnectiNET</h1>
@@ -32,7 +37,10 @@ function Header() {
                             {token != null && <p className="WelcomeText">Welcome, {name}!</p>}
                             <div className="UserButtons">
                                 {token != null ? (
-                                    <button onClick={logout}>Logout</button>
+                                    <>
+                                        <button onClick={logout}>Logout</button>
+                                        <button onClick={handleEventManagement}>Create Event</button>
+                                    </>
                                 ) : (
                                     <>
                                         <button onClick={handleLogin}>Login</button>
@@ -53,6 +61,14 @@ function Header() {
                 />
                 <Route
                     path="/register"
+                    element={
+                        <div className="UserButtons">
+                            <button onClick={handleHome}>Home</button>
+                        </div>
+                    }
+                />
+                <Route
+                    path="/manage_event"
                     element={
                         <div className="UserButtons">
                             <button onClick={handleHome}>Home</button>
