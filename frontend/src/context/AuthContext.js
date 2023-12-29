@@ -11,9 +11,10 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const storedAuthState = localStorage.getItem('authState')
         if (storedAuthState) {
-            const { email: storedEmail, token: storedToken } = JSON.parse(storedAuthState)
+            const { email: storedEmail, token: storedToken,name:storedName } = JSON.parse(storedAuthState)
             setEmail(storedEmail)
             setToken(storedToken)
+            setName(storedName)
         }
     }, [])
 
@@ -32,11 +33,12 @@ export const AuthProvider = ({ children }) => {
                 const receivedName = responseData.name
                 const receivedToken = responseData.token
 
+
                 setToken(receivedToken)
                 setEmail(email)
                 setName(receivedName)
 
-                localStorage.setItem('authState', JSON.stringify({ email, token: receivedToken }))
+                localStorage.setItem('authState', JSON.stringify({ email, token: receivedToken, name: receivedName }))
                 return true
             } else {
                 console.error('Login failed:', response.statusText)

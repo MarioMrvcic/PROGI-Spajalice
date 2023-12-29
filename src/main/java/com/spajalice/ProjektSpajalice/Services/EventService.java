@@ -46,6 +46,8 @@ public class EventService {
     }
     
     public Event addEvent(Event event){
+        long count=eventRepository.count();
+        event.set_id(count+1);
         return eventRepository.save(event);
     }
 
