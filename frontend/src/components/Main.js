@@ -20,6 +20,7 @@ function Main() {
                     eventDate={event.eventDate}
                     eventStartTime={event.eventStartTime}
                     eventDuration={event.eventDuration}
+                    eventDescription={event.eventDescription}
                 />
             ))}
         </div>

@@ -1,11 +1,11 @@
 import './EventCard.css'
-import { React, useState, useEffect } from 'react'
+import {useState, } from 'react'
 
 function EventCard(props) {
     const [showSmallInfo, setShowSmallInfo] = useState(true);
     const [showBigInfo, setShowBigInfo] = useState(false);
     const formattedDate = props.eventDate.split('T')[0]
-    const [value, setValue] = useState('najavite se');
+    const [value, setValue] = useState('Najavite se');
 
     const handleChange = (event) => {
         setValue(event.target.value);
@@ -37,11 +37,7 @@ function EventCard(props) {
                     </div>
 
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Bibendum enim facilisis gravida neque. Tincidunt augue interdum velit euismod in. Scelerisque eleifend donec
-                        pretium vulputate sapien nec. Mi proin sed libero enim sed faucibus turpis. Senectus et netus et malesuada fames ac
-                        turpis egestas integer. Enim nec dui nunc mattis. Id porta nibh venenatis cras sed felis eget velit. Et sollicitudin
-                        ac orci phasellus egestas tellus rutrum. Eget mi proin sed libero. Quis auctor elit sed vulputate mi sit amet.
+                        {props.eventDescription}
                     </p>
 
                     <div className="EventCard--dodatno ">
@@ -70,11 +66,7 @@ function EventCard(props) {
                     </div>
 
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Bibendum enim facilisis gravida neque. Tincidunt augue interdum velit euismod in. Scelerisque eleifend donec
-                        pretium vulputate sapien nec. Mi proin sed libero enim sed faucibus turpis. Senectus et netus et malesuada fames ac
-                        turpis egestas integer. Enim nec dui nunc mattis. Id porta nibh venenatis cras sed felis eget velit. Et sollicitudin
-                        ac orci phasellus egestas tellus rutrum. Eget mi proin sed libero. Quis auctor elit sed vulputate mi sit amet.
+                        {props.eventDescription}
                     </p>
 
                     <div className="EventPage--dodatno ">
