@@ -6,8 +6,8 @@ import { useAuth } from "../context/AuthContext";
 function ManageEvent() {
   const navigate = useNavigate();
   const [eventName, setEventName] = useState("");
-  const [eventType, setEventType] = useState("");
   const [eventTypes, setEventTypes] = useState([]);
+  const [eventType, setEventType] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [eventStartTime, setEventStartTime] = useState("");
   const [eventDuration, setEventDuration] = useState("");
@@ -24,7 +24,6 @@ function ManageEvent() {
 
     if (
       !eventName ||
-      !eventType ||
       !eventDate ||
       !eventStartTime ||
       !eventDuration ||
@@ -58,9 +57,19 @@ function ManageEvent() {
     console.log(eventToCreate);
   }
 
-
   useEffect(() => {
     setMinDate();
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/eventTypes", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setEventTypes(data))
+      .catch((error) => console.error(error));
   }, []);
 
   return (
@@ -76,13 +85,18 @@ function ManageEvent() {
           onChange={(e) => setEventName(e.target.value)}
         />
         <label htmlFor="eventType">Event type:</label>
-        <input
-          type="text"
+        <select
           id="eventType"
           name="eventType"
           value={eventType}
-          onChange={(e) => setEventType("EXPO")}
-        />
+          onChange={(e) => setEventType(e.target.value)}
+        >
+          {eventTypes.map((eventType, index) => (
+            <option key={index} value={eventType}>
+              {eventType}
+            </option>
+          ))}
+        </select>
         <label htmlFor="eventDate">Event date:</label>
         <input
           type="date"
