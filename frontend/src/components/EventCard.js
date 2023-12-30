@@ -5,16 +5,21 @@ function EventCard(props) {
     const [showSmallInfo, setShowSmallInfo] = useState(true);
     const [showBigInfo, setShowBigInfo] = useState(false);
     const formattedDate = props.eventDate.split('T')[0]
+    const [value, setValue] = useState('najavite se');
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+    };
 
     const seeMore = () => {
         setShowSmallInfo(false);
         setShowBigInfo(true);
-      };
+    };
     
       const seeLess = () => {
         setShowSmallInfo(true);
         setShowBigInfo(false);
-      };
+    };
 
     return (
         <div>
@@ -42,7 +47,12 @@ function EventCard(props) {
                     <div className="EventCard--dodatno ">
                         <div className="EventCard--hostName">Ime hosta</div>
                         <button className="EventCard--button" onClick={seeMore}>Više</button>
-                        <button className="EventCard--button"> Najavite se </button>
+                        <select className="EventCard--button" value={value} onChange={handleChange}>
+                            <option value="najavite se">Najavite se</option>
+                            <option value="dolazim">+ Dolazim</option>
+                            <option value="mozda dolazim">~ Možda dolazim</option>
+                            <option value="ne dolazim">- Ne dolazim</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -70,7 +80,12 @@ function EventCard(props) {
                     <div className="EventPage--dodatno ">
                         <div className="EventPage--hostName">Ime hosta</div>
                         <button className="EventPage--button" onClick={seeLess}>Manje</button>
-                        <button className="EventPage--button"> Najavite se </button>
+                        <select className="EventPage--button" value={value} onChange={handleChange}>
+                            <option value="najavite se">Najavite se</option>
+                            <option value="dolazim">+ Dolazim</option>
+                            <option value="mozda dolazim">~ Možda dolazim</option>
+                            <option value="ne dolazim">- Ne dolazim</option>
+                        </select>
                     </div>
                 </div>
             </div>

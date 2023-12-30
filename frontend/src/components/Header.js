@@ -38,8 +38,8 @@ function Header() {
                             <div className="UserButtons">
                                 {token != null ? (
                                     <>
-                                        <button onClick={logout}>Logout</button>
                                         <button onClick={handleEventManagement}>Create Event</button>
+                                        <button onClick={logout}>Logout</button>
                                     </>
                                 ) : (
                                     <>
