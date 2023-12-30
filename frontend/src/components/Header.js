@@ -1,10 +1,11 @@
 import './Header.css'
 import { useNavigate, Routes, Route } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { render } from '@testing-library/react'
 
 function Header() {
     const navigate = useNavigate()
-    const { email, logout, token ,name } = useAuth()
+    const { email, logout, token ,name, role } = useAuth()
 
     function handleLogin(event) {
         event.preventDefault()
@@ -26,7 +27,14 @@ function Header() {
         navigate('/manage_event')
     }
 
+    function isOrganizer(event){
+        return (
+            <button onClick={handleEventManagement}>Create Event</button>
+        );
+    }
+
     return (
+        
         <div className="Header">
             <h1>ConnectiNET</h1>
             <Routes>
@@ -38,7 +46,9 @@ function Header() {
                             <div className="UserButtons">
                                 {token != null ? (
                                     <>
-                                        <button onClick={handleEventManagement}>Create Event</button>
+                                        {(role == "ORGANIZER" || role == "ADMIN")&& (
+                                            <button onClick={handleEventManagement}>Create Event</button>
+                                        )}
                                         <button onClick={logout}>Logout</button>
                                     </>
                                 ) : (

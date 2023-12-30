@@ -12,7 +12,7 @@ function ManageEvent() {
   const [eventStartTime, setEventStartTime] = useState("");
   const [eventDuration, setEventDuration] = useState("");
   const [eventDescription, setEventDescription] = useState("");
-  const { token } = useAuth();
+  const { token, role } = useAuth();
 
   function setMinDate() {
     var today = new Date().toISOString().split("T")[0];
@@ -59,6 +59,9 @@ function ManageEvent() {
 
   useEffect(() => {
     setMinDate();
+    if (role != "ORGANIZER" && role != "ADMIN"){
+      navigate("/");
+    }
   }, []);
 
   useEffect(() => {
