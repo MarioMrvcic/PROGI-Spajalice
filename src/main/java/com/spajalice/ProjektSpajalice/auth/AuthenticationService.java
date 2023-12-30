@@ -1,7 +1,6 @@
 package com.spajalice.ProjektSpajalice.auth;
 
 import com.spajalice.ProjektSpajalice.Config.JwtService;
-import com.spajalice.ProjektSpajalice.Model.Role;
 import com.spajalice.ProjektSpajalice.Model.User;
 import com.spajalice.ProjektSpajalice.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -50,6 +49,7 @@ public class AuthenticationService {
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .name(user.getFirstName())
+                .role(user.getRole())
                 .build();
     }
 }
