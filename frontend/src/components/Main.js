@@ -4,6 +4,7 @@ import { React, useState, useEffect } from 'react'
 
 function Main() {
     const [events, setEvents] = useState([])
+    
     useEffect(() => {
         fetch('/api/getEvents')
             .then((data) => data.json())

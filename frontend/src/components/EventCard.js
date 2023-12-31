@@ -1,11 +1,14 @@
 import './EventCard.css'
 import {useState, } from 'react'
+import ReactionMenu from "./ReactionMenu"
 
 function EventCard(props) {
     const [showSmallInfo, setShowSmallInfo] = useState(true);
     const [showBigInfo, setShowBigInfo] = useState(false);
     const formattedDate = props.eventDate.split('T')[0]
     const [value, setValue] = useState('Najavite se');
+    const [isDropdownVisible, setDropdownVisible] = useState(false)
+    const [response, setResponse] = useState("Najavite se▼")
 
     const handleChange = (event) => {
         setValue(event.target.value);
@@ -16,9 +19,17 @@ function EventCard(props) {
         setShowBigInfo(true);
     };
     
-      const seeLess = () => {
+    const seeLess = () => {
         setShowSmallInfo(true);
         setShowBigInfo(false);
+    };
+
+    const handleMouseEnter = () => {
+        setDropdownVisible(true);
+    };
+
+    const handleMouseLeave = () => {
+        setDropdownVisible(false);
     };
 
     return (
@@ -31,9 +42,9 @@ function EventCard(props) {
                     <div className="EventCard--info">
                         <p>{props.eventType} /</p>
                         <p>{formattedDate} /</p>
-                        <p>{props.eventStartTime} /</p>
+                        <p>Starts at {props.eventStartTime} /</p>
                         {/* <p>{props.eventLocation} /</p> */}
-                        <p>{props.eventDuration}</p>
+                        <p>Duration: {props.eventDuration}</p>
                     </div>
 
                     <p>
@@ -43,12 +54,10 @@ function EventCard(props) {
                     <div className="EventCard--dodatno ">
                         <div className="EventCard--hostName">Ime hosta</div>
                         <button className="EventCard--button" onClick={seeMore}>Više</button>
-                        <select className="EventCard--button" value={value} onChange={handleChange}>
-                            <option value="najavite se">Najavite se</option>
-                            <option value="dolazim">+ Dolazim</option>
-                            <option value="mozda dolazim">~ Možda dolazim</option>
-                            <option value="ne dolazim">- Ne dolazim</option>
-                        </select>
+                        <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                            <button className="responseText">{response}</button>
+                            {isDropdownVisible && <ReactionMenu setResponse={setResponse}/>}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,12 +81,10 @@ function EventCard(props) {
                     <div className="EventPage--dodatno ">
                         <div className="EventPage--hostName">Ime hosta</div>
                         <button className="EventPage--button" onClick={seeLess}>Manje</button>
-                        <select className="EventPage--button" value={value} onChange={handleChange}>
-                            <option value="najavite se">Najavite se</option>
-                            <option value="dolazim">+ Dolazim</option>
-                            <option value="mozda dolazim">~ Možda dolazim</option>
-                            <option value="ne dolazim">- Ne dolazim</option>
-                        </select>
+                        <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                            <button className="responseText">{response}</button>
+                            {isDropdownVisible && <ReactionMenu setResponse={setResponse}/>}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -32,10 +32,6 @@ function Header() {
         setDropdownVisible(false);
     };
 
-    useEffect(() => {
-        setDropdownVisible(false);
-    }, []);
-
     return (
         <div className="Header">
             <h1>ConnectiNET</h1>
