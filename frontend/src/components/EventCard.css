@@ -108,6 +108,7 @@ p {
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
+    
 }
 
 .EventPage--hostName {
@@ -140,4 +141,6 @@ p {
     display: none;
 }
 
-
+.menu {
+    margin: 0px;
+}
