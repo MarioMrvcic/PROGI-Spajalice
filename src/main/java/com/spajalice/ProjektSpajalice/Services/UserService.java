@@ -1,5 +1,6 @@
 package com.spajalice.ProjektSpajalice.Services;
 
+import com.spajalice.ProjektSpajalice.Model.Event;
 import com.spajalice.ProjektSpajalice.Model.Role;
 import com.spajalice.ProjektSpajalice.Model.User;
 import com.spajalice.ProjektSpajalice.Repository.UserRepository;
@@ -14,6 +15,10 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    public List<User> allUsers(){
+        return userRepository.findAll();
+    }
     public Optional<List<User>> getAllOrganisers(){
         return userRepository.findByRole(Role.ORGANIZER);
     }
@@ -21,5 +26,6 @@ public class UserService {
     public long userCount(){ return userRepository.count();}
 
     public User saveUser(User user){ return userRepository.save(user);}
+
 
 }

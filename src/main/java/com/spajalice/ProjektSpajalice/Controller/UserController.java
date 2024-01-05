@@ -1,5 +1,6 @@
 package com.spajalice.ProjektSpajalice.Controller;
 
+import com.spajalice.ProjektSpajalice.Model.Event;
 import com.spajalice.ProjektSpajalice.Model.User;
 
 import com.spajalice.ProjektSpajalice.Services.UserService;
@@ -32,7 +33,6 @@ public class UserController {
         return "User functionality is working";
     }
 
-
     /**
      * Endpoint to get all organisers.
      *
@@ -45,6 +45,15 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(organisers, HttpStatus.OK);
+    }
+
+    @GetMapping("/getUsers")
+    public ResponseEntity<List<User>> getAllUsers(){
+        List<User> users = userService.allUsers();
+        if (users.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
 }
