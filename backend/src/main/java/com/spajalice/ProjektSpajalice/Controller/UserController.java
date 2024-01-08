@@ -21,21 +21,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    /**
-     * Endpoint for testing user functionality.
-     *
-     * @return A string indicating that user functionality is working.
-     */
+    //test
     @GetMapping("/userTest")
     public String test() {
         return "User functionality is working";
     }
 
-    /**
-     * Endpoint to get all organisers.
-     *
-     * @return ResponseEntity with the optional containing the list of organisers or a not found status if not present.
-     */
+    //get all organisers
     @GetMapping("/organisers")
     public ResponseEntity<Optional<List<User>>> getAllOrganisers() {
         Optional<List<User>> organisers = userService.getAllOrganisers();
@@ -45,6 +37,7 @@ public class UserController {
         return new ResponseEntity<>(organisers, HttpStatus.OK);
     }
 
+    //get all users
     @GetMapping("/getUsers")
     public ResponseEntity<List<User>> getAllUsers(){
         List<User> users = userService.allUsers();
@@ -53,5 +46,20 @@ public class UserController {
         }
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
+
+
+    //delete user by id
+    @DeleteMapping("/deleteUser/{userId}")
+    public ResponseEntity<String> deleteUser(@PathVariable String userId) {
+        Optional<User> userToDelete = userService.getUserById(userId);
+
+        if (userToDelete.isPresent()) {
+            userService.deleteUser(userId);
+            return new ResponseEntity<>("User with ID " + userId + " deleted successfully", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("User with ID " + userId + " not found", HttpStatus.NOT_FOUND);
+        }
+    }
+
 
 }
