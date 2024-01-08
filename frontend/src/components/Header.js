@@ -1,10 +1,13 @@
 import './Header.css'
 import { useNavigate, Routes, Route } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import DropdownMenu from "./DropdownMenu"
+import { useEffect, useState } from 'react'
 
 function Header() {
     const navigate = useNavigate()
-    const { email, logout, token ,name } = useAuth()
+    const { email, logout, token, name, role } = useAuth()
+    const [isDropdownVisible, setDropdownVisible] = useState(false)
 
     function handleLogin(event) {
         event.preventDefault()
@@ -19,7 +22,15 @@ function Header() {
     function handleHome(event) {
         event.preventDefault()
         navigate('/')
-    }
+    }   
+
+    const handleMouseEnter = () => {
+        setDropdownVisible(true);
+    };
+
+    const handleMouseLeave = () => {
+        setDropdownVisible(false);
+    };
 
     return (
         <div className="Header">
@@ -29,17 +40,21 @@ function Header() {
                     path="/"
                     element={
                         <>
-                            {token != null && <p className="WelcomeText">Welcome, {name}!</p>}
-                            <div className="UserButtons">
-                                {token != null ? (
-                                    <button onClick={logout}>Logout</button>
-                                ) : (
-                                    <>
-                                        <button onClick={handleLogin}>Login</button>
-                                        <button onClick={handleRegister}>Register</button>
-                                    </>
-                                )}
-                            </div>
+                        <div className="UserButtons">
+                            {token != null ? (
+                                <>
+                                    <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                                        <button>{name}</button>
+                                        {isDropdownVisible && <DropdownMenu />}
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <button onClick={handleLogin}>Login</button>
+                                    <button onClick={handleRegister}>Register</button>
+                                </>
+                            )}
+                        </div>
                         </>
                     }
                 />
@@ -53,6 +68,14 @@ function Header() {
                 />
                 <Route
                     path="/register"
+                    element={
+                        <div className="UserButtons">
+                            <button onClick={handleHome}>Home</button>
+                        </div>
+                    }
+                />
+                <Route
+                    path="/manage_event"
                     element={
                         <div className="UserButtons">
                             <button onClick={handleHome}>Home</button>

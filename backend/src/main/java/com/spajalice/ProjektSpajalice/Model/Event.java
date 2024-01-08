@@ -23,7 +23,7 @@ public class Event {
     private Date eventDate;
     private LocalTime eventStartTime;
     private LocalTime eventDuration;
-    private String description;
+    private String eventDescription;
     private Double price;
     private List<Review> reviews;
     private List<Video>  videos;

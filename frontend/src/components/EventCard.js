@@ -1,17 +1,72 @@
 import './EventCard.css'
-import React from 'react'
+import {useState, } from 'react'
+import ReactionMenu from "./ReactionMenu"
 
 function EventCard(props) {
+    const [showSmallInfo, setShowSmallInfo] = useState(true);
+    const [showBigInfo, setShowBigInfo] = useState(false);
     const formattedDate = props.eventDate.split('T')[0]
+    const [value, setValue] = useState('Najavite se');
+    const [isDropdownVisible, setDropdownVisible] = useState(false)
+    const [response, setResponse] = useState("Najavite se▼")
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+    };
+
+    const seeMore = () => {
+        setShowSmallInfo(false);
+        setShowBigInfo(true);
+    };
+    
+    const seeLess = () => {
+        setShowSmallInfo(true);
+        setShowBigInfo(false);
+    };
+
+    const handleMouseEnter = () => {
+        setDropdownVisible(true);
+    };
+
+    const handleMouseLeave = () => {
+        setDropdownVisible(false);
+    };
 
     return (
         <div>
-            <div className="EventCard">
+            <div className={showSmallInfo ? 'EventCard' : 'EventCard hidden'} name="smallInfo">
                 {/* ovako nešto može ići ako dodamo slike u bazu podataka: <img src={props.eventImage} alt="Event Image" />  */}
                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="slika eventa" />
                 <div className="EventCard--text">
                     <h1 className="EventCard--name">{props.eventName}</h1>
                     <div className="EventCard--info">
+                        <p>{props.eventType} /</p>
+                        <p>{formattedDate} /</p>
+                        <p>Starts at {props.eventStartTime} /</p>
+                        {/* <p>{props.eventLocation} /</p> */}
+                        <p>Duration: {props.eventDuration}</p>
+                    </div>
+
+                    <p>
+                        {props.eventDescription}
+                    </p>
+
+                    <div className="EventCard--dodatno ">
+                        <div className="EventCard--hostName">Ime hosta</div>
+                        <button className="EventCard--button" onClick={seeMore}>Više</button>
+                        <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                            <button className="responseText">{response}</button>
+                            {isDropdownVisible && <ReactionMenu setResponse={setResponse}/>}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className={showBigInfo ? 'EventPage' : 'EventPage hidden'}>
+                {/* ovako nešto može ići ako dodamo slike u bazu podataka: <img src={props.eventImage} alt="Event Image" />  */}
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="slika eventa" />
+                <div className="EventPage--text">
+                    <h1 className="EventPage--name">{props.eventName}</h1>
+                    <div className="EventPage--info">
                         <p>{props.eventType} /</p>
                         <p>{formattedDate} /</p>
                         <p>{props.eventStartTime} /</p>
@@ -20,16 +75,16 @@ function EventCard(props) {
                     </div>
 
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Bibendum enim facilisis gravida neque. Tincidunt augue interdum velit euismod in. Scelerisque eleifend donec
-                        pretium vulputate sapien nec. Mi proin sed libero enim sed faucibus turpis. Senectus et netus et malesuada fames ac
-                        turpis egestas integer. Enim nec dui nunc mattis. Id porta nibh venenatis cras sed felis eget velit. Et sollicitudin
-                        ac orci phasellus egestas tellus rutrum. Eget mi proin sed libero. Quis auctor elit sed vulputate mi sit amet.
+                        {props.eventDescription}
                     </p>
 
-                    <div className="EventCard--dodatno ">
-                        <div className="EventCard--hostName">Ime hosta</div>
-                        <button className="EventCard--button"> Najavite se </button>
+                    <div className="EventPage--dodatno ">
+                        <div className="EventPage--hostName">Ime hosta</div>
+                        <button className="EventPage--button" onClick={seeLess}>Manje</button>
+                        <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                            <button className="responseText">{response}</button>
+                            {isDropdownVisible && <ReactionMenu setResponse={setResponse}/>}
+                        </div>
                     </div>
                 </div>
             </div>

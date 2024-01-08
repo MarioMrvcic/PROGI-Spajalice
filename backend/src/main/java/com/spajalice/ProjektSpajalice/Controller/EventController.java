@@ -2,6 +2,7 @@ package com.spajalice.ProjektSpajalice.Controller;
 
 import com.spajalice.ProjektSpajalice.Model.Event;
 import com.spajalice.ProjektSpajalice.Services.EventService;
+import com.spajalice.ProjektSpajalice.Model.EventType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -113,6 +114,11 @@ public class EventController {
     @GetMapping("/Events/next30days")
     public ResponseEntity<Optional<List<Event>>> getEventsNext30Days() {
         return new ResponseEntity<>(eventService.eventsNext30days(), HttpStatus.OK);
+    }
+
+    @GetMapping("/eventTypes")
+    public EventType[] getEventTypes(){
+    return EventType.values();
     }
 
 }
