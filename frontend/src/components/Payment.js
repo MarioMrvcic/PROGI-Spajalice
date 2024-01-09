@@ -16,7 +16,7 @@ function Payment() {
 
         var d = Math.random()
 
-        if (d < 0.85) {
+        if (d < 0.5) {
             window.location.href = 'payment/success';
         } else {
             setFailed(true);

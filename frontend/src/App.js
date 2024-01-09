@@ -6,6 +6,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Admin from './components/Admin'
 import ManageEvent from './components/ManageEvent'
+import Payment from './components/Payment'
 
 function App() {
     return (
