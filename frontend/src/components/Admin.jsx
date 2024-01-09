@@ -9,16 +9,35 @@ const Admin = () => {
   const { token } = useAuth();
 
   useEffect(() => {
-    fetch("/api/getUsers", {
-      method: "GET",
+    if (token) {
+      fetch("/api/getUsers", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+          .then((response) => response.json())
+          .then((users) => setUsers(users))
+          .catch((error) => console.error('Error:', error));
+    }
+  }, [token]);
+
+  const deleteUser = (email) => {
+    fetch(`/api/deleteUser/${email}`, {
+      method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
-    .then((response) => response.json())
-    .then((users) => setUsers(users))
-    .catch((error) => console.error('Error:', error));
-  }, [token]);
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          setUsers(users.filter(user => user.email !== email));
+        })
+        .catch((error) => console.error('Error:', error));
+  };
+
 
   const filterUsers = () => {
     return users.filter((user) => {
@@ -27,38 +46,39 @@ const Admin = () => {
     });
   };
 
-  const filteredUsers = filterUsers();  
+  const filteredUsers = filterUsers();
 
   return (
-    <div className="container">
-      <input
-        type="text"
-        className="search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Traži korisnike..."
-      />
-      
-      <div>
-        <h3>Ukupno korisnika: {filteredUsers.length}</h3>
-      </div>
-
-      <div className="headerRow">
-        <h4>Ime korisnika</h4>
-        <h4>Email korisnika</h4>
-        <h4>Uloga korisnika</h4>
-        <h4>Akcije</h4>
-      </div>
-
-      {filteredUsers.map((user) => (
-        <UserCard
-          key={user.email}
-          name={user.firstName + " " + user.lastName}
-          email={user.email}
-          role={user.role}
+      <div className="container">
+        <input
+            type="text"
+            className="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Traži korisnike..."
         />
-      ))}
-    </div>
+
+        <div>
+          <h3>Ukupno korisnika: {filteredUsers.length}</h3>
+        </div>
+
+        <div className="headerRow">
+          <h4>Ime korisnika</h4>
+          <h4>Email korisnika</h4>
+          <h4>Uloga korisnika</h4>
+          <h4>Akcije</h4>
+        </div>
+
+        {filteredUsers.map((user) => (
+            <UserCard
+                key={user.email}
+                name={user.firstName + " " + user.lastName}
+                email={user.email}
+                role={user.role}
+                deleteUser={deleteUser}
+            />
+        ))}
+      </div>
   );
 };
 
