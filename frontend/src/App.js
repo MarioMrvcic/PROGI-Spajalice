@@ -6,6 +6,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Admin from './components/Admin'
 import ManageEvent from './components/ManageEvent'
+import Profile from './components/profile/Profile'
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/manage_event" element={<ManageEvent />} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
         </div>
     )

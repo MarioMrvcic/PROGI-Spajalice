@@ -1,0 +1,40 @@
+.simpleEvent {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: white;
+    width: 496px;
+    height: 150px;
+    border-radius: 20px;
+    border: black 2px solid;
+}
+
+.simpleEvent > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.simpleEvent--title {
+    margin-left: 1rem;
+    color: black;
+}
+
+.simpleEvent--hostName {
+    width: 145px;
+    background-color: #ed6a5a;
+    color: #3f4a61;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.simpleEvent--date {
+    background-color: black;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 25%;
+    margin-left: 1rem;
+}
