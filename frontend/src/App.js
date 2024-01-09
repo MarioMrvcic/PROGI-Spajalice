@@ -7,6 +7,7 @@ import Register from './components/Register'
 import Admin from './components/Admin'
 import ManageEvent from './components/ManageEvent'
 import Payment from './components/Payment'
+import Profile from './components/profile/Profile'
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/manage_event" element={<ManageEvent />} />
                 <Route path="/payment/*" element={<Payment />} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
         </div>
     )
