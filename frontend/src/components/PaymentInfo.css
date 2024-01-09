@@ -1,0 +1,75 @@
+.payment {
+    width: 600px;
+    max-width: 100%;
+    margin: 100px auto;
+    background-color: #545e75;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.payment h1 {
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+
+.payment--form {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.payment--form div label {
+    width: 30%;
+    display: block;
+    margin: 0px 4px;
+    font-size: 14px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.payment--form div input {
+    width: 70%;
+    padding: 12px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin: 0px 10px;
+}
+
+.payment--form div {
+    display: flex;
+    align-items: center;
+}
+
+
+.payment--form div input[type='submit'] {
+    width: 100%;
+    padding: 12px;
+    margin: 20px 50px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    background-color: #533b4d;
+    color: #f4f1bb;
+    border: 2px solid #f4f1bb;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.payment--form div input[type='submit']:hover {
+    background-color: darkred;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.failed {
+    color: red;
+}

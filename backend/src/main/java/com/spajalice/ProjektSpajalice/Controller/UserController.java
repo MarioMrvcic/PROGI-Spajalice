@@ -15,19 +15,18 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 
-
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    //test
+    // test
     @GetMapping("/userTest")
     public String test() {
         return "User functionality is working";
     }
 
-    //get all organisers
+    // get all organisers
     @GetMapping("/organisers")
     public ResponseEntity<Optional<List<User>>> getAllOrganisers() {
         Optional<List<User>> organisers = userService.getAllOrganisers();
@@ -37,9 +36,9 @@ public class UserController {
         return new ResponseEntity<>(organisers, HttpStatus.OK);
     }
 
-    //get all users
+    // get all users
     @GetMapping("/getUsers")
-    public ResponseEntity<List<User>> getAllUsers(){
+    public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.allUsers();
         if (users.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -47,8 +46,7 @@ public class UserController {
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-
-    //delete user by id
+    // delete user by id
     @DeleteMapping("/deleteUser/{userId}")
     public ResponseEntity<String> deleteUser(@PathVariable String userId) {
         Optional<User> userToDelete = userService.getUserById(userId);
@@ -61,5 +59,9 @@ public class UserController {
         }
     }
 
-
+    @GetMapping("/payment")
+    public ResponseEntity<Boolean> passedOrFailed(@PathVariable String userId) {
+        double d = Math.random();
+        return new ResponseEntity<>(d < 0.85, HttpStatus.OK);
+    }
 }
