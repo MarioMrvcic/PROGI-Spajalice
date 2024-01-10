@@ -38,3 +38,40 @@
     border-radius: 25%;
     margin-left: 1rem;
 }
+
+.interestButton,
+.reviewButton {
+    width: 145px;
+    height: fit-content;
+    background-color: #533b4d;
+    color: #f4f1bb;
+    border: 2px solid #f4f1bb;
+    border-radius: 15px;
+    font-size: 18px;
+    cursor: pointer;
+
+    padding: 0.5rem;
+    margin-left: 8rem;
+}
+
+.reviewButton {
+    margin-right: 0.5rem;
+}
+
+.interestButton:hover,
+.reviewButton:hover {
+    background-color: darkred;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.simpleEvent .interestButton.green {
+    background-color: limegreen;
+    border-color: black;
+    color: black;
+}
+
+.simpleEvent .interestButton.yellow {
+    background-color: orange;
+    border-color: black;
+    color: black;
+}

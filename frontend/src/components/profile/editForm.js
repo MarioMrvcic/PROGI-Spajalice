@@ -8,7 +8,7 @@ import { faCheck, faX } from '@fortawesome/free-solid-svg-icons'
 function EditForm(props) {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [Email, setEmail] = useState('')
+
     const [address, setAddress] = useState('')
     const [websiteUrl, setWebsiteUrl] = useState('')
     const [facebookUrl, setFacebookUrl] = useState('')
@@ -18,7 +18,7 @@ function EditForm(props) {
     useEffect(() => {
         setFirstName(props.profileData.firstName || '')
         setLastName(props.profileData.lastName || '')
-        setEmail(props.profileData.email || '')
+
         setAddress(props.profileData.address || '')
         setWebsiteUrl(props.profileData.websiteUrl || '')
         setFacebookUrl(props.profileData.facebookUrl || '')
@@ -28,15 +28,15 @@ function EditForm(props) {
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        if (!firstName || !lastName || !Email) {
-            setError('First Name, Last Name, and Email are required fields')
+        if (!firstName || !lastName) {
+            setError('First Name and Last Name are required fields')
             return
         }
 
         const editedProfile = {
             firstName,
             lastName,
-            Email,
+            email: props.profileData.email,
             address,
             websiteUrl,
             facebookUrl,
@@ -51,7 +51,7 @@ function EditForm(props) {
         setError(null)
         setFirstName(props.profileData.firstName || '')
         setLastName(props.profileData.lastName || '')
-        setEmail(props.profileData.email || '')
+
         setAddress(props.profileData.address || '')
         setWebsiteUrl(props.profileData.websiteUrl || '')
         setFacebookUrl(props.profileData.facebookUrl || '')
@@ -75,13 +75,6 @@ function EditForm(props) {
                     <FontAwesomeIcon icon={faX} className={`iconX ${!lastName && 'visible'}`} />
                 </div>
                 <input type="text" id="name" name="name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-
-                <div className="iconDiv">
-                    <label htmlFor="Email">Email</label>
-                    <FontAwesomeIcon icon={faCheck} className={`iconCheck ${Email && 'visible'}`} />
-                    <FontAwesomeIcon icon={faX} className={`iconX ${!Email && 'visible'}`} />
-                </div>
-                <input type="text" id="Email" name="Email" value={Email} onChange={(e) => setEmail(e.target.value)} />
 
                 <div className="iconDiv">
                     <label htmlFor="address">Address</label>

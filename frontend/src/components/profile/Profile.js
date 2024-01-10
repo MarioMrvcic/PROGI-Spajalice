@@ -12,6 +12,23 @@ import SimpleEvent from './SimpleEvent'
 function Profile() {
     const [buttonPopup, setButtonPopup] = useState(false)
     const [passwordPopup, setPasswordPopup] = useState(false)
+    const navigate = useNavigate()
+
+    const [upcomingEvents, setUpcomingEvents] = useState([
+        { name: 'Event 1', date: '2022-01-15', interest: 'Dolazim', eventId: '1' },
+        { name: 'Event 2', date: '2022-02-20', interest: 'Možda dolazim', eventId: '2' },
+        { name: 'Event 3', date: '2022-03-25', interest: 'Dolazim', eventId: '3' },
+        { name: 'Event 4', date: '2022-04-10', interest: 'Možda dolazim', eventId: '4' },
+        { name: 'Event 5', date: '2022-05-15', interest: 'Dolazim', eventId: '5' },
+    ])
+
+    const [pastEvents, setPastEvents] = useState([
+        { name: 'Event 6', date: '2021-01-15', review: 'true', eventId: '6' },
+        { name: 'Event 7', date: '2021-02-20', review: 'false', eventId: '7' },
+        { name: 'Event 8', date: '2021-03-25', review: 'true', eventId: '8' },
+        { name: 'Event 9', date: '2021-04-10', review: 'false', eventId: '9' },
+        { name: 'Event 10', date: '2021-05-15', review: 'false', eventId: '10' },
+    ])
 
     const [profileData, setProfileData] = useState({
         firstName: 'Duje',
@@ -42,6 +59,12 @@ function Profile() {
         //za update passworda
 
         setPasswordPopup(false)
+    }
+
+    const handleDeleteInterest = (index) => {
+        const newUpcomingEvents = [...upcomingEvents]
+        newUpcomingEvents.splice(index, 1)
+        setUpcomingEvents(newUpcomingEvents)
     }
 
     return (
@@ -76,6 +99,11 @@ function Profile() {
                     <button className="editButton" onClick={() => setButtonPopup(true)}>
                         Edit profile
                     </button>
+
+                    <button className="paymentButton" onClick={() => navigate('/payment')}>
+                        Complete payment
+                    </button>
+
                     <button className="changePasswordButton" onClick={() => setPasswordPopup(true)}>
                         Change password
                     </button>
@@ -84,33 +112,39 @@ function Profile() {
                 <div className="upcoming--events">
                     <div className="eventTitleDiv">
                         <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
-                        <h1 className="eventTitle">Upcoming events</h1>
+                        <h1 className="eventTitle">Your upcoming events</h1>
                     </div>
 
                     <div className="eventDisplay">
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
+                        {upcomingEvents.map((event, index) => (
+                            <SimpleEvent
+                                key={index}
+                                eventName={event.name}
+                                eventDate={event.date}
+                                eventInterest={event.interest}
+                                eventId={event.eventId}
+                                onDelete={() => handleDeleteInterest(index)}
+                            />
+                        ))}
                     </div>
                 </div>
 
                 <div className="past--events">
                     <div className="eventTitleDiv">
                         <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
-                        <h1 className="eventTitle">Past events</h1>
+                        <h1 className="eventTitle">Your past events</h1>
                     </div>
                     <div className="eventDisplay">
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
-                        <SimpleEvent eventName="Festival glazbe" eventDate="2.12.2021." />
+                        {pastEvents.map((event, index) => (
+                            <SimpleEvent
+                                key={index}
+                                eventName={event.name}
+                                eventDate={event.date}
+                                eventReview={event.review}
+                                eventId={event.eventId}
+                                onDelete={() => handleDeleteInterest(index)}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

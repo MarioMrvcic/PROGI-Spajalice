@@ -1,0 +1,69 @@
+.ChangeInterestPopup {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.changeInterestForm {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.changeInterestForm label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: gray;
+    font-family: 'Poppins', sans-serif;
+}
+
+.changeInterestForm .radioButton {
+    font-size: 20px; /* Adjust the value as needed */
+}
+
+.changeInterestForm input[type='radio'] {
+    transform: scale(1.5); /* Adjust the scale factor as needed */
+    margin-right: 1rem; /* Adjust spacing if needed */
+}
+
+.interestSubmit,
+.cancelButton {
+    width: 100%;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    background-color: #533b4d;
+    color: #f4f1bb;
+    border: 2px solid #f4f1bb;
+    border-radius: 15px;
+    font-size: 15px;
+}
+
+.interestSubmit {
+    margin-top: 1rem;
+}
+
+.interestSubmit:hover,
+.cancelButton:hover {
+    background-color: darkred;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.warning {
+    color: red;
+    font-size: 12px;
+    margin-top: 0.5rem;
+    width: 10rem;
+    text-align: center;
+}
