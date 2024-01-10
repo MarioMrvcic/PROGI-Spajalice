@@ -1,8 +1,9 @@
 import './Header.css'
-import { useNavigate, Routes, Route } from 'react-router-dom'
+import { useNavigate, Routes, Route, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import DropdownMenu from './DropdownMenu'
 import { useEffect, useState } from 'react'
+
 
 function Header() {
     const navigate = useNavigate()
@@ -34,7 +35,9 @@ function Header() {
 
     return (
         <div className="Header">
-            <h1>ConnectiNET</h1>
+            <Link to="/">
+                <h1>ConnectiNET</h1>
+            </Link>
             <Routes>
                 <Route
                     path="/"
