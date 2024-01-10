@@ -28,6 +28,6 @@ public class Event {
     private List<Review> reviews;
     private List<Video>  videos;
     private List<Photo>  photos;
-    private User eventCreator;
+    private String eventCreator;
 }
 

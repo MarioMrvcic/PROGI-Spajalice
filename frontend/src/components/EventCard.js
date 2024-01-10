@@ -44,7 +44,7 @@ function EventCard(props) {
                         <p>{formattedDate} /</p>
                         <p>Starts at {props.eventStartTime} /</p>
                         {/* <p>{props.eventLocation} /</p> */}
-                        <p>Duration: {props.eventDuration}</p>
+                        <p>Finishes at {props.eventDuration}</p>
                     </div>
 
                     <p>
@@ -52,7 +52,7 @@ function EventCard(props) {
                     </p>
 
                     <div className="EventCard--dodatno ">
-                        <div className="EventCard--hostName">Ime hosta</div>
+                        <div className="EventCard--hostName">{props.eventCreator}</div>
                         <button className="EventCard--button" onClick={seeMore}>Više</button>
                         <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             <button className="responseText">{response}</button>
@@ -79,7 +79,7 @@ function EventCard(props) {
                     </p>
 
                     <div className="EventPage--dodatno ">
-                        <div className="EventPage--hostName">Ime hosta</div>
+                        <div className="EventPage--hostName">{props.eventCreator}</div>
                         <button className="EventPage--button" onClick={seeLess}>Manje</button>
                         <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             <button className="responseText">{response}</button>
