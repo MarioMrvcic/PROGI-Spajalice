@@ -9,6 +9,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
@@ -28,9 +30,33 @@ public class AuthenticationService {
                 .facebookUrl(request.getFacebookUrl())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(request.getRole())
+                .paidUser(false)
                 .build();
         userRepository.save(user);
         var jwtToken= jwtService.generateToken(user);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
+    }
+
+    public AuthenticationResponse editProfile(EditProfileRequest request) {
+
+        var existingUser = userRepository.findByEmail(request.getEmail()).orElseThrow();
+
+        // Update the fields that need to be edited
+        existingUser.setFirstName(request.getFirstName());
+        existingUser.setLastName(request.getLastName());
+        existingUser.setAddress(request.getAddress());
+        existingUser.setWebsiteUrl(request.getWebsiteUrl());
+        existingUser.setFacebookUrl(request.getFacebookUrl());
+        if (request.getPassword() != null && !request.getPassword().isEmpty()) {
+            existingUser.setPassword(passwordEncoder.encode(request.getPassword()));
+        }
+        if (request.getRole() != null) {
+            existingUser.setRole(request.getRole());
+        }
+        userRepository.save(existingUser);
+        var jwtToken= jwtService.generateToken(existingUser);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
