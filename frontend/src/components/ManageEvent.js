@@ -12,7 +12,7 @@ function ManageEvent() {
   const [eventStartTime, setEventStartTime] = useState("");
   const [eventDuration, setEventDuration] = useState("");
   const [eventDescription, setEventDescription] = useState("");
-  const { token, role } = useAuth();
+  const { token, role, email } = useAuth();
 
   function setMinDate() {
     var today = new Date().toISOString().split("T")[0];
@@ -40,6 +40,7 @@ function ManageEvent() {
       eventStartTime,
       eventDuration,
       eventDescription,
+      eventCreator: email,
     };
 
     fetch("/api/addEvent", {
