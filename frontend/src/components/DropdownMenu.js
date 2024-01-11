@@ -18,7 +18,8 @@ const DropdownMenu = () => {
 
     function handleProfile(event) {
         event.preventDefault()
-        navigate('/profile')
+        const encodedEmail = encodeURIComponent(email)
+        navigate(`/profile/${encodedEmail}`)
     }
 
     return (

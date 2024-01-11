@@ -20,7 +20,7 @@ function App() {
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/manage_event" element={<ManageEvent />} />
                 <Route path="/payment/*" element={<Payment />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route path="/profile/:encodedEmail" element={<Profile />} />
             </Routes>
         </div>
     )

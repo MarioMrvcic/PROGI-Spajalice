@@ -4,7 +4,6 @@ import { useAuth } from '../context/AuthContext'
 import DropdownMenu from './DropdownMenu'
 import { useEffect, useState } from 'react'
 
-
 function Header() {
     const navigate = useNavigate()
     const { email, logout, token, name, role } = useAuth()
@@ -87,7 +86,7 @@ function Header() {
                 />
 
                 <Route
-                    path="/profile"
+                    path="/profile/:encodedEmail"
                     element={
                         <div className="UserButtons">
                             <button onClick={handleHome}>Home</button>

@@ -2,17 +2,30 @@ import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faX } from '@fortawesome/free-solid-svg-icons'
 import './PasswordForm.css'
+import { useAuth } from '../../context/AuthContext'
 
 function PasswordForm(props) {
     const [oldPassword, setOldPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
     const [confirmNewPassword, setConfirmNewPassword] = useState('')
     const [error, setError] = useState(null)
+    const { changePassword } = useAuth()
 
     useEffect(() => {}, [])
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+
+        try {
+            const PasswordCheckSuccessful = await changePassword(props.emailAuth, oldPassword)
+            if (!PasswordCheckSuccessful) {
+                setError('Old password is invalid')
+                return
+            }
+        } catch (error) {
+            setError('Old password is invalid')
+            return
+        }
 
         if (!oldPassword || !newPassword || !confirmNewPassword) {
             setError('Please fill all fields.')

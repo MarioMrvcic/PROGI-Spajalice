@@ -8,11 +8,17 @@ import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons'
 import EditForm from './editForm'
 import PasswordForm from './PasswordForm'
 import SimpleEvent from './SimpleEvent'
+import { useParams } from 'react-router-dom'
 
 function Profile() {
     const [buttonPopup, setButtonPopup] = useState(false)
     const [passwordPopup, setPasswordPopup] = useState(false)
+    const [profileData, setProfileData] = useState([])
+    const { email } = useAuth()
     const navigate = useNavigate()
+
+    const { encodedEmail } = useParams()
+    const decodedEmail = decodeURIComponent(encodedEmail)
 
     const [upcomingEvents, setUpcomingEvents] = useState([
         { name: 'Event 1', date: '2022-01-15', interest: 'Dolazim', eventId: '1' },
@@ -30,33 +36,65 @@ function Profile() {
         { name: 'Event 10', date: '2021-05-15', review: 'false', eventId: '10' },
     ])
 
-    const [profileData, setProfileData] = useState({
-        firstName: 'Duje',
-        lastName: 'Jurić',
-        role: 'ORGANIZER',
-        email: 'duje.juric@gmail.com',
-        address: 'Maršeti 14.C, Pazin',
-        websiteUrl: 'www.dujejuric.com',
-        facebookUrl: 'dujej56',
-    })
+    useEffect(() => {
+        const fetchData = async () => {
+            if (!decodedEmail) {
+                navigate('/')
+                return
+            }
+
+            try {
+                const response = await fetch('/api/getUser/' + decodedEmail)
+
+                if (response.status === 404) {
+                    console.log('Email not found in the database.')
+                    navigate('/')
+                    return
+                }
+
+                const data = await response.json()
+                setProfileData(data)
+                localStorage.setItem('profileData', JSON.stringify(data))
+            } catch (error) {
+                console.error('Error fetching profile data:', error)
+            }
+        }
+
+        const storedProfileData = localStorage.getItem('profileData')
+        const storedEmail = storedProfileData ? JSON.parse(storedProfileData).email : null
+
+        if (decodedEmail && decodedEmail !== storedEmail) {
+            fetchData()
+        } else {
+            setProfileData(JSON.parse(storedProfileData))
+        }
+    }, [decodedEmail, navigate])
 
     const updateProfile = (editedProfile) => {
-        setProfileData({
-            ...profileData,
-            firstName: editedProfile.firstName,
-            lastName: editedProfile.lastName,
-            email: editedProfile.Email,
-            address: editedProfile.address,
-            websiteUrl: editedProfile.websiteUrl,
-            facebookUrl: editedProfile.facebookUrl,
-            role: editedProfile.role,
-        })
+        setProfileData(editedProfile)
+
+        fetch('/api/auth/edit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(editedProfile),
+        }).then(() => alert('Profile edited!'))
+
+        localStorage.setItem('profileData', JSON.stringify(editedProfile))
 
         setButtonPopup(false)
     }
 
     const updatePassword = (passwordData) => {
-        //za update passworda
+        const editedProfile = {
+            ...profileData,
+            password: passwordData.newPassword,
+        }
+
+        fetch('/api/auth/edit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(editedProfile),
+        }).then(() => alert('Password edited!'))
 
         setPasswordPopup(false)
     }
@@ -151,7 +189,11 @@ function Profile() {
             <EditForm trigger={buttonPopup} setTrigger={setButtonPopup} profileData={profileData} onEditProfile={updateProfile}>
                 <h3>Popup</h3>
             </EditForm>
-            <PasswordForm trigger={passwordPopup} setTrigger={setPasswordPopup} onUpdatePassword={updatePassword}>
+            <PasswordForm
+                trigger={passwordPopup}
+                emailAuth={profileData.email}
+                setTrigger={setPasswordPopup}
+                onUpdatePassword={updatePassword}>
                 <h3>Popup</h3>
             </PasswordForm>
         </div>
