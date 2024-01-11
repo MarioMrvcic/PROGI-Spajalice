@@ -11,6 +11,11 @@ const DropdownMenu = () => {
         navigate('/manage_event')
     }
 
+    const handleUserManagment = (event) => {
+        event.preventDefault()
+        navigate('/admin')
+    }
+
     function handleProfile(event) {
         event.preventDefault()
         navigate('/profile')
@@ -23,6 +28,7 @@ const DropdownMenu = () => {
                     Profile
                 </li>
                 {(role == 'ORGANIZER' || role == 'ADMIN') && <li onClick={handleEventManagement}>Create Event</li>}
+                {(role === 'ADMIN') && <li onClick={handleUserManagment}>Manage Users</li>}
                 <li onClick={logout}>Logout</li>
             </ul>
         </div>
