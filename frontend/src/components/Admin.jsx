@@ -2,11 +2,19 @@ import { React, useState, useEffect } from "react";
 import "./Admin.css";
 import UserCard from "./UserCard";
 import { useAuth } from "../context/AuthContext"
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
   const [users, setUsers] = useState([]);
   const [query, setQuery] = useState("");
-  const { token, email } = useAuth();
+  const { token, email, role } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (role !== 'ADMIN') {
+      navigate('/');
+    }
+  }, [navigate, role]);
 
   useEffect(() => {
     if (token) {
