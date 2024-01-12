@@ -78,4 +78,9 @@ public class AuthenticationService {
                 .role(user.getRole())
                 .build();
     }
+
+    public boolean usedEmail(String email) {
+        Optional<User> user = userRepository.findByEmail(email);
+        return user.isPresent();
+    }
 }
