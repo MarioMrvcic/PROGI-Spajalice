@@ -4,43 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb1062fb-5c09-4157-8447-fa39915a385b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Config/ApplicationConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Config/JwtAuthenticationFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Config/JwtService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Config/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Controller/EventController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/Event.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/EventType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/EventUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/Interest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/Photo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/Place.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/Review.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/User$UserBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/Video.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/ProjektSpajaliceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Repository/EventRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Repository/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Services/EventService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Services/IndexService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Services/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/auth/AuthenticationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/auth/AuthenticationRequest$AuthenticationRequestBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/auth/AuthenticationRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/auth/AuthenticationResponse$AuthenticationResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/auth/AuthenticationResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/auth/AuthenticationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/auth/RegisterRequest$RegisterRequestBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/auth/RegisterRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/target/test-classes/com/spajalice/ProjektSpajalice/ProjektSpajaliceApplicationTests.class" beforeDir="false" />
-    </list>
+    <list default="true" id="90855826-df8c-4f7f-8872-6e5f2b2d7e32" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,32 +16,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
-}</component>
   <component name="ProjectId" id="2agJRpytmZqv8OZQyipOv08KJy9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/KORISNIK/Desktop/gitProgi/PROGI-Spajalice/backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
   <component name="RunManager">
     <configuration name="ProjektSpajaliceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.spajalice.ProjektSpajalice.ProjektSpajaliceApplication" />
