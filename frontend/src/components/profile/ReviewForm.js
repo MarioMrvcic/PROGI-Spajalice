@@ -17,6 +17,11 @@ function ReviewForm(props) {
             setTitle(props.reviewData.reviewTitle || '')
             setReviewBody(props.reviewData.reviewBody || '')
             setRating(props.reviewData.reviewRating || 0)
+        } else if (props.thisIsReview) {
+            setTitle(props.reviewData.reviewTitle || '')
+            setReviewBody(props.reviewData.reviewBody || '')
+            setRating(props.reviewData.reviewRating || 0)
+            console.log(props.reviewData)
         } else {
             setTitle('')
             setReviewBody('')
@@ -46,13 +51,23 @@ function ReviewForm(props) {
             reviewRating: rating,
         }
 
-        if (props.editMode) {
-            props.onUpdateReview(reviewData)
+        if (props.thisIsReview) {
+            const reviewData2 = {
+                reviewTitle: title,
+                reviewBody: reviewBody,
+                reviewRating: rating,
+            }
+            props.onUpdateReview(reviewData2)
+            props.setTrigger(false)
         } else {
-            props.onAddReview(reviewData)
-        }
+            if (props.editMode) {
+                props.onUpdateReview(reviewData)
+            } else {
+                props.onAddReview(reviewData)
+            }
 
-        props.setTrigger(false)
+            props.setTrigger(false)
+        }
     }
 
     const handeCancel = () => {

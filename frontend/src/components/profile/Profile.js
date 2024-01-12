@@ -15,7 +15,7 @@ function Profile() {
     const [buttonPopup, setButtonPopup] = useState(false)
     const [passwordPopup, setPasswordPopup] = useState(false)
     const [profileData, setProfileData] = useState([])
-    const { email } = useAuth()
+    const { email, roleEdit } = useAuth()
     const navigate = useNavigate()
 
     const { encodedEmail } = useParams()
@@ -53,6 +53,14 @@ function Profile() {
             reviewTitle: 'KAOS',
             reviewBody: 'Benger od eventa, nikad više neću doć',
             reviewRating: 2,
+        },
+        {
+            userEmail: 'duje.juric@gmail.com',
+            eventId: '4',
+            reviewCreationDate: '2023-01-15',
+            reviewTitle: 'Dosta loš event!',
+            reviewBody: 'Ne dolazim više, baš užas!',
+            reviewRating: 1,
         },
     ])
 
@@ -100,7 +108,7 @@ function Profile() {
         }).then(() => alert('Profile edited!'))
 
         localStorage.setItem('profileData', JSON.stringify(editedProfile))
-
+        roleEdit(editedProfile.role)
         setButtonPopup(false)
     }
 
@@ -125,8 +133,10 @@ function Profile() {
         setUpcomingEvents(newUpcomingEvents)
     }
 
-    const handleDeleteReview = (eventId) => {
-        //
+    const handleDeleteReview = (index) => {
+        const newReviews = [...reviews]
+        newReviews.splice(index, 1)
+        setReviews(newReviews)
     }
 
     return (
@@ -170,64 +180,65 @@ function Profile() {
                         Change password
                     </button>
                 </div>
+                <div className="secondDiv">
+                    <div className="upcoming--events">
+                        <div className="eventTitleDiv">
+                            <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
+                            <h1 className="eventTitle">Your upcoming events</h1>
+                        </div>
 
-                <div className="upcoming--events">
-                    <div className="eventTitleDiv">
-                        <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
-                        <h1 className="eventTitle">Your upcoming events</h1>
+                        <div className="eventDisplay">
+                            {upcomingEvents.map((event, index) => (
+                                <SimpleEvent
+                                    key={index}
+                                    eventName={event.name}
+                                    eventDate={event.date}
+                                    eventInterest={event.interest}
+                                    eventId={event.eventId}
+                                    onDelete={() => handleDeleteInterest(index)}
+                                />
+                            ))}
+                        </div>
                     </div>
 
-                    <div className="eventDisplay">
-                        {upcomingEvents.map((event, index) => (
-                            <SimpleEvent
-                                key={index}
-                                eventName={event.name}
-                                eventDate={event.date}
-                                eventInterest={event.interest}
-                                eventId={event.eventId}
-                                onDelete={() => handleDeleteInterest(index)}
-                            />
-                        ))}
+                    <div className="past--events">
+                        <div className="eventTitleDiv">
+                            <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
+                            <h1 className="eventTitle">Your past events</h1>
+                        </div>
+                        <div className="eventDisplay">
+                            {pastEvents.map((event, index) => (
+                                <SimpleEvent
+                                    key={index}
+                                    eventName={event.name}
+                                    eventDate={event.date}
+                                    eventReview={event.review}
+                                    eventId={event.eventId}
+                                    onDelete={() => handleDeleteInterest(index)}
+                                />
+                            ))}
+                        </div>
                     </div>
-                </div>
 
-                <div className="past--events">
-                    <div className="eventTitleDiv">
-                        <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
-                        <h1 className="eventTitle">Your past events</h1>
-                    </div>
-                    <div className="eventDisplay">
-                        {pastEvents.map((event, index) => (
-                            <SimpleEvent
-                                key={index}
-                                eventName={event.name}
-                                eventDate={event.date}
-                                eventReview={event.review}
-                                eventId={event.eventId}
-                                onDelete={() => handleDeleteInterest(index)}
-                            />
-                        ))}
-                    </div>
-                </div>
-
-                <div className="user-reviews">
-                    <div className="eventTitleDiv">
-                        <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
-                        <h1 className="eventTitle">Your reviews</h1>
-                    </div>
-                    <div className="ReviewsDisplay">
-                        {reviews.map((review, index) => (
-                            <Review
-                                key={index}
-                                reviewTitle={review.reviewTitle}
-                                reviewBody={review.reviewBody}
-                                reviewRating={review.reviewRating}
-                                reviewDate={review.reviewCreationDate}
-                                eventId={review.eventId}
-                                
-                                onDelete={() => handleDeleteReview(review.eventId)}
-                            />
-                        ))}
+                    <div className="user-reviews">
+                        <div className="eventTitleDiv">
+                            <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
+                            <h1 className="eventTitle">Your reviews</h1>
+                        </div>
+                        <div className="ReviewsDisplay">
+                            {reviews.map((review, index) => (
+                                <Review
+                                    key={index}
+                                    reviewTitle={review.reviewTitle}
+                                    reviewBody={review.reviewBody}
+                                    reviewRating={review.reviewRating}
+                                    reviewDate={review.reviewCreationDate}
+                                    reviewUser={review.userEmail}
+                                    eventId={review.eventId}
+                                    onDelete={() => handleDeleteReview(index)}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

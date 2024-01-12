@@ -92,7 +92,25 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem('profileData')
     }
 
-    return <AuthContext.Provider value={{ email, token, name, role, login, logout, changePassword }}>{children}</AuthContext.Provider>
+    const roleEdit = (editedRole) => {
+        setRole(editedRole)
+
+        localStorage.setItem(
+            'authState',
+            JSON.stringify({
+                email,
+                token,
+                name,
+                role: editedRole,
+            })
+        )
+    }
+
+    return (
+        <AuthContext.Provider value={{ email, token, name, role, login, logout, changePassword, roleEdit }}>
+            {children}
+        </AuthContext.Provider>
+    )
 }
 
 export const useAuth = () => {

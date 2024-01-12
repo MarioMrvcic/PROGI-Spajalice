@@ -1,25 +1,36 @@
 .Profile {
     display: flex;
-    justify-content: center;
+
     height: 100vh;
     color: white;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.Profile > div {
+.secondDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0px;
+    width: 1250px;
+}
+
+.secondDiv > div {
     background-color: #545e75;
     margin: 1rem;
     width: 550px;
-    height: 760px;
+    height: fit-content;
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     border: black 2px solid;
     padding-top: 10px;
     padding-bottom: 10px;
+    max-height: 600px;
 }
 
 .user-reviews {
-    flex-basis: 800px;
+    flex-basis: 1140px;
 }
 
 .upcoming--events,
@@ -60,6 +71,16 @@
     flex-direction: column;
     margin: 0px;
     align-items: center;
+    background-color: #545e75;
+    margin: 1rem;
+    margin-left: 3rem;
+    width: 550px;
+    height: 760px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: black 2px solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .profile--form--title > p {
