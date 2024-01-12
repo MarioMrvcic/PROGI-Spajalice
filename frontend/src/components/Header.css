@@ -1,4 +1,4 @@
-.Header {
+.Header{
     color: white;
     height: 100px;
     display: flex;
@@ -7,7 +7,12 @@
     background-color: #545e75;
 }
 
-.Header > h1 {
+.Header > a{
+    text-decoration: none;
+}
+
+.Header > a > h1 {
+    color: white;
     font-size: 50px;
     font-weight: bold;
     margin-left: 3rem;

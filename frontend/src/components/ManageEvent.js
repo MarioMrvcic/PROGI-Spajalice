@@ -17,7 +17,7 @@ function ManageEvent() {
   const [eventDuration, setEventDuration] = useState("");
   const [eventDescription, setEventDescription] = useState("");
   const [eventLocation, setEventLocation] = useState("Zagreb");
-  const { token, role } = useAuth();
+  const { token, role, email } = useAuth();
 
   const [images, setImages] = useState([]);
   const maxNumber = 10;
@@ -69,6 +69,7 @@ function ManageEvent() {
       eventStartTime,
       eventDuration,
       eventDescription,
+      eventCreator: email,
     };
 
     fetch("/api/addEvent", {

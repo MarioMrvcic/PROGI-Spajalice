@@ -2,11 +2,19 @@ import { React, useState, useEffect } from "react";
 import "./Admin.css";
 import UserCard from "./UserCard";
 import { useAuth } from "../context/AuthContext"
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
   const [users, setUsers] = useState([]);
   const [query, setQuery] = useState("");
-  const { token } = useAuth();
+  const { token, email, role } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (role !== 'ADMIN') {
+      navigate('/');
+    }
+  }, [navigate, role]);
 
   useEffect(() => {
     if (token) {
@@ -22,8 +30,13 @@ const Admin = () => {
     }
   }, [token]);
 
-  const deleteUser = (email) => {
-    fetch(`/api/deleteUser/${email}`, {
+  const deleteUser = (userEmail) => {
+    if (userEmail === email) {
+      alert("Ne možete obrisati sami sebe!")
+      return;
+    }
+
+    fetch(`/api/deleteUser/${userEmail}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -33,7 +46,7 @@ const Admin = () => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
-          setUsers(users.filter(user => user.email !== email));
+          setUsers(users.filter(user => user.email !== userEmail));
         })
         .catch((error) => console.error('Error:', error));
   };
