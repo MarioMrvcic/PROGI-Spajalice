@@ -85,3 +85,7 @@
     box-sizing: border-box;
     margin-bottom: 16px;
 }
+
+.image-item{
+    display: flex;
+}

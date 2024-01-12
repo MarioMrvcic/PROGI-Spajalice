@@ -2,22 +2,48 @@ import { useNavigate } from "react-router-dom";
 import "./ManageEvent.css";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import ImageUploading from 'react-images-uploading';
+import React from "react";
 
 function ManageEvent() {
   const navigate = useNavigate();
   const [eventName, setEventName] = useState("");
+  const [eventUrl, setEventUrl] = useState("");
   const [eventTypes, setEventTypes] = useState([]);
   const [eventType, setEventType] = useState("");
+  const [isEventPaid, setIsEventPaid] = useState(false)
   const [eventDate, setEventDate] = useState("");
   const [eventStartTime, setEventStartTime] = useState("");
   const [eventDuration, setEventDuration] = useState("");
   const [eventDescription, setEventDescription] = useState("");
+  const [eventLocation, setEventLocation] = useState("Zagreb");
   const { token, role } = useAuth();
+
+  const [images, setImages] = useState([]);
+  const maxNumber = 10;
 
   function setMinDate() {
     var today = new Date().toISOString().split("T")[0];
     document.getElementsByName("eventDate")[0].setAttribute("min", today);
   }
+
+  const onChangeImage = (imageList, addUpdateIndex) => {
+    console.log(imageList, addUpdateIndex);
+    setImages(imageList);
+  };
+
+  const handleCheck = () => {
+    setIsEventPaid(!isEventPaid);
+  };
+
+  const Checkbox = ({ label, value, onChange }) => {
+    return (
+      <label>
+        <input type="checkbox" checked={value} onChange={onChange} />
+        {label}
+      </label>
+    );
+  };
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -35,6 +61,9 @@ function ManageEvent() {
 
     const eventToCreate = {
       eventName,
+      //isEventPaid,
+      //eventLocation,
+      //eventUrl,
       eventType,
       eventDate,
       eventStartTime,
@@ -60,7 +89,7 @@ function ManageEvent() {
   useEffect(() => {
     setMinDate();
     if (role != "ORGANIZER" && role != "ADMIN"){
-      navigate("/");
+      //navigate("/");
     }
   }, []);
 
@@ -100,6 +129,27 @@ function ManageEvent() {
             </option>
           ))}
         </select>
+        <label htmlFor="eventLocation">Event location:</label>
+        <select
+          id="eventLocation"
+          name="eventLocation"
+          value={eventLocation}
+          onChange={(e) => setEventLocation(e.target.value)}
+        >
+          <option value="zagreb">Zagreb</option>
+          <option value="split">Split</option>
+          <option value="osijek">Osijek</option>
+          <option value="rijeka">Rijeka</option>
+          <option value="dubrovnik">Dubrovnik</option>
+        </select>
+        <div className="check">
+        <Checkbox
+          label="Event is paid"
+          value={isEventPaid}
+          onChange={handleCheck}
+        />
+        </div>
+        <br></br>
         <label htmlFor="eventDate">Event date:</label>
         <input
           type="date"
@@ -124,6 +174,14 @@ function ManageEvent() {
           value={eventDuration}
           onChange={(e) => setEventDuration(e.target.value)}
         />
+        <label htmlFor="eventUrl">Event webpage:</label>
+        <input
+          type="text"
+          id="eventUrl"
+          name="eventUrl"
+          value={eventUrl}
+          onChange={(e) => setEventUrl(e.target.value)}
+        />
         <label htmlFor="eventDescription">Event description:</label>
         <textarea
           type="text"
@@ -132,6 +190,47 @@ function ManageEvent() {
           value={eventDescription}
           onChange={(e) => setEventDescription(e.target.value)}
         />
+        <div>
+        <ImageUploading
+        multiple
+        value={images}
+        onChange={onChangeImage}
+        maxNumber={maxNumber}
+        dataURLKey="data_url"
+        >
+        {({
+          imageList,
+          onImageUpload,
+          onImageRemoveAll,
+          onImageUpdate,
+          onImageRemove,
+          isDragging,
+          dragProps,
+        }) => (
+          <div className="upload__image-wrapper">
+            <button
+              style={isDragging ? { color: 'red' } : undefined}
+              onClick={onImageUpload}
+              {...dragProps}
+            >
+              Click or Drop here
+            </button>
+            &nbsp;
+            <button onClick={onImageRemoveAll}>Remove all images</button>
+            {imageList.map((image, index) => (
+              <div key={index} className="image-item">
+                <img src={image['data_url']} alt="" width="100" />
+                <div className="image-item__btn-wrapper">
+                  <button onClick={() => onImageUpdate(index)}>Update</button>
+                  <button onClick={() => onImageRemove(index)}>Remove</button>
+                </div>
+                {console.log(image['data_url'])}
+              </div>
+            ))}
+          </div>
+        )}
+        </ImageUploading>
+        </div>
         <input type="submit" value="Submit" onClick={handleSubmit} />
       </form>
     </div>
