@@ -5,6 +5,7 @@ import com.spajalice.ProjektSpajalice.Model.PlaceSimple;
 import com.spajalice.ProjektSpajalice.Model.User;
 
 import com.spajalice.ProjektSpajalice.Services.UserService;
+import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -99,5 +100,17 @@ public class UserController {
     public ResponseEntity<Boolean> passedOrFailed(@PathVariable String userId) {
         double d = Math.random();
         return new ResponseEntity<>(d < 0.85, HttpStatus.OK);
+    }
+
+    // check if user exists
+    @PostMapping("/usedEmail/{userId}")
+    public ResponseEntity<Boolean> usedEmail(@PathVariable String userId) {
+        Optional<User> user = userService.getUserById(userId);
+
+        if (user.isPresent()) {
+            return new ResponseEntity<>(true, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(false, HttpStatus.OK);
+        }
     }
 }

@@ -1,13 +1,12 @@
 package com.spajalice.ProjektSpajalice.auth;
 
 import com.spajalice.ProjektSpajalice.Model.EventType;
+import io.micrometer.common.util.StringUtils;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.query.ReturnableType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -40,15 +39,8 @@ public class AuthenticationController {
 
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(
-    @RequestBody AuthenticationRequest request
+        @RequestBody AuthenticationRequest request
     ){
         return ResponseEntity.ok(authenticationService.authenticate(request));
-    }
-
-    @PostMapping("/usedEmail")
-    public ResponseEntity<Boolean> usedEmail(
-            @RequestBody String email
-    ){
-        return ResponseEntity.ok(authenticationService.usedEmail(email));
     }
 }

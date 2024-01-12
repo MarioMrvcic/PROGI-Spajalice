@@ -26,6 +26,7 @@ function Register() {
 
     const isValidEmail = await checkEmail();
     if (!isValidEmail) {
+      alert("User already exists, enter another valid email.");
       return;
     }
 
@@ -53,13 +54,27 @@ function Register() {
     if (!emailRegex.test(email)) {
       alert("Please enter a valid email address.");
     }
-    const response = await fetch("api/auth/usedEmail", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
-    if (response.ok) {
-      alert("Email already in use. Please use a different email.");
+
+    try {
+      const response = await fetch(`/api/usedEmail/${email}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+
+        if (result) {
+          alert("Email already in use. Please use a different email.");
+        } else {
+          return true;
+        }
+      } else {
+        alert("Error checking email. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An unexpected error occurred. Please try again.");
     }
   }
 

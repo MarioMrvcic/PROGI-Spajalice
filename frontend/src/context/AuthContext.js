@@ -90,6 +90,7 @@ export const AuthProvider = ({ children }) => {
         setRole('')
         localStorage.removeItem('authState')
         localStorage.removeItem('profileData')
+        alert("Loged out.");
     }
 
     return <AuthContext.Provider value={{ email, token, name, role, login, logout, changePassword }}>{children}</AuthContext.Provider>

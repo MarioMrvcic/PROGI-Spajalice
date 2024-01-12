@@ -3,6 +3,7 @@ package com.spajalice.ProjektSpajalice.auth;
 import com.spajalice.ProjektSpajalice.Config.JwtService;
 import com.spajalice.ProjektSpajalice.Model.User;
 import com.spajalice.ProjektSpajalice.Repository.UserRepository;
+import com.spajalice.ProjektSpajalice.Services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -77,10 +78,5 @@ public class AuthenticationService {
                 .name(user.getFirstName())
                 .role(user.getRole())
                 .build();
-    }
-
-    public boolean usedEmail(String email) {
-        Optional<User> user = userRepository.findByEmail(email);
-        return user.isPresent();
     }
 }
