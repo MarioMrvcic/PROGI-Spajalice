@@ -24,10 +24,10 @@ function Register() {
             return
         }
 
-        // const isValidEmail = await checkEmail()
-        // if (!isValidEmail) {
-        //     return
-        // }
+        const isValidEmail = await checkEmail()
+        if (!isValidEmail) {
+            return
+        }
 
         const userToRegister = {
             password,
@@ -49,18 +49,18 @@ function Register() {
     }
 
     async function checkEmail() {
-        // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        // if (!emailRegex.test(email)) {
-        //   alert("Please enter a valid email address.");
-        // }
-        // const response = await fetch("api/auth/usedEmail", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify({ email }),
-        // });
-        // if (response.ok) {
-        //   alert("Email already in use. Please use a different email.");
-        // }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.')
+        }
+        const response = await fetch('api/auth/usedEmail', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+        })
+        if (response.ok) {
+            alert('Email already in use. Please use a different email.')
+        }
     }
 
     return (
