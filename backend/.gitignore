@@ -35,5 +35,6 @@ build/
 ### ENV files ###
 .env
 
-*.class
+.class
 .xml
+.idea
