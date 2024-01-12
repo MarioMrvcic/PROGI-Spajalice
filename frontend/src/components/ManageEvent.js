@@ -61,9 +61,10 @@ function ManageEvent() {
 
     const eventToCreate = {
       eventName,
-      //isEventPaid,
-      //eventLocation,
-      //eventUrl,
+      isEventPaid,
+      eventLocation,
+      eventUrl,
+      images,
       eventType,
       eventDate,
       eventStartTime,
@@ -191,7 +192,9 @@ function ManageEvent() {
           value={eventDescription}
           onChange={(e) => setEventDescription(e.target.value)}
         />
-        <div>
+        <input type="submit" value="Submit" onClick={handleSubmit} />
+      </form>
+      <div>
         <ImageUploading
         multiple
         value={images}
@@ -232,8 +235,6 @@ function ManageEvent() {
         )}
         </ImageUploading>
         </div>
-        <input type="submit" value="Submit" onClick={handleSubmit} />
-      </form>
     </div>
   );
 }
