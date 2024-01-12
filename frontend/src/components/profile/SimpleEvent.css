@@ -7,6 +7,7 @@
     height: 150px;
     border-radius: 20px;
     border: black 2px solid;
+    margin-bottom: 0.5rem;
 }
 
 .simpleEvent > div {

@@ -60,10 +60,16 @@ function ReviewForm(props) {
         props.setTrigger(false)
     }
 
+    const handleDeleteReview = () => {
+        props.onDeleteReview(props.eventId)
+        console.log(props.eventId)
+        props.setTrigger(false)
+    }
+
     return props.trigger ? (
         <div className="reviewPopup">
             <form className="reviewForm">
-                <div className="reviewTitleDiv">
+                <div className="reviewTitleDiv1">
                     <h1>Predstava Lisinski</h1>
                     <div>
                         <div>
@@ -125,6 +131,11 @@ function ReviewForm(props) {
                     value={props.editMode ? 'Edit review' : 'Submit review'}
                     onClick={handleSubmit}
                 />
+                {props.editMode && (
+                    <button className="delete-Button" onClick={handleDeleteReview}>
+                        Delete review
+                    </button>
+                )}
                 <button className="cancel-Button" onClick={handeCancel}>
                     Cancel
                 </button>

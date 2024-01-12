@@ -9,6 +9,7 @@ import EditForm from './editForm'
 import PasswordForm from './PasswordForm'
 import SimpleEvent from './SimpleEvent'
 import { useParams } from 'react-router-dom'
+import Review from './Review'
 
 function Profile() {
     const [buttonPopup, setButtonPopup] = useState(false)
@@ -34,6 +35,25 @@ function Profile() {
         { name: 'Event 8', date: '2021-03-25', review: 'true', eventId: '8' },
         { name: 'Event 9', date: '2021-04-10', review: 'false', eventId: '9' },
         { name: 'Event 10', date: '2021-05-15', review: 'false', eventId: '10' },
+    ])
+
+    const [reviews, setReviews] = useState([
+        {
+            userEmail: 'duje.juric@gmail.com',
+            eventId: '6',
+            reviewCreationDate: '2022-01-15',
+            reviewTitle: 'ZABAVA',
+            reviewBody: 'Odličan event, svaka čast organizatoru',
+            reviewRating: 4,
+        },
+        {
+            userEmail: 'duje.juric@gmail.com',
+            eventId: '9',
+            reviewCreationDate: '2023-01-15',
+            reviewTitle: 'KAOS',
+            reviewBody: 'Benger od eventa, nikad više neću doć',
+            reviewRating: 2,
+        },
     ])
 
     useEffect(() => {
@@ -103,6 +123,10 @@ function Profile() {
         const newUpcomingEvents = [...upcomingEvents]
         newUpcomingEvents.splice(index, 1)
         setUpcomingEvents(newUpcomingEvents)
+    }
+
+    const handleDeleteReview = (eventId) => {
+        //
     }
 
     return (
@@ -185,7 +209,29 @@ function Profile() {
                         ))}
                     </div>
                 </div>
+
+                <div className="user-reviews">
+                    <div className="eventTitleDiv">
+                        <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
+                        <h1 className="eventTitle">Your reviews</h1>
+                    </div>
+                    <div className="ReviewsDisplay">
+                        {reviews.map((review, index) => (
+                            <Review
+                                key={index}
+                                reviewTitle={review.reviewTitle}
+                                reviewBody={review.reviewBody}
+                                reviewRating={review.reviewRating}
+                                reviewDate={review.reviewCreationDate}
+                                eventId={review.eventId}
+                                
+                                onDelete={() => handleDeleteReview(review.eventId)}
+                            />
+                        ))}
+                    </div>
+                </div>
             </div>
+
             <EditForm trigger={buttonPopup} setTrigger={setButtonPopup} profileData={profileData} onEditProfile={updateProfile}>
                 <h3>Popup</h3>
             </EditForm>

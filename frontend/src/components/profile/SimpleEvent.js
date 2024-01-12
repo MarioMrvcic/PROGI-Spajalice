@@ -52,6 +52,12 @@ function SimpleEvent(props) {
         setReviewPopup(false)
     }
 
+    const handleDeleteReview = (eventId) => {
+        const updatedReviews = reviews.filter((review) => review.eventId !== eventId)
+        setReviews(updatedReviews)
+        setReviewPopup(false)
+    }
+
     return (
         <div className="simpleEvent">
             <h1 className="simpleEvent--title">{props.eventName}</h1>
@@ -103,7 +109,8 @@ function SimpleEvent(props) {
                 editMode={hasReview}
                 reviewData={hasReview ? reviews.find((review) => review.eventId === props.eventId) : null}
                 onUpdateReview={handleUpdateReview}
-                onAddReview={handleAddReview}>
+                onAddReview={handleAddReview}
+                onDeleteReview={handleDeleteReview}>
                 <h3>Popup</h3>
             </ReviewForm>
         </div>
