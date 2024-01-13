@@ -10,12 +10,13 @@ function ManageEvent() {
   const [eventName, setEventName] = useState("");
   const [eventUrl, setEventUrl] = useState("");
   const [eventTypes, setEventTypes] = useState([]);
-  const [eventType, setEventType] = useState("");
+  const [eventType, setEventType] = useState("CONFERENCE");
   const [isEventPaid, setIsEventPaid] = useState(false)
   const [eventDate, setEventDate] = useState("");
   const [eventStartTime, setEventStartTime] = useState("");
   const [eventDuration, setEventDuration] = useState("");
   const [eventDescription, setEventDescription] = useState("");
+  const [locationNames, setLocationNames] = useState([]);
   const [eventLocation, setEventLocation] = useState("Zagreb");
   const { token, role, email } = useAuth();
 
@@ -62,7 +63,7 @@ function ManageEvent() {
     const eventToCreate = {
       eventName,
       isEventPaid,
-      eventLocation,
+      //eventLocation,
       eventUrl,
       images,
       eventType,
@@ -96,15 +97,28 @@ function ManageEvent() {
   }, []);
 
   useEffect(() => {
-    fetch("/api/eventTypes", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setEventTypes(data))
-      .catch((error) => console.error(error));
-  }, []);
+    if (token) {
+      fetch("/api/eventTypes", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+          .then((response) => response.json())
+          .then((data) => {
+            setEventTypes(data);
+            return fetch("/api/places/names", {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            });
+          })
+          .then(response => response.json())
+          .then(data => setLocationNames(data))
+          .catch(error => console.error(error));
+    }
+  }, [token])
+
+
 
   return (
     <div className="manageEvent">
@@ -132,24 +146,17 @@ function ManageEvent() {
           ))}
         </select>
         <label htmlFor="eventLocation">Event location:</label>
-        <select
-          id="eventLocation"
-          name="eventLocation"
-          value={eventLocation}
-          onChange={(e) => setEventLocation(e.target.value)}
-        >
-          <option value="zagreb">Zagreb</option>
-          <option value="split">Split</option>
-          <option value="osijek">Osijek</option>
-          <option value="rijeka">Rijeka</option>
-          <option value="dubrovnik">Dubrovnik</option>
+        <select value={eventLocation} onChange={e => setEventLocation(e.target.value)}>
+          {locationNames.map((eventLocation, index) => (
+              <option key={index} value={eventLocation}>{eventLocation}</option>
+          ))}
         </select>
         <div className="check">
-        <Checkbox
-          label="Event is paid"
-          value={isEventPaid}
-          onChange={handleCheck}
-        />
+          <Checkbox
+              label="Event is paid"
+              value={isEventPaid}
+              onChange={handleCheck}
+          />
         </div>
         <br></br>
         <label htmlFor="eventDate">Event date:</label>

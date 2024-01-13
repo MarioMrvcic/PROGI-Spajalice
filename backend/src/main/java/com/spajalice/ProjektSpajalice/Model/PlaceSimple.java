@@ -1,6 +1,7 @@
 package com.spajalice.ProjektSpajalice.Model;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class PlaceSimple {
 
     @Id
-    private Long _Id;
+    private ObjectId _Id;
 
     private String Name;
 
