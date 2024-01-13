@@ -52,15 +52,18 @@ function Register() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         if (!emailRegex.test(email)) {
             alert('Please enter a valid email address.')
+            return false;
         }
-        const response = await fetch('api/auth/usedEmail', {
-            method: 'POST',
+        const response = await fetch(`api/getUser/${email}`, {
+            method: 'GET',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email }),
-        })
+        });
         if (response.ok) {
-            alert('Email already in use. Please use a different email.')
+            alert('Email already in use. Please use a different email.');
+            return false;
         }
+        return true
+
     }
 
     return (

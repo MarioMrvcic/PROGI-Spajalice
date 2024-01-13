@@ -45,10 +45,5 @@ public class AuthenticationController {
         return ResponseEntity.ok(authenticationService.authenticate(request));
     }
 
-    @PostMapping("/usedEmail")
-    public ResponseEntity<Boolean> usedEmail(
-            @RequestBody String email
-    ){
-        return ResponseEntity.ok(authenticationService.usedEmail(email));
-    }
+
 }
