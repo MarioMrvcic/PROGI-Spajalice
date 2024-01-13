@@ -1,8 +1,10 @@
 import './EventCard.css'
 import {useState, } from 'react'
 import ReactionMenu from "./ReactionMenu"
+import {useNavigate} from 'react-router-dom'
 
 function EventCard(props) {
+    const navigate = useNavigate();
     const [showSmallInfo, setShowSmallInfo] = useState(true);
     const [showBigInfo, setShowBigInfo] = useState(false);
     const formattedDate = props.eventDate.split('T')[0]
@@ -32,6 +34,17 @@ function EventCard(props) {
         setDropdownVisible(false);
     };
 
+    const navigateToProfile = async () => {
+        const response = await fetch('/api/getUser/' + props.eventCreatorEmail);
+
+        if (response.status === 404) {
+            console.log('Email not found in the database.')
+            return;
+        }
+
+        navigate(`/profile/${props.eventCreatorEmail}`);
+    };
+
     return (
         <div>
             <div className={showSmallInfo ? 'EventCard' : 'EventCard hidden'} name="smallInfo">
@@ -52,7 +65,7 @@ function EventCard(props) {
                     </p>
 
                     <div className="EventCard--dodatno ">
-                        <div className="EventCard--hostName">{props.eventCreator}</div>
+                        <div className="EventCard--hostName" onClick={navigateToProfile}>  {props.eventCreator}</div>
                         <button className="EventCard--button" onClick={seeMore}>Više</button>
                         <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             <button className="responseText">{response}</button>
@@ -79,7 +92,7 @@ function EventCard(props) {
                     </p>
 
                     <div className="EventPage--dodatno ">
-                        <div className="EventPage--hostName">{props.eventCreator}</div>
+                        <div className="EventPage--hostName" onClick={navigateToProfile}>{props.eventCreator}</div>
                         <button className="EventPage--button" onClick={seeLess}>Manje</button>
                         <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             <button className="responseText">{response}</button>
