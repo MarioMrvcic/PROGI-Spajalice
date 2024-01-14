@@ -8,6 +8,7 @@ const Admin = () => {
   const [users, setUsers] = useState([]);
   const [query, setQuery] = useState("");
   const { token, email, role } = useAuth();
+  const [organisers, setOrganisers] = useState(0); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,7 +18,7 @@ const Admin = () => {
   }, [navigate, role]);
 
   useEffect(() => {
-    if (token) {
+    if (token && organisers === 0) {
       fetch("/api/getUsers", {
         method: "GET",
         headers: {
@@ -27,8 +28,18 @@ const Admin = () => {
           .then((response) => response.json())
           .then((users) => setUsers(users))
           .catch((error) => console.error('Error:', error));
+    }else if(token && organisers === 1){
+      fetch("/api/organisers", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+          .then((response) => response.json())
+          .then((users) => setUsers(users))
+          .catch((error) => console.error('Error:', error));
     }
-  }, [token]);
+  }, [token, organisers]);
 
   const deleteUser = (userEmail) => {
     if (userEmail === email) {
@@ -51,6 +62,10 @@ const Admin = () => {
         .catch((error) => console.error('Error:', error));
   };
 
+  const showorganisers = () => {
+    setOrganisers(prevorganisers => prevorganisers === 0 ? 1 : 0);
+  }
+
 
   const filterUsers = () => {
     return users.filter((user) => {
@@ -71,8 +86,9 @@ const Admin = () => {
             placeholder="Traži korisnike..."
         />
 
-        <div>
-          <h3>Ukupno korisnika: {filteredUsers.length}</h3>
+        <div className="userCountAndButton">
+          <h3 className="userCount">Ukupno korisnika: {filteredUsers.length}</h3>
+          <button className="organiserButton" onClick={showorganisers}>{organisers === 0 ? "Vidi organizatore" : "Vidi sve korisnike"}</button>
         </div>
 
         <div className="headerRow">
