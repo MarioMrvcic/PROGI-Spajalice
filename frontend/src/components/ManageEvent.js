@@ -28,6 +28,33 @@ function ManageEvent() {
   const [images, setImages] = useState([]);
   const maxNumber = 10;
 
+  const [profileData, setProfileData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const response = await fetch('/api/getUser/' + email)
+
+            if (response.status === 404) {
+                console.log('Email not found in the database.')
+                navigate('/')
+                return
+            }
+
+            const data = await response.json()
+            setProfileData(data)
+            localStorage.setItem('profileData', JSON.stringify(data))
+        } catch (error) {
+            console.error('Error fetching profile data:', error)
+        }
+    }
+    fetchData();
+    const storedProfileData = localStorage.getItem('profileData')
+    setProfileData(JSON.parse(storedProfileData))
+    setEventUrl(profileData.websiteUrl);
+    
+  }, [eventUrl])
+
   function setMinDate() {
     var today = new Date().toISOString().split("T")[0];
     document.getElementsByName("eventDate")[0].setAttribute("min", today);
@@ -112,7 +139,6 @@ function ManageEvent() {
       setEventDate(formattedDate);
       setEventStartTime(pushedProps.eventStartTime);
       setEventDuration(pushedProps.eventDuration);
-      setEventUrl(pushedProps.eventUrl);
       setEventDescription(pushedProps.eventDescription);
     }
   }, []);
