@@ -54,10 +54,10 @@ function EventCard(props) {
                     <h1 className="EventCard--name">{props.eventName}</h1>
                     <div className="EventCard--info">
                         <p>{props.eventType} /</p>
-                        <p>{formattedDate} /</p>
-                        <p>Starts at {props.eventStartTime} /</p>
                         {/* <p>{props.eventLocation} /</p> */}
-                        <p>Finishes at {props.eventDuration}</p>
+                        <p>{formattedDate} /</p>
+                        <p>{props.eventStartTime} /</p>
+                        <p>{props.eventDuration}</p>
                     </div>
 
                     <p>
@@ -81,9 +81,9 @@ function EventCard(props) {
                     <h1 className="EventPage--name">{props.eventName}</h1>
                     <div className="EventPage--info">
                         <p>{props.eventType} /</p>
+                        {/* <p>{props.eventLocation} /</p> */}
                         <p>{formattedDate} /</p>
                         <p>{props.eventStartTime} /</p>
-                        {/* <p>{props.eventLocation} /</p> */}
                         <p>{props.eventDuration}</p>
                     </div>
 

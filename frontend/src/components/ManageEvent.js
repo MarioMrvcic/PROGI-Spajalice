@@ -3,6 +3,7 @@ import "./ManageEvent.css";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import ImageUploading from 'react-images-uploading';
+import CurrencyInput from 'react-currency-input-field';
 import React from "react";
 
 function ManageEvent() {
@@ -12,6 +13,7 @@ function ManageEvent() {
   const [eventTypes, setEventTypes] = useState([]);
   const [eventType, setEventType] = useState("CONFERENCE");
   const [isEventPaid, setIsEventPaid] = useState(false)
+  const [eventPrice, setEventPrice] = useState(0);
   const [eventDate, setEventDate] = useState("");
   const [eventStartTime, setEventStartTime] = useState("");
   const [eventDuration, setEventDuration] = useState("");
@@ -39,8 +41,9 @@ function ManageEvent() {
 
   const Checkbox = ({ label, value, onChange }) => {
     return (
-      <label>
+      <label className = "check-box"> 
         <input type="checkbox" checked={value} onChange={onChange} />
+        <span class="checkmark"></span>
         {label}
       </label>
     );
@@ -71,6 +74,7 @@ function ManageEvent() {
       eventStartTime,
       eventDuration,
       eventDescription,
+      eventPrice,
       eventCreator: email,
     };
 
@@ -92,7 +96,7 @@ function ManageEvent() {
   useEffect(() => {
     setMinDate();
     if (role != "ORGANIZER" && role != "ADMIN"){
-      //navigate("/");
+      navigate("/");
     }
   }, []);
 
@@ -153,12 +157,23 @@ function ManageEvent() {
         </select>
         <div className="check">
           <Checkbox
-              label="Event is paid"
-              value={isEventPaid}
-              onChange={handleCheck}
+            label="Event is paid"
+            value={isEventPaid}
+            onChange={handleCheck}
           />
         </div>
-        <br></br>
+        <div className="priceField">
+          <CurrencyInput
+            disabled={!isEventPaid}
+            id="priceInput"
+            name="priceInput"
+            placeholder="Please enter a price"
+            defaultValue={0.0}
+            decimalsLimit={2}
+            suffix="€"
+            onValueChange={(e) => setEventPrice(e)}
+          />
+        </div>  
         <label htmlFor="eventDate">Event date:</label>
         <input
           type="date"

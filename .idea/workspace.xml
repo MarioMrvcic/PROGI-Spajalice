@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="90855826-df8c-4f7f-8872-6e5f2b2d7e32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/PlaceSimple.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/spajalice/ProjektSpajalice/Model/PlaceSimple.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/EventCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EventCard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/EventCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EventCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ManageEvent.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ManageEvent.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/ManageEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ManageEvent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +29,10 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="ProjektSpajaliceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -47,7 +57,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bb1062fb-5c09-4157-8447-fa39915a385b" name="Changes" comment="" />
+      <changelist id="90855826-df8c-4f7f-8872-6e5f2b2d7e32" name="Changes" comment="" />
       <created>1704734283357</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

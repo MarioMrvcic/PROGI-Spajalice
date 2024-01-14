@@ -89,3 +89,11 @@
 .image-item{
     display: flex;
 }
+
+.check {
+    margin-bottom: 10px;
+}
+
+.priceField {
+    width: 280px;
+}
