@@ -21,6 +21,7 @@ function App() {
                 <Route path="/manage_event" element={<ManageEvent />} />
                 <Route path="/payment/*" element={<Payment />} />
                 <Route path="/profile/:encodedEmail" element={<Profile />} />
+                <Route path="/profile/public/:encodedEmail" element={<Profile />} />
             </Routes>
         </div>
     )

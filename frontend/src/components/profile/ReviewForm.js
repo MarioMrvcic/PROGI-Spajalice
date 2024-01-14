@@ -21,7 +21,6 @@ function ReviewForm(props) {
             setTitle(props.reviewData.reviewTitle || '')
             setReviewBody(props.reviewData.reviewBody || '')
             setRating(props.reviewData.reviewRating || 0)
-            console.log(props.reviewData)
         } else {
             setTitle('')
             setReviewBody('')
@@ -77,7 +76,7 @@ function ReviewForm(props) {
 
     const handleDeleteReview = () => {
         props.onDeleteReview(props.eventId)
-        console.log(props.eventId)
+
         props.setTrigger(false)
     }
 

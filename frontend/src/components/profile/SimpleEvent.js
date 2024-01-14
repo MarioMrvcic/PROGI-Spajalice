@@ -58,6 +58,10 @@ function SimpleEvent(props) {
         setReviewPopup(false)
     }
 
+    const onEditEvent = () => {
+        //implementirati edit
+    }
+
     return (
         <div className="simpleEvent">
             <h1 className="simpleEvent--title">{props.eventName}</h1>
@@ -65,8 +69,10 @@ function SimpleEvent(props) {
                 <p className="simpleEvent--date">{props.eventDate}</p>
                 <div className="simpleEvent--hostName">Adidas</div>
 
-                {props.eventReview ? (
-                    hasReview ? (
+                {props.eventReview &&
+                    !props.publicUpcoming &&
+                    !props.publicPast &&
+                    (hasReview ? (
                         <button
                             className="reviewButton"
                             onClick={() => {
@@ -82,12 +88,49 @@ function SimpleEvent(props) {
                             }}>
                             Submit review
                         </button>
-                    )
-                ) : (
+                    ))}
+
+                {!props.eventReview && !props.publicUpcoming && !props.publicPast && (
                     <button
                         className={`interestButton ${interest === 'Dolazim' ? 'green' : interest === 'Možda dolazim' ? 'yellow' : ''}`}
                         onClick={() => setChangeInterestPopup(true)}>
                         {interest}
+                    </button>
+                )}
+
+                {props.publicUpcoming && props.isPublicOwner && (
+                    <button
+                        className="interestButton"
+                        onClick={() => {
+                            onEditEvent()
+                        }}>
+                        Edit
+                    </button>
+                )}
+
+                {props.publicUpcoming && !props.isPublicOwner && (
+                    <button
+                        className={`interestButton ${
+                            interest === 'Dolazim'
+                                ? 'green'
+                                : interest === 'Možda dolazim'
+                                ? 'yellow'
+                                : interest === 'Najavite se'
+                                ? 'normal'
+                                : ''
+                        }`}
+                        onClick={() => setChangeInterestPopup(true)}>
+                        {interest}
+                    </button>
+                )}
+
+                {props.publicPast && (
+                    <button
+                        className="interestButton"
+                        onClick={() => {
+                            props.scrollAction()
+                        }}>
+                        View reviews
                     </button>
                 )}
             </div>

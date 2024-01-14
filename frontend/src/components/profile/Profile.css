@@ -4,7 +4,6 @@
     height: 100vh;
     color: white;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .secondDiv {
@@ -14,6 +13,7 @@
     flex-wrap: wrap;
     margin: 0px;
     width: 1250px;
+    margin-right: 0rem;
 }
 
 .secondDiv > div {
@@ -74,8 +74,11 @@
     background-color: #545e75;
     margin: 1rem;
     margin-left: 3rem;
+    margin-right: 4.25rem;
     width: 550px;
-    height: 760px;
+    height: fit-content;
+    min-height: 830px;
+
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     border: black 2px solid;
@@ -162,4 +165,12 @@ p {
 
 .editButton {
     margin-top: 5rem;
+}
+
+.viewPrivateButton {
+    margin-top: 12rem;
+}
+
+.subscribeButton {
+    margin-top: 12rem;
 }

@@ -3,7 +3,7 @@ import './Profile.css'
 import { useEffect, useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot, faEnvelope, faGlobe, faUser, faCalendarWeek } from '@fortawesome/free-solid-svg-icons'
+import { faLocationDot, faEnvelope, faGlobe, faUser, faCalendarWeek, faRefresh } from '@fortawesome/free-solid-svg-icons'
 import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons'
 import EditForm from './editForm'
 import PasswordForm from './PasswordForm'
@@ -17,6 +17,9 @@ function Profile() {
     const [profileData, setProfileData] = useState([])
     const { email, roleEdit } = useAuth()
     const navigate = useNavigate()
+    const [isPublic, setIsPublic] = useState(false)
+    const [isPublicUsers, setIsPublicUsers] = useState(false)
+    const [currentReviewEvent, setCurrentReviewEvent] = useState('')
 
     const { encodedEmail } = useParams()
     const decodedEmail = decodeURIComponent(encodedEmail)
@@ -91,6 +94,18 @@ function Profile() {
         const storedProfileData = localStorage.getItem('profileData')
         const storedEmail = storedProfileData ? JSON.parse(storedProfileData).email : null
 
+        const isPublicProfile = window.location.pathname.startsWith('/profile/public/')
+        setIsPublic(isPublicProfile)
+
+        const authStateData = localStorage.getItem('authState')
+        const authStateEmail = authStateData ? JSON.parse(authStateData).email : null
+
+        if (authStateEmail && authStateEmail !== decodedEmail) {
+            setIsPublicUsers(false)
+        } else {
+            setIsPublicUsers(true)
+        }
+
         if (decodedEmail && decodedEmail !== storedEmail) {
             fetchData()
         } else {
@@ -139,6 +154,14 @@ function Profile() {
         setReviews(newReviews)
     }
 
+    function scrollToDivButton(index) {
+        const targetDiv = document.getElementById('reviewSection')
+        setCurrentReviewEvent(pastEvents[index].eventId)
+        if (targetDiv) {
+            targetDiv.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+
     return (
         <div>
             <div className="Profile">
@@ -150,7 +173,7 @@ function Profile() {
                                 {profileData.firstName} {profileData.lastName}
                             </p>
                         </div>
-                        <p className="profile--role">{profileData.role}</p>
+                        {!isPublic && <p className="profile--role">{profileData.role}</p>}
                     </div>
                     <div>
                         <FontAwesomeIcon icon={faEnvelope} className="icon" />
@@ -168,78 +191,196 @@ function Profile() {
                         <FontAwesomeIcon icon={faSquareFacebook} className="icon" />
                         <p>{profileData.facebookUrl || '----------'}</p>
                     </div>
-                    <button className="editButton" onClick={() => setButtonPopup(true)}>
-                        Edit profile
-                    </button>
+                    {!isPublic && (
+                        <button className="editButton" onClick={() => setButtonPopup(true)}>
+                            Edit profile
+                        </button>
+                    )}
 
-                    <button className="paymentButton" onClick={() => navigate('/payment')}>
-                        Complete payment
-                    </button>
+                    {profileData.role == 'ORGANIZER' && !isPublic && (
+                        <button className="paymentButton" onClick={() => navigate('/payment')}>
+                            Complete payment
+                        </button>
+                    )}
 
-                    <button className="changePasswordButton" onClick={() => setPasswordPopup(true)}>
-                        Change password
-                    </button>
+                    {profileData.role == 'ORGANIZER' && !isPublic && (
+                        <button className="viewPublicButton" onClick={() => navigate('/profile/public/' + encodedEmail)}>
+                            View public profile
+                        </button>
+                    )}
+                    {!isPublic && (
+                        <button className="changePasswordButton" onClick={() => setPasswordPopup(true)}>
+                            Change password
+                        </button>
+                    )}
+
+                    {isPublic && isPublicUsers && (
+                        <button className="viewPrivateButton" onClick={() => navigate('/profile/' + encodedEmail)}>
+                            View private profile
+                        </button>
+                    )}
+
+                    {isPublic && isPublicUsers && (
+                        <button className="createEventButton" onClick={() => navigate('/manage_event')}>
+                            Create event
+                        </button>
+                    )}
+
+                    {isPublic && !isPublicUsers && (
+                        <button className="subscribeButton" onClick={() => {}}>
+                            Subscribe
+                        </button>
+                    )}
                 </div>
+
                 <div className="secondDiv">
-                    <div className="upcoming--events">
-                        <div className="eventTitleDiv">
-                            <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
-                            <h1 className="eventTitle">Your upcoming events</h1>
-                        </div>
+                    {!isPublic && (
+                        <div className="upcoming--events">
+                            <div className="eventTitleDiv">
+                                <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
+                                <h1 className="eventTitle">Your upcoming events</h1>
+                            </div>
 
-                        <div className="eventDisplay">
-                            {upcomingEvents.map((event, index) => (
-                                <SimpleEvent
-                                    key={index}
-                                    eventName={event.name}
-                                    eventDate={event.date}
-                                    eventInterest={event.interest}
-                                    eventId={event.eventId}
-                                    onDelete={() => handleDeleteInterest(index)}
-                                />
-                            ))}
+                            <div className="eventDisplay">
+                                {upcomingEvents.map((event, index) => (
+                                    <SimpleEvent
+                                        key={index}
+                                        eventName={event.name}
+                                        eventDate={event.date}
+                                        eventInterest={event.interest}
+                                        eventId={event.eventId}
+                                        onDelete={() => handleDeleteInterest(index)}
+                                    />
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    )}
 
-                    <div className="past--events">
-                        <div className="eventTitleDiv">
-                            <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
-                            <h1 className="eventTitle">Your past events</h1>
+                    {!isPublic && (
+                        <div className="past--events">
+                            <div className="eventTitleDiv">
+                                <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
+                                <h1 className="eventTitle">Your past events</h1>
+                            </div>
+                            <div className="eventDisplay">
+                                {pastEvents.map((event, index) => (
+                                    <SimpleEvent
+                                        key={index}
+                                        eventName={event.name}
+                                        eventDate={event.date}
+                                        eventReview={event.review}
+                                        eventId={event.eventId}
+                                        onDelete={() => handleDeleteInterest(index)}
+                                    />
+                                ))}
+                            </div>
                         </div>
-                        <div className="eventDisplay">
-                            {pastEvents.map((event, index) => (
-                                <SimpleEvent
-                                    key={index}
-                                    eventName={event.name}
-                                    eventDate={event.date}
-                                    eventReview={event.review}
-                                    eventId={event.eventId}
-                                    onDelete={() => handleDeleteInterest(index)}
-                                />
-                            ))}
-                        </div>
-                    </div>
+                    )}
 
-                    <div className="user-reviews">
-                        <div className="eventTitleDiv">
-                            <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
-                            <h1 className="eventTitle">Your reviews</h1>
+                    {isPublic && (
+                        <div className="upcoming--events">
+                            <div className="eventTitleDiv">
+                                <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
+                                <h1 className="eventTitle">
+                                    {profileData.firstName} {profileData.lastName} upcoming events
+                                </h1>
+                            </div>
+
+                            <div className="eventDisplay">
+                                {upcomingEvents.map((event, index) => (
+                                    <SimpleEvent
+                                        key={index}
+                                        eventName={event.name}
+                                        eventDate={event.date}
+                                        eventInterest={event.interest}
+                                        eventId={event.eventId}
+                                        publicUpcoming={true}
+                                        isPublicOwner={isPublicUsers}
+                                        onDelete={() => handleDeleteInterest(index)}
+                                    />
+                                ))}
+                            </div>
                         </div>
-                        <div className="ReviewsDisplay">
-                            {reviews.map((review, index) => (
-                                <Review
-                                    key={index}
-                                    reviewTitle={review.reviewTitle}
-                                    reviewBody={review.reviewBody}
-                                    reviewRating={review.reviewRating}
-                                    reviewDate={review.reviewCreationDate}
-                                    reviewUser={review.userEmail}
-                                    eventId={review.eventId}
-                                    onDelete={() => handleDeleteReview(index)}
-                                />
-                            ))}
+                    )}
+
+                    {isPublic && (
+                        <div className="past--events">
+                            <div className="eventTitleDiv">
+                                <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
+                                <h1 className="eventTitle">
+                                    {profileData.firstName} {profileData.lastName} past events
+                                </h1>
+                            </div>
+                            <div className="eventDisplay">
+                                {pastEvents.map((event, index) => (
+                                    <SimpleEvent
+                                        key={index}
+                                        eventName={event.name}
+                                        eventDate={event.date}
+                                        eventReview={event.review}
+                                        eventId={event.eventId}
+                                        publicPast={true}
+                                        isPublicOwner={isPublicUsers}
+                                        scrollAction={() => scrollToDivButton(index)}
+                                        onDelete={() => handleDeleteInterest(index)}
+                                    />
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    )}
+                    {!isPublic && (
+                        <div className="user-reviews">
+                            <div className="eventTitleDiv">
+                                <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
+                                <h1 className="eventTitle">Your reviews</h1>
+                            </div>
+                            <div className="ReviewsDisplay">
+                                {reviews.map((review, index) => (
+                                    <Review
+                                        key={index}
+                                        reviewTitle={review.reviewTitle}
+                                        reviewBody={review.reviewBody}
+                                        reviewRating={review.reviewRating}
+                                        reviewDate={review.reviewCreationDate}
+                                        reviewUser={review.userEmail}
+                                        eventId={review.eventId}
+                                        onDelete={() => handleDeleteReview(index)}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    {isPublic && (
+                        <div className="user-reviews" id="reviewSection">
+                            <div className="eventTitleDiv">
+                                <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
+                                {currentReviewEvent == '' && <h1 className="eventTitle">Select an event to review</h1>}
+                                {currentReviewEvent != '' && <h1 className="eventTitle">EventId: {currentReviewEvent} reviews</h1>}
+                            </div>
+                            {currentReviewEvent != '' && (
+                                <div className="ReviewsDisplay">
+                                    {reviews.map(
+                                        (review, index) =>
+                                            review.eventId == currentReviewEvent && (
+                                                <Review
+                                                    key={index}
+                                                    reviewTitle={review.reviewTitle}
+                                                    reviewBody={review.reviewBody}
+                                                    reviewRating={review.reviewRating}
+                                                    reviewDate={review.reviewCreationDate}
+                                                    reviewUser={review.userEmail}
+                                                    eventId={review.eventId}
+                                                    onDelete={() => handleDeleteReview(index)}
+                                                />
+                                            )
+                                    )}
+                                    {reviews.filter((review) => review.eventId === currentReviewEvent).length === 0 && (
+                                        <h1>Selected event has no reviews.</h1>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
             </div>
 

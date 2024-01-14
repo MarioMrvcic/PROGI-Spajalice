@@ -4,7 +4,7 @@
     background-color: white;
     color: white;
     width: 496px;
-    height: 150px;
+    height: fit-content;
     border-radius: 20px;
     border: black 2px solid;
     margin-bottom: 0.5rem;
@@ -75,4 +75,10 @@
     background-color: orange;
     border-color: black;
     color: black;
+}
+
+.simpleEvent .interestButton.normal {
+    background-color: #533b4d;
+    color: #f4f1bb;
+    border: 2px solid #f4f1bb;
 }

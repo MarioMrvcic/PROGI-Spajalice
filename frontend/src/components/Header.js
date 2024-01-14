@@ -93,6 +93,14 @@ function Header() {
                         </div>
                     }
                 />
+                <Route
+                    path="/profile/public/:encodedEmail"
+                    element={
+                        <div className="UserButtons">
+                            <button onClick={handleHome}>Home</button>
+                        </div>
+                    }
+                />
             </Routes>
         </div>
     )
