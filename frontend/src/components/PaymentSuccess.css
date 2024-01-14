@@ -17,11 +17,29 @@
     color: white;
 }
 
-.success p {
-    padding: 50px;
-    background-color: white;
-    border-radius: 10px;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
+
+button {
+    width: 80%;
+    padding: 12px;
+    margin: 20px auto;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    background-color: #533b4d;
+    color: #f4f1bb;
+    border: 2px solid #f4f1bb;
+    border-radius: 15px;
     font-size: 20px;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: darkred;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.home {
+    width: 100%;
+    display: flex;
 }

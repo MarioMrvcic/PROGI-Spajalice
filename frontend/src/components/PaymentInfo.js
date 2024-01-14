@@ -1,9 +1,11 @@
 import { React, useState, useEffect } from 'react'
 import './PaymentInfo.css'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 function PaymentInfo(props) {
 
-    //const [passed, setPassed] = useState();
+    const [date, setDate] = useState(new Date());
 
     return (
         <div className="payment">
@@ -19,7 +21,7 @@ function PaymentInfo(props) {
                 </div>
                 <div className="payment--form">
                     <label>Expiration date </label>
-                    <input type="text" name="date" id="date" required />
+                    <DatePicker selected={date} onChange={(date) => setDate(date)} />
                 </div>
                 <div className="payment--form">
                     <label>Security code (CVV/CVC) </label>
@@ -28,7 +30,7 @@ function PaymentInfo(props) {
                 <div>
                     <input type="submit" value="Complete payment" onClick={props.handleSubmit} />
                 </div>
-                {props.failed && <p className="failed">Payment failed.Try again.</p>}
+                {<p class="failed">{props.errorTxt}</p>}
             </form>
         </div>
     )
