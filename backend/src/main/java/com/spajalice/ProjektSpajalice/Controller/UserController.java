@@ -5,6 +5,7 @@ import com.spajalice.ProjektSpajalice.Model.PlaceSimple;
 import com.spajalice.ProjektSpajalice.Model.User;
 
 import com.spajalice.ProjektSpajalice.Services.UserService;
+import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -73,7 +74,7 @@ public class UserController {
     }
 
     // Return user interest types
-    @GetMapping("/{email}/interestedInTypes")
+    @GetMapping("/interestedInTypes/{email}")
     public ResponseEntity<?> getIntrestedInTypes(@PathVariable("email") String email) {
         try {
             List<EventType> interestedInTypes = userService.getIntrestedInTypesByEmail(email);
@@ -84,7 +85,7 @@ public class UserController {
     }
 
     // Return user interest places
-    @GetMapping("/{email}/interestedInPlaces")
+    @GetMapping("/interestedInPlaces/{email}")
     public ResponseEntity<?> getIntrestedInPlaces(@PathVariable("email") String email) {
         try {
             List<PlaceSimple> interestedInPlaces = userService.getIntrestedInPlaceByEmail(email);
@@ -95,9 +96,66 @@ public class UserController {
     }
 
     // paying endpoint
-    @GetMapping("/payment")
-    public ResponseEntity<Boolean> passedOrFailed(@PathVariable String userId) {
+    @PostMapping("/payment/{email}")
+    public ResponseEntity<Boolean> paymentProcesing(@PathVariable String email) {
         double d = Math.random();
-        return new ResponseEntity<>(d < 0.85, HttpStatus.OK);
+        if(d<0.85){
+            try{
+                User user = userService.changePaymnetStatus(email);
+            }
+            catch (Exception e){
+                return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity<>(true, HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>(false, HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/checkPaymentStatus/{email}")
+    public ResponseEntity<Boolean> checkPaymentStatus(@PathVariable String email) {
+        try{
+            Boolean check = userService.checkPaymentStatus(email);
+
+            return new ResponseEntity<>(check, HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    // email verification
+    @GetMapping("/verification/{email}")
+    public ResponseEntity<String> emailVerificationProcesing(@PathVariable String email) {
+        try{
+            User user = userService.changeVerifiedStatus(email);
+            return new ResponseEntity<>("Hvala vam na potvrdi, uspješnos te verificirani", HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>("Nešto je pošlo po krivu", HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/checkVerificationStatus/{email}")
+    public ResponseEntity<Boolean> checkVerificationStatus(@PathVariable String email) {
+        try{
+            Boolean check = userService.checkVerificationStatus(email);
+            return new ResponseEntity<>(check, HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    // check if user exists
+    @PostMapping("/usedEmail/{userId}")
+    public ResponseEntity<Boolean> usedEmail(@PathVariable String userId) {
+        Optional<User> user = userService.getUserById(userId);
+        if (user.isPresent()) {
+            return new ResponseEntity<>(true, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(false, HttpStatus.OK);
+        }
     }
 }

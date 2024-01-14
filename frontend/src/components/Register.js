@@ -24,10 +24,11 @@ function Register() {
             return
         }
 
-        const isValidEmail = await checkEmail()
-        if (!isValidEmail) {
-            return
-        }
+    const isValidEmail = await checkEmail();
+    if (!isValidEmail) {
+      alert("User already exists, enter another valid email.");
+      return;
+    }
 
         const userToRegister = {
             password,
@@ -48,23 +49,34 @@ function Register() {
             })
     }
 
-    async function checkEmail() {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address.')
-            return false;
-        }
-        const response = await fetch(`api/getUser/${email}`, {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        });
-        if (response.ok) {
-            alert('Email already in use. Please use a different email.');
-            return false;
-        }
-        return true
-
+  async function checkEmail() {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
     }
+
+    try {
+      const response = await fetch(`/api/usedEmail/${email}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+
+        if (result) {
+          alert("Email already in use. Please use a different email.");
+        } else {
+          return true;
+        }
+      } else {
+        alert("Error checking email. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An unexpected error occurred. Please try again.");
+    }
+  }
 
     return (
         <div className="register">
