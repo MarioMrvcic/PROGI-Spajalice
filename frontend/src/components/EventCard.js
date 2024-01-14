@@ -1,20 +1,18 @@
 import './EventCard.css'
-import {useState, } from 'react'
+import {useState, useEffect} from 'react'
 import ReactionMenu from "./ReactionMenu"
 import {useNavigate} from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 function EventCard(props) {
     const navigate = useNavigate();
     const [showSmallInfo, setShowSmallInfo] = useState(true);
     const [showBigInfo, setShowBigInfo] = useState(false);
     const formattedDate = props.eventDate.split('T')[0]
-    const [value, setValue] = useState('Najavite se');
     const [isDropdownVisible, setDropdownVisible] = useState(false)
     const [response, setResponse] = useState("Najavite se▼")
-
-    const handleChange = (event) => {
-        setValue(event.target.value);
-    };
+    const {email} = useAuth()
+    const [isNotCreator, setIsNotCreator] = useState(true);
 
     const seeMore = () => {
         setShowSmallInfo(false);
@@ -45,6 +43,23 @@ function EventCard(props) {
         navigate(`/profile/${props.eventCreatorEmail}`);
     };
 
+    const editEvent = async () => {
+        const response = await fetch('/api/getUser/' + props.eventCreatorEmail);
+
+        if (response.status === 404) {
+            console.log('Email not found in the database.')
+            return;
+        }
+
+        navigate(`/profile/${props.eventCreatorEmail}`);
+    };
+
+    useEffect(() => {
+        if(email == props.eventCreatorEmail){
+            setIsNotCreator(false);
+        }
+    }, []);
+
     return (
         <div>
             <div className={showSmallInfo ? 'EventCard' : 'EventCard hidden'} name="smallInfo">
@@ -65,7 +80,11 @@ function EventCard(props) {
                     </p>
 
                     <div className="EventCard--dodatno ">
-                        <div className="EventCard--hostName" onClick={navigateToProfile}>  {props.eventCreator}</div>
+                        {isNotCreator ? (
+                            <div className="EventCard--hostName" onClick={navigateToProfile}>{props.eventCreator}</div>
+                        ):(
+                            <div className="EventCard--hostName" onClick={editEvent}>Edit event</div>
+                        )}
                         <button className="EventCard--button" onClick={seeMore}>Više</button>
                         <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             <button className="responseText">{response}</button>
