@@ -8,6 +8,8 @@ import com.spajalice.ProjektSpajalice.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -54,5 +56,30 @@ public class UserService {
         } else {
             return Collections.emptyList(); // Return an empty list if no interests are found
         }
+    }
+
+    public User changePaymnetStatus(String userId){
+        var user = userRepository.findById(userId).orElseThrow();
+        LocalDateTime currentDate = LocalDateTime.now();
+        LocalDateTime futureDate = currentDate.plus(1, ChronoUnit.MINUTES);
+        user.setPaidUser(futureDate);
+        return userRepository.save(user);
+    }
+
+    public Boolean checkPaymentStatus(String userId){
+        var user = userRepository.findById(userId).orElseThrow();
+        LocalDateTime currentDate = LocalDateTime.now();
+        return currentDate.isBefore(user.getPaidUser());
+    }
+
+    public User changeVerifiedStatus(String userId){
+        var user = userRepository.findById(userId).orElseThrow();
+        user.setVerified(true);
+        return userRepository.save(user);
+    }
+
+    public Boolean checkVerificationStatus(String userId){
+        var user = userRepository.findById(userId).orElseThrow();
+        return user.getVerified();
     }
 }
