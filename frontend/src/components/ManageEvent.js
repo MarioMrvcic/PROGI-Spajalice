@@ -1,13 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./ManageEvent.css";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import ImageUploading from 'react-images-uploading';
 import CurrencyInput from 'react-currency-input-field';
 import React from "react";
+import { useParams } from 'react-router-dom'
 
 function ManageEvent() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { pushedProps } = location.state || {};
   const [eventName, setEventName] = useState("");
   const [eventUrl, setEventUrl] = useState("");
   const [eventTypes, setEventTypes] = useState([]);
@@ -97,6 +100,20 @@ function ManageEvent() {
     setMinDate();
     if (role != "ORGANIZER" && role != "ADMIN"){
       navigate("/");
+    }
+    if (pushedProps !== null){
+      const formattedDate = pushedProps.eventDate.split('T')[0]
+      console.log(pushedProps);
+      setEventName(pushedProps.eventName);
+      setEventType(pushedProps.eventType);
+      setEventLocation(pushedProps.eventLocation);
+      setIsEventPaid(pushedProps.isEventPaid);
+      setEventPrice(pushedProps.eventPrice);
+      setEventDate(formattedDate);
+      setEventStartTime(pushedProps.eventStartTime);
+      setEventDuration(pushedProps.eventDuration);
+      setEventUrl(pushedProps.eventUrl);
+      setEventDescription(pushedProps.eventDescription);
     }
   }, []);
 

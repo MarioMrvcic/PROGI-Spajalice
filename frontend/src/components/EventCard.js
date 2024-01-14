@@ -13,7 +13,7 @@ function EventCard(props) {
     const [response, setResponse] = useState("Najavite se▼")
     const {email} = useAuth()
     const [isNotCreator, setIsNotCreator] = useState(true);
-
+    
     const seeMore = () => {
         setShowSmallInfo(false);
         setShowBigInfo(true);
@@ -43,15 +43,8 @@ function EventCard(props) {
         navigate(`/profile/${props.eventCreatorEmail}`);
     };
 
-    const editEvent = async () => {
-        const response = await fetch('/api/getUser/' + props.eventCreatorEmail);
-
-        if (response.status === 404) {
-            console.log('Email not found in the database.')
-            return;
-        }
-
-        navigate(`/profile/${props.eventCreatorEmail}`);
+    const editEvent = () => {
+        navigate("/manage_event", { state: { pushedProps:props }});
     };
 
     useEffect(() => {

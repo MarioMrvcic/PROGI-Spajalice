@@ -90,7 +90,7 @@ export const AuthProvider = ({ children }) => {
         setRole('')
         localStorage.removeItem('authState')
         localStorage.removeItem('profileData')
-        alert("Loged out.");
+        alert("Logged out.");
     }
 
     const roleEdit = (editedRole) => {
