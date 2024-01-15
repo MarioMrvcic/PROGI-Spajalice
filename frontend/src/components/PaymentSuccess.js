@@ -9,7 +9,9 @@ function PaymentInfo(props) {
     return (
         <div className="success">
             <h1>Payment successfull!</h1>
-            <p>Return to <Link to="/">homepage</Link></p>
+            <div class="container">
+                <Link to="/" className="home"><button>Return to homepage</button></Link>
+            </div>
         </div>
     )
 }

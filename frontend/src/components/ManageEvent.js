@@ -52,8 +52,9 @@ function ManageEvent() {
     fetchData();
     const storedProfileData = localStorage.getItem('profileData')
     setProfileData(JSON.parse(storedProfileData));
-    //setEventUrl(profileData.websiteUrl);
-    
+    if(profileData.websiteUrl != null){
+      setEventUrl(profileData.websiteUrl);
+    }
   }, [eventUrl])
 
   function setMinDate() {

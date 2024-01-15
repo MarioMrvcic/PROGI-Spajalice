@@ -44,7 +44,7 @@
     margin: 0px 10px;
 }
 
-.payment--form div {
+.payment--form>div {
     display: flex;
     align-items: center;
 }

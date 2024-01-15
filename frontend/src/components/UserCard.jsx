@@ -10,6 +10,10 @@ const UserCard = (props) => {
 
     const goToProfile = () => {
         const encodedEmail = encodeURIComponent(props.email)
+        if(props.role === 'ORGANIZER'){
+            navigate(`/profile/public/${encodedEmail}`)
+            return;
+        }
         navigate(`/profile/${encodedEmail}`)
     }
 
