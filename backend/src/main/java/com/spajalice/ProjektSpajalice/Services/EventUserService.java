@@ -6,7 +6,6 @@ import com.spajalice.ProjektSpajalice.Model.Interest;
 import com.spajalice.ProjektSpajalice.Model.User;
 import com.spajalice.ProjektSpajalice.Repository.EventRepository;
 import com.spajalice.ProjektSpajalice.Repository.EventUserRepository;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
@@ -24,7 +23,6 @@ public class EventUserService {
 
     @Autowired EventRepository eventRepository;
 
-    private static final Logger log = LoggerFactory.getLogger(EventUserService.class);
 
     public EventUser saveEventUser(EventUser eventUser) {// Check if an EventUser with the same eventId and userEmail exists
         try{
