@@ -21,5 +21,5 @@ public interface EventRepository extends MongoRepository<Event, Long> {
     void deleteBy_id(Long _id);
 
     // Returning all user comments for User
-    List<Review> findByReviewsUserEmail(String userEmail);
+    List<Review> findAllByReviewsUserEmail(String userEmail);
 }

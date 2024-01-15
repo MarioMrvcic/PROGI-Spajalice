@@ -86,7 +86,7 @@ public class UserService {
     }
 
     public List<Review> returnCommentList(User user) {
-        List<Review> listForReturn = eventRepository.findByReviewsUserEmail(user.getEmail());
+        List<Review> listForReturn = eventRepository.findAllByReviewsUserEmail(user.getEmail());
         return  listForReturn;
     }
 }

@@ -13,10 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.stream.events.Comment;
-import java.util.Collections;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
+import java.util.*;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
@@ -168,7 +165,7 @@ public class UserController {
     @GetMapping("/returnAllUserComments/{email}")
     public ResponseEntity<List<Review>> returnAllUserComments(@PathVariable String email){
         Optional<User> user = userService.getUserById(email);
-        List<Review> returnCommentList = Collections.emptyList();
+        List<Review> returnCommentList = new ArrayList<>();
         if (user.isPresent()) {
             returnCommentList = userService.returnCommentList(user.get());
             return new ResponseEntity<>(returnCommentList, HttpStatus.OK);
