@@ -40,7 +40,7 @@ function EventCard(props) {
             return;
         }
 
-        navigate(`/profile/${props.eventCreatorEmail}`);
+        navigate(`/profile/public/${props.eventCreatorEmail}`);
     };
 
     const editEvent = () => {

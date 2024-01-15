@@ -50,8 +50,8 @@ function ManageEvent() {
     }
     fetchData();
     const storedProfileData = localStorage.getItem('profileData')
-    setProfileData(JSON.parse(storedProfileData))
-    setEventUrl(profileData.websiteUrl);
+    setProfileData(JSON.parse(storedProfileData));
+    //setEventUrl(profileData.websiteUrl);
     
   }, [eventUrl])
 
@@ -98,13 +98,13 @@ function ManageEvent() {
       isEventPaid,
       //eventLocation,
       eventUrl,
-      images,
+      photos: images,
       eventType,
       eventDate,
       eventStartTime,
       eventDuration,
       eventDescription,
-      eventPrice,
+      price: eventPrice,
       eventCreator: email,
     };
 
@@ -128,7 +128,7 @@ function ManageEvent() {
     if (role != "ORGANIZER" && role != "ADMIN"){
       navigate("/");
     }
-    if (pushedProps !== null){
+    if (pushedProps != null){
       const formattedDate = pushedProps.eventDate.split('T')[0]
       console.log(pushedProps);
       setEventName(pushedProps.eventName);
@@ -233,7 +233,7 @@ function ManageEvent() {
           value={eventStartTime}
           onChange={(e) => setEventStartTime(e.target.value)}
         />
-        <label htmlFor="eventDuration">Event duration:</label>
+        <label htmlFor="eventDuration">Event end:</label>
         <input
           type="time"
           id="eventDuration"
