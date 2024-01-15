@@ -143,6 +143,8 @@ function ManageEvent() {
       setEventStartTime(pushedProps.eventStartTime);
       setEventDuration(pushedProps.eventDuration);
       setEventDescription(pushedProps.eventDescription);
+      setImages(pushedProps.photos);
+      setImagesURL(pushedProps.photos);
     }
   }, []);
 

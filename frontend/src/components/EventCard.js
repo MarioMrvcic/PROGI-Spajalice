@@ -13,6 +13,7 @@ function EventCard(props) {
     const [response, setResponse] = useState("Najavite se▼")
     const {email} = useAuth()
     const [isNotCreator, setIsNotCreator] = useState(true);
+    const [firstPhoto, setFirstPhoto] = useState(null);
     
     const seeMore = () => {
         setShowSmallInfo(false);
@@ -51,13 +52,18 @@ function EventCard(props) {
         if(email == props.eventCreatorEmail){
             setIsNotCreator(false);
         }
-    }, []);
+        if(props.eventPhotos!=null){
+            setFirstPhoto(props.eventPhotos)
+            console.log(props.eventPhotos[0]['photoURL'])
+        }
+
+    }, [firstPhoto]);
 
     return (
         <div>
             <div className={showSmallInfo ? 'EventCard' : 'EventCard hidden'} name="smallInfo">
                 {/* ovako nešto može ići ako dodamo slike u bazu podataka: <img src={props.eventImage} alt="Event Image" />  */}
-                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="slika eventa" />
+                <img src={props.eventPhotos[0]['photoURL']}  alt="slika eventa" />
                 <div className="EventCard--text">
                     <h1 className="EventCard--name">{props.eventName}</h1>
                     <div className="EventCard--info">
@@ -66,6 +72,7 @@ function EventCard(props) {
                         <p>{formattedDate} /</p>
                         <p>{props.eventStartTime} /</p>
                         <p>{props.eventDuration}</p>
+
                     </div>
 
                     <p>

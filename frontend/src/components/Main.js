@@ -63,6 +63,7 @@ function Main() {
                     eventDescription={event.eventDescription}
                     eventCreator={eventCreators[event.eventCreator]}
                     eventCreatorEmail={event.eventCreator}
+                    eventPhotos={event.photos}
                 />
             ))}
         </div>
