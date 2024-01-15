@@ -11,7 +11,7 @@ function Register() {
     const [selectedRole, setSelectedRole] = useState('');
     const [adminPassword, setAdminPassword] = useState('');
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
 
         if (!password || !firstName || !lastName || !email || !selectedRole) {
@@ -21,6 +21,12 @@ function Register() {
 
         if (selectedRole === 'ADMIN' && adminPassword !== 'AdminPass') {
             alert('Incorrect admin password. Cannot create admin profile.');
+            return;
+        }
+
+        const isValidEmail = await checkEmail();
+        if (!isValidEmail) {
+            alert("User already exists, enter another valid email.");
             return;
         }
 
@@ -49,13 +55,42 @@ function Register() {
 
         fetch('/api/auth/register', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(userToRegister),
         })
             .then(() => alert('User registered!'))
             .then(() => {
-                navigate('/login');
+                navigate('/login')
+            })
+    }
+
+    async function checkEmail() {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address.");
+        }
+
+        try {
+            const response = await fetch(`/api/usedEmail/${email}`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
             });
+
+            if (response.ok) {
+                const result = await response.json();
+
+                if (result) {
+                    alert("Email already in use. Please use a different email.");
+                } else {
+                    return true;
+                }
+            } else {
+                alert("Error checking email. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("An unexpected error occurred. Please try again.");
+        }
     }
 
     return (
