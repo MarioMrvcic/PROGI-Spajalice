@@ -1,6 +1,7 @@
 package com.spajalice.ProjektSpajalice.Repository;
 
 import com.spajalice.ProjektSpajalice.Model.Event;
+import com.spajalice.ProjektSpajalice.Model.Review;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -18,4 +19,7 @@ public interface EventRepository extends MongoRepository<Event, Long> {
 
     // Custom method to delete an event by its Long ID
     void deleteBy_id(Long _id);
+
+    // Returning all user comments for User
+    List<Review> findByReviewsUserEmail(String userEmail);
 }

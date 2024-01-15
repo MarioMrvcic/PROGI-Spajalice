@@ -1,13 +1,12 @@
 package com.spajalice.ProjektSpajalice.Services;
 
-import com.spajalice.ProjektSpajalice.Model.EventType;
-import com.spajalice.ProjektSpajalice.Model.PlaceSimple;
-import com.spajalice.ProjektSpajalice.Model.Role;
-import com.spajalice.ProjektSpajalice.Model.User;
+import com.spajalice.ProjektSpajalice.Model.*;
+import com.spajalice.ProjektSpajalice.Repository.EventRepository;
 import com.spajalice.ProjektSpajalice.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.stream.events.Comment;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Collections;
@@ -19,6 +18,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private EventRepository eventRepository;
 
     public List<User> allUsers(){
         return userRepository.findAll();
@@ -81,5 +83,10 @@ public class UserService {
     public Boolean checkVerificationStatus(String userId){
         var user = userRepository.findById(userId).orElseThrow();
         return user.getVerified();
+    }
+
+    public List<Review> returnCommentList(User user) {
+        List<Review> listForReturn = eventRepository.findByReviewsUserEmail(user.getEmail());
+        return  listForReturn;
     }
 }

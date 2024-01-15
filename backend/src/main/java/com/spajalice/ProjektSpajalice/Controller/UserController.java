@@ -2,6 +2,7 @@ package com.spajalice.ProjektSpajalice.Controller;
 
 import com.spajalice.ProjektSpajalice.Model.EventType;
 import com.spajalice.ProjektSpajalice.Model.PlaceSimple;
+import com.spajalice.ProjektSpajalice.Model.Review;
 import com.spajalice.ProjektSpajalice.Model.User;
 
 import com.spajalice.ProjektSpajalice.Services.UserService;
@@ -11,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.stream.events.Comment;
+import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -113,6 +116,7 @@ public class UserController {
         }
     }
 
+    // check if it is a paid user
     @GetMapping("/checkPaymentStatus/{email}")
     public ResponseEntity<Boolean> checkPaymentStatus(@PathVariable String email) {
         try{
@@ -137,6 +141,7 @@ public class UserController {
         }
     }
 
+    // check if verified
     @GetMapping("/checkVerificationStatus/{email}")
     public ResponseEntity<Boolean> checkVerificationStatus(@PathVariable String email) {
         try{
@@ -149,13 +154,26 @@ public class UserController {
     }
 
     // check if user exists
-    @PostMapping("/usedEmail/{userId}")
-    public ResponseEntity<Boolean> usedEmail(@PathVariable String userId) {
-        Optional<User> user = userService.getUserById(userId);
+    @PostMapping("/usedEmail/{email}")
+    public ResponseEntity<Boolean> usedEmail(@PathVariable String email) {
+        Optional<User> user = userService.getUserById(email);
         if (user.isPresent()) {
             return new ResponseEntity<>(true, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(false, HttpStatus.OK);
+        }
+    }
+
+    // return all user comments
+    @GetMapping("/returnAllUserComments/{email}")
+    public ResponseEntity<List<Review>> returnAllUserComments(@PathVariable String email){
+        Optional<User> user = userService.getUserById(email);
+        List<Review> returnCommentList = Collections.emptyList();
+        if (user.isPresent()) {
+            returnCommentList = userService.returnCommentList(user.get());
+            return new ResponseEntity<>(returnCommentList, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(returnCommentList, HttpStatus.NOT_FOUND);
         }
     }
 }
