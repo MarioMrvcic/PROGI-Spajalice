@@ -40,8 +40,11 @@ p {
 
 .EventCard--dodatno {
     display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
+    justify-content: center;
+    margin-top: auto;
+    gap: 50px;
+    margin-bottom: 30px;
+    margin-left: 10px;
 }
 
 .EventCard--hostName {
@@ -106,9 +109,11 @@ p {
 
 .EventPage--dodatno {
     display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-    
+    justify-content: center;
+    margin-top: auto;
+    gap: 50px;
+    margin-bottom: 200px;
+    margin-left: 10px;
 }
 
 .EventPage--hostName {
@@ -143,4 +148,16 @@ p {
 
 .menu {
     margin: 0px;
+}
+
+.eventImage {
+    width: 450px;
+    height: auto;
+    object-fit: cover;
+}
+
+.eventImagePage {
+    width: 900px;
+    height: auto;
+    object-fit: cover;
 }

@@ -63,9 +63,10 @@ function ManageEvent() {
   }
 
   const onChangeImage = (imageList, addUpdateIndex) => {
-    const imageUrls =imageList.map((image) => ({photoURL: image['data_url'] }));
+    const imageUrls =imageList.map((image) => ({photoURL: image['photoURL'] }));
     setImages(imageList);
     setImagesURL(imageUrls);
+    console.log(imageList)
   };
 
   const handleCheck = () => {
@@ -143,8 +144,8 @@ function ManageEvent() {
       setEventStartTime(pushedProps.eventStartTime);
       setEventDuration(pushedProps.eventDuration);
       setEventDescription(pushedProps.eventDescription);
-      setImages(pushedProps.photos);
-      setImagesURL(pushedProps.photos);
+      setImages(pushedProps.eventPhotos);
+      console.log(pushedProps.eventPhotos)
     }
   }, []);
 
@@ -270,7 +271,7 @@ function ManageEvent() {
         value={images}
         onChange={onChangeImage}
         maxNumber={maxNumber}
-        dataURLKey="data_url"
+        dataURLKey="photoURL"
         >
         {({
           imageList,
@@ -293,7 +294,7 @@ function ManageEvent() {
             <button onClick={onImageRemoveAll}>Remove all images</button>
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
-                <img src={image['data_url']} alt="" width="100" />
+                <img src={image['photoURL']} alt="" width="100" />
                 <div className="image-item__btn-wrapper">
                   <button onClick={() => onImageUpdate(index)}>Update</button>
                   <button onClick={() => onImageRemove(index)}>Remove</button>

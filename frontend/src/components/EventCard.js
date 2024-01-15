@@ -63,7 +63,7 @@ function EventCard(props) {
         <div>
             <div className={showSmallInfo ? 'EventCard' : 'EventCard hidden'} name="smallInfo">
                 {/* ovako nešto može ići ako dodamo slike u bazu podataka: <img src={props.eventImage} alt="Event Image" />  */}
-                <img src={props.eventPhotos[0]['photoURL']}  alt="slika eventa" />
+                <img src={props.eventPhotos[0]['photoURL']}  alt="slika eventa" className='eventImage'/>
                 <div className="EventCard--text">
                     <h1 className="EventCard--name">{props.eventName}</h1>
                     <div className="EventCard--info">
@@ -95,7 +95,7 @@ function EventCard(props) {
             </div>
             <div className={showBigInfo ? 'EventPage' : 'EventPage hidden'}>
                 {/* ovako nešto može ići ako dodamo slike u bazu podataka: <img src={props.eventImage} alt="Event Image" />  */}
-                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="slika eventa" />
+                <img src={props.eventPhotos[0]['photoURL']} alt="slika eventa" className='eventImagePage'/>
                 <div className="EventPage--text">
                     <h1 className="EventPage--name">{props.eventName}</h1>
                     <div className="EventPage--info">
