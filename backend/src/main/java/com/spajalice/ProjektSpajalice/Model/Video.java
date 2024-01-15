@@ -7,5 +7,5 @@ import java.util.Date;
 @Data
 public class Video {
     private String videoURL;
-    private Date videoCreationDate;
+
 }

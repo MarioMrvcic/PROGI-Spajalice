@@ -26,6 +26,7 @@ function ManageEvent() {
   const { token, role, email } = useAuth();
 
   const [images, setImages] = useState([]);
+  const [imagesURL, setImagesURL] = useState([]);
   const maxNumber = 10;
 
   const [profileData, setProfileData] = useState([]);
@@ -61,8 +62,9 @@ function ManageEvent() {
   }
 
   const onChangeImage = (imageList, addUpdateIndex) => {
-    console.log(imageList, addUpdateIndex);
+    const imageUrls =imageList.map((image) => ({photoURL: image['data_url'] }));
     setImages(imageList);
+    setImagesURL(imageUrls);
   };
 
   const handleCheck = () => {
@@ -98,7 +100,7 @@ function ManageEvent() {
       isEventPaid,
       //eventLocation,
       eventUrl,
-      photos: images,
+      photos: imagesURL,
       eventType,
       eventDate,
       eventStartTime,
@@ -293,7 +295,7 @@ function ManageEvent() {
                   <button onClick={() => onImageUpdate(index)}>Update</button>
                   <button onClick={() => onImageRemove(index)}>Remove</button>
                 </div>
-                {console.log(image['data_url'])}
+
               </div>
             ))}
           </div>
