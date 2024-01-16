@@ -1,8 +1,8 @@
 .userCard {
     display: grid;
-    grid-template-columns: 230px 260px 120px auto;
+    grid-template-columns: 230px 260px 160px auto;
     align-items: center;
-    width: 900px;
+    width: 890px;
     height: 80px;
     border: 1px solid black;
     background-color: #fadfdf;
