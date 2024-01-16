@@ -19,4 +19,5 @@ public interface EventUserRepository extends MongoRepository<EventUser, Long> {
 
     boolean deleteByEventIdAndUserEmail(Long eventId, String userEmail);
 
+
 }

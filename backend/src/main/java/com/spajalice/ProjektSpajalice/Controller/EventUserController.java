@@ -67,5 +67,16 @@ public class EventUserController {
         }
 
     }
+    @GetMapping("/getEventInterest/{email}")
+    public ResponseEntity<List<EventUser>> getEventInterest(@PathVariable String email){
+        Optional<User> user = userService.getUserById(email);
+        List<EventUser> returnAllEventInterest = new ArrayList<>();
+        if (user.isPresent()) {
+            returnAllEventInterest = eventUserService.returnEventInterest(user.get());
+            return new  ResponseEntity<>(returnAllEventInterest, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(returnAllEventInterest, HttpStatus.NOT_FOUND);
+        }
+    }
 
 }
