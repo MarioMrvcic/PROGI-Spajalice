@@ -26,7 +26,6 @@ const UserCard = (props) => {
                 <Button variant="outlined" onClick={goToProfile}>
                     View
                 </Button>
-                <Button variant="outlined">Edit</Button>
                 <IconButton aria-label="delete" onClick={() => props.deleteUser(props.email)}>
                     <DeleteIcon />
                 </IconButton>
