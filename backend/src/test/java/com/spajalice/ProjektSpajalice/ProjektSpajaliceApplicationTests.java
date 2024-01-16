@@ -122,6 +122,68 @@ class ProjektSpajaliceApplicationTests {
 		driver.quit();
 	}
 
+	@Test
+	public void testChangePassword() throws InterruptedException {
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("http://localhost:3000/login");
+		WebElement element = driver.findElement(By.name("Email"));
+		element.sendKeys("admin@gmail.com");
+		element = driver.findElement(By.name("password"));
+		element.sendKeys("Admin123");
+		driver.findElement(By.cssSelector("input[type='submit']")).click();
+		Thread.sleep(1000);
+		WebElement menuDiv = driver.findElement(By.className("menu"));
+		menuDiv.click();
+		WebElement editProfile=driver.findElement(By.xpath(".//li[text()='Profile']"));
+		editProfile.click();
+		driver.findElement(By.className("changePasswordButton")).click();
+		driver.findElement(By.id("oldPassword")).sendKeys("Admin123");
+		driver.findElement(By.id("newPassword")).sendKeys("Admin321");
+		driver.findElement(By.id("confirmNewPassword")).sendKeys("Admin321");
+		driver.findElement(By.cssSelector("input[type='submit']")).click();
+		Thread.sleep(2000);
+		Alert alert = driver.switchTo().alert();
+		String alertText = alert.getText();
+		alert.accept();
+
+		boolean success = alertText.equals("Password edited!");
+		assertEquals(true, success);
+		driver.quit();
+	}
+
+	@Test
+	public void testChangeProfileView() throws InterruptedException {
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("http://localhost:3000/login");
+		WebElement element = driver.findElement(By.name("Email"));
+		element.sendKeys("capsidomi@gmail.com");
+		element = driver.findElement(By.name("password"));
+		element.sendKeys("capsidomi");
+		driver.findElement(By.cssSelector("input[type='submit']")).click();
+		Thread.sleep(1000);
+		WebElement menuDiv = driver.findElement(By.className("menu"));
+		menuDiv.click();
+		WebElement editProfile = driver.findElement(By.xpath(".//li[text()='Profile']"));
+		editProfile.click();
+		driver.findElement(By.className("viewPublicButton")).click();
+		String redirectUrl = driver.getCurrentUrl();
+		System.out.println(redirectUrl);
+
+		boolean success = redirectUrl.equals("http://localhost:3000/profile/public/capsidomi@gmail.com");
+		assertEquals(true, success);
+
+		driver.quit();
+
+
+	}
+
+
 	@Autowired
 	private UserService userSer;
 	@Test
