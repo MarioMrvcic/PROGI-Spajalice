@@ -43,7 +43,6 @@ function ReviewForm(props) {
 
         const reviewData = {
             userEmail: 'duje.juric@gmail.com',
-            eventId: props.eventId,
             reviewCreationDate: today.toISOString().split('T')[0],
             reviewTitle: title,
             reviewBody: reviewBody,
@@ -75,7 +74,7 @@ function ReviewForm(props) {
     }
 
     const handleDeleteReview = () => {
-        props.onDeleteReview(props.eventId)
+        props.onDeleteReview()
 
         props.setTrigger(false)
     }

@@ -7,6 +7,9 @@ import java.util.Date;
 @Data
 public class Review {
     private String userEmail;
-    private String reviewBody;
     private Date reviewCreationDate;
+    private String reviewTitle;
+    private String reviewBody;
+    private int reviewRating;
+
 }

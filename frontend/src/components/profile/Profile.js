@@ -27,7 +27,7 @@ function Profile() {
     const [upcomingEvents, setUpcomingEvents] = useState([])
 
     //   const [upcomingPublicEvents, setUpcomingPublicEvents] = useState([]);
-    //   const [pastEvents, setPastEvents] = useState([]);
+    const [pastEvents, setPastEvents] = useState([])
     const [pastPublicEvents, setPastPublicEvents] = useState([])
 
     //   const [reviews, setReviews] = useState([]);
@@ -66,44 +66,6 @@ function Profile() {
             eventDate: '2022-05-15',
             interest: 'Dolazim',
             _id: '5',
-            eventCreator: 'Duje',
-        },
-    ])
-
-    const [pastEvents, setPastEvents] = useState([
-        {
-            eventName: 'Event 6',
-            eventDate: '2021-01-15',
-            review: 'true',
-            _id: '6',
-            eventCreator: 'Duje',
-        },
-        {
-            eventName: 'Event 7',
-            eventDate: '2021-02-20',
-            review: 'false',
-            _id: '7',
-            eventCreator: 'Duje',
-        },
-        {
-            eventName: 'Event 8',
-            eventDate: '2021-03-25',
-            review: 'false',
-            _id: '8',
-            eventCreator: 'Duje',
-        },
-        {
-            eventName: 'Event 9',
-            eventDate: '2021-04-10',
-            review: 'false',
-            _id: '9',
-            eventCreator: 'Duje',
-        },
-        {
-            eventName: 'Event 10',
-            eventDate: '2021-05-15',
-            review: 'false',
-            _id: '10',
             eventCreator: 'Duje',
         },
     ])
@@ -160,30 +122,58 @@ function Profile() {
             }
         }
 
+        const checkIfPublicAllowed = async () => {
+            try {
+                const response = await fetch('/api/getUser/' + decodedEmail)
+                const data = await response.json()
+
+                if (data.role == 'VISITOR' && isPublicProfile) {
+                    navigate('/')
+                    return
+                }
+                return
+            } catch (error) {
+                console.error('Error fetching profile data:', error)
+            }
+        }
+
         const fetchEvents = async () => {
             try {
                 //get upcoming events for user
-                const upcomingEventsResponse = await fetch('/api/getEventsIntrestedIn/' + decodedEmail)
-                if (upcomingEventsResponse.status === 404) {
+                const eventsResponse = await fetch('/api/getEventsIntrestedIn/' + decodedEmail)
+                if (eventsResponse.status === 404) {
                     console.log('No upcoming events for user.')
                     return
                 }
-                const upcomingEventsData = await upcomingEventsResponse.json()
+                const allEventsData = await eventsResponse.json()
 
                 //get upcoming event interests for user
-                const upcomingEventInterests = await fetch('/api/getEventInterest/' + decodedEmail)
-                const upcomingEventInterestData = await upcomingEventInterests.json()
+                const allEventInterests = await fetch('/api/getEventInterest/' + decodedEmail)
+                const allEventInterestData = await allEventInterests.json()
 
-                const eventInterests = upcomingEventsData.map((event) => {
+                const upcomingEvents = allEventsData.filter((event) => {
+                    const parseTime = event.eventStartTime.split(':')
+                    const date = new Date(event.eventDate).setHours(parseTime[0], parseTime[1], 0, 0)
+                    return date > new Date()
+                })
+
+                const pastEvents = allEventsData.filter((event) => {
+                    const parseTime = event.eventStartTime.split(':')
+                    const date = new Date(event.eventDate).setHours(parseTime[0], parseTime[1], 0, 0)
+                    return date <= new Date()
+                })
+
+                const eventInterests = upcomingEvents.map((event) => {
                     return {
                         ...event,
                         interest:
-                            upcomingEventInterestData.find((interest) => interest.eventId === event._id).interest === 'YES'
+                            allEventInterestData.find((interest) => interest.eventId === event._id).interest === 'YES'
                                 ? 'Dolazim'
                                 : 'Možda dolazim',
                     }
                 })
                 setUpcomingEvents(eventInterests)
+                setPastEvents(pastEvents)
             } catch (error) {
                 console.error('Error fetching upcoming events:', error)
             }
@@ -208,6 +198,7 @@ function Profile() {
         } else {
             setIsPublicUsers(true)
         }
+        checkIfPublicAllowed()
 
         if (decodedEmail && decodedEmail !== storedEmail) {
             fetchData()
@@ -215,10 +206,6 @@ function Profile() {
         } else {
             setProfileData(JSON.parse(storedProfileData))
             fetchEvents()
-        }
-        if (profileData.role != 'ORGANIZER' && isPublicProfile) {
-            navigate('/')
-            return
         }
     }, [decodedEmail, navigate])
 
@@ -391,10 +378,12 @@ function Profile() {
                                         <SimpleEvent
                                             key={index}
                                             eventName={event.eventName}
-                                            eventDate={event.eventDate}
-                                            eventReview={event.review}
+                                            eventDate={new Date(event.eventDate).toISOString().split('T')[0]}
+                                            eventReview={event.reviews?.find((item) => item.userEmail === decodedEmail) || null}
                                             eventId={event._id}
                                             eventCreator={event.eventCreator}
+                                            isPastEvent={true}
+                                            currentUser={decodedEmail}
                                             onDelete={() => handleDeleteInterest(index)}
                                         />
                                     ))}

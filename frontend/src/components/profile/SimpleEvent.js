@@ -8,26 +8,26 @@ function SimpleEvent(props) {
     const [interest, setInterest] = useState(props.eventInterest)
     const [reviewPopup, setReviewPopup] = useState(false)
 
-    const [reviews, setReviews] = useState([
-        {
-            userEmail: 'duje.juric@gmail.com',
-            eventId: '6',
-            reviewCreationDate: '2022-01-15',
-            reviewTitle: 'ZABAVA',
-            reviewBody: 'Odličan event, svaka čast organizatoru',
-            reviewRating: 4,
-        },
-        {
-            userEmail: 'duje.juric@gmail.com',
-            eventId: '9',
-            reviewCreationDate: '2023-01-15',
-            reviewTitle: 'KAOS',
-            reviewBody: 'Benger od eventa, nikad više neću doć',
-            reviewRating: 2,
-        },
-    ])
+    // const [reviews, setReviews] = useState([
+    //     {
+    //         userEmail: 'duje@gmail.com',
+    //         eventId: '6',
+    //         reviewCreationDate: '2022-01-15',
+    //         reviewTitle: 'ZABAVA',
+    //         reviewBody: 'Odličan event, svaka čast organizatoru',
+    //         reviewRating: 4,
+    //     },
+    //     {
+    //         userEmail: 'duje.juric@gmail.com',
+    //         eventId: '9',
+    //         reviewCreationDate: '2023-01-15',
+    //         reviewTitle: 'KAOS',
+    //         reviewBody: 'Benger od eventa, nikad više neću doć',
+    //         reviewRating: 2,
+    //     },
+    // ])
 
-    const hasReview = reviews.some((review) => review.eventId === props.eventId)
+    const [reviews, setReviews] = useState(props.eventReview)
 
     const updateInterest = (editedInterest) => {
         setInterest(editedInterest.selectedInterest)
@@ -77,21 +77,17 @@ function SimpleEvent(props) {
     }
 
     const handleUpdateReview = (reviewData) => {
-        const indexToUpdate = reviews.findIndex((review) => review.eventId === reviewData.eventId)
-        const updatedReviews = reviews
-        updatedReviews[indexToUpdate] = reviewData
-        setReviews(updatedReviews)
+        setReviews(reviewData)
         setReviewPopup(false)
     }
 
     const handleAddReview = (reviewData) => {
-        setReviews((prevReviews) => [...prevReviews, reviewData])
+        setReviews(reviewData)
         setReviewPopup(false)
     }
 
-    const handleDeleteReview = (eventId) => {
-        const updatedReviews = reviews.filter((review) => review.eventId !== eventId)
-        setReviews(updatedReviews)
+    const handleDeleteReview = () => {
+        setReviews(null)
         setReviewPopup(false)
     }
 
@@ -108,10 +104,10 @@ function SimpleEvent(props) {
                     <div className="simpleEvent--hostName">{props.eventCreator}</div>
                 </div>
 
-                {props.eventReview &&
+                {props.isPastEvent &&
                     !props.publicUpcoming &&
                     !props.publicPast &&
-                    (hasReview ? (
+                    (reviews ? (
                         <button
                             className="reviewButton"
                             onClick={() => {
@@ -129,7 +125,7 @@ function SimpleEvent(props) {
                         </button>
                     ))}
 
-                {!props.eventReview && !props.publicUpcoming && !props.publicPast && (
+                {!props.isPastEvent && !props.publicUpcoming && !props.publicPast && (
                     <button
                         className={`interestButton ${interest === 'Dolazim' ? 'green' : interest === 'Možda dolazim' ? 'yellow' : ''}`}
                         onClick={() => setChangeInterestPopup(true)}>
@@ -188,8 +184,8 @@ function SimpleEvent(props) {
                 setTrigger={setReviewPopup}
                 reviews={reviews}
                 eventId={props.eventId}
-                editMode={hasReview}
-                reviewData={hasReview ? reviews.find((review) => review.eventId === props.eventId) : null}
+                editMode={reviews}
+                reviewData={reviews ?? null}
                 onUpdateReview={handleUpdateReview}
                 onAddReview={handleAddReview}
                 onDeleteReview={handleDeleteReview}>

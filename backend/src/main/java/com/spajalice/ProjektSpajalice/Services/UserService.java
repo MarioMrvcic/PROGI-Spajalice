@@ -19,6 +19,8 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+
+
     @Autowired
     private EventRepository eventRepository;
 
@@ -86,6 +88,7 @@ public class UserService {
     }
 
     public List<Review> returnCommentList(User user) {
+
         List<Review> listForReturn = eventRepository.findAllByReviewsUserEmail(user.getEmail());
         return  listForReturn;
     }

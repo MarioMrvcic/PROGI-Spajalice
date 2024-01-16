@@ -170,6 +170,7 @@ public class UserController {
             returnCommentList = userService.returnCommentList(user.get());
             return new ResponseEntity<>(returnCommentList, HttpStatus.OK);
         } else {
+
             return new ResponseEntity<>(returnCommentList, HttpStatus.NOT_FOUND);
         }
     }
