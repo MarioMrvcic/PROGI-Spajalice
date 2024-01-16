@@ -1,84 +1,88 @@
 .simpleEvent {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    color: white;
-    width: 496px;
-    height: fit-content;
-    border-radius: 20px;
-    border: black 2px solid;
-    margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: white;
+  width: 496px;
+  height: fit-content;
+  border-radius: 20px;
+  border: black 2px solid;
+  margin-bottom: 0.5rem;
 }
 
-.simpleEvent > div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.simpleEvent > div:not(.reviewPopup, .ChangeInterestPopup) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.simpleEvent > div > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .simpleEvent--title {
-    margin-left: 1rem;
-    color: black;
+  margin-left: 1rem;
+  color: black;
 }
 
 .simpleEvent--hostName {
-    width: 145px;
-    background-color: #ed6a5a;
-    color: #3f4a61;
-    padding: 5px 15px;
-    border-radius: 15px;
-    font-size: 20px;
-    cursor: pointer;
-    width: fit-content;
+  background-color: #ed6a5a;
+  color: #3f4a61;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  width: fit-content;
 }
 
 .simpleEvent--date {
-    background-color: black;
-    width: fit-content;
-    padding: 10px;
-    border-radius: 25%;
-    margin-left: 1rem;
+  background-color: black;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 25%;
+  margin-left: 1rem;
 }
 
 .interestButton,
 .reviewButton {
-    width: 145px;
-    height: fit-content;
-    background-color: #533b4d;
-    color: #f4f1bb;
-    border: 2px solid #f4f1bb;
-    border-radius: 15px;
-    font-size: 18px;
-    cursor: pointer;
-
-    padding: 0.5rem;
-    margin-left: 8rem;
+  width: 145px;
+  height: fit-content;
+  background-color: #533b4d;
+  color: #f4f1bb;
+  border: 2px solid #f4f1bb;
+  border-radius: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-right: 1rem;
 }
 
 .reviewButton {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .interestButton:hover,
 .reviewButton:hover {
-    background-color: darkred;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-color: darkred;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .simpleEvent .interestButton.green {
-    background-color: limegreen;
-    border-color: black;
-    color: black;
+  background-color: limegreen;
+  border-color: black;
+  color: black;
 }
 
 .simpleEvent .interestButton.yellow {
-    background-color: orange;
-    border-color: black;
-    color: black;
+  background-color: orange;
+  border-color: black;
+  color: black;
 }
 
 .simpleEvent .interestButton.normal {
-    background-color: #533b4d;
-    color: #f4f1bb;
-    border: 2px solid #f4f1bb;
+  background-color: #533b4d;
+  color: #f4f1bb;
+  border: 2px solid #f4f1bb;
 }

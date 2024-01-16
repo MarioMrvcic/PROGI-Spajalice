@@ -31,10 +31,47 @@ function SimpleEvent(props) {
 
     const updateInterest = (editedInterest) => {
         setInterest(editedInterest.selectedInterest)
+
+        const authStateData = localStorage.getItem('authState')
+        const authStateEmail = authStateData ? JSON.parse(authStateData).email : null
+
+        let newInterest
+        if (editedInterest.selectedInterest == 'Ne dolazim') {
+            newInterest = 'NO'
+        } else if (editedInterest.selectedInterest == 'Dolazim') {
+            newInterest = 'YES'
+        } else {
+            newInterest = 'MAYBE'
+        }
+
+        const editedInterestData = {
+            eventId: props.eventId,
+            interest: newInterest,
+            userEmail: authStateEmail,
+        }
+
+        fetch('/api/changeInterest', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(editedInterestData),
+        })
         setChangeInterestPopup(false)
     }
 
     const deleteInterest = () => {
+        const authStateData = localStorage.getItem('authState')
+        const authStateEmail = authStateData ? JSON.parse(authStateData).email : null
+        const editedInterestData = {
+            eventId: props.eventId,
+            interest: 'NO',
+            userEmail: authStateEmail,
+        }
+
+        fetch('/api/changeInterest', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(editedInterestData),
+        })
         props.onDelete()
         setChangeInterestPopup(false)
     }
@@ -66,8 +103,10 @@ function SimpleEvent(props) {
         <div className="simpleEvent">
             <h1 className="simpleEvent--title">{props.eventName}</h1>
             <div>
-                <p className="simpleEvent--date">{props.eventDate}</p>
-                <div className="simpleEvent--hostName">Adidas</div>
+                <div>
+                    <p className="simpleEvent--date">{props.eventDate}</p>
+                    <div className="simpleEvent--hostName">{props.eventCreator}</div>
+                </div>
 
                 {props.eventReview &&
                     !props.publicUpcoming &&

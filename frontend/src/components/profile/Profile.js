@@ -24,20 +24,88 @@ function Profile() {
     const { encodedEmail } = useParams()
     const decodedEmail = decodeURIComponent(encodedEmail)
 
-    const [upcomingEvents, setUpcomingEvents] = useState([
-        { name: 'Event 1', date: '2022-01-15', interest: 'Dolazim', eventId: '1' },
-        { name: 'Event 2', date: '2022-02-20', interest: 'Možda dolazim', eventId: '2' },
-        { name: 'Event 3', date: '2022-03-25', interest: 'Dolazim', eventId: '3' },
-        { name: 'Event 4', date: '2022-04-10', interest: 'Možda dolazim', eventId: '4' },
-        { name: 'Event 5', date: '2022-05-15', interest: 'Dolazim', eventId: '5' },
+    const [upcomingEvents, setUpcomingEvents] = useState([])
+
+    //   const [upcomingPublicEvents, setUpcomingPublicEvents] = useState([]);
+    //   const [pastEvents, setPastEvents] = useState([]);
+    const [pastPublicEvents, setPastPublicEvents] = useState([])
+
+    //   const [reviews, setReviews] = useState([]);
+
+    const [upcomingPublicEvents, setUpcomingPublicEvents] = useState([
+        {
+            eventName: 'Event 1',
+            eventDate: '2022-01-15',
+            interest: '',
+            _id: '1',
+            eventCreator: 'Duje',
+        },
+        {
+            eventName: 'Event 2',
+            eventDate: '2022-02-20',
+            interest: '',
+            _id: '2',
+            eventCreator: 'Duje',
+        },
+        {
+            eventName: 'Event 3',
+            eventDate: '2022-03-25',
+            interest: 'Dolazim',
+            _id: '3',
+            eventCreator: 'Duje',
+        },
+        {
+            eventName: 'Event 4',
+            eventDate: '2022-04-10',
+            interest: 'Možda dolazim',
+            _id: '4',
+            eventCreator: 'Duje',
+        },
+        {
+            eventName: 'Event 5',
+            eventDate: '2022-05-15',
+            interest: 'Dolazim',
+            _id: '5',
+            eventCreator: 'Duje',
+        },
     ])
 
     const [pastEvents, setPastEvents] = useState([
-        { name: 'Event 6', date: '2021-01-15', review: 'true', eventId: '6' },
-        { name: 'Event 7', date: '2021-02-20', review: 'false', eventId: '7' },
-        { name: 'Event 8', date: '2021-03-25', review: 'true', eventId: '8' },
-        { name: 'Event 9', date: '2021-04-10', review: 'false', eventId: '9' },
-        { name: 'Event 10', date: '2021-05-15', review: 'false', eventId: '10' },
+        {
+            eventName: 'Event 6',
+            eventDate: '2021-01-15',
+            review: 'true',
+            _id: '6',
+            eventCreator: 'Duje',
+        },
+        {
+            eventName: 'Event 7',
+            eventDate: '2021-02-20',
+            review: 'false',
+            _id: '7',
+            eventCreator: 'Duje',
+        },
+        {
+            eventName: 'Event 8',
+            eventDate: '2021-03-25',
+            review: 'false',
+            _id: '8',
+            eventCreator: 'Duje',
+        },
+        {
+            eventName: 'Event 9',
+            eventDate: '2021-04-10',
+            review: 'false',
+            _id: '9',
+            eventCreator: 'Duje',
+        },
+        {
+            eventName: 'Event 10',
+            eventDate: '2021-05-15',
+            review: 'false',
+            _id: '10',
+            eventCreator: 'Duje',
+        },
     ])
 
     const [reviews, setReviews] = useState([
@@ -75,6 +143,7 @@ function Profile() {
             }
 
             try {
+                //get User data
                 const response = await fetch('/api/getUser/' + decodedEmail)
 
                 if (response.status === 404) {
@@ -91,6 +160,35 @@ function Profile() {
             }
         }
 
+        const fetchEvents = async () => {
+            try {
+                //get upcoming events for user
+                const upcomingEventsResponse = await fetch('/api/getEventsIntrestedIn/' + decodedEmail)
+                if (upcomingEventsResponse.status === 404) {
+                    console.log('No upcoming events for user.')
+                    return
+                }
+                const upcomingEventsData = await upcomingEventsResponse.json()
+
+                //get upcoming event interests for user
+                const upcomingEventInterests = await fetch('/api/getEventInterest/' + decodedEmail)
+                const upcomingEventInterestData = await upcomingEventInterests.json()
+
+                const eventInterests = upcomingEventsData.map((event) => {
+                    return {
+                        ...event,
+                        interest:
+                            upcomingEventInterestData.find((interest) => interest.eventId === event._id).interest === 'YES'
+                                ? 'Dolazim'
+                                : 'Možda dolazim',
+                    }
+                })
+                setUpcomingEvents(eventInterests)
+            } catch (error) {
+                console.error('Error fetching upcoming events:', error)
+            }
+        }
+
         const storedProfileData = localStorage.getItem('profileData')
         const storedEmail = storedProfileData ? JSON.parse(storedProfileData).email : null
 
@@ -100,6 +198,11 @@ function Profile() {
         const authStateData = localStorage.getItem('authState')
         const authStateEmail = authStateData ? JSON.parse(authStateData).email : null
 
+        if (authStateEmail !== decodedEmail && !isPublicProfile) {
+            navigate('/')
+            return
+        }
+
         if (authStateEmail && authStateEmail !== decodedEmail) {
             setIsPublicUsers(false)
         } else {
@@ -108,8 +211,14 @@ function Profile() {
 
         if (decodedEmail && decodedEmail !== storedEmail) {
             fetchData()
+            fetchEvents()
         } else {
             setProfileData(JSON.parse(storedProfileData))
+            fetchEvents()
+        }
+        if (profileData.role != 'ORGANIZER' && isPublicProfile) {
+            navigate('/')
+            return
         }
     }, [decodedEmail, navigate])
 
@@ -148,6 +257,12 @@ function Profile() {
         setUpcomingEvents(newUpcomingEvents)
     }
 
+    const handleDeleteInterestPublic = (index) => {
+        const newUpcomingPublicEvents = [...upcomingPublicEvents]
+        newUpcomingPublicEvents.splice(index, 1)
+        setUpcomingPublicEvents(newUpcomingPublicEvents)
+    }
+
     const handleDeleteReview = (index) => {
         const newReviews = [...reviews]
         newReviews.splice(index, 1)
@@ -156,7 +271,7 @@ function Profile() {
 
     function scrollToDivButton(index) {
         const targetDiv = document.getElementById('reviewSection')
-        setCurrentReviewEvent(pastEvents[index].eventId)
+        setCurrentReviewEvent(pastEvents[index]._id)
         if (targetDiv) {
             targetDiv.scrollIntoView({ behavior: 'smooth' })
         }
@@ -241,18 +356,25 @@ function Profile() {
                                 <h1 className="eventTitle">Your upcoming events</h1>
                             </div>
 
-                            <div className="eventDisplay">
-                                {upcomingEvents.map((event, index) => (
-                                    <SimpleEvent
-                                        key={index}
-                                        eventName={event.name}
-                                        eventDate={event.date}
-                                        eventInterest={event.interest}
-                                        eventId={event.eventId}
-                                        onDelete={() => handleDeleteInterest(index)}
-                                    />
-                                ))}
-                            </div>
+                            {upcomingEvents.length > 0 ? (
+                                <div className="eventDisplay">
+                                    {upcomingEvents.map((event, index) => (
+                                        <SimpleEvent
+                                            key={index}
+                                            eventName={event.eventName}
+                                            eventDate={new Date(event.eventDate).toISOString().split('T')[0]}
+                                            eventInterest={event.interest}
+                                            eventCreator={event.eventCreator}
+                                            eventId={event._id}
+                                            onDelete={() => handleDeleteInterest(index)}
+                                        />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="eventDisplay">
+                                    <h1>You have no upcoming events</h1>
+                                </div>
+                            )}
                         </div>
                     )}
 
@@ -262,18 +384,26 @@ function Profile() {
                                 <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
                                 <h1 className="eventTitle">Your past events</h1>
                             </div>
-                            <div className="eventDisplay">
-                                {pastEvents.map((event, index) => (
-                                    <SimpleEvent
-                                        key={index}
-                                        eventName={event.name}
-                                        eventDate={event.date}
-                                        eventReview={event.review}
-                                        eventId={event.eventId}
-                                        onDelete={() => handleDeleteInterest(index)}
-                                    />
-                                ))}
-                            </div>
+
+                            {pastEvents.length > 0 ? (
+                                <div className="eventDisplay">
+                                    {pastEvents.map((event, index) => (
+                                        <SimpleEvent
+                                            key={index}
+                                            eventName={event.eventName}
+                                            eventDate={event.eventDate}
+                                            eventReview={event.review}
+                                            eventId={event._id}
+                                            eventCreator={event.eventCreator}
+                                            onDelete={() => handleDeleteInterest(index)}
+                                        />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="eventDisplay">
+                                    <h1>You have no past events</h1>
+                                </div>
+                            )}
                         </div>
                     )}
 
@@ -286,20 +416,29 @@ function Profile() {
                                 </h1>
                             </div>
 
-                            <div className="eventDisplay">
-                                {upcomingEvents.map((event, index) => (
-                                    <SimpleEvent
-                                        key={index}
-                                        eventName={event.name}
-                                        eventDate={event.date}
-                                        eventInterest={event.interest}
-                                        eventId={event.eventId}
-                                        publicUpcoming={true}
-                                        isPublicOwner={isPublicUsers}
-                                        onDelete={() => handleDeleteInterest(index)}
-                                    />
-                                ))}
-                            </div>
+                            {upcomingEvents.length > 0 ? (
+                                <div className="eventDisplay">
+                                    {upcomingPublicEvents.map((event, index) => (
+                                        <SimpleEvent
+                                            key={index}
+                                            eventName={event.eventName}
+                                            eventDate={event.eventDate}
+                                            eventInterest={event.interest}
+                                            eventId={event._id}
+                                            eventCreator={event.eventCreator}
+                                            publicUpcoming={true}
+                                            isPublicOwner={isPublicUsers}
+                                            onDelete={() => handleDeleteInterestPublic(index)}
+                                        />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="eventDisplay">
+                                    <h1>
+                                        {profileData.firstName} {profileData.lastName} has no upcoming events.
+                                    </h1>
+                                </div>
+                            )}
                         </div>
                     )}
 
@@ -311,21 +450,31 @@ function Profile() {
                                     {profileData.firstName} {profileData.lastName} past events
                                 </h1>
                             </div>
-                            <div className="eventDisplay">
-                                {pastEvents.map((event, index) => (
-                                    <SimpleEvent
-                                        key={index}
-                                        eventName={event.name}
-                                        eventDate={event.date}
-                                        eventReview={event.review}
-                                        eventId={event.eventId}
-                                        publicPast={true}
-                                        isPublicOwner={isPublicUsers}
-                                        scrollAction={() => scrollToDivButton(index)}
-                                        onDelete={() => handleDeleteInterest(index)}
-                                    />
-                                ))}
-                            </div>
+
+                            {pastEvents.length > 0 ? (
+                                <div className="eventDisplay">
+                                    {pastEvents.map((event, index) => (
+                                        <SimpleEvent
+                                            key={index}
+                                            eventName={event.eventName}
+                                            eventDate={event.eventDate}
+                                            eventReview={event.review}
+                                            eventId={event._id}
+                                            eventCreator={event.eventCreator}
+                                            publicPast={true}
+                                            isPublicOwner={isPublicUsers}
+                                            scrollAction={() => scrollToDivButton(index)}
+                                            onDelete={() => handleDeleteInterest(index)}
+                                        />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="eventDisplay">
+                                    <h1>
+                                        {profileData.firstName} {profileData.lastName} has no past events.
+                                    </h1>
+                                </div>
+                            )}
                         </div>
                     )}
                     {!isPublic && (
@@ -334,20 +483,27 @@ function Profile() {
                                 <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
                                 <h1 className="eventTitle">Your reviews</h1>
                             </div>
-                            <div className="ReviewsDisplay">
-                                {reviews.map((review, index) => (
-                                    <Review
-                                        key={index}
-                                        reviewTitle={review.reviewTitle}
-                                        reviewBody={review.reviewBody}
-                                        reviewRating={review.reviewRating}
-                                        reviewDate={review.reviewCreationDate}
-                                        reviewUser={review.userEmail}
-                                        eventId={review.eventId}
-                                        onDelete={() => handleDeleteReview(index)}
-                                    />
-                                ))}
-                            </div>
+
+                            {reviews.length > 0 ? (
+                                <div className="ReviewsDisplay">
+                                    {reviews.map((review, index) => (
+                                        <Review
+                                            key={index}
+                                            reviewTitle={review.reviewTitle}
+                                            reviewBody={review.reviewBody}
+                                            reviewRating={review.reviewRating}
+                                            reviewDate={review.reviewCreationDate}
+                                            reviewUser={review.userEmail}
+                                            eventId={review.eventId}
+                                            onDelete={() => handleDeleteReview(index)}
+                                        />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="ReviewsDisplay">
+                                    <h1>You haven't submitted any reviews</h1>
+                                </div>
+                            )}
                         </div>
                     )}
                     {isPublic && (
