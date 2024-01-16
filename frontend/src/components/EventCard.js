@@ -54,7 +54,7 @@ function EventCard(props) {
         }
         if(props.eventPhotos!=null){
             setFirstPhoto(props.eventPhotos)
-            console.log(props.eventPhotos[0]['photoURL'])
+
         }
 
     }, [firstPhoto]);

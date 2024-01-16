@@ -54,7 +54,7 @@ function Main() {
         <div className="Main">
             {events.map((event) => (
                 <EventCard
-                    key={event._id}
+                    eventId={event._id}
                     eventName={event.eventName}
                     eventType={event.eventType}
                     eventDate={event.eventDate}
@@ -64,8 +64,10 @@ function Main() {
                     eventCreator={eventCreators[event.eventCreator]}
                     eventCreatorEmail={event.eventCreator}
                     eventPhotos={event.photos}
+                    eventPrice={event.price}
                 />
             ))}
+
         </div>
     );
 }

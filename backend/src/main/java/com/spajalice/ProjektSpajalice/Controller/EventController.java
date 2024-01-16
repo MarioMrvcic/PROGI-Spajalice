@@ -44,6 +44,20 @@ public class EventController {
         }
     }
 
+    @PostMapping("/editEvent")
+    public ResponseEntity<Event> editEvent(@RequestBody Event event) {
+        try {
+            // Add the event to the system
+            Event _event = eventService.editEvent(event);
+
+            // Return the created event
+            return new ResponseEntity<>(_event, HttpStatus.CREATED);
+        } catch (Exception e) {
+            // Return an error response in case of an exception
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     /**
      * Endpoint to delete an event and its associated reviews.
      *

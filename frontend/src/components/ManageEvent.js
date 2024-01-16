@@ -23,6 +23,7 @@ function ManageEvent() {
   const [eventDescription, setEventDescription] = useState("");
   const [locationNames, setLocationNames] = useState([]);
   const [eventLocation, setEventLocation] = useState("Zagreb");
+  const [eventId, setEventId] = useState("");
   const { token, role, email } = useAuth();
 
   const [images, setImages] = useState([]);
@@ -98,6 +99,7 @@ function ManageEvent() {
     }
 
     const eventToCreate = {
+      _id: eventId,
       eventName,
       isEventPaid,
       //eventLocation,
@@ -112,7 +114,11 @@ function ManageEvent() {
       eventCreator: email,
     };
 
-    fetch("/api/addEvent", {
+
+
+    const endpoint=pushedProps ? "/api/editEvent" : "/api/addEvent";
+
+    fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -120,12 +126,15 @@ function ManageEvent() {
       },
       body: JSON.stringify(eventToCreate),
     })
-      .then(() => alert("Event added!"))
-      .then(() => {
-        navigate("/");
-      });
-    console.log(eventToCreate);
+        .then(() => alert(pushedProps ? "Event updated!" : "Event added!"))
+        .then(() => {
+          navigate("/");
+        })
+        .catch((error) => console.error("Error submitting event:", error));
   }
+
+
+
 
   useEffect(() => {
     setMinDate();
@@ -144,9 +153,20 @@ function ManageEvent() {
       setEventStartTime(pushedProps.eventStartTime);
       setEventDuration(pushedProps.eventDuration);
       setEventDescription(pushedProps.eventDescription);
-      setImages(pushedProps.eventPhotos);
-      console.log(pushedProps.eventPhotos)
+      setImagesURL(pushedProps.eventPhotos);
+      setImages(pushedProps.eventPhotos)
+      setEventId(pushedProps.eventId);
+      console.log(pushedProps)
     }
+
+    if(pushedProps!=null){
+      if (pushedProps.eventPrice==0){
+        setIsEventPaid(false);
+      } else{
+        setIsEventPaid(true);
+      }
+    }
+
   }, []);
 
   useEffect(() => {
@@ -217,7 +237,7 @@ function ManageEvent() {
             id="priceInput"
             name="priceInput"
             placeholder="Please enter a price"
-            defaultValue={0.0}
+            defaultValue={isEventPaid ? eventPrice : 0.0}
             decimalsLimit={2}
             suffix="€"
             onValueChange={(e) => setEventPrice(e)}

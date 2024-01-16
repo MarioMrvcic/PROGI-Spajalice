@@ -51,6 +51,10 @@ public class EventService {
         return eventRepository.save(event);
     }
 
+    public Event editEvent(Event event){
+        return eventRepository.save(event);
+    }
+
     /**
      * Deletes an event and its associated reviews.
      *
