@@ -60,5 +60,6 @@ public class EventUserService {
     public List<EventUser> returnEventInterest(User user) {
 
         return eventUserRepository.findAllByUserEmail(user.getEmail());
+
     }
 }

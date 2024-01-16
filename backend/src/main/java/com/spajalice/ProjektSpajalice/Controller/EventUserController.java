@@ -75,6 +75,7 @@ public class EventUserController {
             returnAllEventInterest = eventUserService.returnEventInterest(user.get());
             return new  ResponseEntity<>(returnAllEventInterest, HttpStatus.OK);
         }else{
+
             return new ResponseEntity<>(returnAllEventInterest, HttpStatus.NOT_FOUND);
         }
     }
