@@ -17,6 +17,16 @@
 		\item Baza podataka
 		\item Web aplikacija
 		\item Web poslužitelj
+		
+	
+	\begin{figure}[H]
+			\includegraphics[scale=0.8]{slike/Arhitektura.png} %veličina slike u odnosu na originalnu datoteku i pozicija slike
+			\centering
+			\caption{Skica arhitekture sustava}
+			\label{fig:ARH}
+		\end{figure}
+		
+		
 							
 	\end{packed_enum}
 	
@@ -25,8 +35,6 @@
 	Kada korisnik putem internetskog preglednika šalje zahtjev, ta komunikacija se uspostavlja s web poslužiteljem. Web poslužitelj predstavlja temelj rada web aplikacija, a njegova osnovna zadaća je posredovati u komunikaciji između korisnika (klijenta) i same aplikacije. Cijeli taj proces komunikacije odvija se putem HTTP (HyperText Transfer Protocol) protokola, koji služi kao standardni način prijenosa informacija na internetu.
 
 	Važno je naglasiti da je web poslužitelj taj koji pokreće web aplikaciju i prosljeđuje joj korisnički zahtjev. Kroz korištenje web aplikacije, korisnik šalje različite zahtjeve koje aplikacija obrađuje. Ovisno o konkretnom zahtjevu, web aplikacija može pristupiti bazi podataka kako bi došla do relevantnih informacija. Nakon obrade zahtjeva, aplikacija putem web poslužitelja šalje odgovor korisniku u obliku HTML dokumenta. Taj dokument postaje vizualno doživljajan u internetskom pregledniku, predstavljajući krajnji rezultat korisničkog zahtjeva.
-
-	Ovaj kompleksan proces integracije internetskog preglednika, web poslužitelja i web aplikacije ključan je za pravilno funkcioniranje našeg projekta. 
 	
 	Programski jezik kojeg smo odabrali za izradu naše web aplikacije je Java zajedno s React i Spring Boot stackom. Projekt programiramo u razvojnom okruženju Intellj IDEA. Arhitekturu sustava baziramo na MVC konceptu (Model-View-Controller) prilagođenom za React i Spring boot. Glavna karakteristika zbog koje smo se odlučili za MVC je nezavisno razvijanje pojedinih dijelova aplikacije što nam omogućuje jednostavnije testiranje i implementiranje novog koda. Glavna podjela je na tzv. „Backend“ i „Frontend“.
 	\vspace{30pt}
@@ -36,14 +44,14 @@
 	
 	\begin{packed_enum}
 	
-		\item Model: Sve klase (koje su povezane sa bazom) sa odgovarajućim atributima te servisi u kojima se provodi logika koji kasnije koriste API komponente (Controlleri)
+		\item Model: Svi razredi (koje su povezane sa bazom) sa odgovarajućim atributima te servisi u kojima se provodi logika koji kasnije koriste API komponente (Controlleri)
 		\item View: JSON podatci s kojima upravljaju API komponente(Controlleri)
 		\item Controller: API komponente koje obrađuju zahtjeve te šalju adekvatne odgovore
 							
 	\end{packed_enum}
 	\eject
 	
-	Frontend (React) MVC koncept:
+	Frontend (React) MVC arhitektura:
 	
 	\begin{packed_enum}
 	
@@ -307,19 +315,38 @@
 		
 		\section{Dijagram stanja}
 			
-			
+			\begin{comment}
 			\textbf{\textit{dio 2. revizije}}\\
 			
 			\textit{Potrebno je priložiti dijagram stanja i opisati ga. Dovoljan je jedan dijagram stanja koji prikazuje \textbf{značajan dio funkcionalnosti} sustava. Na primjer, stanja korisničkog sučelja i tijek korištenja neke ključne funkcionalnosti jesu značajan dio sustava, a registracija i prijava nisu. }
+			\end{comment}
+			
+			Dijagram stanja prikazuje stanja objekta te prijelaze iz jednog stanja u drugo temeljene na dogadajima. Slika \ref{fig:DSP} prikazuje dijagram stanja prijavljenog posjetitelja. Nakon prijave posjetitelju se na početnoj stranici prikazuje lista budućih događanja. Odabere li posjetitelj određeno događanje bit će mu ponuđene opcije da pročita više o događanju, označi dolaznost na događanje te da pogleda profil organizatora. Ako posjetitelj odabere pogledati profil organizatora otvoriti će mu se stranicu u kojoj će moći vidjeti recenzije ostaljene na neka događanja organizatora, buduća i prošla događanja te podatke o samom organizatoru. Ako posjetitelj želi pregledati svoj profil to će moći napraviti tako da odabere "Profil". Na toj će stranici moći pogledati i urediti svoje podatke, obrisati svoj račun, promjeniti interes za svoja buduća događanja, ostaviti osvrt na događanje na kojem je bio te urediti ili obrisati recenziju koju je već napisao.
+			
+			\begin{figure}[H]
+			\includegraphics[width=\textwidth]{slike/Dijagram stanja - Posjetitelj.PNG} %veličina u odnosu na širinu linije
+			\caption{Dijagram stanja - Posjetitelj}
+			\label{fig:DSP} %label mora biti drugaciji za svaku sliku
+		\end{figure}
 			
 			
 			\eject 
 		
 		\section{Dijagram aktivnosti}
+		
+			Dijagram aktivnosti primjenjuje se za opis modela toka upravljanja ili toka podataka. Kao i kod sekvencijskog dijagrama kod dijagrama aktivnosti poseban naglasak ima redosljed kojim se aktivnosti isvršavaju. Zbog manjka kompleksnosti sustava u nastavku se nalaze dva dijagama aktivnosti. Prvi dijagram (\ref{fig:DAPZ}) prikazuje operacije sustava potrebne za postavljanje interesa na određeni događaj koji se još nije dogodio. Drugi dijagram (\ref{fig:DAOR}) prikazuje što se sve mora dogoditi da bi posjetitelj uspješno ostavio recenziju na događaj koji se već dogodio. 
 			
-			\textbf{\textit{dio 2. revizije}}\\
-			
-			 \textit{Potrebno je priložiti dijagram aktivnosti s pripadajućim opisom. Dijagram aktivnosti treba prikazivati značajan dio sustava.}
+			\begin{figure}[H]
+			\includegraphics[width=\textwidth]{slike/Dijagram Aktivnosti - PZ.PNG} %veličina u odnosu na širinu linije
+			\caption{Dijagram aktivnosti - Postavljanje zainteresiranosti}
+			\label{fig:DAPZ} %label mora biti drugaciji za svaku sliku
+		\end{figure}	
+		
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{slike/Dijagram Aktivnosti - OR.PNG} %veličina u odnosu na širinu linije
+			\caption{Dijagram aktivnosti - Ostavljanje recenzije}
+			\label{fig:DAOR} %label mora biti drugaciji za svaku sliku
+		\end{figure}			
 			
 			\eject
 		\section{Dijagram komponenti}
