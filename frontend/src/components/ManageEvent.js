@@ -219,7 +219,10 @@ function ManageEvent() {
           ))}
         </select>
         <label htmlFor="eventLocation">Event location:</label>
-        <select value={eventLocation} onChange={e => setEventLocation(e.target.value)}>
+        <select id="eventLocation"
+                name="eventLocation"
+                value={eventLocation}
+                onChange={e => setEventLocation(e.target.value)}>
           {locationNames.map((eventLocation, index) => (
               <option key={index} value={eventLocation}>{eventLocation}</option>
           ))}

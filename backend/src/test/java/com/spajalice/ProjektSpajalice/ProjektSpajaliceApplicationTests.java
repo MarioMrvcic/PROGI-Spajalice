@@ -1,13 +1,133 @@
 package com.spajalice.ProjektSpajalice;
 
+import com.spajalice.ProjektSpajalice.Services.UserService;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @SpringBootTest
 class ProjektSpajaliceApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void testLoginGoodCredentials(){
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		driver.get("http://localhost:3000/login");
+
+		WebElement element = driver.findElement(By.name("Email"));
+		element.sendKeys("admin@gmail.com");
+
+		element = driver.findElement(By.name("password"));
+		element.sendKeys("Admin123");
+
+		driver.findElement(By.cssSelector("input[type='submit']")).click();
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+		wait.until(ExpectedConditions.urlToBe("http://localhost:3000/"));
+		String redirectUrl = driver.getCurrentUrl();
+
+		boolean success = redirectUrl.equals("http://localhost:3000/");
+		assertEquals(true, success);
+
+		driver.quit();
+	}
+
+	@Test
+	public void testLoginBadCredentials(){
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		driver.get("http://localhost:3000/login");
+
+		WebElement element = driver.findElement(By.name("Email"));
+		element.sendKeys("random");
+
+		element = driver.findElement(By.name("password"));
+		element.sendKeys("random");
+
+		driver.findElement(By.cssSelector("input[type='submit']")).click();
+		String redirectUrl = driver.getCurrentUrl();
+
+		boolean success = redirectUrl.equals("http://localhost:3000/");
+		assertEquals(false, success);
+
+		driver.quit();
+	}
+
+	@Test
+	public void testCreateEvent() throws InterruptedException {
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("http://localhost:3000/login");
+		WebElement element = driver.findElement(By.name("Email"));
+		element.sendKeys("admin@gmail.com");
+		element = driver.findElement(By.name("password"));
+		element.sendKeys("Admin123");
+		driver.findElement(By.cssSelector("input[type='submit']")).click();
+		Thread.sleep(1000);
+		WebElement menuDiv = driver.findElement(By.className("menu"));
+		menuDiv.click();
+		WebElement createEvent=driver.findElement(By.xpath(".//li[text()='Create Event']"));
+		createEvent.click();
+		WebElement form= driver.findElement(By.className("manageEvent--form"));
+		form.findElement(By.id("eventName")).sendKeys("Test Event");
+		WebElement dropdownType= form.findElement(By.id("eventType"));
+		Select dropdownT = new Select(dropdownType);
+		dropdownT.selectByVisibleText("EXPO");
+		WebElement dropdownLocation= form.findElement(By.id("eventLocation"));
+		Select dropdownL = new Select(dropdownLocation);
+		dropdownL.selectByVisibleText("Slavonski Brod");
+		form.findElement(By.id("eventDate")).sendKeys("06/25/2024");
+		form.findElement(By.id("eventStartTime")).sendKeys("13:00");
+		form.findElement(By.id("eventDuration")).sendKeys("17:00");
+		form.findElement(By.id("eventUrl")).sendKeys("www.test.com");
+		form.findElement(By.id("eventDescription")).sendKeys("Test description");
+		By uploadButtonXPath = By.xpath("//div[@class='upload__image-wrapper']//button[contains(text(), 'Click or Drop here')]");
+		WebElement fileInput=driver.findElement(uploadButtonXPath);
+		fileInput.click();
+		Thread.sleep(7000);
+		driver.findElement(By.cssSelector("input[type='submit']")).click();
+		Thread.sleep(2000);
+		Alert alert = driver.switchTo().alert();
+		String alertText = alert.getText();
+		alert.accept();
+
+		boolean success = alertText.equals("Event added!");
+		assertEquals(true, success);
+		driver.quit();
+	}
+
+	@Autowired
+	private UserService userSer;
+	@Test
+	@DisplayName("Test findUserByEmail")
+	public void findUserByEmail(){
+		assertTrue(userSer.getUserById("capsi@gmail.com").isPresent());
 	}
 
 }
