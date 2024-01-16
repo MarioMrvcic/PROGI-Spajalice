@@ -46,8 +46,9 @@ public class EventService {
     }
     
     public Event addEvent(Event event){
-        long count=eventRepository.count();
-        event.set_id(count+1);
+        List<Event> events = eventRepository.findAllBy(new Object());
+        Optional<Long> maxId = events.stream().map(Event::get_id).max(Long::compareTo);
+        event.set_id(maxId.orElse(0L) + 1);
         return eventRepository.save(event);
     }
 

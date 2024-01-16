@@ -22,4 +22,6 @@ public interface EventRepository extends MongoRepository<Event, Long> {
 
     // Returning all user comments for User
     List<Review> findAllByReviewsUserEmail(String userEmail);
+
+    List<Event> findAllBy(Object o);
 }
