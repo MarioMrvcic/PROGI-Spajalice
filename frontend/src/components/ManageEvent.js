@@ -44,21 +44,22 @@ function ManageEvent() {
   };
   function checkPaymentStatus() {
     fetch(`api/checkPaymentStatus/${email}`)
-        .then(response => response.json())
-        .then(data => {
-          setHasOrganizerPaid(true)
-        })
-        .catch(error => console.error('Error fetching payment status:', error));
+      .then(response => response.json())
+      .then(data => {
+        setHasOrganizerPaid(prevState => {
+          if (data) {
+            setIsEventPaid(!isEventPaid);
+          } else {
+            alert("You must pay the subscription fee to create a paid event");
+          }
+          return data; // Update the state with the new value
+        });
+      })
+      .catch(error => console.error('Error fetching payment status:', error));
   }
+  
   const handleCheck = () => {
-    checkPaymentStatus()
-    if(hasOrganizerPaid){
-      setIsEventPaid(!isEventPaid);
-    }
-    else{
-      alert("You must pay the subscription fee to create a paid event")
-    }
-    
+    setHasOrganizerPaid(checkPaymentStatus());
   };
 
   const Checkbox = ({ label, value, onChange }) => {
