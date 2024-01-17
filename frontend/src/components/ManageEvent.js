@@ -42,27 +42,31 @@ function ManageEvent() {
     setImagesURL(imageUrls);
     console.log(imageList)
   };
-  function checkPaymentStatus() {
-    fetch(`api/checkPaymentStatus/${email}`)
-        .then(response => response.json())
-        .then(data => {
-          if (!data ) {
-            setHasOrganizerPaid(false)
-          } else{
-            setHasOrganizerPaid(true)
-          }
-        })
-        .catch(error => console.error('Error fetching payment status:', error));
+  async function checkPaymentStatus() {
+    try {
+      const response = await fetch(`api/checkPaymentStatus/${email}`);
+      const data = await response.json();
+      
+      return !!data;
+    } catch (error) {
+      console.error('Error fetching payment status:', error);
+      throw error; 
+    }
   }
-  const handleCheck = () => {
-    checkPaymentStatus()
-    if(hasOrganizerPaid){
-      setIsEventPaid(!isEventPaid);
+  
+  const handleCheck = async () => {
+    try {
+      const hasOrganizerPaid = await checkPaymentStatus();
+  
+      if (hasOrganizerPaid) {
+        setIsEventPaid(!isEventPaid);
+      } else {
+        alert("You must pay the subscription fee to create a paid event");
+      }
+    } catch (error) {
+      // Handle errors here if needed
+      console.error('Error checking payment status:', error);
     }
-    else{
-      alert("You must pay the subscription fee to create a paid event")
-    }
-    
   };
 
   const Checkbox = ({ label, value, onChange }) => {
@@ -226,7 +230,7 @@ function ManageEvent() {
             id="priceInput"
             name="priceInput"
             placeholder="Please enter a price"
-            defaultValue={isEventPaid ? eventPrice : 0.0}
+            value = {eventPrice}
             decimalsLimit={2}
             suffix="€"
             onValueChange={(e) => setEventPrice(e)}
@@ -264,9 +268,8 @@ function ManageEvent() {
           value={eventDescription}
           onChange={(e) => setEventDescription(e.target.value)}
         />
-        <input type="submit" value="Submit" onClick={handleSubmit} />
-      </form>
-      <div>
+        <label htmlFor="eventDescription">Event photos:</label>
+        <div className="imageUpload">
         <ImageUploading
         multiple
         value={images}
@@ -284,7 +287,7 @@ function ManageEvent() {
           dragProps,
         }) => (
           <div className="upload__image-wrapper">
-            <button
+            <button type="button"
               style={isDragging ? { color: 'red' } : undefined}
               onClick={onImageUpload}
               {...dragProps}
@@ -292,13 +295,13 @@ function ManageEvent() {
               Click or Drop here
             </button>
             &nbsp;
-            <button onClick={onImageRemoveAll}>Remove all images</button>
+            <button type="button" onClick={onImageRemoveAll}>Remove all images</button>
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
                 <img src={image['photoURL']} alt="" width="100" />
                 <div className="image-item__btn-wrapper">
-                  <button onClick={() => onImageUpdate(index)}>Update</button>
-                  <button onClick={() => onImageRemove(index)}>Remove</button>
+                  <button type="button" onClick={() => onImageUpdate(index)}>Update</button>
+                  <button type="button" onClick={() => onImageRemove(index)}>Remove</button>
                 </div>
 
               </div>
@@ -307,6 +310,9 @@ function ManageEvent() {
         )}
         </ImageUploading>
         </div>
+        <input type="submit" value="Submit" onClick={handleSubmit} />
+      </form>
+      
     </div>
   );
 }

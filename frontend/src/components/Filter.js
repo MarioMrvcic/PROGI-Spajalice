@@ -69,7 +69,7 @@ function Filter({ onEventsChange }){
       }
 
     return(
-        <div>
+        <div className='containerFilter'>
             <button className="filterButton" onClick={handle24h}>24h</button>
             <button className="filterButton" onClick={handle7}>7 days</button>
             <button className="filterButton" onClick={handle30}>30 days</button>

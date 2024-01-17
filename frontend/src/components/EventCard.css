@@ -162,3 +162,22 @@ p {
     object-fit: cover;
     border-radius: 0px;
 }
+
+.imageNavButtonLeft{
+    height: 40px;
+    width: 40px;
+    align-self: center;
+    border-radius: 20px;
+    position: absolute;
+    font-size: 30px;
+    margin-left: 5px;
+}
+.imageNavButtonRight{
+    height: 40px;
+    width: 40px;
+    align-self: center;
+    border-radius: 20px;
+    position: absolute;
+    margin-left: 855px;
+    font-size: 30px;
+}

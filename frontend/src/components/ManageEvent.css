@@ -97,3 +97,7 @@
 .priceField {
     width: 280px;
 }
+
+.upload__image-wrapper > button{
+    height: 100px;
+}

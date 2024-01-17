@@ -1,4 +1,21 @@
 .filterButton {
-    height: 20px;
-    width: 200px;
+    width: 160px;
+    height: 40px;
+    background-color: #533b4d;
+    color: #f4f1bb;
+    border: 2px solid #f4f1bb;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.filterButton:hover {
+    background-color: darkred;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.containerFilter {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
 }

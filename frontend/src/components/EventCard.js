@@ -17,7 +17,28 @@ function EventCard(props) {
     const eventDate = new Date(`${formattedDate}T${props.eventStartTime}`);
     const eventHasNotStarted = eventDate > new Date();
     const [location, setLocation] = useState(null);
-    
+    const [indexOfPhoto, setIndexOfPhoto] = useState(0);
+
+    const handleLeftButtonClick = () => {
+        setIndexOfPhoto((prevIndex) => {
+        if (prevIndex === 0) {
+            return props.eventPhotos.length - 1;
+        } else {
+            return prevIndex - 1;
+        }
+        });
+    };
+
+    const handleRightButtonClick = () => {
+        setIndexOfPhoto((prevIndex) => {
+        if (prevIndex === props.eventPhotos.length - 1) {
+            return 0;
+        } else {
+            return prevIndex + 1;
+        }
+        });
+    };
+
     const eventPhotos = props.eventPhotos || [];
 
     const galleryItems = eventPhotos.map((photo, index) => ({
@@ -131,9 +152,9 @@ function EventCard(props) {
                 </div>
             </div>
             <div className={showBigInfo ? 'EventPage' : 'EventPage hidden'}>
-                <button>←</button>
-                <img src={props.eventPhotos[0]['photoURL']}  alt="slika eventa" className='eventImagePage'/>
-                <button>→</button>
+                <button className="imageNavButtonLeft" onClick={handleLeftButtonClick}>◄</button>
+                <img src={props.eventPhotos[indexOfPhoto]['photoURL']} alt="slika eventa" className='eventImagePage' />
+                <button className="imageNavButtonRight" onClick={handleRightButtonClick}>►</button>
                 <div className="EventPage--text">
                     <h1 className="EventPage--name">{props.eventName}</h1>
                     <div className="EventPage--info">
