@@ -141,10 +141,11 @@ function EventCard(props) {
                     <div className="EventPage--dodatno ">
                         <div className="EventPage--hostName" onClick={navigateToProfile}>{props.eventCreator}</div>
                         <button className="EventPage--button" onClick={seeLess}>Manje</button>
-                        <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                            <button className="responseText">{response}</button>
-                            {isDropdownVisible && <ReactionMenu setResponse={setResponse} eventId={props.eventId}/>}
-                        </div>
+                        {isNotCreator ?(
+                            <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                                <button className="responseText">{response}</button>
+                                {isDropdownVisible && <ReactionMenu setResponse={setResponse} eventId={props.eventId}/>}
+                            </div>):null}
                     </div>
                 </div>
             </div>
