@@ -8,6 +8,7 @@ function Register() {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [selectedRole, setSelectedRole] = useState('');
     const [adminPassword, setAdminPassword] = useState('');
 
@@ -42,6 +43,11 @@ function Register() {
 
         if (!lower || !upper || !number || password.length < 8) {
             alert('Password must be at least 8 characters long and it must contain at least one lower case letter, one upper case letter and one number.');
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
             return;
         }
 
@@ -128,6 +134,14 @@ function Register() {
                     name="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                />
+                <label htmlFor="confirmPassword">Confirm Password:</label>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                 />
                 <div>
                     <label>
