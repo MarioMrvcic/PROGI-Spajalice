@@ -14,6 +14,8 @@ function EventCard(props) {
     const {email} = useAuth()
     const [isNotCreator, setIsNotCreator] = useState(true);
     const [firstPhoto, setFirstPhoto] = useState(null);
+    const eventDate = new Date(`${formattedDate}T${props.eventStartTime}`);
+    const eventHasNotStarted = eventDate > new Date();
     
     const seeMore = () => {
         setShowSmallInfo(false);
@@ -56,6 +58,7 @@ function EventCard(props) {
             setFirstPhoto(props.eventPhotos)
 
         }
+        setShowSmallInfo(eventHasNotStarted);
 
     }, [firstPhoto]);
 
