@@ -206,8 +206,12 @@ class ProjektSpajaliceApplicationTests {
 		assertTrue(userService.getUserById("capsi@gmail.com").isPresent());
 	}
 
-	@Autowired
+	@Mock
 	private EventService eventService;
+
+	@Mock
+	private EventRepository eventRepository;
+
 
 	@Test
 	@DisplayName("Test addEvent")
@@ -256,6 +260,22 @@ class ProjektSpajaliceApplicationTests {
 		Optional<User> result = userService.getUserById(userId);
 
 		assertEquals(Optional.empty(), result);
+	}
+
+	@Test
+	@DisplayName("Test AllEvents")
+	void testAllEvents(){
+		List<Event> allEvents = eventRepository.findAll();
+
+		assertEquals(eventService.allEvents(), allEvents);
+	}
+
+	@Test
+	@DisplayName("Test singleEventId")
+	void testGetEventById(){
+		Optional<Event> singleEvent = eventRepository.findBy_id(2L);
+
+		assertEquals(eventService.singleEventId(2L), singleEvent);
 	}
 
 }
