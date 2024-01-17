@@ -12,7 +12,6 @@ function ManageEvent() {
   const location = useLocation();
   const { pushedProps } = location.state || {};
   const [eventName, setEventName] = useState("");
-  const [eventUrl, setEventUrl] = useState("");
   const [eventTypes, setEventTypes] = useState([]);
   const [eventType, setEventType] = useState("CONFERENCE");
   const [isEventPaid, setIsEventPaid] = useState(false)
@@ -25,38 +24,11 @@ function ManageEvent() {
   const [eventLocation, setEventLocation] = useState("Zagreb");
   const [eventId, setEventId] = useState("");
   const { token, role, email } = useAuth();
+  const [eventReviews, setEventReviews] = useState([])
 
   const [images, setImages] = useState([]);
   const [imagesURL, setImagesURL] = useState([]);
   const maxNumber = 10;
-
-  const [profileData, setProfileData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-        try {
-            const response = await fetch('/api/getUser/' + email)
-
-            if (response.status === 404) {
-                console.log('Email not found in the database.')
-                navigate('/')
-                return
-            }
-
-            const data = await response.json()
-            setProfileData(data)
-            localStorage.setItem('profileData', JSON.stringify(data))
-        } catch (error) {
-            console.error('Error fetching profile data:', error)
-        }
-    }
-    fetchData();
-    const storedProfileData = localStorage.getItem('profileData')
-    setProfileData(JSON.parse(storedProfileData));
-    if(profileData.websiteUrl != null){
-      setEventUrl(profileData.websiteUrl);
-    }
-  }, [eventUrl])
 
   function setMinDate() {
     var today = new Date().toISOString().split("T")[0];
@@ -112,7 +84,6 @@ function ManageEvent() {
         eventName,
         isEventPaid,
         eventLocation:{name: eventLocation},
-        eventUrl,
         photos: imagesURL,
         eventType,
         eventDate,
@@ -121,7 +92,7 @@ function ManageEvent() {
         eventDescription,
         price: eventPrice,
         eventCreator: email,
-        reviews: pushedProps.eventReviews
+        reviews: eventReviews
       }),
     })
         .then(() => alert(pushedProps ? "Event updated!" : "Event added!"))
@@ -130,9 +101,6 @@ function ManageEvent() {
         })
         .catch((error) => console.error("Error submitting event:", error));
   }
-
-
-
 
   useEffect(() => {
     setMinDate();
@@ -154,6 +122,7 @@ function ManageEvent() {
       setImagesURL(pushedProps.eventPhotos);
       setImages(pushedProps.eventPhotos)
       setEventId(pushedProps.eventId);
+      setEventReviews(pushedProps.eventReviews)
       console.log(pushedProps)
     }
 
@@ -267,14 +236,6 @@ function ManageEvent() {
           name="eventDuration"
           value={eventDuration}
           onChange={(e) => setEventDuration(e.target.value)}
-        />
-        <label htmlFor="eventUrl">Event webpage:</label>
-        <input
-          type="text"
-          id="eventUrl"
-          name="eventUrl"
-          value={eventUrl}
-          onChange={(e) => setEventUrl(e.target.value)}
         />
         <label htmlFor="eventDescription">Event description:</label>
         <textarea
