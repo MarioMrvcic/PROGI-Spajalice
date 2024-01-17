@@ -46,7 +46,11 @@ function ManageEvent() {
     fetch(`api/checkPaymentStatus/${email}`)
         .then(response => response.json())
         .then(data => {
-          setHasOrganizerPaid(true)
+          if (!data ) {
+            setHasOrganizerPaid(false)
+          } else{
+            setHasOrganizerPaid(true)
+          }
         })
         .catch(error => console.error('Error fetching payment status:', error));
   }

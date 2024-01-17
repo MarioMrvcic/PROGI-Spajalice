@@ -1,11 +1,14 @@
 import { React, useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import {Routes, Route, useNavigate} from 'react-router-dom'
 import PaymentInfo from './PaymentInfo'
 import PaymentSuccess from './PaymentSuccess'
+import {useAuth} from "../context/AuthContext";
 
 function Payment() {
 
     const [errorTxt, setErrorTxt] = useState("");
+    const { email, token } = useAuth()
+    const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -13,6 +16,19 @@ function Payment() {
         /*fetch("/api/payment")
             .then((data) => data.json())
             .then((failed) => setFailed(failed))*/
+
+        function makePaymentRequest(email) {
+            console.log(email);
+            fetch(`api/payment/${email}`,{
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                },
+
+            });
+
+            navigate("/payment/success");
+        }
 
         var d = Math.random()
 
@@ -48,11 +64,9 @@ function Payment() {
         else if (code.length !== 3 || !codeNumbers)
             setErrorTxt("Security code must be a 3-digit number.")
         else {
-            if (d < 0.6) {
-                window.location.href = 'payment/success';
+            if (d < 0.7) {
+                makePaymentRequest(email)
             } else {
-                document.getElementById("number").value = "";
-                document.getElementById("name").value = "";
                 document.getElementById("code").value = "";
                 alert("Payment failed. Please try again.");
                 setErrorTxt("Payment failed. Please try again.");

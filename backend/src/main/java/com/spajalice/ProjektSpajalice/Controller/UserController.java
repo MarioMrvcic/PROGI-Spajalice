@@ -98,8 +98,6 @@ public class UserController {
     // paying endpoint
     @PostMapping("/payment/{email}")
     public ResponseEntity<Boolean> paymentProcesing(@PathVariable String email) {
-        double d = Math.random();
-        if(d<0.85){
             try{
                 User user = userService.changePaymnetStatus(email);
             }
@@ -107,10 +105,7 @@ public class UserController {
                 return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
             }
             return new ResponseEntity<>(true, HttpStatus.OK);
-        }
-        else{
-            return new ResponseEntity<>(false, HttpStatus.OK);
-        }
+
     }
 
     // check if it is a paid user

@@ -64,7 +64,7 @@ public class UserService {
     public User changePaymnetStatus(String userId){
         var user = userRepository.findById(userId).orElseThrow();
         LocalDateTime currentDate = LocalDateTime.now();
-        LocalDateTime futureDate = currentDate.plus(1, ChronoUnit.MINUTES);
+        LocalDateTime futureDate = currentDate.plus(1, ChronoUnit.MONTHS);
         user.setPaidUser(futureDate);
         return userRepository.save(user);
     }
