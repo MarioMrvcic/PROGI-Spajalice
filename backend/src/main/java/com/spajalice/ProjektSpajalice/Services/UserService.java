@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.xml.stream.events.Comment;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -18,8 +19,6 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-
-
 
     @Autowired
     private EventRepository eventRepository;
@@ -88,8 +87,15 @@ public class UserService {
     }
 
     public List<Review> returnCommentList(User user) {
-
-        List<Review> listForReturn = eventRepository.findAllByReviewsUserEmail(user.getEmail());
+        List<Review> listForReturn = new ArrayList<>();
+        List<Event> eventsWithComments = eventRepository.findByReviews_UserEmail(user.getEmail());
+        for(Event e : eventsWithComments){
+            for(Review r : e.getReviews()){
+                if (r.getUserEmail().equals(user.getEmail())){
+                    listForReturn.add(r);
+                }
+            }
+        }
         return  listForReturn;
     }
 }

@@ -1,13 +1,13 @@
 package com.spajalice.ProjektSpajalice.Controller;
 
-import com.spajalice.ProjektSpajalice.Model.Event;
+import com.spajalice.ProjektSpajalice.Model.*;
 import com.spajalice.ProjektSpajalice.Services.EventService;
-import com.spajalice.ProjektSpajalice.Model.EventType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,11 +36,24 @@ public class EventController {
             // Add the event to the system
             Event _event = eventService.addEvent(event);
 
+            // Send emails
+            List<User> returnList = eventService.sendEmailToIntrested(event.getEventType(), event.getEventLocation(), event.getEventName());
+
             // Return the created event
             return new ResponseEntity<>(_event, HttpStatus.CREATED);
         } catch (Exception e) {
             // Return an error response in case of an exception
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("/testMail")
+    public ResponseEntity<List<User>> testMail(@RequestBody PlaceTypeRequest placeTypeRequest) {
+        try {
+            List<User> returnList = eventService.sendEmailToIntrested(placeTypeRequest.getType(), placeTypeRequest.getPlace(), "Test, event ne postoji");
+            return new ResponseEntity<>(returnList, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(Collections.emptyList(), HttpStatus.NOT_FOUND);
         }
     }
 
