@@ -1,9 +1,8 @@
 package com.spajalice.ProjektSpajalice.Repository;
 
-import com.spajalice.ProjektSpajalice.Model.EventType;
-import com.spajalice.ProjektSpajalice.Model.Role;
-import com.spajalice.ProjektSpajalice.Model.User;
+import com.spajalice.ProjektSpajalice.Model.*;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,6 +15,7 @@ public interface UserRepository extends MongoRepository<User,String> {
 
     Optional<User> findByEmail(String email);
 
+    List<User> findByintrestedInTypesContaining(EventType type);
 
-
+    List<User> findByintrestedInPlaceContaining(PlaceSimple placeSimple);
 }
