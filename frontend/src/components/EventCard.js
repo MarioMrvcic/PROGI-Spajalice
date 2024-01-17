@@ -16,6 +16,7 @@ function EventCard(props) {
     const [firstPhoto, setFirstPhoto] = useState(null);
     const eventDate = new Date(`${formattedDate}T${props.eventStartTime}`);
     const eventHasNotStarted = eventDate > new Date();
+    const [location, setLocation] = useState(null);
     
     const seeMore = () => {
         setShowSmallInfo(false);
@@ -58,6 +59,9 @@ function EventCard(props) {
             setFirstPhoto(props.eventPhotos)
 
         }
+        if(props.eventLocation!=null && props.eventLocation["name"]!=null){
+            setLocation(props.eventLocation["name"])
+            }
         setShowSmallInfo(eventHasNotStarted);
 
         if(email) {
@@ -95,7 +99,7 @@ function EventCard(props) {
                     <h1 className="EventCard--name">{props.eventName}</h1>
                     <div className="EventCard--info">
                         <p>{props.eventType} /</p>
-                        {/* <p>{props.eventLocation} /</p> */}
+                        <p>{location} /</p>
                         <p>{formattedDate} /</p>
                         <p>{props.eventStartTime} /</p>
                         <p>{props.eventDuration}</p>
@@ -128,7 +132,7 @@ function EventCard(props) {
                     <h1 className="EventPage--name">{props.eventName}</h1>
                     <div className="EventPage--info">
                         <p>{props.eventType} /</p>
-                        {/* <p>{props.eventLocation} /</p> */}
+                         <p>{location} /</p>
                         <p>{formattedDate} /</p>
                         <p>{props.eventStartTime} /</p>
                         <p>{props.eventDuration}</p>
@@ -139,7 +143,11 @@ function EventCard(props) {
                     </p>
 
                     <div className="EventPage--dodatno ">
-                        <div className="EventPage--hostName" onClick={navigateToProfile}>{props.eventCreator}</div>
+                        {isNotCreator ? (
+                            <div className="EventCard--hostName" onClick={navigateToProfile}>{props.eventCreator}</div>
+                        ):(
+                            <div className="EventCard--hostName" onClick={editEvent}>Edit event</div>
+                        )}
                         <button className="EventPage--button" onClick={seeLess}>Manje</button>
                         {isNotCreator ?(
                             <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>

@@ -67,6 +67,7 @@ function Main() {
                     eventCreatorEmail={event.eventCreator}
                     eventPhotos={event.photos}
                     eventPrice={event.price}
+                    eventLocation={event.eventLocation}
                 />
             ))}
 
