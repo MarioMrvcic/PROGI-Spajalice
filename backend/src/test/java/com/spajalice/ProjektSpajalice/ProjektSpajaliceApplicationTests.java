@@ -1,5 +1,10 @@
 package com.spajalice.ProjektSpajalice;
 
+import com.spajalice.ProjektSpajalice.Controller.EventController;
+import com.spajalice.ProjektSpajalice.Model.Event;
+import com.spajalice.ProjektSpajalice.Model.User;
+import com.spajalice.ProjektSpajalice.Repository.UserRepository;
+import com.spajalice.ProjektSpajalice.Services.EventService;
 import com.spajalice.ProjektSpajalice.Services.UserService;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.DisplayName;
@@ -14,12 +19,18 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import java.time.Duration;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
+import org.mockito.Mock;
+import static org.bson.assertions.Assertions.assertNotNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 class ProjektSpajaliceApplicationTests {
@@ -183,13 +194,68 @@ class ProjektSpajaliceApplicationTests {
 
 	}
 
+	@Mock
+	private UserRepository userRepository;
+	@Mock
+	private UserService userService;
 
-	@Autowired
-	private UserService userSer;
+
 	@Test
 	@DisplayName("Test findUserByEmail")
 	public void findUserByEmail(){
-		assertTrue(userSer.getUserById("capsi@gmail.com").isPresent());
+		assertTrue(userService.getUserById("capsi@gmail.com").isPresent());
+	}
+
+	@Autowired
+	private EventService eventService;
+
+	@Test
+	@DisplayName("Test addEvent")
+	void testAddEvent() {
+		Event inputEvent = new Event();
+		inputEvent.setEventName("Test Event");
+
+		Event result = eventService.addEvent(inputEvent);
+
+		assertEquals("Test Event", result.getEventName());
+	}
+
+	@Test
+	@DisplayName("Test editEvent")
+	void testEditEvent() {
+		Event originalEvent = new Event();
+		originalEvent.set_id(1L);
+		originalEvent.setEventName("Original Event Name");
+
+		String updatedName = "Updated Event Name";
+		originalEvent.setEventName(updatedName);
+
+		Event editedEvent = eventService.editEvent(originalEvent);
+
+		assertEquals(updatedName, editedEvent.getEventName());
+	}
+
+	@Test
+	@DisplayName("Test getUserById")
+	void testGetUserById() {
+		String userId = "capsi@gmail.com";
+		Optional<User> mockUser = userRepository.findByEmail(userId);
+		when(userService.getUserById(userId)).thenReturn(mockUser);
+
+		Optional<User> result = userService.getUserById(userId);
+
+		assertEquals(mockUser, result);
+	}
+
+	@Test
+	@DisplayName("Test getUserById not found")
+	void testGetUserByIdNotFound() {
+		String userId = "nepostojeci@gmail.com";
+		when(userRepository.findById(userId)).thenReturn(Optional.empty());
+
+		Optional<User> result = userService.getUserById(userId);
+
+		assertEquals(Optional.empty(), result);
 	}
 
 }
