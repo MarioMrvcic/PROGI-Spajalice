@@ -1,198 +1,299 @@
-import './SimpleEvent.css'
-import { useState } from 'react'
-import ChangeInterestForm from './ChangeInterestForm'
-import ReviewForm from './ReviewForm'
+import "./SimpleEvent.css";
+import { useState } from "react";
+import ChangeInterestForm from "./ChangeInterestForm";
+import ReviewForm from "./ReviewForm";
 
 function SimpleEvent(props) {
-    const [changeInterestPopup, setChangeInterestPopup] = useState(false)
-    const [interest, setInterest] = useState(props.eventInterest)
-    const [reviewPopup, setReviewPopup] = useState(false)
+  const [changeInterestPopup, setChangeInterestPopup] = useState(false);
+  const [interest, setInterest] = useState(props.eventData.interest);
+  const [reviewPopup, setReviewPopup] = useState(false);
+  const [userReview, setUserReview] = useState(props.eventReview);
+  const [allReviews, setAllReviews] = useState(props.eventData.reviews);
 
-    // const [reviews, setReviews] = useState([
-    //     {
-    //         userEmail: 'duje@gmail.com',
-    //         eventId: '6',
-    //         reviewCreationDate: '2022-01-15',
-    //         reviewTitle: 'ZABAVA',
-    //         reviewBody: 'Odličan event, svaka čast organizatoru',
-    //         reviewRating: 4,
-    //     },
-    //     {
-    //         userEmail: 'duje.juric@gmail.com',
-    //         eventId: '9',
-    //         reviewCreationDate: '2023-01-15',
-    //         reviewTitle: 'KAOS',
-    //         reviewBody: 'Benger od eventa, nikad više neću doć',
-    //         reviewRating: 2,
-    //     },
-    // ])
+  const updateInterest = (editedInterest) => {
+    setInterest(editedInterest.selectedInterest);
 
-    const [reviews, setReviews] = useState(props.eventReview)
+    const authStateData = localStorage.getItem("authState");
+    const authStateEmail = authStateData
+      ? JSON.parse(authStateData).email
+      : null;
 
-    const updateInterest = (editedInterest) => {
-        setInterest(editedInterest.selectedInterest)
-
-        const authStateData = localStorage.getItem('authState')
-        const authStateEmail = authStateData ? JSON.parse(authStateData).email : null
-
-        let newInterest
-        if (editedInterest.selectedInterest == 'Ne dolazim') {
-            newInterest = 'NO'
-        } else if (editedInterest.selectedInterest == 'Dolazim') {
-            newInterest = 'YES'
-        } else {
-            newInterest = 'MAYBE'
-        }
-
-        const editedInterestData = {
-            eventId: props.eventId,
-            interest: newInterest,
-            userEmail: authStateEmail,
-        }
-
-        fetch('/api/changeInterest', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(editedInterestData),
-        })
-        setChangeInterestPopup(false)
+    let newInterest;
+    if (editedInterest.selectedInterest == "Ne dolazim") {
+      newInterest = "NO";
+    } else if (editedInterest.selectedInterest == "Dolazim") {
+      newInterest = "YES";
+    } else {
+      newInterest = "MAYBE";
     }
 
-    const deleteInterest = () => {
-        const authStateData = localStorage.getItem('authState')
-        const authStateEmail = authStateData ? JSON.parse(authStateData).email : null
-        const editedInterestData = {
-            eventId: props.eventId,
-            interest: 'NO',
-            userEmail: authStateEmail,
-        }
+    const editedInterestData = {
+      eventId: props.eventData._id,
+      interest: newInterest,
+      userEmail: authStateEmail,
+    };
 
-        fetch('/api/changeInterest', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(editedInterestData),
-        })
-        props.onDelete()
-        setChangeInterestPopup(false)
-    }
+    fetch("/api/changeInterest", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editedInterestData),
+    });
+    setChangeInterestPopup(false);
+  };
 
-    const handleUpdateReview = (reviewData) => {
-        setReviews(reviewData)
-        setReviewPopup(false)
-    }
+  const deleteInterest = () => {
+    const authStateData = localStorage.getItem("authState");
+    const authStateEmail = authStateData
+      ? JSON.parse(authStateData).email
+      : null;
+    const editedInterestData = {
+      eventId: props.eventData._id,
+      interest: "NO",
+      userEmail: authStateEmail,
+    };
 
-    const handleAddReview = (reviewData) => {
-        setReviews(reviewData)
-        setReviewPopup(false)
-    }
+    fetch("/api/changeInterest", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editedInterestData),
+    });
+    props.onDelete();
+    setChangeInterestPopup(false);
+  };
 
-    const handleDeleteReview = () => {
-        setReviews(null)
-        setReviewPopup(false)
-    }
+  const handleUpdateReview = (reviewData) => {
+    setUserReview(reviewData);
 
-    const onEditEvent = () => {
-        //implementirati edit
-    }
+    const indexToUpdate = allReviews.findIndex(
+      (review) => review.userEmail === reviewData.userEmail
+    );
 
-    return (
-        <div className="simpleEvent">
-            <h1 className="simpleEvent--title">{props.eventName}</h1>
-            <div>
-                <div>
-                    <p className="simpleEvent--date">{props.eventDate}</p>
-                    <div className="simpleEvent--hostName">{props.eventCreator}</div>
-                </div>
+    const updatedReviews = [...allReviews];
+    updatedReviews[indexToUpdate] = reviewData;
 
-                {props.isPastEvent &&
-                    !props.publicUpcoming &&
-                    !props.publicPast &&
-                    (reviews ? (
-                        <button
-                            className="reviewButton"
-                            onClick={() => {
-                                setReviewPopup(true)
-                            }}>
-                            Edit review
-                        </button>
-                    ) : (
-                        <button
-                            className="reviewButton"
-                            onClick={() => {
-                                setReviewPopup(true)
-                            }}>
-                            Submit review
-                        </button>
-                    ))}
+    setAllReviews(updatedReviews);
 
-                {!props.isPastEvent && !props.publicUpcoming && !props.publicPast && (
-                    <button
-                        className={`interestButton ${interest === 'Dolazim' ? 'green' : interest === 'Možda dolazim' ? 'yellow' : ''}`}
-                        onClick={() => setChangeInterestPopup(true)}>
-                        {interest}
-                    </button>
-                )}
+    fetch("/api/editEvent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        _id: props.eventData._id,
+        eventName: props.eventData.eventName,
+        isEventPaid: props.eventData.isEventPaid,
+        eventLocation: props.eventData.eventLocation,
+        photos: props.eventData.photos,
+        eventType: props.eventData.eventType,
+        eventDate: new Date(props.eventData.eventDate)
+          .toISOString()
+          .split("T")[0],
+        eventStartTime: props.eventData.eventStartTime,
+        eventDuration: props.eventData.eventDuration,
+        eventDescription: props.eventData.eventDescription,
+        price: props.eventData.price,
+        eventCreator: props.eventData.eventCreator,
+        reviews: updatedReviews,
+      }),
+    }).then(() => {
+      props.refreshProfilePage();
+    });
+    setReviewPopup(false);
+  };
 
-                {props.publicUpcoming && props.isPublicOwner && (
-                    <button
-                        className="interestButton"
-                        onClick={() => {
-                            onEditEvent()
-                        }}>
-                        Edit
-                    </button>
-                )}
+  const handleAddReview = (reviewData) => {
+    setUserReview(reviewData);
 
-                {props.publicUpcoming && !props.isPublicOwner && (
-                    <button
-                        className={`interestButton ${
-                            interest === 'Dolazim'
-                                ? 'green'
-                                : interest === 'Možda dolazim'
-                                ? 'yellow'
-                                : interest === 'Najavite se'
-                                ? 'normal'
-                                : ''
-                        }`}
-                        onClick={() => setChangeInterestPopup(true)}>
-                        {interest}
-                    </button>
-                )}
+    const updatedReviews = [...allReviews, reviewData];
+    setAllReviews(updatedReviews);
 
-                {props.publicPast && (
-                    <button
-                        className="interestButton"
-                        onClick={() => {
-                            props.scrollAction()
-                        }}>
-                        View reviews
-                    </button>
-                )}
-            </div>
+    fetch("/api/editEvent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        _id: props.eventData._id,
+        eventName: props.eventData.eventName,
+        isEventPaid: props.eventData.isEventPaid,
+        eventLocation: props.eventData.eventLocation,
+        photos: props.eventData.photos,
+        eventType: props.eventData.eventType,
+        eventDate: new Date(props.eventData.eventDate)
+          .toISOString()
+          .split("T")[0],
+        eventStartTime: props.eventData.eventStartTime,
+        eventDuration: props.eventData.eventDuration,
+        eventDescription: props.eventData.eventDescription,
+        price: props.eventData.price,
+        eventCreator: props.eventData.eventCreator,
+        reviews: updatedReviews,
+      }),
+    }).then(() => {
+      props.refreshProfilePage();
+    });
 
-            <ChangeInterestForm
-                trigger={changeInterestPopup}
-                setTrigger={setChangeInterestPopup}
-                interest={interest}
-                onUpdateInterest={updateInterest}
-                onDelete={deleteInterest}>
-                <h3>Popup</h3>
-            </ChangeInterestForm>
+    setReviewPopup(false);
+  };
 
-            <ReviewForm
-                trigger={reviewPopup}
-                setTrigger={setReviewPopup}
-                reviews={reviews}
-                eventId={props.eventId}
-                editMode={reviews}
-                reviewData={reviews ?? null}
-                onUpdateReview={handleUpdateReview}
-                onAddReview={handleAddReview}
-                onDeleteReview={handleDeleteReview}>
-                <h3>Popup</h3>
-            </ReviewForm>
+  const handleDeleteReview = () => {
+    setUserReview(null);
+
+    const updatedReviews = allReviews.filter(
+      (review) => review.userEmail !== props.currentUser
+    );
+    setAllReviews(updatedReviews);
+
+    fetch("/api/editEvent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        _id: props.eventData._id,
+        eventName: props.eventData.eventName,
+        isEventPaid: props.eventData.isEventPaid,
+        eventLocation: props.eventData.eventLocation,
+        photos: props.eventData.photos,
+        eventType: props.eventData.eventType,
+        eventDate: new Date(props.eventData.eventDate)
+          .toISOString()
+          .split("T")[0],
+        eventStartTime: props.eventData.eventStartTime,
+        eventDuration: props.eventData.eventDuration,
+        eventDescription: props.eventData.eventDescription,
+        price: props.eventData.price,
+        eventCreator: props.eventData.eventCreator,
+        reviews: updatedReviews,
+      }),
+    }).then(() => {
+      props.refreshProfilePage();
+    });
+
+    setReviewPopup(false);
+  };
+
+  const onEditEvent = () => {
+    //implementirati edit
+  };
+
+  return (
+    <div className="simpleEvent">
+      <h1 className="simpleEvent--title">{props.eventData.eventName}</h1>
+      <div>
+        <div>
+          <p className="simpleEvent--date">
+            {new Date(props.eventData.eventDate).toISOString().split("T")[0]}
+          </p>
+          <div className="simpleEvent--hostName">
+            {props.eventData.eventCreator}
+          </div>
         </div>
-    )
+
+        {props.isPastEvent &&
+          !props.publicUpcoming &&
+          !props.publicPast &&
+          (userReview ? (
+            <button
+              className="reviewButton"
+              onClick={() => {
+                setReviewPopup(true);
+              }}
+            >
+              Edit review
+            </button>
+          ) : (
+            <button
+              className="reviewButton"
+              onClick={() => {
+                setReviewPopup(true);
+              }}
+            >
+              Submit review
+            </button>
+          ))}
+
+        {!props.isPastEvent && !props.publicUpcoming && !props.publicPast && (
+          <button
+            className={`interestButton ${
+              interest === "Dolazim"
+                ? "green"
+                : interest === "Možda dolazim"
+                ? "yellow"
+                : ""
+            }`}
+            onClick={() => setChangeInterestPopup(true)}
+          >
+            {interest}
+          </button>
+        )}
+
+        {props.publicUpcoming && props.isPublicOwner && (
+          <button
+            className="interestButton"
+            onClick={() => {
+              onEditEvent();
+            }}
+          >
+            Edit
+          </button>
+        )}
+
+        {props.publicUpcoming && !props.isPublicOwner && (
+          <button
+            className={`interestButton ${
+              interest === "Dolazim"
+                ? "green"
+                : interest === "Možda dolazim"
+                ? "yellow"
+                : interest === "Najavite se"
+                ? "normal"
+                : ""
+            }`}
+            onClick={() => setChangeInterestPopup(true)}
+          >
+            {interest}
+          </button>
+        )}
+
+        {props.publicPast && (
+          <button
+            className="interestButton"
+            onClick={() => {
+              props.scrollAction();
+            }}
+          >
+            View reviews
+          </button>
+        )}
+      </div>
+
+      <ChangeInterestForm
+        trigger={changeInterestPopup}
+        setTrigger={setChangeInterestPopup}
+        interest={interest}
+        onUpdateInterest={updateInterest}
+        onDelete={deleteInterest}
+      >
+        <h3>Popup</h3>
+      </ChangeInterestForm>
+
+      <ReviewForm
+        trigger={reviewPopup}
+        setTrigger={setReviewPopup}
+        reviews={userReview}
+        eventData={props.eventData}
+        editMode={userReview}
+        reviewData={userReview ?? null}
+        currentUser={props.currentUser}
+        onUpdateReview={handleUpdateReview}
+        onAddReview={handleAddReview}
+        onDeleteReview={handleDeleteReview}
+      >
+        <h3>Popup</h3>
+      </ReviewForm>
+    </div>
+  );
 }
 
-export default SimpleEvent
+export default SimpleEvent;
