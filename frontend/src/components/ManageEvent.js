@@ -29,6 +29,7 @@ function ManageEvent() {
   const [images, setImages] = useState([]);
   const [imagesURL, setImagesURL] = useState([]);
   const maxNumber = 10;
+  const [hasOrganizerPaid, setHasOrganizerPaid] = useState(false)
 
   function setMinDate() {
     var today = new Date().toISOString().split("T")[0];
@@ -41,9 +42,23 @@ function ManageEvent() {
     setImagesURL(imageUrls);
     console.log(imageList)
   };
-
+  function checkPaymentStatus() {
+    fetch(`api/checkPaymentStatus/${email}`)
+        .then(response => response.json())
+        .then(data => {
+          setHasOrganizerPaid(true)
+        })
+        .catch(error => console.error('Error fetching payment status:', error));
+  }
   const handleCheck = () => {
-    setIsEventPaid(!isEventPaid);
+    checkPaymentStatus()
+    if(hasOrganizerPaid){
+      setIsEventPaid(!isEventPaid);
+    }
+    else{
+      alert("You must pay the subscription fee to create a paid event")
+    }
+    
   };
 
   const Checkbox = ({ label, value, onChange }) => {
