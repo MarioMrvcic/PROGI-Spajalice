@@ -19,7 +19,7 @@ public class Event {
     private String eventName;
     @Enumerated(EnumType.STRING)
     private EventType eventType;
-    private Place eventLocation;
+    private PlaceSimple eventLocation;
     private Date eventDate;
     private LocalTime eventStartTime;
     private LocalTime eventDuration;

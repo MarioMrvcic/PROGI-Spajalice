@@ -98,24 +98,6 @@ function ManageEvent() {
       return;
     }
 
-    const eventToCreate = {
-      _id: eventId,
-      eventName,
-      isEventPaid,
-      //eventLocation,
-      eventUrl,
-      photos: imagesURL,
-      eventType,
-      eventDate,
-      eventStartTime,
-      eventDuration,
-      eventDescription,
-      price: eventPrice,
-      eventCreator: email,
-    };
-
-
-
     const endpoint=pushedProps ? "/api/editEvent" : "/api/addEvent";
 
     fetch(endpoint, {
@@ -124,7 +106,21 @@ function ManageEvent() {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(eventToCreate),
+      body: JSON.stringify({
+        _id: eventId,
+        eventName,
+        isEventPaid,
+        eventLocation:{name: eventLocation},
+        eventUrl,
+        photos: imagesURL,
+        eventType,
+        eventDate,
+        eventStartTime,
+        eventDuration,
+        eventDescription,
+        price: eventPrice,
+        eventCreator: email,
+      }),
     })
         .then(() => alert(pushedProps ? "Event updated!" : "Event added!"))
         .then(() => {
@@ -146,7 +142,7 @@ function ManageEvent() {
       console.log(pushedProps);
       setEventName(pushedProps.eventName);
       setEventType(pushedProps.eventType);
-      setEventLocation(pushedProps.eventLocation);
+      setEventLocation(pushedProps.eventLocation.name);
       setIsEventPaid(pushedProps.isEventPaid);
       setEventPrice(pushedProps.eventPrice);
       setEventDate(formattedDate);
