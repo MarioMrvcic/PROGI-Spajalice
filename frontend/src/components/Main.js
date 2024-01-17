@@ -11,25 +11,27 @@ function Main() {
             .then((data) => data.json())
             .then((events) => {
                 const promises = events.map((event) => {
-                    return fetch(`api/getUser/${event.eventCreator}`, {
-                        method: "GET",
-                        headers: { "Content-Type": "application/json" },
-                    })
-                    .then((response) => {
-                        if (!response.ok) {
-                            // If the response is not successful, handle the error
-                            throw new Error(`Error fetching user data for eventCreator ${event.eventCreator}`);
-                        }
-                        return response.json();
-                    })
-                    .then((user) => {
-                        // Store the fullName in the eventCreators object
-                        return { ...event, fullName: user.firstName + " " + user.lastName };
-                    })
-                    .catch((error) => {
-                        console.error(error);
-                        return null;
-                    });
+                    if (event.eventCreator != null) {
+                        return fetch(`api/getUser/${event.eventCreator}`, {
+                            method: "GET",
+                            headers: {"Content-Type": "application/json"},
+                        })
+                            .then((response) => {
+                                if (!response.ok) {
+                                    // If the response is not successful, handle the error
+                                    throw new Error(`Error fetching user data for eventCreator ${event.eventCreator}`);
+                                }
+                                return response.json();
+                            })
+                            .then((user) => {
+                                // Store the fullName in the eventCreators object
+                                return {...event, fullName: user.firstName + " " + user.lastName};
+                            })
+                            .catch((error) => {
+                                //console.error(error);
+                                return null;
+                            });
+                    }
                 });
     
                 // Wait for all promises to resolve

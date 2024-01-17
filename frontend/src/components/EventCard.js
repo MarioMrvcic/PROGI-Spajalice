@@ -60,7 +60,31 @@ function EventCard(props) {
         }
         setShowSmallInfo(eventHasNotStarted);
 
-    }, [firstPhoto]);
+        if(email) {
+            fetch(`/api/getEventInterest/${email}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`)
+                    }
+                    return response.json()
+                })
+                .then(data => {
+                    const eventIds = data.map(event => event.eventId)
+                    if (eventIds.includes(props.eventId)) {
+                        const event = data.find(event => event.eventId == props.eventId)
+                        if (event.interest == "YES") {
+                            setResponse("Dolazim")
+                        } else if (event.interest == "MAYBE") {
+                            setResponse("Možda dolazim")
+                        } else {
+                            setResponse("Ne dolazim")
+                        }
+                    }
+                })
+        }
+
+
+    }, [firstPhoto,email,props.eventId]);
 
     return (
         <div>
@@ -91,7 +115,7 @@ function EventCard(props) {
                         <button className="EventCard--button" onClick={seeMore}>Više</button>
                         <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             <button className="responseText">{response}</button>
-                            {isDropdownVisible && <ReactionMenu setResponse={setResponse}/>}
+                            {isDropdownVisible && <ReactionMenu setResponse={setResponse} eventId={props.eventId}/>}
                         </div>
                     </div>
                 </div>
@@ -118,7 +142,7 @@ function EventCard(props) {
                         <button className="EventPage--button" onClick={seeLess}>Manje</button>
                         <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             <button className="responseText">{response}</button>
-                            {isDropdownVisible && <ReactionMenu setResponse={setResponse}/>}
+                            {isDropdownVisible && <ReactionMenu setResponse={setResponse} eventId={props.eventId}/>}
                         </div>
                     </div>
                 </div>
