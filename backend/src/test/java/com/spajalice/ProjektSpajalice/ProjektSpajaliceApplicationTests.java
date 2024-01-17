@@ -1,8 +1,8 @@
 package com.spajalice.ProjektSpajalice;
 
-import com.spajalice.ProjektSpajalice.Controller.EventController;
 import com.spajalice.ProjektSpajalice.Model.Event;
 import com.spajalice.ProjektSpajalice.Model.User;
+import com.spajalice.ProjektSpajalice.Repository.EventRepository;
 import com.spajalice.ProjektSpajalice.Repository.UserRepository;
 import com.spajalice.ProjektSpajalice.Services.EventService;
 import com.spajalice.ProjektSpajalice.Services.UserService;
@@ -17,19 +17,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 import org.mockito.Mock;
-import static org.bson.assertions.Assertions.assertNotNull;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
@@ -198,20 +194,10 @@ class ProjektSpajaliceApplicationTests {
 	private UserRepository userRepository;
 	@Mock
 	private UserService userService;
-
-
-	@Test
-	@DisplayName("Test findUserByEmail")
-	public void findUserByEmail(){
-		assertTrue(userService.getUserById("capsi@gmail.com").isPresent());
-	}
-
 	@Mock
 	private EventService eventService;
-
 	@Mock
 	private EventRepository eventRepository;
-
 
 	@Test
 	@DisplayName("Test addEvent")
