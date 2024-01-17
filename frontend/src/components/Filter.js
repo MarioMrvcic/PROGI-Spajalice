@@ -1,17 +1,9 @@
-import "./Main.css";
-import EventCard from "./EventCard";
-import Filter from "./Filter";
+import './Filter.css'
 import { React, useState, useEffect } from "react";
 
-function Main() {
+function Filter({ onEventsChange }){
     const [events, setEvents] = useState([]);
     const [eventCreators, setEventCreators] = useState({});
-
-    const handleEventsChange = (newEvents, newEventCreators) => {
-        setEvents(newEvents);
-        setEventCreators(newEventCreators);
-    };
-
     const handleFetchUser = (event) => {
         if (event.eventCreator != null) {
           return fetch(`api/getUser/${event.eventCreator}`, {
@@ -54,38 +46,36 @@ function Main() {
           });
     
           setEventCreators(creators);
+          onEventsChange(validEventsWithCreators, creators);
         } catch (error) {
           console.error("Error fetching events:", error);
         }
       };
-
-    useEffect(() => {
+    
+      const handle24h = () => {
+        handleFilter("/api/Events/next24hours");
+      };
+    
+      const handle7 = () => {
+        handleFilter("/api/Events/next7days");
+      };
+    
+      const handle30 = () => {
+        handleFilter("/api/Events/next30days");
+      };
+      
+      const handleAll = () => {
         handleFilter("/api/getEvents");
-    }, []);
+      }
 
-    return (
-        <div className="Main">
-            <Filter onEventsChange={handleEventsChange}/>
-            {events.map((event) => (
-                <EventCard
-                    eventId={event._id}
-                    eventName={event.eventName}
-                    eventType={event.eventType}
-                    eventDate={event.eventDate}
-                    eventStartTime={event.eventStartTime}
-                    eventDuration={event.eventDuration}
-                    eventDescription={event.eventDescription}
-                    eventCreator={eventCreators[event.eventCreator]}
-                    eventCreatorEmail={event.eventCreator}
-                    eventPhotos={event.photos}
-                    eventPrice={event.price}
-                    eventLocation={event.eventLocation}
-                    eventReviews = {event.reviews || []}
-                />
-            ))}
-
+    return(
+        <div>
+            <button className="filterButton" onClick={handle24h}>24h</button>
+            <button className="filterButton" onClick={handle7}>7 days</button>
+            <button className="filterButton" onClick={handle30}>30 days</button>
+            <button className="filterButton" onClick={handleAll}>All Events</button>
         </div>
-    );
+    )
 }
 
-export default Main;
+export default Filter

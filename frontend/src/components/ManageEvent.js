@@ -92,7 +92,8 @@ function ManageEvent() {
       !eventDate ||
       !eventStartTime ||
       !eventDuration ||
-      !eventDescription
+      !eventDescription ||
+      images.length == 0
     ) {
       alert("Please fill in all the fields");
       return;

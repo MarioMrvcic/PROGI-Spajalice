@@ -103,7 +103,6 @@ function EventCard(props) {
                         <p>{formattedDate} /</p>
                         <p>{props.eventStartTime} /</p>
                         <p>{props.eventDuration}</p>
-
                     </div>
 
                     <p>
