@@ -160,4 +160,5 @@ p {
     width: 900px;
     height: auto;
     object-fit: cover;
+    border-radius: 0px;
 }

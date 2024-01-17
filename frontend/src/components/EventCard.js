@@ -18,6 +18,12 @@ function EventCard(props) {
     const eventHasNotStarted = eventDate > new Date();
     const [location, setLocation] = useState(null);
     
+    const eventPhotos = props.eventPhotos || [];
+
+    const galleryItems = eventPhotos.map((photo, index) => ({
+      original: photo.photoURL
+    }));
+
     const seeMore = () => {
         setShowSmallInfo(false);
         setShowBigInfo(true);
@@ -125,8 +131,9 @@ function EventCard(props) {
                 </div>
             </div>
             <div className={showBigInfo ? 'EventPage' : 'EventPage hidden'}>
-                {/* ovako nešto može ići ako dodamo slike u bazu podataka: <img src={props.eventImage} alt="Event Image" />  */}
-                <img src={props.eventPhotos[0]['photoURL']} alt="slika eventa" className='eventImagePage'/>
+                <button>←</button>
+                <img src={props.eventPhotos[0]['photoURL']}  alt="slika eventa" className='eventImagePage'/>
+                <button>→</button>
                 <div className="EventPage--text">
                     <h1 className="EventPage--name">{props.eventName}</h1>
                     <div className="EventPage--info">
