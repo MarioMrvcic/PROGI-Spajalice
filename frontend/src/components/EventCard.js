@@ -3,7 +3,6 @@ import {useState, useEffect} from 'react'
 import ReactionMenu from "./ReactionMenu"
 import {useNavigate} from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import ImageGallery from "react-image-gallery";
 
 function EventCard(props) {
     const navigate = useNavigate();
@@ -132,7 +131,9 @@ function EventCard(props) {
                 </div>
             </div>
             <div className={showBigInfo ? 'EventPage' : 'EventPage hidden'}>
-                <ImageGallery items={galleryItems} />;
+                <button>←</button>
+                <img src={props.eventPhotos[0]['photoURL']}  alt="slika eventa" className='eventImagePage'/>
+                <button>→</button>
                 <div className="EventPage--text">
                     <h1 className="EventPage--name">{props.eventName}</h1>
                     <div className="EventPage--info">
