@@ -121,6 +121,7 @@ function ManageEvent() {
         eventDescription,
         price: eventPrice,
         eventCreator: email,
+        reviews: pushedProps.eventReviews
       }),
     })
         .then(() => alert(pushedProps ? "Event updated!" : "Event added!"))
