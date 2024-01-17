@@ -113,10 +113,11 @@ function EventCard(props) {
                             <div className="EventCard--hostName" onClick={editEvent}>Edit event</div>
                         )}
                         <button className="EventCard--button" onClick={seeMore}>Više</button>
+                        {isNotCreator ?(
                         <div className="menu" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             <button className="responseText">{response}</button>
                             {isDropdownVisible && <ReactionMenu setResponse={setResponse} eventId={props.eventId}/>}
-                        </div>
+                        </div>):null}
                     </div>
                 </div>
             </div>
