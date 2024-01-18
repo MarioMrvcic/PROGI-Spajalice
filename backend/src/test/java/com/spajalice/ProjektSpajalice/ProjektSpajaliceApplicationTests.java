@@ -17,6 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.Duration;
@@ -171,7 +172,7 @@ class ProjektSpajaliceApplicationTests {
 		WebElement element = driver.findElement(By.name("Email"));
 		element.sendKeys("capsidomi@gmail.com");
 		element = driver.findElement(By.name("password"));
-		element.sendKeys("capsidomi");
+		element.sendKeys("Capsidomi123");
 		driver.findElement(By.cssSelector("input[type='submit']")).click();
 		Thread.sleep(1000);
 		WebElement menuDiv = driver.findElement(By.className("menu"));
@@ -180,7 +181,6 @@ class ProjektSpajaliceApplicationTests {
 		editProfile.click();
 		driver.findElement(By.className("viewPublicButton")).click();
 		String redirectUrl = driver.getCurrentUrl();
-		System.out.println(redirectUrl);
 
 		boolean success = redirectUrl.equals("http://localhost:3000/profile/public/capsidomi@gmail.com");
 		assertEquals(true, success);
@@ -194,9 +194,9 @@ class ProjektSpajaliceApplicationTests {
 	private UserRepository userRepository;
 	@Mock
 	private UserService userService;
-	@Mock
+	@Autowired
 	private EventService eventService;
-	@Mock
+	@Autowired
 	private EventRepository eventRepository;
 
 	@Test
