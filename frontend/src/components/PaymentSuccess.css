@@ -1,23 +1,44 @@
 .success {
-    width: 600px;
-    max-width: 100%;
-    margin: 100px auto;
-    background-color: #545e75;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    font-family: 'Poppins', sans-serif;
+  width: 600px;
+  max-width: 100%;
+  margin: 100px auto;
+  background-color: #545e75;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
 }
 
 .success h1 {
-    text-align: center;
-    margin: 0;
-    padding: 20px 0;
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
 }
 
 .home {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
+}
+
+.return {
+  width: 80%;
+  padding: 12px;
+  margin: 20px auto;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  background-color: #533b4d;
+  color: #f4f1bb;
+  border: 2px solid #f4f1bb;
+  border-radius: 15px;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+.return:hover {
+  background-color: darkred;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }

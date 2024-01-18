@@ -31,7 +31,10 @@ function Review(props) {
     );
 
     const updatedReviews = [...allReviews];
-    updatedReviews[indexToUpdate] = reviewData;
+    updatedReviews[indexToUpdate] = {
+      ...reviewData,
+      userEmail: props.reviewUser,
+    };
 
     setAllReviews(updatedReviews);
 
@@ -58,6 +61,7 @@ function Review(props) {
         reviews: updatedReviews,
       }),
     }).then(() => {
+      console.log(reviewData);
       props.refreshProfilePage();
     });
 

@@ -526,6 +526,7 @@ function Profile() {
                       eventData={review.event}
                       currentUser={decodedEmail}
                       onDelete={() => handleDeleteReview(index)}
+                      refreshProfilePage={refreshProfilePage}
                     />
                   ))}
                 </div>

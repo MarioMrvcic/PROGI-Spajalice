@@ -60,6 +60,7 @@ function ReviewForm(props) {
         reviewBody: reviewBody,
         reviewRating: rating,
       };
+
       props.onUpdateReview(reviewData2);
       props.setTrigger(false);
     } else {
