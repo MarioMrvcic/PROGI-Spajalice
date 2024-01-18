@@ -37,7 +37,7 @@ public class AuthenticationService {
                 .verified(false)
                 .build();
         userRepository.save(user);
-        String link = "http://localhost:8080/api/verification/"+request.getEmail();
+        String link = "https://spring-render-back-final.onrender.com/api/verification/"+request.getEmail();
         emailSender.send(request.getEmail(), buildEmail(request.getFirstName(), link));
         var jwtToken= jwtService.generateToken(user);
         return AuthenticationResponse.builder()

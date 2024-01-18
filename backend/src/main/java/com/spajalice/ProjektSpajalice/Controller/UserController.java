@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.xml.stream.events.Comment;
 import java.util.*;
 
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api")
 

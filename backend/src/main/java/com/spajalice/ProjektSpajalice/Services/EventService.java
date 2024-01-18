@@ -93,7 +93,7 @@ public class EventService {
 
             for(User u : allForEmail){
 
-                emailSender.sendInterest(u.getEmail(), buildEmail(u.getFirstName(), "http://localhost:3000", eventName));
+                emailSender.sendInterest(u.getEmail(), buildEmail(u.getFirstName(), "https://spring-render-front-final.onrender.com", eventName));
             }
             return  placeSimpleReturn;
         } catch (Exception e){
