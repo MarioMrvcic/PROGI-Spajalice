@@ -1,176 +1,192 @@
 .Profile {
-    display: flex;
+  display: flex;
 
-    height: 100vh;
-    color: white;
-    flex-wrap: wrap;
+  height: 100vh;
+  color: white;
+  flex-wrap: wrap;
 }
 
 .secondDiv {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 0px;
-    width: 1250px;
-    margin-right: 0rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0px;
+  width: 1250px;
+  margin-right: 0rem;
 }
 
 .secondDiv > div {
-    background-color: #545e75;
-    margin: 1rem;
-    width: 550px;
-    height: fit-content;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    border: black 2px solid;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    max-height: 600px;
+  background-color: #545e75;
+  margin: 1rem;
+  width: 550px;
+  height: fit-content;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: black 2px solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-height: 600px;
 }
 
 .user-reviews {
-    flex-basis: 1140px;
+  flex-basis: 1140px;
 }
 
 .upcoming--events,
 .past--events,
 .user-reviews {
-    display: flex;
-    flex-direction: column;
-    margin: 0px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  align-items: center;
 }
 
 .eventDisplay,
 .ReviewsDisplay {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    border-top: white 2px solid;
-    width: 100%;
-    padding-top: 10px;
-    align-items: center;
-    margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  border-top: white 2px solid;
+  width: 100%;
+  padding-top: 10px;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .eventTitleDiv,
 .reviewTitleDiv {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .iconEvent {
-    font-size: 36px;
-    margin-right: 0.75rem;
+  font-size: 36px;
+  margin-right: 0.75rem;
 }
 
 .profile--form {
-    display: flex;
-    flex-direction: column;
-    margin: 0px;
-    align-items: center;
-    background-color: #545e75;
-    margin: 1rem;
-    margin-left: 3rem;
-    margin-right: 4.25rem;
-    width: 550px;
-    height: fit-content;
-    min-height: 830px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  align-items: center;
+  background-color: #545e75;
+  margin: 1rem;
+  margin-left: 3rem;
+  margin-right: 4.25rem;
+  width: 550px;
+  height: fit-content;
+  min-height: 830px;
 
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    border: black 2px solid;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: black 2px solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .profile--form--title > p {
-    margin: 0rem;
+  margin: 0rem;
 }
 
 p {
-    margin: 0.5rem;
+  margin: 0.5rem;
 }
 
 .profile--form--title {
-    display: flex;
-    flex-direction: column;
-    margin: 0px;
-    align-items: center;
-    margin-top: 3px;
-    margin-bottom: 1rem;
-    width: 100%;
-    border-bottom: white 2px solid;
-    padding-bottom: 1.5rem;
-    padding-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 1rem;
+  width: 100%;
+  border-bottom: white 2px solid;
+  padding-bottom: 1.5rem;
+  padding-top: 0.5rem;
 }
 
 .profile--name {
-    font-size: 30px;
-    font-weight: bold;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .profile--form--nameDiv {
-    display: flex;
-    flex-direction: row;
-    margin: 0.75rem;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin: 0.75rem;
+  align-items: center;
 }
 
 .profile--role {
-    background-color: #ed6a5a;
-    color: #3f4a61;
-    padding: 5px 15px;
-    border-radius: 15px;
-    font-size: 20px;
-    align-content: right;
-    margin: 1rem;
-    margin-bottom: 2rem;
+  background-color: #ed6a5a;
+  color: #3f4a61;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 20px;
+  align-content: right;
+  margin: 1rem;
+  margin-bottom: 2rem;
 }
 
 .profile--form > div:not(.profile--form--title) {
-    display: flex;
-    flex-direction: row;
-    margin: 0.75rem;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin: 0.75rem;
+  align-items: center;
 }
 
 .profile--form > div > p {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .icon {
-    font-size: 36px;
+  font-size: 36px;
 }
 
 .profile--form > button {
-    width: fit-content;
-    height: fit-content;
-    background-color: #533b4d;
-    color: #f4f1bb;
-    border: 2px solid #f4f1bb;
-    border-radius: 15px;
-    font-size: 20px;
-    cursor: pointer;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
+  width: fit-content;
+  height: fit-content;
+  background-color: #533b4d;
+  color: #f4f1bb;
+  border: 2px solid #f4f1bb;
+  border-radius: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
 }
 
 .profile--form > button:hover {
-    background-color: darkred;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-color: darkred;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .editButton {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 
 .viewPrivateButton {
-    margin-top: 12rem;
+  margin-top: 12rem;
 }
 
 .subscribeButton {
-    margin-top: 12rem;
+  margin-top: 12rem;
+}
+
+.iconLoading {
+  font-size: 60px;
+
+  color: white;
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

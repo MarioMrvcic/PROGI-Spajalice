@@ -25,6 +25,11 @@ public class EventService {
         return eventRepository.findAll();
     }
 
+    public List<Event> eventsByEventCreator(String eventCreator){
+        return eventRepository.findByEventCreator(eventCreator);
+
+    }
+
     public Optional<Event> singleEventId(Long id){
         return eventRepository.findBy_id(id);
     }

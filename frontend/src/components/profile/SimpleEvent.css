@@ -81,6 +81,12 @@
   color: black;
 }
 
+.simpleEvent .interestButton.red {
+  background-color: red;
+  border-color: black;
+  color: black;
+}
+
 .simpleEvent .interestButton.normal {
   background-color: #533b4d;
   color: #f4f1bb;

@@ -2,6 +2,7 @@ import "./SimpleEvent.css";
 import { useState } from "react";
 import ChangeInterestForm from "./ChangeInterestForm";
 import ReviewForm from "./ReviewForm";
+import { useNavigate } from "react-router-dom";
 
 function SimpleEvent(props) {
   const [changeInterestPopup, setChangeInterestPopup] = useState(false);
@@ -9,6 +10,7 @@ function SimpleEvent(props) {
   const [reviewPopup, setReviewPopup] = useState(false);
   const [userReview, setUserReview] = useState(props.eventReview);
   const [allReviews, setAllReviews] = useState(props.eventData.reviews);
+  const navigate = useNavigate();
 
   const updateInterest = (editedInterest) => {
     setInterest(editedInterest.selectedInterest);
@@ -174,7 +176,37 @@ function SimpleEvent(props) {
   };
 
   const onEditEvent = () => {
-    //implementirati edit
+    const propsToEdit = {
+      eventId: props.eventData._id,
+      eventName: props.eventData.eventName,
+      eventType: props.eventData.eventType,
+      eventDate: props.eventData.eventDate,
+      eventStartTime: props.eventData.eventStartTime,
+      eventDuration: props.eventData.eventDuration,
+      eventDescription: props.eventData.eventDescription,
+      eventCreator: props.eventData.eventCreator,
+      eventCreatorEmail: props.eventData.eventCreator,
+      eventPhotos: props.eventData.photos,
+      eventPrice: props.eventData.price,
+      eventLocation: props.eventData.eventLocation,
+      eventReviews: props.eventData.reviews || [],
+    };
+
+    // eventId={event._id}
+    // eventName={event.eventName}
+    // eventType={event.eventType}
+    // eventDate={event.eventDate}
+    // eventStartTime={event.eventStartTime}
+    // eventDuration={event.eventDuration}
+    // eventDescription={event.eventDescription}
+    // eventCreator={eventCreators[event.eventCreator]}
+    // eventCreatorEmail={event.eventCreator}
+    // eventPhotos={event.photos}
+    // eventPrice={event.price}
+    // eventLocation={event.eventLocation}
+    // eventReviews = {event.reviews || []}
+
+    navigate("/manage_event", { state: { pushedProps: propsToEdit } });
   };
 
   return (
@@ -197,7 +229,9 @@ function SimpleEvent(props) {
             <button
               className="reviewButton"
               onClick={() => {
-                setReviewPopup(true);
+                {
+                  !props.adminView && setReviewPopup(true);
+                }
               }}
             >
               Edit review
@@ -206,7 +240,9 @@ function SimpleEvent(props) {
             <button
               className="reviewButton"
               onClick={() => {
-                setReviewPopup(true);
+                {
+                  !props.adminView && setReviewPopup(true);
+                }
               }}
             >
               Submit review
@@ -222,7 +258,9 @@ function SimpleEvent(props) {
                 ? "yellow"
                 : ""
             }`}
-            onClick={() => setChangeInterestPopup(true)}
+            onClick={() => {
+              !props.adminView && setChangeInterestPopup(true);
+            }}
           >
             {interest}
           </button>
@@ -246,8 +284,10 @@ function SimpleEvent(props) {
                 ? "green"
                 : interest === "Možda dolazim"
                 ? "yellow"
-                : interest === "Najavite se"
+                : interest === "Najavite se▼"
                 ? "normal"
+                : interest === "Ne dolazim"
+                ? "red"
                 : ""
             }`}
             onClick={() => setChangeInterestPopup(true)}
@@ -272,6 +312,7 @@ function SimpleEvent(props) {
         trigger={changeInterestPopup}
         setTrigger={setChangeInterestPopup}
         interest={interest}
+        publicUpcoming={props.publicUpcoming}
         onUpdateInterest={updateInterest}
         onDelete={deleteInterest}
       >
