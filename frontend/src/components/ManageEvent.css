@@ -1,103 +1,120 @@
 .manageEvent {
-    display: flex;
-    flex-direction: column;
-    margin: 32px 32px;
-    background-color: #545e75;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 32px 32px;
+  background-color: #545e75;
+  border-radius: 10px;
 }
 
 .manageEvent h1 {
-    text-align: center;
-    margin: 0;
-    padding: 20px 0;
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
 }
 
 .manageEvent label {
-    text-align: center;
-    margin: 0;
-    padding: 20px 5px;
-    font-size: 14px;
-    color: black;
+  text-align: center;
+  margin: 0;
+  padding: 20px 5px;
+  font-size: 14px;
+  color: black;
 }
 
 .manageEvent--form {
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
 }
 
-.manageEvent--form input[type='submit'] {
-    width: 120px;
-    padding: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-    background-color: #533b4d;
-    color: #f4f1bb;
-    border: 2px solid #f4f1bb;
-    border-radius: 15px;
-    font-size: 20px;
+.manageEvent--form input[type="submit"] {
+  width: 120px;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  background-color: #533b4d;
+  color: #f4f1bb;
+  border: 2px solid #f4f1bb;
+  border-radius: 15px;
+  font-size: 20px;
 }
 
-.manageEvent--form input[type='submit']:hover {
-    background-color: darkred;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+.manageEvent--form input[type="submit"]:hover {
+  background-color: darkred;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.manageEvent--form input[type='text'],
-.manageEvent--form input[type='date'],
-.manageEvent--form input[type='time'] {
-    display: flex;
-    width: 40%;
-    padding: 10px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    font-size: 18px;
-    box-sizing: border-box;
-    margin-bottom: 16px;
+.manageEvent--form input[type="text"],
+.manageEvent--form input[type="date"],
+.manageEvent--form input[type="time"] {
+  display: flex;
+  width: 40%;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 18px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
 }
 
 .manageEvent--form select {
-    display: flex;
-    width: 20%;
-    padding: 10px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    font-size: 14px;
-    box-sizing: border-box;
-    margin-bottom: 16px;
+  display: flex;
+  width: 20%;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
 }
 
 .manageEvent textarea {
-    display: flex;
-    resize: none;
-    width: 100%;
-    height: 200px;
-    padding: 10px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    font-size: 20px;
-    box-sizing: border-box;
-    margin-bottom: 16px;
+  display: flex;
+  resize: none;
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 20px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
 }
 
-.image-item{
-    display: flex;
+.image-item {
+  display: flex;
 }
 
 .check {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .priceField {
-    width: 280px;
+  width: 280px;
 }
 
-.upload__image-wrapper > button{
-    height: 100px;
+.upload__image-wrapper > button {
+  height: 100px;
+}
+
+.iconLoadingEventManage {
+  font-size: 50px;
+
+  margin-top: 2rem;
+  color: black;
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

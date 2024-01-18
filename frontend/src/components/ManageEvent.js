@@ -2,10 +2,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "./ManageEvent.css";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import ImageUploading from 'react-images-uploading';
-import CurrencyInput from 'react-currency-input-field';
+import ImageUploading from "react-images-uploading";
+import CurrencyInput from "react-currency-input-field";
 import React from "react";
-import { useParams } from 'react-router-dom'
+import { useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 function ManageEvent() {
   const navigate = useNavigate();
@@ -14,7 +16,7 @@ function ManageEvent() {
   const [eventName, setEventName] = useState("");
   const [eventTypes, setEventTypes] = useState([]);
   const [eventType, setEventType] = useState("CONFERENCE");
-  const [isEventPaid, setIsEventPaid] = useState(false)
+  const [isEventPaid, setIsEventPaid] = useState(false);
   const [eventPrice, setEventPrice] = useState(0);
   const [eventDate, setEventDate] = useState("");
   const [eventStartTime, setEventStartTime] = useState("");
@@ -24,12 +26,13 @@ function ManageEvent() {
   const [eventLocation, setEventLocation] = useState("Zagreb");
   const [eventId, setEventId] = useState("");
   const { token, role, email } = useAuth();
-  const [eventReviews, setEventReviews] = useState([])
+  const [eventReviews, setEventReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [images, setImages] = useState([]);
   const [imagesURL, setImagesURL] = useState([]);
   const maxNumber = 10;
-  const [hasOrganizerPaid, setHasOrganizerPaid] = useState(false)
+  const [hasOrganizerPaid, setHasOrganizerPaid] = useState(false);
 
   function setMinDate() {
     var today = new Date().toISOString().split("T")[0];
@@ -37,27 +40,29 @@ function ManageEvent() {
   }
 
   const onChangeImage = (imageList, addUpdateIndex) => {
-    const imageUrls =imageList.map((image) => ({photoURL: image['photoURL'] }));
+    const imageUrls = imageList.map((image) => ({
+      photoURL: image["photoURL"],
+    }));
     setImages(imageList);
     setImagesURL(imageUrls);
-    console.log(imageList)
+    console.log(imageList);
   };
   async function checkPaymentStatus() {
     try {
       const response = await fetch(`api/checkPaymentStatus/${email}`);
       const data = await response.json();
-      
+
       return !!data;
     } catch (error) {
-      console.error('Error fetching payment status:', error);
-      throw error; 
+      console.error("Error fetching payment status:", error);
+      throw error;
     }
   }
-  
+
   const handleCheck = async () => {
     try {
       const hasOrganizerPaid = await checkPaymentStatus();
-  
+
       if (hasOrganizerPaid) {
         setIsEventPaid(!isEventPaid);
       } else {
@@ -65,13 +70,13 @@ function ManageEvent() {
       }
     } catch (error) {
       // Handle errors here if needed
-      console.error('Error checking payment status:', error);
+      console.error("Error checking payment status:", error);
     }
   };
 
   const Checkbox = ({ label, value, onChange }) => {
     return (
-      <label className = "check-box"> 
+      <label className="check-box">
         <input type="checkbox" checked={value} onChange={onChange} />
         <span class="checkmark"></span>
         {label}
@@ -82,6 +87,8 @@ function ManageEvent() {
   function handleSubmit(event) {
     event.preventDefault();
 
+    setIsLoading(true);
+
     if (
       !eventName ||
       !eventDate ||
@@ -91,10 +98,11 @@ function ManageEvent() {
       images.length == 0
     ) {
       alert("Please fill in all the fields");
+
       return;
     }
 
-    const endpoint=pushedProps ? "/api/editEvent" : "/api/addEvent";
+    const endpoint = pushedProps ? "/api/editEvent" : "/api/addEvent";
 
     fetch(endpoint, {
       method: "POST",
@@ -106,7 +114,7 @@ function ManageEvent() {
         _id: eventId,
         eventName,
         isEventPaid,
-        eventLocation:{name: eventLocation},
+        eventLocation: { name: eventLocation },
         photos: imagesURL,
         eventType,
         eventDate,
@@ -115,23 +123,24 @@ function ManageEvent() {
         eventDescription,
         price: eventPrice,
         eventCreator: email,
-        reviews: eventReviews
+        reviews: eventReviews,
       }),
     })
-        .then(() => alert(pushedProps ? "Event updated!" : "Event added!"))
-        .then(() => {
-          navigate("/");
-        })
-        .catch((error) => console.error("Error submitting event:", error));
+      .then(() => alert(pushedProps ? "Event updated!" : "Event added!"))
+      .then(() => {
+        navigate("/");
+        setIsLoading(false);
+      })
+      .catch((error) => console.error("Error submitting event:", error));
   }
 
   useEffect(() => {
     setMinDate();
-    if (role != "ORGANIZER" && role != "ADMIN"){
+    if (role != "ORGANIZER" && role != "ADMIN") {
       navigate("/");
     }
-    if (pushedProps != null){
-      const formattedDate = pushedProps.eventDate.split('T')[0]
+    if (pushedProps != null) {
+      const formattedDate = pushedProps.eventDate.split("T")[0];
       console.log(pushedProps);
       setEventName(pushedProps.eventName);
       setEventType(pushedProps.eventType);
@@ -143,20 +152,19 @@ function ManageEvent() {
       setEventDuration(pushedProps.eventDuration);
       setEventDescription(pushedProps.eventDescription);
       setImagesURL(pushedProps.eventPhotos);
-      setImages(pushedProps.eventPhotos)
+      setImages(pushedProps.eventPhotos);
       setEventId(pushedProps.eventId);
-      setEventReviews(pushedProps.eventReviews)
-      console.log(pushedProps)
+      setEventReviews(pushedProps.eventReviews);
+      console.log(pushedProps);
     }
 
-    if(pushedProps!=null){
-      if (pushedProps.eventPrice==0){
+    if (pushedProps != null) {
+      if (pushedProps.eventPrice == 0) {
         setIsEventPaid(false);
-      } else{
+      } else {
         setIsEventPaid(true);
       }
     }
-
   }, []);
 
   useEffect(() => {
@@ -166,22 +174,20 @@ function ManageEvent() {
           Authorization: `Bearer ${token}`,
         },
       })
-          .then((response) => response.json())
-          .then((data) => {
-            setEventTypes(data);
-            return fetch("/api/places/names", {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            });
-          })
-          .then(response => response.json())
-          .then(data => setLocationNames(data))
-          .catch(error => console.error(error));
+        .then((response) => response.json())
+        .then((data) => {
+          setEventTypes(data);
+          return fetch("/api/places/names", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+        })
+        .then((response) => response.json())
+        .then((data) => setLocationNames(data))
+        .catch((error) => console.error(error));
     }
-  }, [token])
-
-
+  }, [token]);
 
   return (
     <div className="manageEvent">
@@ -209,12 +215,16 @@ function ManageEvent() {
           ))}
         </select>
         <label htmlFor="eventLocation">Event location:</label>
-        <select id="eventLocation"
-                name="eventLocation"
-                value={eventLocation}
-                onChange={e => setEventLocation(e.target.value)}>
+        <select
+          id="eventLocation"
+          name="eventLocation"
+          value={eventLocation}
+          onChange={(e) => setEventLocation(e.target.value)}
+        >
           {locationNames.map((eventLocation, index) => (
-              <option key={index} value={eventLocation}>{eventLocation}</option>
+            <option key={index} value={eventLocation}>
+              {eventLocation}
+            </option>
           ))}
         </select>
         <div className="check">
@@ -230,12 +240,12 @@ function ManageEvent() {
             id="priceInput"
             name="priceInput"
             placeholder="Please enter a price"
-            value = {eventPrice}
+            value={eventPrice}
             decimalsLimit={2}
             suffix="€"
             onValueChange={(e) => setEventPrice(e)}
           />
-        </div>  
+        </div>
         <label htmlFor="eventDate">Event date:</label>
         <input
           type="date"
@@ -270,49 +280,67 @@ function ManageEvent() {
         />
         <label htmlFor="eventDescription">Event photos:</label>
         <div className="imageUpload">
-        <ImageUploading
-        multiple
-        value={images}
-        onChange={onChangeImage}
-        maxNumber={maxNumber}
-        dataURLKey="photoURL"
-        >
-        {({
-          imageList,
-          onImageUpload,
-          onImageRemoveAll,
-          onImageUpdate,
-          onImageRemove,
-          isDragging,
-          dragProps,
-        }) => (
-          <div className="upload__image-wrapper">
-            <button type="button"
-              style={isDragging ? { color: 'red' } : undefined}
-              onClick={onImageUpload}
-              {...dragProps}
-            >
-              Click or Drop here
-            </button>
-            &nbsp;
-            <button type="button" onClick={onImageRemoveAll}>Remove all images</button>
-            {imageList.map((image, index) => (
-              <div key={index} className="image-item">
-                <img src={image['photoURL']} alt="" width="100" />
-                <div className="image-item__btn-wrapper">
-                  <button type="button" onClick={() => onImageUpdate(index)}>Update</button>
-                  <button type="button" onClick={() => onImageRemove(index)}>Remove</button>
-                </div>
-
+          <ImageUploading
+            multiple
+            value={images}
+            onChange={onChangeImage}
+            maxNumber={maxNumber}
+            dataURLKey="photoURL"
+          >
+            {({
+              imageList,
+              onImageUpload,
+              onImageRemoveAll,
+              onImageUpdate,
+              onImageRemove,
+              isDragging,
+              dragProps,
+            }) => (
+              <div className="upload__image-wrapper">
+                <button
+                  type="button"
+                  style={isDragging ? { color: "red" } : undefined}
+                  onClick={onImageUpload}
+                  {...dragProps}
+                >
+                  Click or Drop here
+                </button>
+                &nbsp;
+                <button type="button" onClick={onImageRemoveAll}>
+                  Remove all images
+                </button>
+                {imageList.map((image, index) => (
+                  <div key={index} className="image-item">
+                    <img src={image["photoURL"]} alt="" width="100" />
+                    <div className="image-item__btn-wrapper">
+                      <button
+                        type="button"
+                        onClick={() => onImageUpdate(index)}
+                      >
+                        Update
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => onImageRemove(index)}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        )}
-        </ImageUploading>
+            )}
+          </ImageUploading>
         </div>
-        <input type="submit" value="Submit" onClick={handleSubmit} />
+        {isLoading ? (
+          <FontAwesomeIcon
+            icon={faSpinner}
+            className="iconLoadingEventManage"
+          />
+        ) : (
+          <input type="submit" value="Submit" onClick={handleSubmit} />
+        )}
       </form>
-      
     </div>
   );
 }
