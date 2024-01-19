@@ -213,16 +213,16 @@ class ProjektSpajaliceApplicationTests {
 	@Test
 	@DisplayName("Test editEvent")
 	void testEditEvent() {
-		Event originalEvent = new Event();
-		originalEvent.set_id(1L);
-		originalEvent.setEventName("Original Event Name");
+		Event event = new Event();
+		event.set_id(1L);
+		event.setEventName("Original Event Name");
 
-		String updatedName = "Updated Event Name";
-		originalEvent.setEventName(updatedName);
+		Event originalEvent = eventService.addEvent(event);
+		originalEvent.setEventName("Updated Event Name");
 
 		Event editedEvent = eventService.editEvent(originalEvent);
 
-		assertEquals(updatedName, editedEvent.getEventName());
+		assertEquals("Updated Event Name", editedEvent.getEventName());
 	}
 
 	@Test
