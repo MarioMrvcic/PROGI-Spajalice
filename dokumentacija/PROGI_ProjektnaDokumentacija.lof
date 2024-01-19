@@ -1,17 +1,36 @@
 \babel@toc {croatian}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Sučelje aplikacije Eventbrite}}{7}{figure.2.1}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Sučelje aplikacije Eventbrite}}{8}{figure.2.1}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Dijagram obrasca uporabe, funkcionalnost korisnika i posjetitelja}}{22}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Dijagram obrasca uporabe, funkcionalnost organizatora i administratora}}{23}{figure.3.2}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Sekvencijski dijagram za UC2}}{25}{figure.3.3}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Sekvencijski dijagram za UC5}}{26}{figure.3.4}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Sekvencijski dijagram za UC14}}{28}{figure.3.5}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Sekvencijski dijagram za UC20}}{30}{figure.3.6}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Dijagram obrasca uporabe, funkcionalnost korisnika i posjetitelja}}{23}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Dijagram obrasca uporabe, funkcionalnost organizatora i administratora}}{24}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Sekvencijski dijagram za UC2}}{26}{figure.3.3}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Sekvencijski dijagram za UC5}}{27}{figure.3.4}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Sekvencijski dijagram za UC14}}{29}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Sekvencijski dijagram za UC20}}{31}{figure.3.6}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Dijagram baze podataka}}{41}{figure.4.1}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Dijagram razreda - Controllers}}{43}{figure.4.2}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Dijagram razreda - Models}}{44}{figure.4.3}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Skica arhitekture sustava}}{33}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Dijagram baze podataka}}{43}{figure.4.2}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Dijagram razreda - Controllers}}{45}{figure.4.3}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Dijagram razreda - Models}}{46}{figure.4.4}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Dijagram stanja - Posjetitelj}}{48}{figure.4.5}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Dijagram aktivnosti - Postavljanje zainteresiranosti}}{50}{figure.4.6}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Dijagram aktivnosti - Ostavljanje recenzije}}{51}{figure.4.7}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Dijagram komponenti}}{53}{figure.4.8}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Prvi testni slučaj - addEvent}}{56}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Drugi testni slučaj - editEvent}}{57}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Treći testni slučaj - getUserById}}{58}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Četvrti testni slučaj - getUserById (nepostojeći)}}{59}{figure.5.4}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Peti testni slučaj - allEvents}}{60}{figure.5.5}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Šesti testni slučaj - getUserById}}{61}{figure.5.6}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Svi testovi komponenti}}{62}{figure.5.7}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Prvi testni slučaj - Login}}{64}{figure.5.8}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Drugi testni slučaj - Login (pogrešni podatci)}}{66}{figure.5.9}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Treći testni slučaj - Kreiranje događanja}}{68}{figure.5.10}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Četvrti testni slučaj - Promjena lozinke}}{70}{figure.5.11}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Peti testni slučaj - Otvaranje prikaza javnog profila}}{71}{figure.5.12}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Svi testovi sustava}}{72}{figure.5.13}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Dijagram razmještaja}}{73}{figure.5.14}%
 \addvspace {10\p@ }

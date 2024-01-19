@@ -19,6 +19,7 @@
 				\item Posjetitelj
 				\item Organizator			
 				\item Administrator
+				\item Razvojni tim
 				
 			\end{packed_enum}
 			
@@ -142,7 +143,7 @@
 						\item[] \begin{packed_enum}
 	
 							\item odabir opcije za registraciju 
-							\item unos osobnih podatak, postavljanje lozinke i odabir uloge
+							\item unos osobnih podataka, postavljanje lozinke i odabir uloge
 							\item dobivanje povratne informacije o uspješnoj registraciji
 							
 						\end{packed_enum}
@@ -218,7 +219,7 @@
 						\item \textbf{Glavni sudionik: }Posjetitelj
 						\item  \textbf{Cilj:} Izmjena vlastitih osobnih podataka
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} posjetitelj je prijavljen
+						\item  \textbf{Preduvjet:} posjetitelj je prijavljen, otvoren je pregled podataka
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
@@ -257,7 +258,7 @@
 						\item \textbf{Glavni sudionik: }Posjetitelj 
 						\item  \textbf{Cilj:} Brisanje vlastitog korisničkog računa
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} posjetitelj je prijavljen
+						\item  \textbf{Preduvjet:} posjetitelj je prijavljen, otvoren je pregled podataka
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
@@ -277,7 +278,7 @@
 						\item \textbf{Glavni sudionik: }Posjetitelj 
 						\item  \textbf{Cilj:} Naznaka o dolaznosti posjetitelja
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} posjetitelj je prijavljen
+						\item  \textbf{Preduvjet:} posjetitelj je prijavljen, otvoren je pregled događanja
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
@@ -297,7 +298,7 @@
 						\item  \textbf{Preduvjet:} 
 						\item[] \begin{packed_item}
 								
-								\item posjetitelj je prijavljen
+								\item posjetitelj je prijavljen, otvoren je pregled događanja
 								\item opcija je odabrana u manje od 48 sati od završetka događanja
 								\item posjetitelj je prethodno označio događaj s: "Dolazim" ili "Možda dolazim" 
 								
@@ -321,7 +322,7 @@
 						\item \textbf{Glavni sudionik: }Posjetitelj
 						\item  \textbf{Cilj:} Uvid u recenzije prijašnjih događanja
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} -
+						\item  \textbf{Preduvjet:} otvoren je pregled događanja
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
@@ -347,6 +348,7 @@
 							\item odabir opcije za primjenu filtera
 							\item odabir filtera koji se žele primijeniti
 							\item odabir opcije primjeni
+							\item prikaz filtriranog prelgeda
 														
 						\end{packed_enum}
 					\end{packed_item}
@@ -408,13 +410,13 @@
 						\item[] \begin{packed_enum}
 	
 							\item podatci o novonastalom događanju zadovoljavaju uvjete koje su određeni posjetitelji označili kao poželjne
-							\item baza podataka šalje informacije o događanju svim zainteresiranim posjetiteljima
+							\item aplikacija šalje informacije o događanju svim zainteresiranim posjetiteljima
 							\item posjetiteljima na uređaj dolazi obavijest o događanju
 						\end{packed_enum}
 						
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC14 -Kreacija događanja}}
+					\noindent \underbar{\textbf{UC14 -Stvaranje događanja}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Organizator 
@@ -488,7 +490,8 @@
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
-	
+
+							\item odabir događanja							
 							\item odabir popisa recenzija na vlastitom događanju 
 							\item odabir recenzije na koju želi dati odgovor
 							\item pisanje odgovora na recenziju 
@@ -511,8 +514,10 @@
 	
 							\item odabir opcije za uplatu članarine
 							\item odabir načina plaćanja 
-							\item plaćanje članarine
+							\item popunjavanje podatak vezanih uz način plaćanja
+							\item traženje potvrde od pružatelja usluge plaćanja
 							\item potvrda o uspješnoj uplati članarine
+							
 						\end{packed_enum}
 						
 						\item  \textbf{Opis mogućih odstupanja:}
@@ -577,14 +582,15 @@
 						\item \textbf{Glavni sudionik: }Administrator, 
 						\item  \textbf{Cilj:} Brisanje određenog korisničkog računa
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} administrator je prijavljen
+						\item  \textbf{Preduvjet:} administrator je prijavljen, otvoren je pregled svih korisnika
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
-							\item odabir opcije za pregled korisnika
 							\item odabir korisnika koji se treba obrisati
 							\item odabir opcije za brisanje korisnika
+							\item potvrda
+							
 						\end{packed_enum}
 						
 					\end{packed_item}
