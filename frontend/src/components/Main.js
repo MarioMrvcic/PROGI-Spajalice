@@ -72,6 +72,7 @@ function Main() {
             {isLoading && <FontAwesomeIcon icon={faSpinner} className="iconLoadingMain" />}
             {events.map((event) => (
                 <EventCard
+                    key={event._id}
                     eventId={event._id}
                     eventName={event.eventName}
                     eventType={event.eventType}
