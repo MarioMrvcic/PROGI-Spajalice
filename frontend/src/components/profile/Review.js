@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 import ReviewForm from './ReviewForm'
+import { useNavigate } from 'react-router-dom'
 
 function Review(props) {
     const [reviewTitle, setReviewTitle] = useState('')
@@ -12,6 +13,7 @@ function Review(props) {
     const [reviewDate, setReviewDate] = useState('')
     const [reviewPopup, setReviewPopup] = useState(false)
     const [allReviews, setAllReviews] = useState(props.eventData.reviews || [])
+    const navigate = useNavigate()
 
     useEffect(() => {
         setReviewTitle(props.reviewTitle)
@@ -61,6 +63,10 @@ function Review(props) {
         })
 
         setReviewPopup(false)
+    }
+
+    const hostClick = () => {
+        navigate('/profile/public/' + props.eventData.eventCreator)
     }
 
     const handleDeleteReview = (eventId) => {
@@ -114,7 +120,13 @@ function Review(props) {
                 <p>{reviewBody}</p>
             </div>
             <div>
-                <p className="simpleReview-eventTitle">{props.eventData.eventName}</p>
+                <p
+                    className="simpleReview-eventTitle"
+                    onClick={() => {
+                        hostClick()
+                    }}>
+                    {props.eventData.eventName}
+                </p>
                 <div className="simpleReview-eventDate">{new Date(props.eventData.eventDate).toISOString().split('T')[0]}</div>
                 {!props.publicReview && (
                     <button

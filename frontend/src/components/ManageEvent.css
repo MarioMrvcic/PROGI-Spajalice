@@ -86,7 +86,7 @@
     margin-bottom: 16px;
 }
 
-.image-item{
+.image-item {
     display: flex;
 }
 
@@ -98,6 +98,23 @@
     width: 280px;
 }
 
-.upload__image-wrapper > button{
+.upload__image-wrapper > button {
     height: 100px;
+}
+
+.iconLoadingEventManage {
+    font-size: 50px;
+
+    margin-top: 2rem;
+    color: black;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

@@ -61,3 +61,19 @@
     background-color: darkred;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+
+.iconLoadingLogin {
+    font-size: 40px;
+    margin-left: 9.5rem;
+    color: black;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

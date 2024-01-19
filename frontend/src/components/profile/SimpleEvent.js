@@ -161,6 +161,9 @@ function SimpleEvent(props) {
         setReviewPopup(false)
     }
 
+    const hostClick = () => {
+        navigate('/profile/public/' + props.eventData.eventCreator)
+    }
     const onEditEvent = () => {
         const propsToEdit = {
             eventId: props.eventData._id,
@@ -201,7 +204,13 @@ function SimpleEvent(props) {
             <div>
                 <div>
                     <p className="simpleEvent--date">{new Date(props.eventData.eventDate).toISOString().split('T')[0]}</p>
-                    <div className="simpleEvent--hostName">{props.eventData.eventCreator}</div>
+                    <div
+                        className="simpleEvent--hostName"
+                        onClick={() => {
+                            hostClick()
+                        }}>
+                        {props.eventData.eventCreator}
+                    </div>
                 </div>
 
                 {props.isPastEvent &&
