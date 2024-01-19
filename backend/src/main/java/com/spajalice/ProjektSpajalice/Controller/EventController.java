@@ -147,4 +147,14 @@ public class EventController {
     return EventType.values();
     }
 
+    @GetMapping("/getEventsByEventCreator/{eventCreator}")
+    public ResponseEntity<List<Event>> getEventsByEventCreator(@PathVariable String eventCreator) {
+        List<Event> events = eventService.eventsByEventCreator(eventCreator);
+        if (events.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(events, HttpStatus.OK);
+
+    }
+
 }

@@ -13,6 +13,8 @@ public interface EventRepository extends MongoRepository<Event, Long> {
     // Custom method to find an event by its Long ID
     Optional<Event> findBy_id(Long _id);
 
+    List<Event> findByEventCreator(String eventCreator);
+
     // Custom method using a MongoDB query to find events between specified dates
     @Query("{ 'eventDate': {$gte : ?0,$lte: ?1}}")
     Optional<List<Event>> findByEventDateBetween(Date startDate, Date endDate);

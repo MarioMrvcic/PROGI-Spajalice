@@ -9,7 +9,7 @@ function ChangeInterestForm(props) {
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        if (selectedInterest === 'Ne dolazim') {
+        if (selectedInterest === 'Ne dolazim' && !props.publicUpcoming) {
             props.onDelete()
             return
         }

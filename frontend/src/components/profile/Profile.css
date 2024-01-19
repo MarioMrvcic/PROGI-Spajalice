@@ -174,3 +174,19 @@ p {
 .subscribeButton {
     margin-top: 12rem;
 }
+
+.iconLoading {
+    font-size: 60px;
+
+    color: white;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -29,6 +29,11 @@ public class EventService {
         return eventRepository.findBy_id(id);
     }
 
+    public List<Event> eventsByEventCreator(String eventCreator){
+        return eventRepository.findByEventCreator(eventCreator);
+
+    }
+
     public Optional<List<Event>> eventsNext24Hours(){
         Date currentDate =new Date();
         Date next24Hours = new Date(currentDate.getTime()+(24*60*60*1000));

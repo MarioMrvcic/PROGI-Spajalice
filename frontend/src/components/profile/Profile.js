@@ -3,7 +3,7 @@ import './Profile.css'
 import { useEffect, useState } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot, faEnvelope, faGlobe, faUser, faCalendarWeek, faRefresh } from '@fortawesome/free-solid-svg-icons'
+import { faLocationDot, faEnvelope, faGlobe, faUser, faCalendarWeek, faRefresh, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons'
 import EditForm from './editForm'
 import PasswordForm from './PasswordForm'
@@ -17,57 +17,21 @@ function Profile() {
     const [profileData, setProfileData] = useState([])
     const { email, roleEdit } = useAuth()
     const navigate = useNavigate()
-    const [isPublic, setIsPublic] = useState(false)
+    const [isPublic, setIsPublic] = useState(window.location.pathname.startsWith('/profile/public/'))
     const [isPublicUsers, setIsPublicUsers] = useState(false)
     const [currentReviewEvent, setCurrentReviewEvent] = useState('')
 
     const { encodedEmail } = useParams()
     const decodedEmail = decodeURIComponent(encodedEmail)
-
+    const [adminView, setAdminView] = useState(false)
     const [upcomingEvents, setUpcomingEvents] = useState([])
 
-    //   const [upcomingPublicEvents, setUpcomingPublicEvents] = useState([]);
+    const [upcomingPublicEvents, setUpcomingPublicEvents] = useState([])
     const [pastEvents, setPastEvents] = useState([])
     const [pastPublicEvents, setPastPublicEvents] = useState([])
     const [reviews, setReviews] = useState([])
-
-    const [upcomingPublicEvents, setUpcomingPublicEvents] = useState([
-        {
-            eventName: 'Event 1',
-            eventDate: '2022-01-15',
-            interest: '',
-            _id: '1',
-            eventCreator: 'Duje',
-        },
-        {
-            eventName: 'Event 2',
-            eventDate: '2022-02-20',
-            interest: '',
-            _id: '2',
-            eventCreator: 'Duje',
-        },
-        {
-            eventName: 'Event 3',
-            eventDate: '2022-03-25',
-            interest: 'Dolazim',
-            _id: '3',
-            eventCreator: 'Duje',
-        },
-        {
-            eventName: 'Event 4',
-            eventDate: '2022-04-10',
-            interest: 'Možda dolazim',
-            _id: '4',
-            eventCreator: 'Duje',
-        },
-        {
-            eventName: 'Event 5',
-            eventDate: '2022-05-15',
-            interest: 'Dolazim',
-            _id: '5',
-            eventCreator: 'Duje',
-        },
-    ])
+    const [publicReviews, setPublicReviews] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -83,6 +47,7 @@ function Profile() {
                 if (response.status === 404) {
                     console.log('Email not found in the database.')
                     navigate('/')
+                    setIsLoading(false)
                     return
                 }
 
@@ -153,8 +118,8 @@ function Profile() {
 
                     if (userReview) {
                         accumulator.push({
-                            event: { ...event }, // Include full event data
-                            review: { ...userReview }, // Include full review data
+                            event: { ...event },
+                            review: { ...userReview },
                         })
                     }
 
@@ -162,8 +127,81 @@ function Profile() {
                 }, [])
 
                 setReviews(userReviews)
+
+                if (window.location.pathname.startsWith('/profile/public/')) {
+                    //get upcoming public events
+                    const publicEventsResponse = await fetch('/api/getEventsByEventCreator/' + decodedEmail)
+                    if (publicEventsResponse.status === 404) {
+                        console.log('No upcoming public events for user.')
+                        return
+                    }
+                    const allPublicEventsData = await publicEventsResponse.json()
+
+                    //get upcoming event interests for user
+
+                    const upcomingPublicEvents = allPublicEventsData.filter((event) => {
+                        const parseTime = event.eventStartTime.split(':')
+                        const date = new Date(event.eventDate).setHours(parseTime[0], parseTime[1], 0, 0)
+                        return date > new Date()
+                    })
+
+                    const pastPublicEvents = allPublicEventsData.filter((event) => {
+                        const parseTime = event.eventStartTime.split(':')
+                        const date = new Date(event.eventDate).setHours(parseTime[0], parseTime[1], 0, 0)
+                        return date <= new Date()
+                    })
+
+                    const allEventPublicInterests = await fetch('/api/getEventInterest/' + authStateEmail)
+                    const allEventPublicInterestData = await allEventPublicInterests.json()
+
+                    const eventPublicInterests = upcomingPublicEvents.map((event) => {
+                        const foundInterest = allEventPublicInterestData.find((interest) => interest.eventId === event._id)
+
+                        let interestText = 'Najavite se▼'
+
+                        if (foundInterest) {
+                            switch (foundInterest.interest) {
+                                case 'YES':
+                                    interestText = 'Dolazim'
+                                    break
+                                case 'MAYBE':
+                                    interestText = 'Možda dolazim'
+                                    break
+                                case 'NO':
+                                    interestText = 'Ne dolazim'
+                                    break
+
+                                default:
+                                    break
+                            }
+                        }
+                        return {
+                            ...event,
+                            interest: interestText,
+                        }
+                    })
+
+                    setUpcomingPublicEvents(eventPublicInterests)
+
+                    setPastPublicEvents(pastPublicEvents)
+
+                    const publicReviews = pastPublicEvents.reduce((reviews, event) => {
+                        const publicEventReviews = event.reviews.map((review) => ({
+                            ...review,
+                            eventId: event._id,
+                            eventData: event,
+                        }))
+
+                        return reviews.concat(publicEventReviews)
+                    }, [])
+
+                    setPublicReviews(publicReviews)
+                }
+
+                setIsLoading(false)
             } catch (error) {
                 console.error('Error fetching upcoming events:', error)
+                setIsLoading(false)
             }
         }
 
@@ -175,10 +213,15 @@ function Profile() {
 
         const authStateData = localStorage.getItem('authState')
         const authStateEmail = authStateData ? JSON.parse(authStateData).email : null
+        const authStateRole = authStateData ? JSON.parse(authStateData).role : null
 
-        if (authStateEmail !== decodedEmail && !isPublicProfile) {
+        if (authStateEmail !== decodedEmail && !isPublicProfile && authStateRole !== 'ADMIN') {
             navigate('/')
             return
+        }
+
+        if (authStateRole === 'ADMIN' && decodedEmail != authStateEmail) {
+            setAdminView(true)
         }
 
         if (authStateEmail && authStateEmail !== decodedEmail) {
@@ -253,7 +296,7 @@ function Profile() {
 
     function scrollToDivButton(index) {
         const targetDiv = document.getElementById('reviewSection')
-        setCurrentReviewEvent(pastEvents[index]._id)
+        setCurrentReviewEvent(pastPublicEvents[index]._id)
         if (targetDiv) {
             targetDiv.scrollIntoView({ behavior: 'smooth' })
         }
@@ -288,42 +331,42 @@ function Profile() {
                         <FontAwesomeIcon icon={faSquareFacebook} className="icon" />
                         <p>{profileData.facebookUrl || '----------'}</p>
                     </div>
-                    {!isPublic && (
+                    {!isPublic && !adminView && (
                         <button className="editButton" onClick={() => setButtonPopup(true)}>
                             Edit profile
                         </button>
                     )}
 
-                    {profileData.role == 'ORGANIZER' && !isPublic && (
+                    {profileData.role == 'ORGANIZER' && !isPublic && !adminView && (
                         <button className="paymentButton" onClick={() => navigate('/payment')}>
                             Complete payment
                         </button>
                     )}
 
-                    {profileData.role == 'ORGANIZER' && !isPublic && (
+                    {profileData.role == 'ORGANIZER' && !isPublic && !adminView && (
                         <button className="viewPublicButton" onClick={() => navigate('/profile/public/' + encodedEmail)}>
                             View public profile
                         </button>
                     )}
-                    {!isPublic && (
+                    {!isPublic && !adminView && (
                         <button className="changePasswordButton" onClick={() => setPasswordPopup(true)}>
                             Change password
                         </button>
                     )}
 
-                    {isPublic && isPublicUsers && (
+                    {isPublic && isPublicUsers && !adminView && (
                         <button className="viewPrivateButton" onClick={() => navigate('/profile/' + encodedEmail)}>
                             View private profile
                         </button>
                     )}
 
-                    {isPublic && isPublicUsers && (
+                    {isPublic && isPublicUsers && !adminView && (
                         <button className="createEventButton" onClick={() => navigate('/manage_event')}>
                             Create event
                         </button>
                     )}
 
-                    {isPublic && !isPublicUsers && (
+                    {isPublic && !isPublicUsers && !adminView && (
                         <button className="subscribeButton" onClick={() => {}}>
                             Subscribe
                         </button>
@@ -341,12 +384,21 @@ function Profile() {
                             {upcomingEvents.length > 0 ? (
                                 <div className="eventDisplay">
                                     {upcomingEvents.map((event, index) => (
-                                        <SimpleEvent eventData={event} key={index} onDelete={() => handleDeleteInterest(index)} />
+                                        <SimpleEvent
+                                            eventData={event}
+                                            key={index}
+                                            onDelete={() => handleDeleteInterest(index)}
+                                            adminView={adminView}
+                                        />
                                     ))}
                                 </div>
                             ) : (
                                 <div className="eventDisplay">
-                                    <h1>You have no upcoming events</h1>
+                                    {isLoading ? (
+                                        <FontAwesomeIcon icon={faSpinner} className="iconLoading" />
+                                    ) : (
+                                        <h1>You have no upcoming events</h1>
+                                    )}
                                 </div>
                             )}
                         </div>
@@ -368,6 +420,7 @@ function Profile() {
                                             eventReview={event.reviews?.find((item) => item.userEmail === decodedEmail) || null}
                                             isPastEvent={true}
                                             currentUser={decodedEmail}
+                                            adminView={adminView}
                                             refreshProfilePage={refreshProfilePage}
                                             onDelete={() => handleDeleteInterest(index)}
                                         />
@@ -375,7 +428,11 @@ function Profile() {
                                 </div>
                             ) : (
                                 <div className="eventDisplay">
-                                    <h1>You have no past events</h1>
+                                    {isLoading ? (
+                                        <FontAwesomeIcon icon={faSpinner} className="iconLoading" />
+                                    ) : (
+                                        <h1>You have no past events</h1>
+                                    )}
                                 </div>
                             )}
                         </div>
@@ -390,7 +447,7 @@ function Profile() {
                                 </h1>
                             </div>
 
-                            {upcomingEvents.length > 0 ? (
+                            {upcomingPublicEvents.length > 0 ? (
                                 <div className="eventDisplay">
                                     {upcomingPublicEvents.map((event, index) => (
                                         <SimpleEvent
@@ -404,9 +461,13 @@ function Profile() {
                                 </div>
                             ) : (
                                 <div className="eventDisplay">
-                                    <h1>
-                                        {profileData.firstName} {profileData.lastName} has no upcoming events.
-                                    </h1>
+                                    {isLoading ? (
+                                        <FontAwesomeIcon icon={faSpinner} className="iconLoading" />
+                                    ) : (
+                                        <h1>
+                                            {profileData.firstName} {profileData.lastName} has no upcoming events.
+                                        </h1>
+                                    )}
                                 </div>
                             )}
                         </div>
@@ -421,9 +482,9 @@ function Profile() {
                                 </h1>
                             </div>
 
-                            {pastEvents.length > 0 ? (
+                            {pastPublicEvents.length > 0 ? (
                                 <div className="eventDisplay">
-                                    {pastEvents.map((event, index) => (
+                                    {pastPublicEvents.map((event, index) => (
                                         <SimpleEvent
                                             eventData={event}
                                             key={index}
@@ -437,9 +498,13 @@ function Profile() {
                                 </div>
                             ) : (
                                 <div className="eventDisplay">
-                                    <h1>
-                                        {profileData.firstName} {profileData.lastName} has no past events.
-                                    </h1>
+                                    {isLoading ? (
+                                        <FontAwesomeIcon icon={faSpinner} className="iconLoading" />
+                                    ) : (
+                                        <h1>
+                                            {profileData.firstName} {profileData.lastName} has no past events.
+                                        </h1>
+                                    )}
                                 </div>
                             )}
                         </div>
@@ -470,7 +535,11 @@ function Profile() {
                                 </div>
                             ) : (
                                 <div className="ReviewsDisplay">
-                                    <h1>You haven't submitted any reviews</h1>
+                                    {isLoading ? (
+                                        <FontAwesomeIcon icon={faSpinner} className="iconLoading" />
+                                    ) : (
+                                        <h1>You haven't submitted any reviews</h1>
+                                    )}
                                 </div>
                             )}
                         </div>
@@ -479,12 +548,18 @@ function Profile() {
                         <div className="user-reviews" id="reviewSection">
                             <div className="eventTitleDiv">
                                 <FontAwesomeIcon icon={faCalendarWeek} className="iconEvent" />
-                                {currentReviewEvent == '' && <h1 className="eventTitle">Select an event to review</h1>}
-                                {currentReviewEvent != '' && <h1 className="eventTitle">EventId: {currentReviewEvent} reviews</h1>}
+                                {currentReviewEvent == '' && (
+                                    <h1 className="eventTitle">Select an event from past events to see reviews</h1>
+                                )}
+                                {currentReviewEvent != '' && (
+                                    <h1 className="eventTitle">
+                                        {pastPublicEvents.find((event) => event._id === currentReviewEvent)?.eventName} reviews
+                                    </h1>
+                                )}
                             </div>
                             {currentReviewEvent != '' && (
                                 <div className="ReviewsDisplay">
-                                    {reviews.map(
+                                    {publicReviews.map(
                                         (review, index) =>
                                             review.eventId == currentReviewEvent && (
                                                 <Review
@@ -492,15 +567,17 @@ function Profile() {
                                                     reviewTitle={review.reviewTitle}
                                                     reviewBody={review.reviewBody}
                                                     reviewRating={review.reviewRating}
-                                                    reviewDate={review.reviewCreationDate}
+                                                    reviewDate={new Date(review.reviewCreationDate).toISOString().split('T')[0]}
                                                     reviewUser={review.userEmail}
                                                     eventId={review.eventId}
+                                                    eventData={review.eventData}
+                                                    publicReview={true}
                                                     onDelete={() => handleDeleteReview(index)}
                                                     refreshProfilePage={refreshProfilePage}
                                                 />
                                             )
                                     )}
-                                    {reviews.filter((review) => review.eventId === currentReviewEvent).length === 0 && (
+                                    {publicReviews.filter((review) => review.eventId === currentReviewEvent).length === 0 && (
                                         <h1>Selected event has no reviews.</h1>
                                     )}
                                 </div>

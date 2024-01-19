@@ -11,7 +11,7 @@ function Review(props) {
     const [rating, setRating] = useState(0)
     const [reviewDate, setReviewDate] = useState('')
     const [reviewPopup, setReviewPopup] = useState(false)
-    const [allReviews, setAllReviews] = useState(props.eventData.reviews)
+    const [allReviews, setAllReviews] = useState(props.eventData.reviews || [])
 
     useEffect(() => {
         setReviewTitle(props.reviewTitle)
@@ -57,7 +57,6 @@ function Review(props) {
                 reviews: updatedReviews,
             }),
         }).then(() => {
-            console.log(reviewData)
             props.refreshProfilePage()
         })
 
@@ -117,20 +116,24 @@ function Review(props) {
             <div>
                 <p className="simpleReview-eventTitle">{props.eventData.eventName}</p>
                 <div className="simpleReview-eventDate">{new Date(props.eventData.eventDate).toISOString().split('T')[0]}</div>
-                <button
-                    className="edit-review-Button"
-                    onClick={() => {
-                        setReviewPopup(true)
-                    }}>
-                    Edit
-                </button>
-                <button
-                    className="delete-review-Button"
-                    onClick={() => {
-                        handleDeleteReview(props.eventData._id)
-                    }}>
-                    Delete
-                </button>
+                {!props.publicReview && (
+                    <button
+                        className="edit-review-Button"
+                        onClick={() => {
+                            setReviewPopup(true)
+                        }}>
+                        Edit
+                    </button>
+                )}
+                {!props.publicReview && (
+                    <button
+                        className="delete-review-Button"
+                        onClick={() => {
+                            handleDeleteReview(props.eventData._id)
+                        }}>
+                        Delete
+                    </button>
+                )}
             </div>
             <ReviewForm
                 trigger={reviewPopup}
