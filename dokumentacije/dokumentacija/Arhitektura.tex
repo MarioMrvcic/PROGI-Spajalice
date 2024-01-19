@@ -351,6 +351,10 @@
 			\eject
 		\section{Dijagram komponenti}
 		
-			\textbf{\textit{dio 2. revizije}}\\
-		
-			 \textit{Potrebno je priložiti dijagram komponenti s pripadajućim opisom. Dijagram komponenti treba prikazivati strukturu cijele aplikacije.}
+		Slika (\ref{fig:DK}) prikazuje dijagram komponenti. Dijagram opisuje unutranju strukturu sustava. Kako bi aplikacija funkcionirala frontend dio aplikacije se povezuje dvama sučeljima sa samom aplikacijom. Prvo mu sučelje služi za dohvaćanje HTML, JS i CSS datoteka. Aplikacije koristi Browser router za preusmjeravanje datoteka koje se trebaju poslati na sučelje. JavaScript datoteke koje Browser router može poslužiti nazvane su po prikazima(\textit{View}) koji se mogu otvoriti u poslužitelju. Iste te datoteke koriste React o kojem ovise u izgradnji izgleda svih komponenata stranice. S druge strane za dohvat JSON podataka koristi se sučelje koje je povezano s REST API komponentom. REST API služi za posluživanje podataka koji pripadaju backend djelu. Repository dohvaća dokumente iz same MongoDB baze i preko MVC arhitekture ih šalje na obradu. Unutar frontend aplikacije nalazi se komponenta Reactview koja pomoću sučelja izmjenjuje podatke s aplikacijom i otvara ili osvježava prikaze u poslužitelju.
+						 
+			 \begin{figure}[H]
+			\includegraphics[width=\textwidth]{slike/Dijagram komponenti.PNG} %veličina u odnosu na širinu linije
+			\caption{Dijagram komponenti}
+			\label{fig:DK} %label mora biti drugaciji za svaku sliku
+		\end{figure}
